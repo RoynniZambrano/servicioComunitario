@@ -1,0 +1,28 @@
+
+student_checkform:
+    pattern:  /{id}/check_formst
+    defaults: { _controller: TesisAdminBundle:Estudiante:checkform}
+
+student_delete:
+    pattern:  /deletest
+    defaults: { _controller: TesisAdminBundle:Estudiante:delete}
+    options:
+        expose: true 
+
+student_editform:
+    pattern:  /{id}/editformst
+    defaults: { _controller: TesisAdminBundle:Estudiante:editform }
+
+student_editpassform:
+    pattern:  /{cedula}/edit_pass_formst
+    defaults: { _controller: TesisAdminBundle:Estudiante:editpassform}
+
+student_new:
+    pattern:  /student_new
+    defaults: { _controller: TesisAdminBundle:Estudiante:new}
+
+student_newform:
+    pattern:  /student_form
+    defaults: { _controller: TesisAdminBundle:Estudiante:newform}
+
+

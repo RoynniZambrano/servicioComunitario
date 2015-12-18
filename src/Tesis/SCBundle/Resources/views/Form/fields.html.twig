@@ -1,0 +1,28 @@
+{#Da formato personalizado al renderizado de los formularios#}
+
+{% block form_row %}
+{% spaceless %}
+
+<div class="form-group">
+    {{ form_widget(form, { 'attr': {'class': 'form-control'}}) }}
+
+	{{ form_errors(form) }}
+</div>
+
+
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <div class="form-group has-error" id="checkboxError">
+    <label class="control-label">
+        {% for error in errors %}
+            {{ error.message }}
+        {% endfor %}
+    </label>
+    </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

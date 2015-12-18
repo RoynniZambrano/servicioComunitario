@@ -1,0 +1,37 @@
+notas seminario
+
+
+10/11/2015
+
+
+
+aury..
+
+
+instalar symfony
+git
+validacion
+ssh
+....
+
+validacion usuarios alfa
+enviar login alfa
+nombre...
+contraseña...
+
+
+
+patricia..
+
+palabras en ingles
+palabra casos de uso
+titulos al final de las paginas
+..
+
+
+
+preguntar por control de estudio el archivo excel...
+
+
+especificar en el tomo que el sistema no se muestra correctamente desde el navegador internet explorer.
+

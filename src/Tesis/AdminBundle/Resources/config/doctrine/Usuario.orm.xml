@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Tesis\AdminBundle\Entity\Usuario" table="usuario">
+    <id name="idUsuario" type="integer" column="id_usuario">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="100" nullable="false"/>
+    <field name="apellido" type="string" column="apellido" length="100" nullable="false"/>
+    <field name="cedula" type="string" column="cedula" length="50" nullable="false"/>
+    <field name="clave" type="string" column="clave" length="100" nullable="false"/>
+    <field name="correo" type="string" column="correo" length="100" nullable="false"/>
+    <field name="telefono" type="string" column="telefono" length="100" nullable="true"/>
+    <field name="genero" type="string" column="genero" length="50" nullable="true"/>
+    <field name="rol" type="string" column="rol" length="100" nullable="false"/>
+    <field name="departamento" type="string" column="departamento" length="50" nullable="false"/> 
+    <field name="periodo" type="string" column="periodo" length="50" nullable="false"/>  
+    <many-to-many field="tutoriaTutores" target-entity="Tutoria" mapped-by="usuarioUsuario"/>
+  </entity>
+</doctrine-mapping>

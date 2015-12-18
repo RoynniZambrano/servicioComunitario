@@ -1,0 +1,20 @@
+  
+{{ form_start(form, {'attr': {novalidate: 'novalidate', id: 'loggin-form'}}) }}
+	{% form_theme form 'TesisSCBundle:Form:fields.html.twig' %}
+		<div class="row">
+        	<div class="col-xs-7 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-4 col-lg-offset-4 titulos">
+				<h1>Iniciar  sesión</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-7 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-4 col-lg-offset-4">
+				{{ form_row(form.correo) }}
+				{{ form_row(form.clave) }}
+				<div  id="loggin-usuario-boton" align="center">
+					{{ form_row(form.submit, {'attr': {'class': 'btn btn-success'}} ) }}
+					<br/><br/>
+				</div>
+			</div>
+		</div>
+	{{ form_rest(form) }}
+{{ form_end(form) }}

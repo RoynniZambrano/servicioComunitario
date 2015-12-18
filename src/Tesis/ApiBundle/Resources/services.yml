@@ -1,0 +1,7 @@
+# Tesis/ApiBundle/Ressources/services.yml
+#services:
+#     delete_service:
+#        class: Tesis\ApiBundle\Services\DeleteService
+#
+#     check_service:
+#        class: Tesis\ApiBundle\Services\CheckService

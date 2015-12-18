@@ -1,0 +1,40 @@
+
+cronograma_new:
+    pattern:  /new
+    defaults: { _controller: TesisAdminBundle:Cronograma:new}
+
+cronograma_newform:
+    pattern:  /newform
+    defaults: { _controller: TesisAdminBundle:Cronograma:newform }
+
+cronograma_list:
+    pattern:  /list
+    defaults: { _controller: TesisAdminBundle:Cronograma:list}
+    options:
+        expose: true
+
+cronograma_check:
+    pattern:  /{id}/check
+    defaults: { _controller: TesisAdminBundle:Cronograma:check}
+
+cronograma_checkform:
+    pattern:  /{id}/check_form
+    defaults: { _controller: TesisAdminBundle:Cronograma:checkform}
+
+cronograma_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: TesisAdminBundle:Cronograma:edit}
+
+cronograma_editform:
+    pattern:  /{id}/editform
+    defaults: { _controller: TesisAdminBundle:Cronograma:editform }
+
+cronograma_delete:
+    pattern:  /delete
+    defaults: { _controller: TesisAdminBundle:Cronograma:delete}
+    options:
+        expose: true 
+
+
+
+

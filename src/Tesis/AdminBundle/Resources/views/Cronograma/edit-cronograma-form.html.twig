@@ -1,0 +1,96 @@
+
+{{ form_start(form, {'attr': {novalidate: 'novalidate', id: 'editar-cronograma-form'}}) }}
+  {% form_theme form 'TesisAdminBundle:Form:fields.html.twig' %}
+<div class="container-fluid">
+<div class="container-content"> 
+  
+  <div class="row field-c"> 
+    <div class="form-group">
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3   col-lg-offset-2">
+        {{ form_row(form.semana)}}
+      </div>
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-3   col-lg-offset-0">
+        {{ form_row(form.actividadActividad) }}
+        <h5>Mantén presionado la Tecla Ctrl (windows) / Command (Mac) para <b>seleccionar</b> y <b>desmarcar</b> múltiples opciones.</h5>         
+      </div>  
+    </div>  
+  </div>
+  <div class="row field-c"> 
+    <div class="form-group">
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3   col-lg-offset-2">
+        {{ form_row(form.fechaInicio, {'type':'text', 'id': 'datepicker1'}) }}  
+      </div>
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-3   col-lg-offset-0">
+        {{ form_row(form.fechaFin, {'type':'text', 'id': 'datepicker2'}) }}  
+      </div>  
+    </div>  
+  </div>
+  <div class="row field-c"> 
+    <div class="form-group">
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3   col-lg-offset-2">
+        {{ form_row(form.horas)}}
+      </div>
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-3   col-lg-offset-0">
+        {{ form_row(form.personas) }} 
+      </div>  
+    </div>  
+  </div>
+  <div class="row field-c"> 
+    <div class="form-group">
+        <div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6   col-lg-offset-2">
+        {{ form_row(form.comentario) }}
+      </div>    
+    </div>  
+  </div>
+
+  <div class="row field-c"> 
+    <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3   col-lg-offset-2 subtitulos">  
+      <h2>Evaluativo <hr style="border-top: 3px solid #3c8dbc;"></h2>  
+    </div>
+  </div> 
+
+  <div class="row field-c"> 
+    <div class="form-group">
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3   col-lg-offset-2">
+        {{ form_row(form.calificacion)}}
+      </div>
+        <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-3   col-lg-offset-0">
+        {{ form_row(form.observacion) }} 
+      </div>  
+    </div>  
+  </div>
+
+  <div class="row field-c">
+    <div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6   col-lg-offset-2">
+    <h5> (*) Campo Obligatorio</h5>
+    </div>
+  </div>  
+
+  <br><br>
+  <div class="row"> 
+    {% if (user.rol != 'estudiante') %}
+
+        <div align="center">
+          <div class="col-md-2 col-md-offset-4 boton-opcion" id="editar-cronograma-boton">
+            <button class="btn btn-success btn-lg"> Actualizar </button>
+          </div>
+        </div>
+
+    {% else %}
+    
+        <div class="col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-4 col-lg-3   col-lg-offset-2" align="center" style="margin-bottom: 2%;" id="editar-cronograma-boton">
+          <button class="btn btn-success btn-lg"> Actualizar</button> 
+        </div>  
+    
+        <div class="col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-3   col-lg-offset-0"align="center" style="margin-bottom: 2%;"  id="eliminar-cronograma-boton">
+          <button class="btn btn-danger btn-lg"> Eliminar</button> 
+        </div>
+
+    {% endif %} 
+  </div>
+
+</div>
+</div>  
+
+{{ form_rest(form) }}
+{{ form_end(form) }}

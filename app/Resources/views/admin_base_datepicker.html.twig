@@ -1,0 +1,71 @@
+{% extends '::admin_base.html.twig' %}
+
+
+{% block stylesheets %}
+<!-- Datepicker jquery-ui -->	
+<link href="{{ asset('bundles/jquery-ui-1.11.4.custom/jquery-ui.min.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/jquery-ui-1.11.4.custom/jquery-ui.structure.min.css') }}" rel="stylesheet">
+<link href="{{ asset('bundles/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css') }}" rel="stylesheet">
+
+
+<!-- ClockPicker Stylesheet -->
+<link href="{{ asset('bundles/clockpicker-gh-pages/dist/bootstrap-clockpicker.min.css') }}" rel="stylesheet">
+
+
+{% endblock %}
+
+
+{% block js %}
+<!-- Datepicker jquery-ui -->	
+<script src="{{ asset('bundles/jquery-ui-1.11.4.custom/jquery-ui.min.js') }}"></script>
+
+<!-- ClockPicker  -->
+<script src="{{ asset('bundles/clockpicker-gh-pages/dist/bootstrap-clockpicker.min.js') }}"></script>
+
+
+<script>
+	$(function() {
+	
+		$( "#datepicker1" ).datepicker({
+			dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+			dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+			dateFormat: "dd-mm-yy",
+			monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+			monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ],
+		});
+
+		$( "#datepicker2" ).datepicker({
+			dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+			dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+			dateFormat: "dd-mm-yy",
+			monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+			monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ],
+		});
+
+		$( "#datepicker3" ).datepicker({
+			dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+			dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+			dateFormat: "dd-mm-yy",
+			monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+			monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ],
+		});
+
+		$('#timepicker1').clockpicker({
+		    autoclose: true,
+		    twelvehour:	true
+		});
+
+		$('#timepicker2').clockpicker({
+		    autoclose: true,
+		    twelvehour:	true
+		});		
+
+	});
+</script>
+
+
+
+
+
+
+{% endblock %}

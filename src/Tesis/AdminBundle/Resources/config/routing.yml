@@ -1,0 +1,6 @@
+tesis_admin_homepage:
+    path: /admin
+    defaults: { _controller: TesisAdminBundle:Usuario:index }
+    options:
+        expose: true    
+

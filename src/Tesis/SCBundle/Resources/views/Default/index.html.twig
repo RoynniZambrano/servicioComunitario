@@ -1,0 +1,23 @@
+{% extends '::bootstrap-base.html.twig' %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    
+      {{ include('TesisSCBundle:Main:header.html.twig') }}
+
+      {{ include('TesisSCBundle:Main:seccion0.html.twig') }}
+
+      {{ include('TesisSCBundle:Main:seccion1.html.twig') }}
+
+      {{ include('TesisSCBundle:Main:seccion2.html.twig') }}
+
+      {{ include('TesisSCBundle:Main:seccion3.html.twig') }}
+
+      {{ include('TesisSCBundle:Main:seccion4.html.twig') }}
+
+      {{ include('TesisSCBundle:Main:footer.html.twig') }}
+
+{% endblock %}

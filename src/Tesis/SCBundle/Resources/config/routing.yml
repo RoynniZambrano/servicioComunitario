@@ -1,0 +1,11 @@
+tesis_sc_homepage:
+    path:     /
+    defaults: { _controller: TesisSCBundle:SC:index }
+    options:
+        expose: true
+
+user_loginform:
+    path:     /loginform
+    defaults: { _controller: TesisSCBundle:SC:loginform }
+    options:
+        expose: true

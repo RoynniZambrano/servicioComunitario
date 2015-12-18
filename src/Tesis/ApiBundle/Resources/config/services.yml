@@ -1,0 +1,13 @@
+#services:
+#    acme_api.example:
+#        class: Acme\ApiBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+# Acme/ApiBundle/Ressources/services.yml
+services:
+     check_service:
+         class: Tesis\ApiBundle\Services\CheckService
+
+     delete_service:
+         class: Tesis\ApiBundle\Services\DeleteService

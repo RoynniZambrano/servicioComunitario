@@ -1,0 +1,20 @@
+{% extends '::admin_base.html.twig' %}
+
+{% block body %}
+
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+      
+           {{ include('TesisAdminBundle:Main:header.html.twig') }}
+
+           {{ include('TesisAdminBundle:Main:sidebar.html.twig') }}
+
+           {{ include('TesisAdminBundle:Main:content.html.twig') }}
+
+           {{ include('TesisAdminBundle:Main:footer.html.twig') }}
+     
+    </div><!-- ./wrapper -->
+
+
+{% endblock %}

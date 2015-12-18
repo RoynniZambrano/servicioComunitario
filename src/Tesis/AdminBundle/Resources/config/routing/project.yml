@@ -1,0 +1,42 @@
+
+project_new:
+    pattern:  /new
+    defaults: { _controller: TesisAdminBundle:Proyecto:new}
+
+project_newform:
+    pattern:  /newform
+    defaults: { _controller: TesisAdminBundle:Proyecto:newform }
+
+project_list:
+    pattern:  /list
+    defaults: { _controller: TesisAdminBundle:Proyecto:list}
+    options:
+        expose: true
+
+project_check:
+    pattern:  /{id}/check
+    defaults: { _controller: TesisAdminBundle:Proyecto:check}
+
+project_checkform:
+    pattern:  /{id}/check_form
+    defaults: { _controller: TesisAdminBundle:Proyecto:checkform}
+
+project_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: TesisAdminBundle:Proyecto:edit}
+
+project_editform:
+    pattern:  /{id}/editform
+    defaults: { _controller: TesisAdminBundle:Proyecto:editform }
+
+project_delete:
+    pattern:  /delete
+    defaults: { _controller: TesisAdminBundle:Proyecto:delete}
+    options:
+        expose: true 
+
+
+
+
+
+

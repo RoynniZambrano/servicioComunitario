@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Inicio | Sistema de Servicio Comunitario{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ asset('img/icon_facyt.png') }}" />     
+
+    <!-- Bootstrap -->
+    <link href="{{ asset('bundles/bootstrap-3.3.2-dist/css/bootstrap.min.css') }}" rel="stylesheet">
+<!--
+    <link href="{{ asset('bundles/bootstrap-3.3.2-dist/css/bootstrap-responsive.min.css') }}" rel="stylesheet"> -->
+
+    <!-- Font Awesome Icons -->
+    <link href="{{ asset('bundles/LTE/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+    {% block stylesheets %}{% endblock %}
+    {% block sticker %}{% endblock %}
+  </head>
+  <body data-spy="scroll" data-target="#nav-bar">
+    {% block body %}{% endblock %}
+    {% block footer %}{% endblock %}
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <script src="{{ asset('bundles/jquery/jquery-1.11.2.min.js') }}"></script> 
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('bundles/bootstrap-3.3.2-dist/js/bootstrap.min.js') }}"></script>
+    <!-- FOSJsRoutingBundle -->
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script> 
+    <script src="{{ asset('js/app.js') }}"></script> 
+    
+    {% block js %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,292 @@
+
+{% extends '::base.html.twig' %}  
+
+{% block body -%}
+
+<style type="text/css">
+    
+.page {
+    margin-left: 85px;
+    margin-right: 55px;
+    font-family: Arial, "Open Sans", sans-serif; 
+    page-break-after: always;    
+}
+
+.page_last {
+    margin-left: 85px;
+    margin-right: 55px;
+    font-family: Arial, "Open Sans", sans-serif;   
+}
+
+
+.portada{
+    margin-top: 355px; 
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Arial, "Open Sans", sans-serif;
+    text-align: center; 
+    page-break-after: always;
+    margin-left: 80px;
+    margin-right: 80px; 
+
+}
+
+
+.portada_principal{
+    margin-top: 60px; 
+    font-size: 16px;
+    line-height: 25px;
+    font-family: Arial, "Open Sans", sans-serif;
+    text-align: center; 
+    page-break-after: always;
+    margin-left: 80px;
+    margin-right: 80px; 
+
+}
+
+.subtitulo{
+    font-size: 10px;
+    text-align: center;
+}
+
+
+.parrafo{
+    margin-top: 30px;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: justify;
+}
+
+
+
+
+table{
+	width:100%;
+	display: table;
+	max-width: 100%;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 11px;
+	line-height: 12px;
+}
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: white;
+    color: black;
+}
+</style>
+
+
+
+<div class="portada">
+  {{ estudiante.proyectoProyecto.nombre }}
+</div>
+
+<div class="portada_principal">
+  
+  <div>
+  <img src="{{ app.request.schemeAndHttpHost ~ asset('img/uc.jpg') }}" alt="some_text" width="95" height="130">
+  </div>
+
+  <pre style="font-family:Arial;"> 
+    REPÚBLICA BOLIVARIANA DE VENEZUELA 
+      UNIVERSIDAD DE CARABOBO 
+FACULTAD EXPERIMENTAL DE CIENCIAS Y TECNOLOGÍA
+      DIRECCIÓN DE EXTENSIÓN
+  </pre>
+
+  <div style="font-family:Arial;"><b><br>
+    INFORME FINAL SERVICIO COMUNITARIO
+  </b><br><br><br><br>
+  </div>
+  
+  <div>
+  {{ estudiante.proyectoProyecto.nombre }} <br><br><br>
+  </div>
+  
+  <div>
+    <b> Prestador de Servicio Comunitario:</b> <br>
+    {{ estudiante.nombre }} {{ estudiante.apellido }} CI:{{ estudiante.cedula }} <br><br>
+  </div>
+
+  <div>
+  <b>Tutor:</b> <br>
+  {{ estudiante.usuarioUsuario.nombre }} <br><br>
+  </div>
+
+  <div>
+  <b> Comunidad Objetivo: </b> <br> 
+  {{ estudiante.proyectoProyecto.locacion }} <br><br>
+  </div>
+
+</div>
+
+
+<div class="page">
+  <div class="subtitulo">
+    <h2> RESUMEN </h2>
+  </div>
+  <div class="parrafo">
+  {% if info is empty %}
+      No aplica
+  {% else %} 
+      {{ info.resumen }}
+  </div>    
+  {% endif %}
+</div>
+
+ 
+<div class="page">
+  <div class="subtitulo">
+    <h2> PROBLEMA </h2>
+  </div>
+  <div class="parrafo">
+  {% if info is empty %}
+      No aplica
+  {% else %}   
+      {{ info.problema }}
+  </div>  
+  {% endif %}
+</div>
+
+<div class="page">
+  <div class="subtitulo">
+  <h2> OBJETIVO GENERAL </h2>
+  </div>
+  <div class="parrafo">
+  {% if info is empty %}
+      No aplica
+  {% else %}  
+    {{ info.objetivoG }}
+    </div>
+  {% endif %} 
+  <div class="subtitulo"> 
+  <h2> OBJETIVOS ESPECIFÍCOS</h2>
+  </div>
+  <div class="parrafo">
+  {% if info is empty %}
+      No aplica
+  {% else %}  
+    {{ info.objetivoE }}
+    </div>
+  {% endif %}
+</div>
+
+
+<div class="page">
+  <div class="subtitulo"> 
+  <h2> JUSTIFICACIÓN </h2>
+  </div>
+  <div class="parrafo">
+  {% if info is empty %}
+      No aplica
+  {% else %}  
+    {{ info.justificacion }}
+  </div>
+  {% endif %}  
+</div>
+
+
+<div class="page">
+  <div class="subtitulo"> 
+  <h2> RESULTADOS </h2>
+  </div>
+  <div class="parrafo">
+  {% if info is empty %}
+      No aplica
+  {% else %}  
+    {{ info.resultados }} <br><br>
+
+      {% set i = 0 %}
+      {% for result in resultados %}
+        <b> Semana:</b> {{ result.semana }} <br>
+        <b>Fecha Inicio:</b>{{ result.fechaInicio | date('d-m-Y') }} 
+        <b>Fecha Fin:</b> {{ result.fechaFin | date('d-m-Y') }} <br>
+          <table id="t01">  
+            <tr>
+              <th>Total Horas </th>
+              <th>Toltal personas</th>
+              <th>Niños</th>
+              <th>Adultos</th>
+              <th>Tercera edad</th>
+              <th>Discapacidad</th>
+            </tr>
+            <tr>
+              <td>{{ result.horas }}</td>
+              <td>{{ result.personas }}</td>                    
+              <td>{{ result.ninos }}</td>
+              <td>{{ result.adultos }}</td>
+              <td>{{ result.terceraEdad }}</td>               
+              <td>{{ result.discapacidad }}</td>
+            </tr> 
+        </table> 
+
+        Actividades de la Semana:<br>
+        {% set j = 0 %}
+        {% for actividad in actividades %}
+
+          {% if i == j %} 
+
+              {% if actividad is empty %} 
+                <td> <b> no aplica </b> </td>
+              {% else %}
+
+                 <table id="t01">  
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Cantidad</th>
+                      <th>Descripción</th>
+                    </tr>
+                    {% for act in actividad %}
+                    <tr>
+                      <td>{{ act.nombre }}</td>
+                      <td>{{ act.cantidad }}</td>                    
+                      <td>{{ act.comentario }}</td>
+                    </tr> 
+                    {% endfor %}
+                 </table>
+
+              {% endif %}
+          {% endif %}    
+
+          {% set j = j + 1 %}
+        {% endfor %}
+
+
+        {% set i = i + 1 %}
+          <br><br>
+     {% endfor %}     
+
+  </div>
+  {% endif %} 
+</div>
+
+
+<div class="page_last">
+  <div class="subtitulo"> 
+  <h2> CONCLUSIÓN </h2>
+  </div>
+  <div class="parrafo">
+  {% if info is empty %}
+      No aplica
+  {% else %}  
+    {{ info.conclusion }}
+    </div>
+  {% endif %}  
+</div>
+
+
+{% endblock %}

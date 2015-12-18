@@ -1,0 +1,72 @@
+tesis_admin:
+    resource: "@TesisAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tesis_sc:
+    resource: "@TesisSCBundle/Resources/config/routing.yml"
+    prefix:   /SC
+
+tesis_user:
+    resource: "@TesisAdminBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+tesis_student:
+    resource: "@TesisAdminBundle/Resources/config/routing/student.yml"
+    prefix:   /student
+
+tesis_activities:
+    resource: "@TesisAdminBundle/Resources/config/routing/activities.yml"
+    prefix:   /activities
+
+tesis_fase:
+    resource: "@TesisAdminBundle/Resources/config/routing/fase.yml"
+    prefix:   /fase
+
+tesis_project:
+    resource: "@TesisAdminBundle/Resources/config/routing/project.yml"
+    prefix:   /project
+
+tesis_tutors:
+    resource: "@TesisAdminBundle/Resources/config/routing/tutors.yml"
+    prefix:   /tutors
+
+tesis_daily:
+    resource: "@TesisAdminBundle/Resources/config/routing/daily.yml"
+    prefix:   /daily
+
+tesis_timetable:
+    resource: "@TesisAdminBundle/Resources/config/routing/timetable.yml"
+    prefix:   /timetable
+
+tesis_infoextra:
+    resource: "@TesisAdminBundle/Resources/config/routing/infoextra.yml"
+    prefix:   /infoextra
+
+tesis_reports:
+    resource: "@TesisAdminBundle/Resources/config/routing/reports.yml"
+    prefix:   /reports  
+
+tesis_infofinal:
+    resource: "@TesisAdminBundle/Resources/config/routing/infofinal.yml"
+    prefix:   /infofinal
+
+tesis_results:
+    resource: "@TesisAdminBundle/Resources/config/routing/results.yml"
+    prefix:   /results
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml" 
+
+tesis_api:
+    resource: "@TesisApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
+
+
+
+#acme_website:
+#    resource: "@AcmeDemoBundle/Resources/config/routing.yml"
+#    prefix:   /

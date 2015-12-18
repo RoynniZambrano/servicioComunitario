@@ -1,0 +1,111 @@
+
+{% extends '::base.html.twig' %}  
+
+{% block body -%}
+
+<style>
+table{
+	width:100%;
+	display: table;
+	max-width: 100%;
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 13px;
+	line-height: 14px;
+}
+table, th, td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: white;
+    color: black;
+}
+#header1 {   
+    font-family: "Open Sans", Arial, sans-serif;
+    color: #337ab7;
+}
+
+#header2 {   
+    font-family: "Open Sans", Arial, sans-serif;
+    color: #555555;
+}
+</style>
+
+<h3 id="header1"> Universidad de Carabobo <br> Facultad Experimental de Ciencias y Tecnología </h3>
+<h5 id="header2"> Reporte de Coordinadores en Servicio Comunitario.  Periodo: {{periodo}}. Departamento: {{departamento}}</h5>
+
+ 		<table id="t01">   
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo</th>
+              <th>Rol</th>              
+              <th>Proyecto</th>
+            </tr>
+            {% set i = 0 %}
+            {% for proyecto in c_proyecto %}
+              <tr>
+                <td>{{ proyecto.nombre }}</td>
+                <td>{{ proyecto.apellido }}</td>                    
+                <td>{{ proyecto.correo }}</td> 
+                <td>{{ proyecto.rol }}</td>                           
+
+                  {% set j = 0 %}
+                  {% for proy in proyectos %}
+
+                    {% if i == j %} 
+
+                        {% if proy is empty %} 
+                          <td> no aplica </td>
+                        {% else %}
+                          <td> {{ proy }} </td>
+                        {% endif %}
+                    {% endif %}    
+
+                    {% set j = j + 1 %}
+                  {% endfor %}
+
+                  {% set i = i + 1 %}
+
+              </tr> 
+            {% endfor %}
+            {% set i = 0 %}
+            {% for suplente in c_suplente %}
+              <tr>
+                <td>{{ suplente.nombre }}</td>
+                <td>{{ suplente.apellido }}</td>                    
+                <td>{{ suplente.correo }}</td> 
+                <td>{{ suplente.rol }}</td>                           
+
+                  {% set j = 0 %}
+                  {% for proy in suplentes %}
+
+                    {% if i == j %} 
+
+                        {% if proy is empty %} 
+                          <td> no aplica </td>
+                        {% else %}
+                          <td> {{ proy }} </td>
+                        {% endif %}
+                    {% endif %}    
+
+                    {% set j = j + 1 %}
+                  {% endfor %}
+
+                  {% set i = i + 1 %}
+
+              </tr> 
+            {% endfor %}                        
+        </table> 
+{% endblock %}

@@ -1,0 +1,11 @@
+#tesis_api_homepage:
+#   path:     /hello/{name}
+#  defaults: { _controller: TesisApiBundle:Default:index }
+
+tesis_api_soap_check:
+    path: /api/soap/check
+    defaults: { _controller: TesisApiBundle:Soap:check }
+
+tesis_api_soap_delete:
+    path: /api/soap/delete
+    defaults: { _controller: TesisApiBundle:Soap:delete }
