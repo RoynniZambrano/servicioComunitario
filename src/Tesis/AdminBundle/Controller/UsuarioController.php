@@ -5,7 +5,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Tesis\AdminBundle\Entity\Usuario;
+use Tesis\AdminBundle\Entity\Profesor;
 use Tesis\AdminBundle\Form\UsuarioType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -55,7 +55,7 @@ class UsuarioController extends Controller
         if($session->has('user')){
 
             $em = $this->getDoctrine()->getManager();
-            $entity = new Usuario();
+            $entity = new Profesor();
 
             $form = $this->createForm(new UsuarioType('new'), $entity, array(
                 'action' => $this->generateUrl('user_newform'),
@@ -67,7 +67,15 @@ class UsuarioController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('user_checkform', array('id' => $entity->getId()))); 
+                
+                echo 
+                "<script>
+                    bootbox.alert('El profesor ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
+                        }, 2000);
+                </script>";
+              //  return $this->redirect($this->generateUrl('user_checkform', array('id' => $entity->getId()))); 
             }
 
              return $this->render('TesisAdminBundle:Usuario:new-user-form.html.twig',
@@ -90,7 +98,7 @@ class UsuarioController extends Controller
                    
                 $em = $this->getDoctrine()->getManager();
                 $qb = $em->createQueryBuilder();
-                $usuarios = $em->getRepository('TesisAdminBundle:Usuario')->findAll();
+                $usuarios = $em->getRepository('TesisAdminBundle:Profesor')->findAll();
                 $options['usuarios'] = $usuarios;
 
                 $qb = $em->createQueryBuilder();
@@ -112,7 +120,7 @@ class UsuarioController extends Controller
             $options['cedula'] = $cedula;
 
             $em = $this->getDoctrine()->getManager();
-            $selected = $em->getRepository('TesisAdminBundle:Usuario')->findOneBy(
+            $selected = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                 array('cedula' => $cedula));
 
             if (!$selected) {
@@ -138,8 +146,8 @@ class UsuarioController extends Controller
         if($session->has('user')){
 
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('TesisAdminBundle:Usuario')->findOneBy(
-            array('idUsuario' => $id));
+            $entity = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
+            array('idProfesor' => $id));
 
             $cedula = $entity->getCedula();
             $options['action'] = $this->generateUrl('user_checkform', array('id' => $id));
@@ -174,7 +182,7 @@ class UsuarioController extends Controller
             $options['cedula'] = $cedula;
         
             $em = $this->getDoctrine()->getManager();
-            $selected = $em->getRepository('TesisAdminBundle:Usuario')->findOneBy(
+            $selected = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                 array('cedula' => $cedula));
 
             if (!$selected) {
@@ -200,8 +208,8 @@ class UsuarioController extends Controller
         if($session->has('user')){
 
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('TesisAdminBundle:Usuario')->findOneBy(
-                array('idUsuario' => $id));
+            $entity = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
+                array('idProfesor' => $id));
 
                 $cedula = $entity->getCedula();
                 $options['action'] = $this->generateUrl('user_editform', array('id' => $id));
@@ -209,7 +217,7 @@ class UsuarioController extends Controller
 
                 $user = $session->get('user');
 
-                if ($user->getRol() == 'coordinador de servicio comunitario')
+                if ($user->getPerfil() == 'coordinador de servicio comunitario')
                     $editForm = $this->createForm(new UsuarioType('edit_coordsc'), $entity, $options);
                 else
                     $editForm = $this->createForm(new UsuarioType('edit_other'), $entity, $options);
@@ -233,7 +241,16 @@ class UsuarioController extends Controller
                     $em = $this->getDoctrine()->getManager();
                     $em->persist($entity);
                     $em->flush();
-                return $this->redirect($this->generateUrl('user_checkform', array('id' => $id)));                    
+
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
+                        }, 2000);
+                </script>";
+
+                //return $this->redirect($this->generateUrl('user_checkform', array('id' => $id)));                    
 
             }
 
@@ -265,7 +282,7 @@ class UsuarioController extends Controller
              }
 
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('TesisAdminBundle:Usuario')->findOneBy(
+            $entity = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                 array('cedula' => $cedula));
 
             try {
@@ -292,7 +309,7 @@ class UsuarioController extends Controller
             $options['cedula'] = $cedula;
         
             $em = $this->getDoctrine()->getManager();
-            $selected = $em->getRepository('TesisAdminBundle:Usuario')->findOneBy(
+            $selected = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                 array('cedula' => $cedula));
 
             if (!$selected) 
@@ -310,7 +327,7 @@ class UsuarioController extends Controller
         if($session->has('user')){
 
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('TesisAdminBundle:Usuario')->findOneBy(
+            $entity = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                 array('cedula' => $cedula));
 
             $cedula = $entity->getCedula();
@@ -336,7 +353,16 @@ class UsuarioController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('user_checkform', array('id' => $id)));
+                
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
+                        }, 2000);
+                </script>";
+
+              //  return $this->redirect($this->generateUrl('user_checkform', array('id' => $id)));
             }
 
             $user = $session->get('user');
@@ -377,9 +403,9 @@ class UsuarioController extends Controller
 
         /*
 		$client = new \nusoap_client('http://localhost/TESIS/web/app_dev.php/api/soap?wsdl', true);
-		$responseml = $client->call('check', array('name'=>'roynny51@gmail.com'));
+		$responseml = $client->call('check', array('name'=>'test@gmail.com'));
 	
 		$client = new \nusoap_client('http://www.webservicex.com/ValidateEmail.asmx?WSDL', true);
-		$responseml = $client->call('IsValidEmail', array('Email'=>'roynny51@gmail.com'));
+		$responseml = $client->call('IsValidEmail', array('Email'=>'test@gmail.com'));
         **/
 

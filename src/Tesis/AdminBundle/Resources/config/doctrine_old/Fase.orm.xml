@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Tesis\AdminBundle\Entity\Fase" table="fase">
+    <id name="idFase" type="integer" column="id_fase">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="500" nullable="true"/>
+    <field name="descripcion" type="string" column="descripcion" length="2000" nullable="true"/>
+    <many-to-many field="proyectoProyecto" target-entity="Proyecto" mapped-by="faseFase"/>
+    <many-to-many field="actividadActividad" target-entity="Actividad" inversed-by="faseFase">
+      <join-table name="fase_has_actividad">
+        <join-columns>
+          <join-column name="fase_id_fase" referenced-column-name="id_fase"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="actividad_id_actividad" referenced-column-name="id_actividad"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

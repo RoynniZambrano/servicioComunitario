@@ -49,7 +49,15 @@ class FaseController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return new Response('.'); 
+
+                echo 
+                "<script>
+                    bootbox.alert('La fase ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('fase_check', array('id' => $entity->getIdFase())) . "';
+                        }, 2000);
+                </script>";                
+                //return new Response('.'); 
             }
 
              return $this->render('TesisAdminBundle:Fase:new-fase-form.html.twig',
@@ -88,12 +96,6 @@ class FaseController extends Controller{
         $session = $this->getRequest()->getSession();
         if($session->has('user')){
             $options['user'] = $session->get('user');
-
-            //$em = $this->getDoctrine()->getManager();
-            //$selected = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
-            //array('idFase' => $id));
-            //$options['id'] = $selected->getIdFase();
-
             $options['id'] = $id; 
             return $this->render('TesisAdminBundle:Fase:check-fase.html.twig',$options);
         
@@ -142,13 +144,7 @@ class FaseController extends Controller{
         $session = $this->getRequest()->getSession();
 
         if($session->has('user')){
-            $options['user'] = $session->get('user');
-
-            //$em = $this->getDoctrine()->getManager();
-            //$selected = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
-            //array('idFase' => $id));
-            //$options['id'] = $selected->getIdFase();
-            
+            $options['user'] = $session->get('user');         
             $options['id'] = $id; 
             return $this->render('TesisAdminBundle:Fase:edit-fase.html.twig',$options);
 
@@ -178,7 +174,16 @@ class FaseController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('fase_checkform', array('id' => $id)));                    
+
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('fase_check', array('id' => $entity->getIdFase())) . "';
+                        }, 2000);
+                </script>";
+
+               // return $this->redirect($this->generateUrl('fase_checkform', array('id' => $id)));                    
 
             }
                 $user = $session->get('user');

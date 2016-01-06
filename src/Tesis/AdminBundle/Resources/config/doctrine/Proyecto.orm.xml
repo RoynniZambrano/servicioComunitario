@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Tesis\AdminBundle\Entity\Proyecto" table="proyecto">
-    <indexes>
-      <index name="coordinador_usuario_idx" columns="coordinador"/>
-      <index name="fk_proyecto_usuario1_idx" columns="coord_suplente"/>
-    </indexes>
     <id name="idProyecto" type="integer" column="id_proyecto">
       <generator strategy="AUTO"/>
     </id>
@@ -12,23 +8,14 @@
     <field name="fechaInicio" type="date" column="fecha_inicio" nullable="false"/>
     <field name="fechaFin" type="date" column="fecha_fin" nullable="false"/>
     <field name="locacion" type="string" column="locacion" length="1000" nullable="false"/>
-    <field name="instituto" type="string" column="instituto" length="100" nullable="false"/>
+    <field name="instituto" type="string" column="instituto" length="1000" nullable="false"/>
     <field name="institutoPropone" type="string" column="instituto_propone" length="1000" nullable="true"/>
-    <field name="justificacion" type="text" column="justificacion" length="15360" nullable="true"/>
-    <field name="descripcion" type="text" column="descripcion" length="15360" nullable="true"/>
-    <field name="fechaDesco" type="date" column="fecha_desco" nullable="false"/>
-    <field name="departamento" type="string" column="departamento" length="50" nullable="false"/>
+    <field name="justificacion" type="text" column="justificacion" nullable="true"/>
     <field name="periodo" type="string" column="periodo" length="50" nullable="false"/>
-    <many-to-one field="coordinador" target-entity="Usuario">
-      <join-columns>
-        <join-column name="coordinador" referenced-column-name="id_usuario"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="coordSuplente" target-entity="Usuario">
-      <join-columns>
-        <join-column name="coord_suplente" referenced-column-name="id_usuario"/>
-      </join-columns>
-    </many-to-one>
+    <field name="departamento" type="string" column="departamento" length="50" nullable="false"/>
+    <field name="fechaDesco" type="date" column="fecha_desco" nullable="true"/>
+    <field name="descripcion" type="string" column="descripcion" length="1000" nullable="true"/>
+    <field name="estatus" type="string" column="estatus" nullable="false"/>
     <many-to-many field="faseFase" target-entity="Fase" inversed-by="proyectoProyecto">
       <join-table name="proyecto_has_fase">
         <join-columns>

@@ -4,10 +4,10 @@
     <id name="idActividad" type="integer" column="id_actividad">
       <generator strategy="AUTO"/>
     </id>
-    <field name="nombre" type="string" column="nombre" length="500" nullable="false"/>
+    <field name="nombre" type="string" column="nombre" length="200" nullable="false"/>
     <field name="descripcion" type="string" column="descripcion" length="2000" nullable="true"/>
+    <many-to-many field="periodoPeriodo" target-entity="Periodo" mapped-by="actividadActividad"/>
     <many-to-many field="faseFase" target-entity="Fase" mapped-by="actividadActividad"/>
     <many-to-many field="diarioDiario" target-entity="Diario" mapped-by="actividadActividad"/>
-    <many-to-many field="cronogramacronograma" target-entity="Cronograma" mapped-by="actividadActividad"/>
   </entity>
 </doctrine-mapping>

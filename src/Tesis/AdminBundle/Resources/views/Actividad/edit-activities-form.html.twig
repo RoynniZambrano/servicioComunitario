@@ -27,7 +27,8 @@
 			<button class="btn btn-success btn-lg"> Actualizar</button> 
 		</div>
 		
-        {% if (user.rol == 'coordinador de proyecto') or (user.rol == 'coordinador de servicio comunitario') or (user.rol == 'coordinador suplente') %}
+        {% if ((user.perfil == 'coordinador de proyecto') and (user.estatus == 'activo')) or ((user.perfil == 'coordinador de servicio comunitario') and (user.estatus == 'activo')) or ((user.perfil == 'coordinador suplente') and (user.estatus == 'activo')) %}
+        	
 			<div class="col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-3 	col-lg-offset-0"align="center" style="margin-bottom: 2%;"  id="eliminar-actividad-boton">
 				<button class="btn btn-danger btn-lg"> Eliminar</button> 
 			</div>

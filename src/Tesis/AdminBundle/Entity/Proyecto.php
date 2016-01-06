@@ -13,11 +13,10 @@ use Tesis\AdminBundle\Validator\Constraints as AdminAssert;
 /**
  * Proyecto
  *
- * @ORM\Table(name="proyecto", indexes={@ORM\Index(name="coordinador_usuario_idx", columns={"coordinador"})})
+ * @ORM\Table(name="proyecto")
  * @ORM\Entity
  * @AdminAssert\ValidDate
- * @UniqueEntity(fields="nombre", message="Este nombre ya esta registrado.")
- * @UniqueEntity(fields="coordinador", message="Este coordinador ya esta registrado.")      
+ * @UniqueEntity(fields="nombre", message="Este nombre ya esta registrado.") 
  */
 class Proyecto
 {
@@ -31,8 +30,9 @@ class Proyecto
      *      max = 1000,
      *      minMessage = "el nombre debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "el nombre debe tener maximo {{ limit }} caracteres.")
-     */    
+     */     
     private $nombre;
+
 
     /**
      * @var \DateTime
@@ -43,6 +43,7 @@ class Proyecto
      */    
     private $fechaInicio;
 
+
      /**
      * @var \DateTime
      *
@@ -51,6 +52,7 @@ class Proyecto
      * Assert\Date(message="Porfavor introduzca una fecha valida.")
      */    
     private $fechaFin;
+
 
     /**
      * @var string
@@ -62,56 +64,55 @@ class Proyecto
      *      max = 1000,
      *      minMessage = "la dirección debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la dirección debe tener maximo {{ limit }} caracteres.")     
-     */
+     */    
     private $locacion;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="instituto", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca instituo.")     
-     */    
-    private $instituto;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="instituto_propone", type="string", length=1000, nullable=false)
+     * @ORM\Column(name="instituto", type="string", length=1000, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca instituo.")     
+     */     
+    private $instituto;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="instituto_propone", type="string", length=1000, nullable=true)
      * @Assert\NotBlank(message="Porfavor introduzca nombre instituto.")
      * @Assert\Length(
      *      min = 2,
      *      max = 1000,
      *      minMessage = "el nombre del instituto debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "el nombre del instituto debe tener maximo {{ limit }} caracteres.")       
-     */
+     */    
     private $institutoPropone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="justificacion", type="text", length=15360, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca justificación.")
-     * @Assert\Length(
-     *      min = 100,
-     *      max = 15360,
-     *      minMessage = "la justificación debe tener minimo {{ limit }} caracteres.",
-     *      maxMessage = "la justificación debe tener maximo {{ limit }} caracteres.")       
-     */
+     * @ORM\Column(name="justificacion", type="text", length=15360, nullable=true)     
+     */    
     private $justificacion;
+
+   
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="periodo", type="string", length=50, nullable=true)
+     */
+    private $periodo;
+
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="text", length=15360, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca descripción.")
-     * @Assert\Length(
-     *      min = 100,
-     *      max = 15360,
-     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
-     *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
+     * @ORM\Column(name="departamento", type="string", length=50, nullable=false)
+      * @Assert\NotBlank(message="Porfavor introduzca departamento.")       
      */
-    private $descripcion;
-
+    private $departamento = 'Computación';    
 
     /**
      * @var \DateTime
@@ -120,25 +121,22 @@ class Proyecto
      * @Assert\NotBlank(message="Porfavor introduzca una fecha.")
      * @Assert\Date(message="Porfavor introduzca una fecha valida.")
      */
-    private $fechaDesco;
+    private $fechaDesco;    
 
     /**
      * @var string
      *
-     * @ORM\Column(name="departamento", type="string", length=50, nullable=false)
-      * @Assert\NotBlank(message="Porfavor introduzca departamento.")       
+     * @ORM\Column(name="descripcion", type="text", length=15360, nullable=true)     
      */
-    private $departamento = 'Computación';
+    private $descripcion;
 
 
-    /**
+     /**
      * @var string
      *
-     * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
-      * @Assert\NotBlank(message="Porfavor introduzca periodo.")       
+     * @ORM\Column(name="estatus", type="string", nullable=false)
      */
-    private $periodo = '2015-1';
-
+    private $estatus = 'inactivo';    
 
     /**
      * @var integer
@@ -148,28 +146,6 @@ class Proyecto
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idProyecto;
-
-    /**
-     * @var \Tesis\AdminBundle\Entity\Usuario
-     *
-     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Usuario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="coordinador", referencedColumnName="id_usuario")
-     * })  
-     * @Assert\NotBlank(message="Porfavor introduzca un coordinador.")        
-     */
-    private $coordinador;
-
-    /**
-     * @var \Tesis\AdminBundle\Entity\Usuario
-     *
-     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Usuario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="coord_suplente", referencedColumnName="id_usuario")
-     * })  
-     * @Assert\NotBlank(message="Porfavor introduzca un coordinador.")
-     */
-    private $coordSuplente;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -357,26 +333,49 @@ class Proyecto
     }
 
     /**
-     * Set descripcion
+     * Set periodo
      *
-     * @param string $descripcion
+     * @param string $periodo
      * @return Proyecto
      */
-    public function setDescripcion($descripcion)
+    public function setPeriodo($periodo)
     {
-        $this->descripcion = $descripcion;
+        $this->periodo = $periodo;
 
         return $this;
     }
 
     /**
-     * Get descripcion
+     * Get periodo
      *
      * @return string 
      */
-    public function getDescripcion()
+    public function getPeriodo()
     {
-        return $this->descripcion;
+        return $this->periodo;
+    }
+
+    /**
+     * Set departamento
+     *
+     * @param string $departamento
+     * @return Proyecto
+     */
+    public function setDepartamento($departamento)
+    {
+        $this->departamento = $departamento;
+
+        return $this;
+    }
+
+    /**
+     * Get departamento
+     *
+     * @return string 
+     */
+    public function getDepartamento()
+    {
+        return $this->departamento;
     }
 
     /**
@@ -403,56 +402,50 @@ class Proyecto
     }
 
     /**
-     * Get departamento
+     * Set descripcion
      *
-     * @return string 
+     * @param string $descripcion
+     * @return Proyecto
      */
-    public function getDepartamento()
+    public function setDescripcion($descripcion)
     {
-        return $this->departamento;
-    }
-
-    /**
-     * Set departamento
-     *
-     * @param string $departamento
-     * @return Estudiante
-     */
-    public function setDepartamento($departamento)
-    {
-        $this->departamento = $departamento;
+        $this->descripcion = $descripcion;
 
         return $this;
     }
 
-
     /**
-     * Get periodo
+     * Get descripcion
      *
      * @return string 
      */
-    public function getPeriodo()
+    public function getDescripcion()
     {
-        return $this->periodo;
+        return $this->descripcion;
     }
 
     /**
-     * Set periodo
+     * Set estatus
      *
-     * @param string $periodo
-     * @return Estudiante
+     * @param string $estatus
+     * @return Proyecto
      */
-    public function setPeriodo($periodo)
+    public function setEstatus($estatus)
     {
-        $this->periodo = $periodo;
+        $this->estatus = $estatus;
 
         return $this;
     }
 
-
-
-
-
+    /**
+     * Get estatus
+     *
+     * @return string 
+     */
+    public function getEstatus()
+    {
+        return $this->estatus;
+    }
 
     /**
      * Get idProyecto
@@ -462,52 +455,6 @@ class Proyecto
     public function getIdProyecto()
     {
         return $this->idProyecto;
-    }
-
-    /**
-     * Set coordinador
-     *
-     * @param \Tesis\AdminBundle\Entity\Usuario $coordinador
-     * @return Proyecto
-     */
-    public function setCoordinador(\Tesis\AdminBundle\Entity\Usuario $coordinador = null)
-    {
-        $this->coordinador = $coordinador;
-
-        return $this;
-    }
-
-    /**
-     * Get coordinador
-     *
-     * @return \Tesis\AdminBundle\Entity\Usuario 
-     */
-    public function getCoordinador()
-    {
-        return $this->coordinador;
-    }
-
-    /**
-     * Set coordSuplente
-     *
-     * @param \Tesis\AdminBundle\Entity\Usuario $coordSuplente
-     * @return Proyecto
-     */
-    public function setCoordSuplente(\Tesis\AdminBundle\Entity\Usuario $coordSuplente = null)
-    {
-        $this->coordSuplente = $coordSuplente;
-
-        return $this;
-    }
-
-    /**
-     * Get coordSuplente
-     *
-     * @return \Tesis\AdminBundle\Entity\Usuario 
-     */
-    public function getCoordSuplente()
-    {
-        return $this->coordSuplente;
     }
 
     /**

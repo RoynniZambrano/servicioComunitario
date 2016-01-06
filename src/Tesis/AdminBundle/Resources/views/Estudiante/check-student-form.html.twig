@@ -17,42 +17,22 @@
 	<div class="row field-c"> 
 		<div class="form-group">
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
+				{{ form_row(form.correo) }} 
+			</div>
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
+				{{ form_row(form.nameLogin) }}
+			</div>
+		</div>	
+	</div>
+	<div class="row field-c"> 
+		<div class="form-group">
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
 				{{ form_row(form.cedula) }} 
-			</div>
-	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
-				{{ form_row(form.correo) }}
-			</div>
-		</div>	
-	</div>
-	<div class="row field-c"> 
-		<div class="form-group">
-	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
-				{{ form_row(form.proyectoProyecto) }} 
 			</div>	
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
-				{{ form_row(form.usuarioUsuario) }}
+				{{ form_row(form.genero) }}
 			</div>
 		</div>	
-	</div>
-	<div class="row field-c"> 
-		<div class="form-group">
-	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
-				{{ form_row(form.sc) }} 
-			</div>
-	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
-				{{ form_row(form.telefono) }}
-			</div>
-		</div>	
-	</div>
-	<div class="row field-c"> 
-		<div class="form-group">
-	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
-				{{ form_row(form.rol) }} 
-			</div>	
-	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
-			{{ form_row(form.genero) }}
-			</div>
-		</div>
 	</div>
 	<div class="row field-c"> 
 		<div class="form-group">
@@ -60,7 +40,27 @@
 				{{ form_row(form.departamento) }} 
 			</div>
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
-				{{ form_row(form.periodo) }}
+				{{ form_row(form.semestre) }}
+			</div>
+		</div>	
+	</div>
+	<div class="row field-c"> 
+		<div class="form-group">
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
+				{{ form_row(form.periodo) }} 
+			</div>	
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
+			{{ form_row(form.telefono) }}
+			</div>
+		</div>
+	</div>
+	<div class="row field-c"> 
+		<div class="form-group">
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
+				{{ form_row(form.sc) }} 
+			</div>
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
+				{{ form_row(form.estatus) }}
 			</div>
 		</div>	
 	</div>	

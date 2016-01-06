@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 
 /**
- * Tutores controller.
+ * Tutoria controller.
  */
 class TutoriaController extends Controller{
  
@@ -23,7 +23,7 @@ class TutoriaController extends Controller{
 
         if($session->has('user')){
             $options['user'] = $session->get('user');
-            return $this->render('TesisAdminBundle:Tutoria:add-tutors.html.twig',$options);
+            return $this->render('TesisAdminBundle:Tutoria:add-tutor.html.twig',$options);
         }
 
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
@@ -39,7 +39,7 @@ class TutoriaController extends Controller{
             $entity = new Tutoria();
 
             $form = $this->createForm(new TutoriaType('new'), $entity, array(
-                'action' => $this->generateUrl('tutors_addform'),
+                'action' => $this->generateUrl('tutor_addform'),
                 'method' => 'POST',
             ));
 
@@ -48,10 +48,19 @@ class TutoriaController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return new Response('.'); 
+
+                echo 
+                "<script>
+                    bootbox.alert('La asignación ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('tutor_list') . "';
+                        }, 2000);
+                </script>";
+
+                //return new Response('.'); 
             }
 
-             return $this->render('TesisAdminBundle:Tutoria:add-tutors-form.html.twig',
+             return $this->render('TesisAdminBundle:Tutoria:add-tutor-form.html.twig',
                 array('form' => $form->createView()));                        
         }
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
@@ -73,7 +82,7 @@ class TutoriaController extends Controller{
                 $tutorias = $em->getRepository('TesisAdminBundle:Tutoria')->findAll();
                 $options['tutorias'] = $tutorias;                        
 
-                return $this->render('TesisAdminBundle:Tutoria:list-tutors.html.twig',$options);
+                return $this->render('TesisAdminBundle:Tutoria:list-tutor.html.twig',$options);
             }
 
             return $this->render('TesisSCBundle:Main:denegado.html.twig');
@@ -85,14 +94,9 @@ class TutoriaController extends Controller{
         $session = $this->getRequest()->getSession();
         if($session->has('user')){
             $options['user'] = $session->get('user');
-
-            //$em = $this->getDoctrine()->getManager();
-            //$selected = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
-            //array('idTutores' => $id));
-            //$options['id'] = $selected->getIdTutores();
             
             $options['id'] = $id; 
-            return $this->render('TesisAdminBundle:Tutoria:check-tutors.html.twig',$options);
+            return $this->render('TesisAdminBundle:Tutoria:check-tutor.html.twig',$options);
         
         }
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
@@ -109,9 +113,9 @@ class TutoriaController extends Controller{
 
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
-                array('idTutores' => $id));
+                array('idTutoria' => $id));
 
-            $options['action'] = $this->generateUrl('tutors_checkform', array('id' => $id));
+            $options['action'] = $this->generateUrl('tutor_checkform', array('id' => $id));
             $options['method'] = 'POST';
             $form = $this->createForm(new TutoriaType('check'), $entity, $options);
             $form->add('edit', 'submit', array('label' => 'Editar'));
@@ -119,13 +123,13 @@ class TutoriaController extends Controller{
         
             $form->handleRequest($request);
             if ($form->get('edit')->isClicked()) {
-               return $this->redirect($this->generateUrl('tutors_edit', array('id' => $id)));
+               return $this->redirect($this->generateUrl('tutor_edit', array('id' => $id)));
             }
             if ($form->get('back')->isClicked()) {
-               return $this->redirect($this->generateUrl('tutors_list'));
+               return $this->redirect($this->generateUrl('tutor_list'));
             }                   
 
-             return $this->render('TesisAdminBundle:Tutoria:check-tutors-form.html.twig',
+             return $this->render('TesisAdminBundle:Tutoria:check-tutor-form.html.twig',
                 array('form' => $form->createView()));           
         }
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
@@ -141,14 +145,9 @@ class TutoriaController extends Controller{
 
         if($session->has('user')){
             $options['user'] = $session->get('user');
-
-            //$em = $this->getDoctrine()->getManager();
-            //$selected = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
-            //array('idTutores' => $id));
-            //$options['id'] = $selected->getIdTutores();
             
             $options['id'] = $id; 
-            return $this->render('TesisAdminBundle:Tutoria:edit-tutors.html.twig',$options);
+            return $this->render('TesisAdminBundle:Tutoria:edit-tutor.html.twig',$options);
 
         }
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
@@ -164,16 +163,16 @@ class TutoriaController extends Controller{
 
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
-            array('idTutores' => $id));
+            array('idTutoria' => $id));
 
-            $options['action'] = $this->generateUrl('tutors_editform', array('id' => $id));
+            $options['action'] = $this->generateUrl('tutor_editform', array('id' => $id));
             $options['method'] = 'POST';
             $editForm = $this->createForm(new TutoriaType('edit'), $entity, $options); 
             $editForm->add('back', 'submit', array('label' => 'Regresar'));                        
             $editForm->handleRequest($request);  
 
             if ($editForm->get('back')->isClicked()) {
-               return $this->redirect($this->generateUrl('tutors_list'));
+               return $this->redirect($this->generateUrl('tutor_list'));
             } 
                     
 
@@ -182,12 +181,22 @@ class TutoriaController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('tutors_checkform', array('id' => $id)));                    
+                
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('tutor_check', array('id' => $id)) . "';
+                        }, 2000);
+                </script>";
+
+
+                //return $this->redirect($this->generateUrl('tutors_checkform', array('id' => $id)));                    
 
             }
                 $user = $session->get('user');
 
-            return $this->render('TesisAdminBundle:Tutoria:edit-tutors-form.html.twig', array(
+            return $this->render('TesisAdminBundle:Tutoria:edit-tutor-form.html.twig', array(
                 'entity'      => $entity,
                 'form'   => $editForm->createView(),
                 'user' => $user,

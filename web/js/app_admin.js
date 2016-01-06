@@ -1,7 +1,8 @@
  $(document).ready(function(){
 
   creacionUsuario();
-  creacionEstudiante();  
+  creacionEstudiante(); 
+  creacionUsuarioAlfa() 
   editarUsuario(); 
   eliminarUsuario();
   eliminarEstudiante(); 
@@ -32,6 +33,10 @@
   creacionResultados();
   editarResultados();
   eliminarResultados();
+  asignarTutoria();
+  editarTutoria();
+  asignarLaborsc();
+  editarLaborsc();
 
 }); 
 
@@ -231,6 +236,8 @@ function creacionEstudiante(){
       });
   });
 }
+
+
 
 
 // notificacion - editar usuario
@@ -633,9 +640,9 @@ function eliminarProyecto(){
 // notificacion - asignaciones de tutores
 function asignarTutores(){
 
-  $("#add-tutoria-div").on('click' , '#add-tutoria-boton', function(event) {
+  $("#add-tutores-div").on('click' , '#add-tutores-boton', function(event) {
     event.preventDefault();
-    form = $("#add-tutoria-form");
+    form = $("#add-tutores-form");
     
     var inform = function(result){
 
@@ -643,7 +650,7 @@ function asignarTutores(){
           window.location.href = Routing.generate('tutors_list');
      
           form.remove();
-          $("#add-tutoria-div").prepend(result);
+          $("#add-tutores-div").prepend(result);
       
     };
 
@@ -662,9 +669,9 @@ function asignarTutores(){
 // notificacion - editar tutores
 function editarTutores(){
 
-  $("#editar-tutoria-div").on('click' , '#editar-tutoria-boton', function(event) {
+  $("#editar-tutores-div").on('click' , '#editar-tutores-boton', function(event) {
     event.preventDefault();
-    edit_form = $("#editar-tutoria-form");
+    edit_form = $("#editar-tutores-form");
 
     var inform = function(result){
 
@@ -672,7 +679,7 @@ function editarTutores(){
           window.location.href = Routing.generate('tesis_admin_homepage');
   
           edit_form.remove();
-          $("#editar-tutoria-div").prepend(result);   
+          $("#editar-tutores-div").prepend(result);   
       
     };
 
@@ -1177,5 +1184,150 @@ function eliminarResultados(){
 
       }); 
   
+  });
+}
+
+
+// notificacion - creacion de usuario
+function creacionUsuarioAlfa(){
+
+  $("#nuevo-estudiante-alfa-div").on('click' , '#nuevo-estudiante-alfa-boton', function(event) {
+    event.preventDefault();
+    form = $("#nuevo-estudiante-alfa-form");
+    
+    var inform = function(result){
+
+      if(result == '.')
+          window.location.href = Routing.generate('tesis_admin_homepage');
+
+          form.remove();
+          $("#nuevo-estudiante-alfa-div").prepend(result);
+      
+    };
+
+    $.ajax({
+      type: form.attr('method'),
+      async: true,
+      url: form.attr('action'),
+      data: form.serialize(),
+      dataType: 'text',
+      success: inform
+      });
+  });
+}
+
+
+function asignarTutoria(){
+
+  $("#add-tutoria-div").on('click' , '#add-tutoria-boton', function(event) {
+    event.preventDefault();
+    form = $("#add-tutoria-form");
+    
+    var inform = function(result){
+
+      if(result == '.')
+          window.location.href = Routing.generate('tutor_list');
+     
+          form.remove();
+          $("#add-tutoria-div").prepend(result);
+      
+    };
+
+    $.ajax({
+      type: form.attr('method'),
+      async: true,
+      url: form.attr('action'),
+      data: form.serialize(),
+      dataType: 'text',
+      success: inform
+      });
+  });
+}
+
+
+// notificacion 
+function editarTutoria(){
+
+  $("#editar-tutoria-div").on('click' , '#editar-tutoria-boton', function(event) {
+    event.preventDefault();
+    edit_form = $("#editar-tutoria-form");
+
+    var inform = function(result){
+
+      if(result == '.')
+          window.location.href = Routing.generate('tesis_admin_homepage');
+  
+          edit_form.remove();
+          $("#editar-tutoria-div").prepend(result);   
+      
+    };
+
+
+    $.ajax({
+      type: edit_form.attr('method'),
+      async: true,
+      url: edit_form.attr('action'),
+      data: edit_form.serialize(),
+      dataType: 'text',
+      success: inform
+      });
+  });
+}
+
+
+function asignarLaborsc(){
+
+  $("#add-laborsc-div").on('click' , '#add-laborsc-boton', function(event) {
+    event.preventDefault();
+    form = $("#add-laborsc-form");
+    
+    var inform = function(result){
+
+      if(result == '.')
+          window.location.href = Routing.generate('laborsc_list');
+     
+          form.remove();
+          $("#add-laborsc-div").prepend(result);
+      
+    };
+
+    $.ajax({
+      type: form.attr('method'),
+      async: true,
+      url: form.attr('action'),
+      data: form.serialize(),
+      dataType: 'text',
+      success: inform
+      });
+  });
+}
+
+
+// notificacion 
+function editarLaborsc(){
+
+  $("#editar-laborsc-div").on('click' , '#editar-laborsc-boton', function(event) {
+    event.preventDefault();
+    edit_form = $("#editar-laborsc-form");
+
+    var inform = function(result){
+
+      if(result == '.')
+          window.location.href = Routing.generate('tesis_admin_homepage');
+  
+          edit_form.remove();
+          $("#editar-laborsc-div").prepend(result);   
+      
+    };
+
+
+    $.ajax({
+      type: edit_form.attr('method'),
+      async: true,
+      url: edit_form.attr('action'),
+      data: edit_form.serialize(),
+      dataType: 'text',
+      success: inform
+      });
   });
 }

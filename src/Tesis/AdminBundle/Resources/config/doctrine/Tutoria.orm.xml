@@ -2,23 +2,24 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Tesis\AdminBundle\Entity\Tutoria" table="tutoria">
     <indexes>
-      <index name="fk_gestiona_proyecto1_idx" columns="proyecto_id_proyecto"/>
+      <index name="fk_tutoria_profesor1_idx" columns="profesor_id_profesor"/>
     </indexes>
-    <id name="idTutores" type="integer" column="id_tutores">
+    <id name="idTutoria" type="integer" column="id_tutoria">
       <generator strategy="AUTO"/>
     </id>
-    <many-to-one field="proyectoProyecto" target-entity="Proyecto">
+    <field name="periodo" type="string" column="periodo" length="50" nullable="false"/>    
+    <many-to-one field="profesorProfesor" target-entity="Profesor">
       <join-columns>
-        <join-column name="proyecto_id_proyecto" referenced-column-name="id_proyecto"/>
+        <join-column name="profesor_id_profesor" referenced-column-name="id_profesor"/>
       </join-columns>
     </many-to-one>
-    <many-to-many field="usuarioUsuario" target-entity="Usuario" inversed-by="tutoriaTutores">
-      <join-table name="tutoria_has_usuario">
+    <many-to-many field="estudianteEstudiante" target-entity="Estudiante" inversed-by="tutoriaTutoria">
+      <join-table name="tutoria_has_estudiante">
         <join-columns>
-          <join-column name="tutoria_id_tutores" referenced-column-name="id_tutores"/>
+          <join-column name="tutoria_id_tutoria" referenced-column-name="id_tutoria"/>
         </join-columns>
         <inverse-join-columns>
-          <join-column name="usuario_id_usuario" referenced-column-name="id_usuario"/>
+          <join-column name="estudiante_id_estudiante" referenced-column-name="id_estudiante"/>
         </inverse-join-columns>
       </join-table>
     </many-to-many>

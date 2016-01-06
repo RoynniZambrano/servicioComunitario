@@ -29,11 +29,12 @@ class Fase
      */      
     private $nombre;
 
+
     /**
      * @var string
      * @ORM\Column(name="descripcion", type="string", length=2000, nullable=true)
-     * @Assert\NotBlank(message="Porfavor introduzca descripción.")
-     * @Assert\Length(
+     * _Assert\NotBlank(message="Porfavor introduzca descripción.")
+     * _Assert\Length(
      *      min = 20,
      *      max = 1999,
      *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
@@ -69,7 +70,7 @@ class Fase
      *     @ORM\JoinColumn(name="actividad_id_actividad", referencedColumnName="id_actividad")
      *   }
      * )
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos una actividad")   
+     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos una actividad") 
      */
     private $actividadActividad;
 
@@ -106,7 +107,7 @@ class Fase
         return $this->nombre;
     }
 
-    /**
+      /**
      * Set descripcion
      *
      * @param string $descripcion
@@ -128,6 +129,7 @@ class Fase
     {
         return $this->descripcion;
     }
+
 
     /**
      * Get idFase

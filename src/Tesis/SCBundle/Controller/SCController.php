@@ -10,6 +10,8 @@ use Tesis\SCBundle\Form\LoginType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+use Tesis\SCBundle\Utils\AutentificarAlfa;
+
 class SCController extends Controller
 {
 
@@ -40,21 +42,49 @@ class SCController extends Controller
             $form->handleRequest($request);
 
             if($form->isValid()){
-                //verifica si el correo esta registrado
+                // consulta si es un profesor
                 $repository = $this->getDoctrine()
-                ->getRepository('TesisAdminBundle:Usuario');
+                ->getRepository('TesisAdminBundle:Profesor');
 
-   				$user = $repository->findOneBy(array('correo' => $login->getCorreo(), 'clave' => $login->getClave()));
+                $nameLogin = $login->getNameLogin();
+                $clave = $login->getClave();
+
+   				$user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'clave' => $clave));
 
                 if(!$user){
 
+                    // consulta si es un estudiante
                      $repository = $this->getDoctrine()
                         ->getRepository('TesisAdminBundle:Estudiante');
 
-                        $user = $repository->findOneBy(array('correo' => $login->getCorreo(), 'clave' => $login->getClave()));
+                        $user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'clave' => $clave));
 
-                    if(!$user)  
-                        $form->get('correo')->addError(new FormError('Correo o contrasena invalida.'));
+
+                        /*
+                        validar si es una cuenta alfa valida
+                        si es valida lo lleva a completar el formulario
+                        sino sigue el transcurso normal
+                        */
+                        if (!$user) {
+                            $alfa = new AutentificarAlfa($nameLogin,$clave);
+                            $temp = $alfa->conectarse();
+
+                            if ($temp) {
+
+                                echo 
+                                    "<script>
+                                        window.location.href ='" .$this->generateUrl('student_new_alfa', array('nameLogin' => $nameLogin, 'clave' => $clave)) . "';
+                                    </script>";                       
+                            //    return $this->redirect($this->generateUrl('student_new_alfa', array('nameLogin' => $nameLogin, 'clave' => $clave)));
+                            }
+                        }else
+                            $temp=1; // para que no este null y cause error.
+ 
+
+
+                    if(!$user && !$temp){  
+                        $form->get('nameLogin')->addError(new FormError('usuario no valido.'));
+                    }    
                     else {
 
                         $session = $this->getRequest()->getSession();

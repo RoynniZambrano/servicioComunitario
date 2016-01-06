@@ -241,6 +241,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            // student_new_alfa
+            if (preg_match('#^/student/(?P<nameLogin>[^/]++)/(?P<clave>[^/]++)/useralfa_new$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'student_new_alfa')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\EstudianteController::new_alfaAction',));
+            }
+
+            // student_newform_alfa
+            if (preg_match('#^/student/(?P<nameLogin>[^/]++)/(?P<clave>[^/]++)/user_newalfa$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'student_newform_alfa')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\EstudianteController::newform_alfaAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/activities')) {
@@ -385,39 +395,39 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             if (0 === strpos($pathinfo, '/tutors/tutors_add')) {
                 // tutors_add
                 if ($pathinfo === '/tutors/tutors_add') {
-                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::addAction',  '_route' => 'tutors_add',);
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::addAction',  '_route' => 'tutors_add',);
                 }
 
                 // tutors_addform
                 if ($pathinfo === '/tutors/tutors_addform') {
-                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::addformAction',  '_route' => 'tutors_addform',);
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::addformAction',  '_route' => 'tutors_addform',);
                 }
 
             }
 
             // tutors_list
             if ($pathinfo === '/tutors/list') {
-                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::listAction',  '_route' => 'tutors_list',);
+                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::listAction',  '_route' => 'tutors_list',);
             }
 
             // tutors_check
             if (preg_match('#^/tutors/(?P<id>[^/]++)/check$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::checkAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::checkAction',));
             }
 
             // tutors_checkform
             if (preg_match('#^/tutors/(?P<id>[^/]++)/check_form$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::checkformAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::checkformAction',));
             }
 
             // tutors_edit
             if (preg_match('#^/tutors/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::editAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::editAction',));
             }
 
             // tutors_editform
             if (preg_match('#^/tutors/(?P<id>[^/]++)/editform$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::editformAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::editformAction',));
             }
 
         }
@@ -749,6 +759,91 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // homepage
             if ($pathinfo === '/app/example') {
                 return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/tutor')) {
+            if (0 === strpos($pathinfo, '/tutor/tutor_add')) {
+                // tutor_add
+                if ($pathinfo === '/tutor/tutor_add') {
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::addAction',  '_route' => 'tutor_add',);
+                }
+
+                // tutor_addform
+                if ($pathinfo === '/tutor/tutor_addform') {
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::addformAction',  '_route' => 'tutor_addform',);
+                }
+
+            }
+
+            // tutor_list
+            if ($pathinfo === '/tutor/list') {
+                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::listAction',  '_route' => 'tutor_list',);
+            }
+
+            // tutor_check
+            if (preg_match('#^/tutor/(?P<id>[^/]++)/check$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutor_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::checkAction',));
+            }
+
+            // tutor_checkform
+            if (preg_match('#^/tutor/(?P<id>[^/]++)/check_form$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutor_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::checkformAction',));
+            }
+
+            // tutor_edit
+            if (preg_match('#^/tutor/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutor_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::editAction',));
+            }
+
+            // tutor_editform
+            if (preg_match('#^/tutor/(?P<id>[^/]++)/editform$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutor_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoriaController::editformAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/laborsc')) {
+            if (0 === strpos($pathinfo, '/laborsc/l')) {
+                if (0 === strpos($pathinfo, '/laborsc/laborsc_add')) {
+                    // laborsc_add
+                    if ($pathinfo === '/laborsc/laborsc_add') {
+                        return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::addAction',  '_route' => 'laborsc_add',);
+                    }
+
+                    // laborsc_addform
+                    if ($pathinfo === '/laborsc/laborsc_addform') {
+                        return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::addformAction',  '_route' => 'laborsc_addform',);
+                    }
+
+                }
+
+                // laborsc_list
+                if ($pathinfo === '/laborsc/list') {
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::listAction',  '_route' => 'laborsc_list',);
+                }
+
+            }
+
+            // laborsc_check
+            if (preg_match('#^/laborsc/(?P<id>[^/]++)/check$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'laborsc_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::checkAction',));
+            }
+
+            // laborsc_checkform
+            if (preg_match('#^/laborsc/(?P<id>[^/]++)/check_form$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'laborsc_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::checkformAction',));
+            }
+
+            // laborsc_edit
+            if (preg_match('#^/laborsc/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'laborsc_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::editAction',));
+            }
+
+            // laborsc_editform
+            if (preg_match('#^/laborsc/(?P<id>[^/]++)/editform$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'laborsc_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::editformAction',));
             }
 
         }

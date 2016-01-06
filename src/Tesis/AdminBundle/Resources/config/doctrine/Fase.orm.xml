@@ -4,7 +4,7 @@
     <id name="idFase" type="integer" column="id_fase">
       <generator strategy="AUTO"/>
     </id>
-    <field name="nombre" type="string" column="nombre" length="500" nullable="true"/>
+    <field name="nombre" type="string" column="nombre" length="200" nullable="true"/>
     <field name="descripcion" type="string" column="descripcion" length="2000" nullable="true"/>
     <many-to-many field="proyectoProyecto" target-entity="Proyecto" mapped-by="faseFase"/>
     <many-to-many field="actividadActividad" target-entity="Actividad" inversed-by="faseFase">

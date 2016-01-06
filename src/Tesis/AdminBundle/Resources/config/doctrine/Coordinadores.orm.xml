@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Tesis\AdminBundle\Entity\Coordinadores" table="coordinadores">
+    <indexes>
+      <index name="fk_coordinadores_proyecto1_idx" columns="proyecto_id_proyecto"/>
+    </indexes>
+    <id name="idCoordinadores" type="integer" column="id_coordinadores">
+      <generator strategy="AUTO"/>
+    </id>
+    <many-to-one field="proyectoProyecto" target-entity="Proyecto">
+      <join-columns>
+        <join-column name="proyecto_id_proyecto" referenced-column-name="id_proyecto"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

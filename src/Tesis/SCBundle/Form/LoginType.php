@@ -9,8 +9,8 @@ class LoginType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('correo','text', array('label' => 'Correo',
-			'attr' => array('placeholder' => 'tucorreo@ejemplo.com')))
+        $builder->add('nameLogin','text', array('label' => 'Nombre de usuario',
+			'attr' => array('placeholder' => 'nombre de usuario. ejemplo: llopez')))
         ->add('clave','password', array('invalid_message' => 'La contrasena es invalida.',
             'label' => 'Cotrasena', 'attr' => array('placeholder' => 'Contrasena')));
     }

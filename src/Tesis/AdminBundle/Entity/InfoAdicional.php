@@ -3,152 +3,63 @@
 namespace Tesis\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * InfoAdicional
  *
- * @ORM\Table(name="info_adicional", indexes={@ORM\Index(name="id_estudiante_idx", columns={"id_estudiante"})})
+ * @ORM\Table(name="info_adicional", indexes={@ORM\Index(name="fk_info_adicional_estudiante1_idx", columns={"estudiante_id_estudiante"})})
  * @ORM\Entity
- * @UniqueEntity(fields="idEstudiante",  errorPath="resumen", message="Informacion Adicional ya esta registrado.") 
  */
 class InfoAdicional
 {
-
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="resumen", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca resumen.")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 8192,
-     *      minMessage = "el resumen debe tener mínimo {{ limit }} caracteres.",
-     *      maxMessage = "el resumen debe tener máximo {{ limit }} caracteres.")      
+     * @ORM\Column(name="resumen", type="string", length=2000, nullable=true)
      */
     private $resumen;
 
-
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="problema", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca problema.")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 8192,
-     *      minMessage = "el problema debe tener mínimo {{ limit }} caracteres.",
-     *      maxMessage = "el problema debe tener máximo {{ limit }} caracteres.")      
+     * @ORM\Column(name="problema", type="string", length=2000, nullable=true)
      */
     private $problema;
 
-  
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="justificacion", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca la justificación.")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 8192,
-     *      minMessage = "la justificación debe tener mínimo {{ limit }} caracteres.",
-     *      maxMessage = "la justificación debe tener máximo {{ limit }} caracteres.")       
+     * @ORM\Column(name="justificacion", type="string", length=2000, nullable=true)
      */
     private $justificacion;
 
-
-
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="objetivo_g", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca objetivo general.")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 8192,
-     *      minMessage = "el objetivo general debe tener mínimo {{ limit }} caracteres.",
-     *      maxMessage = "el objetivo general debe tener máximo {{ limit }} caracteres.")       
+     * @ORM\Column(name="objetivo", type="string", length=2000, nullable=true)
      */
-    private $objetivoG;
-
+    private $objetivo;
 
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="resultados", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca resultados.")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 8192,
-     *      minMessage = "resultados debe tener mínimo {{ limit }} caracteres.",
-     *      maxMessage = "resultados debe tener máximo {{ limit }} caracteres.")       
+     * @ORM\Column(name="resultados", type="string", length=2000, nullable=true)
      */
     private $resultados;
 
-
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="conclusion", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca conclusión.")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 8192,
-     *      minMessage = "conclusión debe tener mínimo {{ limit }} caracteres.",
-     *      maxMessage = "conclusión debe tener máximo {{ limit }} caracteres.")       
+     * @ORM\Column(name="conclusion", type="string", length=2000, nullable=true)
      */
     private $conclusion;
-
-
-     /**
-     * @var text
-     *
-     * @ORM\Column(name="objetivo_e", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca objetivos especificos.")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 8192,
-     *      minMessage = "objetivos especificos debe tener mínimo {{ limit }} caracteres.",
-     *      maxMessage = "objetivos especificos debe tener máximo {{ limit }} caracteres.")       
-     */
-    private $objetivoE;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="calificacion", type="string", length=100, nullable=true)
-     */
-    private $calificacion;
-
-
-     /**
-     * @var string
-     *
-     * @ORM\Column(name="observacion", type="string", length=3000, nullable=false)
-     * @Assert\Length(
-     *      max = 3000,
-     *      maxMessage = "observación debe tener máximo {{ limit }} caracteres.")       
-     */
-    private $observacion;
-
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha", type="date", nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca fecha.")
-     * @Assert\Date(message="Porfavor introduzca una fecha valida.")
-     */
-    private $fecha;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="id_info_adicional", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idInfoAdicional;
 
@@ -160,14 +71,14 @@ class InfoAdicional
      *   @ORM\JoinColumn(name="estudiante_id_estudiante", referencedColumnName="id_estudiante")
      * })
      */
-    private $idEstudiante;
+    private $estudianteEstudiante;
 
 
 
     /**
      * Set resumen
      *
-     * @param text $resumen
+     * @param string $resumen
      * @return InfoAdicional
      */
     public function setResumen($resumen)
@@ -180,7 +91,7 @@ class InfoAdicional
     /**
      * Get resumen
      *
-     * @return text 
+     * @return string 
      */
     public function getResumen()
     {
@@ -190,7 +101,7 @@ class InfoAdicional
     /**
      * Set problema
      *
-     * @param text $problema
+     * @param string $problema
      * @return InfoAdicional
      */
     public function setProblema($problema)
@@ -203,7 +114,7 @@ class InfoAdicional
     /**
      * Get problema
      *
-     * @return text 
+     * @return string 
      */
     public function getProblema()
     {
@@ -213,7 +124,7 @@ class InfoAdicional
     /**
      * Set justificacion
      *
-     * @param text $justificacion
+     * @param string $justificacion
      * @return InfoAdicional
      */
     public function setJustificacion($justificacion)
@@ -226,7 +137,7 @@ class InfoAdicional
     /**
      * Get justificacion
      *
-     * @return text 
+     * @return string 
      */
     public function getJustificacion()
     {
@@ -234,32 +145,32 @@ class InfoAdicional
     }
 
     /**
-     * Set objetivoG
+     * Set objetivo
      *
-     * @param text $objetivoG
+     * @param string $objetivo
      * @return InfoAdicional
      */
-    public function setObjetivoG($objetivoG)
+    public function setObjetivo($objetivo)
     {
-        $this->objetivoG = $objetivoG;
+        $this->objetivo = $objetivo;
 
         return $this;
     }
 
     /**
-     * Get objetivoG
+     * Get objetivo
      *
-     * @return text 
+     * @return string 
      */
-    public function getObjetivoG()
+    public function getObjetivo()
     {
-        return $this->objetivoG;
+        return $this->objetivo;
     }
 
     /**
      * Set resultados
      *
-     * @param text $resultados
+     * @param string $resultados
      * @return InfoAdicional
      */
     public function setResultados($resultados)
@@ -272,7 +183,7 @@ class InfoAdicional
     /**
      * Get resultados
      *
-     * @return text 
+     * @return string 
      */
     public function getResultados()
     {
@@ -282,7 +193,7 @@ class InfoAdicional
     /**
      * Set conclusion
      *
-     * @param text $conclusion
+     * @param string $conclusion
      * @return InfoAdicional
      */
     public function setConclusion($conclusion)
@@ -295,103 +206,11 @@ class InfoAdicional
     /**
      * Get conclusion
      *
-     * @return text 
+     * @return string 
      */
     public function getConclusion()
     {
         return $this->conclusion;
-    }
-
-    /**
-     * Set objetivoE
-     *
-     * @param text $objetivoE
-     * @return InfoAdicional
-     */
-    public function setObjetivoE($objetivoE)
-    {
-        $this->objetivoE = $objetivoE;
-
-        return $this;
-    }
-
-    /**
-     * Get objetivoE
-     *
-     * @return text 
-     */
-    public function getObjetivoE()
-    {
-        return $this->objetivoE;
-    }
-
-    /**
-     * Set calificacion
-     *
-     * @param string $calificacion
-     * @return InfoAdicional
-     */
-    public function setCalificacion($calificacion)
-    {
-        $this->calificacion = $calificacion;
-
-        return $this;
-    }
-
-    /**
-     * Get calificacion
-     *
-     * @return string 
-     */
-    public function getCalificacion()
-    {
-        return $this->calificacion;
-    }
-
-    /**
-     * Set observacion
-     *
-     * @param string $observacion
-     * @return InfoAdicional
-     */
-    public function setObservacion($observacion)
-    {
-        $this->observacion = $observacion;
-
-        return $this;
-    }
-
-    /**
-     * Get observacion
-     *
-     * @return string 
-     */
-    public function getObservacion()
-    {
-        return $this->observacion;
-    }
-
-    /**
-     * Set fecha
-     *
-     * @param \DateTime  $fecha
-     * @return InfoAdicional
-     */
-    public function setFecha($fecha)
-    {
-        $this->fecha = $fecha;
-
-        return $this;
-    }
-
-    /**
-     * Get fecha
-     *
-     * @return \DateTime  
-     */
-    public function getFecha()
-    {
-        return $this->fecha;
     }
 
     /**
@@ -404,28 +223,26 @@ class InfoAdicional
         return $this->idInfoAdicional;
     }
 
-
     /**
-     * Set idEstudiante
+     * Set estudianteEstudiante
      *
-     * @param \Tesis\AdminBundle\Entity\Estudiante $idEstudiante
+     * @param \Tesis\AdminBundle\Entity\Estudiante $estudianteEstudiante
      * @return InfoAdicional
      */
-    public function setIdEstudiante(\Tesis\AdminBundle\Entity\Estudiante $idEstudiante = null)
+    public function setEstudianteEstudiante(\Tesis\AdminBundle\Entity\Estudiante $estudianteEstudiante = null)
     {
-        $this->idEstudiante = $idEstudiante;
+        $this->estudianteEstudiante = $estudianteEstudiante;
 
         return $this;
     }
 
     /**
-     * Get idEstudiante
+     * Get estudianteEstudiante
      *
      * @return \Tesis\AdminBundle\Entity\Estudiante 
      */
-    public function getIdEstudiante()
+    public function getEstudianteEstudiante()
     {
-        return $this->idEstudiante;
+        return $this->estudianteEstudiante;
     }
-
 }

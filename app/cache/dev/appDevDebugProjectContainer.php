@@ -669,7 +669,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_46b86b079ad14339b4832fdc99a9e20b4175eb430ca1edee0ebba19acbdb8622');
+        $instance->setNamespace('sf2orm_default_7a791e339a82e1356173dec5144d44ac8f4de97174371adc78931f1586b42755');
 
         return $instance;
     }
@@ -686,7 +686,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_46b86b079ad14339b4832fdc99a9e20b4175eb430ca1edee0ebba19acbdb8622');
+        $instance->setNamespace('sf2orm_default_7a791e339a82e1356173dec5144d44ac8f4de97174371adc78931f1586b42755');
 
         return $instance;
     }
@@ -703,7 +703,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_46b86b079ad14339b4832fdc99a9e20b4175eb430ca1edee0ebba19acbdb8622');
+        $instance->setNamespace('sf2orm_default_7a791e339a82e1356173dec5144d44ac8f4de97174371adc78931f1586b42755');
 
         return $instance;
     }
@@ -1476,7 +1476,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getKnpSnappy_PdfService()
     {
-        return $this->services['knp_snappy.pdf'] = new \Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator(new \Knp\Snappy\Pdf(($this->targetDirs[3].'/pdf/wkhtmltopdf'), array(), array()), $this->get('monolog.logger.snappy', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['knp_snappy.pdf'] = new \Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator(new \Knp\Snappy\Pdf(($this->targetDirs[4].'/ServicioComunitario/pdf/wkhtmltopdf'), array(), array()), $this->get('monolog.logger.snappy', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -4151,7 +4151,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'knp_snappy.pdf.internal_generator.class' => 'Knp\\Snappy\\Pdf',
             'knp_snappy.pdf.class' => 'Knp\\Bundle\\SnappyBundle\\Snappy\\LoggableGenerator',
-            'knp_snappy.pdf.binary' => ($this->targetDirs[3].'/pdf/wkhtmltopdf'),
+            'knp_snappy.pdf.binary' => ($this->targetDirs[4].'/ServicioComunitario/pdf/wkhtmltopdf'),
             'knp_snappy.pdf.options' => array(
 
             ),

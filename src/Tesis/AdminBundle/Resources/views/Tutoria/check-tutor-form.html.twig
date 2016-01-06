@@ -1,0 +1,40 @@
+
+{{ form_start(form, {'attr': {novalidate: 'novalidate'}}) }}
+	{% form_theme form 'TesisAdminBundle:Form:fields.html.twig' %}
+<div class="container-fluid">
+<div class="container-content">	
+	
+	<div class="row field-c"> 
+		<div class="form-group">
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2 col-lg-4 	col-lg-offset-2">
+				{{ form_row(form.profesorProfesor) }} 
+			</div>
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 	col-lg-offset-0">
+				{{ form_row(form.estudianteEstudiante) }}
+			</div>
+		</div>	
+	</div>	
+
+	<div class="row field-c"> 
+		<div class="form-group">
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
+			{{ form_row(form.periodo) }}
+			</div>
+		</div>	
+	</div>
+
+	<br><br>
+    <div clas="row">
+      <div class="col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-4 col-lg-3   col-lg-offset-2" align="center" style="margin-bottom: 2%;">
+         {{ form_row(form.edit, {'attr': {'class': 'btn btn-success btn-lg'}} ) }} 
+      </div>  
+      <div class="col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-3   col-lg-offset-0"align="center" style="margin-bottom: 2%;">
+         {{ form_row(form.back, {'attr': {'class': 'btn btn-success btn-lg'}} ) }} 
+      </di>     
+    </div>
+
+</div>
+</div>	
+
+{{ form_rest(form) }}
+{{ form_end(form) }}

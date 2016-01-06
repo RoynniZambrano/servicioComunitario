@@ -28,15 +28,15 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
         echo "<div class=\"container-fluid\">
 <div class=\"container-content\">\t
 
+\t
 \t<div class=\"row field-c\"> 
 \t\t<div class=\"form-group\">
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
 \t\t\t\t";
-        // line 10
+        // line 11
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombre", array()), 'row');
         echo " 
 \t\t\t</div>
-\t\t\t
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
 \t\t\t\t";
         // line 14
@@ -50,14 +50,13 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
 \t\t\t\t";
         // line 21
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "cedula", array()), 'row');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "correo", array()), 'row');
         echo " 
 \t\t\t</div>
-\t\t\t
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
 \t\t\t\t";
-        // line 25
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "correo", array()), 'row');
+        // line 24
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nameLogin", array()), 'row');
         echo "
 \t\t\t</div>
 \t\t</div>\t
@@ -66,13 +65,13 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 \t\t<div class=\"form-group\">
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
 \t\t\t\t";
-        // line 32
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "rol", array()), 'row');
+        // line 31
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "cedula", array()), 'row');
         echo " 
 \t\t\t</div>\t
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
 \t\t\t\t";
-        // line 35
+        // line 34
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "genero", array()), 'row');
         echo "
 \t\t\t</div>
@@ -82,30 +81,46 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 \t\t<div class=\"form-group\">
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
 \t\t\t\t";
-        // line 42
+        // line 41
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "departamento", array()), 'row');
         echo " 
 \t\t\t</div>
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
 \t\t\t\t";
-        // line 45
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "periodo", array()), 'row');
+        // line 44
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "perfil", array()), 'row');
         echo "
 \t\t\t</div>
 \t\t</div>\t
-\t</div>\t\t
+\t</div>
+\t<div class=\"row field-c\"> 
+\t\t<div class=\"form-group\">
+\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
+\t\t\t\t";
+        // line 51
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telefono", array()), 'row');
+        echo " 
+\t\t\t</div>
+\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
+\t\t\t\t";
+        // line 54
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "estatus", array()), 'row');
+        echo "
+\t\t\t</div>
+\t\t</div>\t
+\t</div>\t
 
 \t\t<br><br>
 \t<div class=\"row\">
 \t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-4 col-lg-3 \tcol-lg-offset-2\" align=\"center\" style=\"margin-bottom: 2%;\">
 \t\t\t ";
-        // line 53
+        // line 62
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "edit", array()), 'row', array("attr" => array("class" => "btn btn-success btn-lg")));
         echo " 
 \t\t</div>\t
 \t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\"align=\"center\" style=\"margin-bottom: 2%;\">
 \t\t\t ";
-        // line 56
+        // line 65
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "back", array()), 'row', array("attr" => array("class" => "btn btn-success btn-lg")));
         echo " 
 \t\t</div>\t
@@ -115,7 +130,7 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 </div>\t
 
 ";
-        // line 63
+        // line 72
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 ";
@@ -133,7 +148,7 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 
     public function getDebugInfo()
     {
-        return array (  119 => 63,  109 => 56,  103 => 53,  92 => 45,  86 => 42,  76 => 35,  70 => 32,  60 => 25,  53 => 21,  43 => 14,  36 => 10,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
+        return array (  134 => 72,  124 => 65,  118 => 62,  107 => 54,  101 => 51,  91 => 44,  85 => 41,  75 => 34,  69 => 31,  59 => 24,  53 => 21,  43 => 14,  37 => 11,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
     }
 }
 /* */
@@ -142,12 +157,12 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 /* <div class="container-fluid">*/
 /* <div class="container-content">	*/
 /* */
+/* 	*/
 /* 	<div class="row field-c"> */
 /* 		<div class="form-group">*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
 /* 				{{ form_row(form.nombre) }} */
 /* 			</div>*/
-/* 			*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
 /* 				{{ form_row(form.apellido) }}*/
 /* 			</div>*/
@@ -156,18 +171,17 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 /* 	<div class="row field-c"> */
 /* 		<div class="form-group">*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
-/* 				{{ form_row(form.cedula) }} */
+/* 				{{ form_row(form.correo) }} */
 /* 			</div>*/
-/* 			*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
-/* 				{{ form_row(form.correo) }}*/
+/* 				{{ form_row(form.nameLogin) }}*/
 /* 			</div>*/
 /* 		</div>	*/
 /* 	</div>*/
 /* 	<div class="row field-c"> */
 /* 		<div class="form-group">*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
-/* 				{{ form_row(form.rol) }} */
+/* 				{{ form_row(form.cedula) }} */
 /* 			</div>	*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
 /* 				{{ form_row(form.genero) }}*/
@@ -180,10 +194,20 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 /* 				{{ form_row(form.departamento) }} */
 /* 			</div>*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
-/* 				{{ form_row(form.periodo) }}*/
+/* 				{{ form_row(form.perfil) }}*/
 /* 			</div>*/
 /* 		</div>	*/
-/* 	</div>		*/
+/* 	</div>*/
+/* 	<div class="row field-c"> */
+/* 		<div class="form-group">*/
+/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
+/* 				{{ form_row(form.telefono) }} */
+/* 			</div>*/
+/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
+/* 				{{ form_row(form.estatus) }}*/
+/* 			</div>*/
+/* 		</div>	*/
+/* 	</div>	*/
 /* */
 /* 		<br><br>*/
 /* 	<div class="row">*/

@@ -1,3 +1,5 @@
+  {% if (user != null) %} 
+
      <header class="main-header">
         <a href="{{ path('tesis_admin_homepage') }}" class="logo"><b>SistemaSC</b></a>
         <!-- Header Navbar: style can be found in header.less -->
@@ -16,7 +18,7 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                {% if (user.rol == 'estudiante') %}
+                {% if (user.perfil == 'estudiante') %}
 
                   {% if (user.genero == 'male') %}
                   <img src="{{ asset('img/student.png') }}" class="user-image" alt="User Image"/>
@@ -41,7 +43,7 @@
                   <!-- User image -->
                   <li class="user-header">
 
-                  {% if (user.rol == 'estudiante') %}
+                  {% if (user.perfil == 'estudiante') %}
 
                     {% if (user.genero == 'male') %}
                     <img src="{{ asset('img/student.png') }}" class="img-circle" alt="User Image"/>
@@ -60,7 +62,7 @@
                   {% endif %}
 
                     <p>
-                      {{user.rol}} <br> {{user.correo}}
+                      {{user.perfil}} <br> {{user.nameLogin}}
                     </p>
                   </li>
                   <!-- Menu Footer-->
@@ -78,3 +80,26 @@
           </div>
         </nav>
       </header>
+
+  {% else %}
+  
+     <header class="main-header">
+        <a href="{{ path('tesis_admin_homepage') }}" class="logo"><b>SistemaSC</b></a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+
+  {% endif %}

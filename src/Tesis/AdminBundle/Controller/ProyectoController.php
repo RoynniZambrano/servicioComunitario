@@ -49,7 +49,15 @@ class ProyectoController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return new Response('.'); 
+               // return new Response('.');
+                echo 
+                "<script>
+                    bootbox.alert('El proyecto ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('project_check', array('id' => $entity->getIdProyecto())) . "';
+                        }, 2000);
+                </script>";
+
             }
 
              return $this->render('TesisAdminBundle:Proyecto:new-project-form.html.twig',
@@ -87,13 +95,7 @@ class ProyectoController extends Controller{
 
         $session = $this->getRequest()->getSession();
         if($session->has('user')){
-            $options['user'] = $session->get('user');
-
-            //$em = $this->getDoctrine()->getManager();
-            //$selected = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
-            //array('idProyecto' => $id));
-            //$options['id'] = $selected->getIdProyecto();
-            
+            $options['user'] = $session->get('user');          
             $options['id'] = $id; 
             return $this->render('TesisAdminBundle:Proyecto:check-project.html.twig',$options);
         
@@ -143,12 +145,6 @@ class ProyectoController extends Controller{
 
         if($session->has('user')){
             $options['user'] = $session->get('user');
-
-            //$em = $this->getDoctrine()->getManager();
-            //$selected = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
-            //array('idProyecto' => $id));
-            //$options['id'] = $selected->getIdProyecto();
-
             $options['id'] = $id; 
             return $this->render('TesisAdminBundle:Proyecto:edit-project.html.twig',$options);
 
@@ -178,7 +174,16 @@ class ProyectoController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return $this->redirect($this->generateUrl('project_checkform', array('id' => $id)));                    
+
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('project_check', array('id' => $entity->getIdProyecto())) . "';
+                        }, 2000);
+                </script>";
+
+                //return $this->redirect($this->generateUrl('project_checkform', array('id' => $id)));                    
 
             }
                 $user = $session->get('user');

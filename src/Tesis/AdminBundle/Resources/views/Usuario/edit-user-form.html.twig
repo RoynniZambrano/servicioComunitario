@@ -19,18 +19,18 @@
 	<div class="row field-c"> 
 		<div class="form-group">
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
-				{{ form_row(edit_form.cedula) }} 
+				{{ form_row(edit_form.correo) }} 
 			</div>
 			
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
-				{{ form_row(edit_form.correo) }}
+				{{ form_row(edit_form.nameLogin) }}
 			</div>
 		</div>	
 	</div>
 	<div class="row field-c"> 
 		<div class="form-group">
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
-				{{ form_row(edit_form.rol) }} 
+				{{ form_row(edit_form.cedula) }} 
 			</div>	
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
 				{{ form_row(edit_form.genero) }}
@@ -43,10 +43,20 @@
 				{{ form_row(edit_form.departamento) }} 
 			</div>
 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
-				{{ form_row(edit_form.periodo) }}
+				{{ form_row(edit_form.perfil) }}
 			</div>
 		</div>	
 	</div>	
+	<div class="row field-c"> 
+		<div class="form-group">
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">
+				{{ form_row(edit_form.telefono) }} 
+			</div>
+	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">
+				{{ form_row(edit_form.estatus) }}
+			</div>
+		</div>	
+	</div>		
 
 	<div class="row field-c">
 		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 	col-lg-offset-2">
@@ -57,7 +67,7 @@
 	<br><br>
 	<div class="row">	
 
-		{% if (user.rol == 'coordinador de servicio comunitario') and (same == 'false') %}
+		{% if (user.perfil == 'coordinador de servicio comunitario') and (same == 'false') %}
 			<div class="col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-2 col-md-2 col-md-offset-3 col-lg-2 	col-lg-offset-2" id="editar-usuario-boton" align="center" style="margin-bottom: 2%;">
 				<button class="btn btn-success btn-lg"> Actualizar</button> 
 			</div>

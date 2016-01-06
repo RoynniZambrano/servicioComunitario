@@ -16,140 +16,212 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "      <!-- Left side column. contains the sidebar -->
+        echo "  ";
+        if (((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")) != null)) {
+            echo "  
+      <!-- Left side column. contains the sidebar -->
       <aside class=\"main-sidebar\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
           <ul class=\"sidebar-menu\">
             <li class=\"header\">PANEL DE NAVEGACIÓN PRINCIPAL</li>
 
+    <!-- ADMINISTRAR MI PERFIL -->
             <li class=\"treeview\">
               <a>
-                <i class=\"fa fa-user-plus\"></i> <span>Gestión de Usuarios</span> <i class=\"fa fa-angle-left pull-right\"></i>
+                <i class=\"fa fa-male\"></i> <span>Administrar mi perfil</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
               <ul class=\"treeview-menu\">
 
                 <li><a href=\"";
-        // line 14
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_check", array("cedula" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cedula", array()))), "html", null, true);
-        echo "\"><i class=\"fa fa-circle-o text-info\"></i> Consultar Perfil</a></li>                      
+            // line 16
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_check", array("cedula" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cedula", array()))), "html", null, true);
+            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Consultar perfil</a></li>                      
 
                 <li><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_edit", array("cedula" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cedula", array()))), "html", null, true);
-        echo "\"><i class=\"fa fa-circle-o text-info\"></i> Editar Perfil</a></li>   
-
-
-              ";
-        // line 19
-        if (((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador de proyecto") || ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador de servicio comunitario")) || ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador suplente"))) {
-            // line 20
-            echo "                <li><a href=\"";
-            echo $this->env->getExtension('routing')->getPath("user_new");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Crear Tutor/Coordinador</a></li> 
-                <li><a href=\"";
-            // line 21
-            echo $this->env->getExtension('routing')->getPath("student_new");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Crear Estudiante</a></li>                                                                   
-                <li><a href=\"";
-            // line 22
-            echo $this->env->getExtension('routing')->getPath("user_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Listar Usuarios</a></li> 
-                ";
-        }
-        // line 24
-        echo "              </ul>
+            // line 18
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_edit", array("cedula" => $this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "cedula", array()))), "html", null, true);
+            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Editar perfil</a></li>   
+              </ul>
             </li>
 
-
+    <!-- GESTIONAR USUARIOS -->
             ";
-        // line 28
-        if (((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador de proyecto") || ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador de servicio comunitario")) || ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador suplente"))) {
-            // line 29
-            echo "            <li class=\"treeview\">
+            // line 23
+            if ((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "coordinador de servicio comunitario") && ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "estatus", array()) == "activo"))) {
+                // line 24
+                echo "              <li class=\"treeview\">
+                <a>
+                  <i class=\"fa fa-user-plus\"></i> <span>Gestionar usuarios</span> <i class=\"fa fa-angle-left pull-right\"></i>
+                </a>
+                <ul class=\"treeview-menu\">
+                  <li><a href=\"";
+                // line 29
+                echo $this->env->getExtension('routing')->getPath("user_new");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Crear profesor</a></li> 
+                  <li><a href=\"";
+                // line 30
+                echo $this->env->getExtension('routing')->getPath("student_new");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Crear estudiante</a></li>                                                                   
+                  <li><a href=\"";
+                // line 31
+                echo $this->env->getExtension('routing')->getPath("user_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Listar usuarios</a></li> 
+                </ul>
+              </li>
+
+          ";
+            }
+            // line 36
+            echo "
+    <!-- GESTIONAR PROYECTOS -->
+          ";
+            // line 38
+            if ((((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "coordinador de proyecto") && ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "estatus", array()) == "activo")) || (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "coordinador de servicio comunitario") && ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "estatus", array()) == "activo"))) || (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "coordinador suplente") && ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "estatus", array()) == "activo")))) {
+                // line 39
+                echo "
+            <li class=\"treeview\">
               <a >
-                <i class=\"fa fa-files-o\"></i> <span>Gestión de Proyectos</span> <i class=\"fa fa-angle-left pull-right\"></i>
+                <i class=\"fa fa-files-o\"></i> <span>Gestionar proyectos</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
               <ul class=\"treeview-menu\">
 
-                <li><a ><i class=\"fa fa-circle-o text-info\"></i> Proyecto 
+                <li><a ><i class=\"fa fa-circle-o text-info\"></i> Proyectos 
                       <i class=\"fa fa-angle-left pull-right\"></i> </a>
                   <ul class=\"treeview-menu\">
                     <li>
                     <a href=\"";
-            // line 39
-            echo $this->env->getExtension('routing')->getPath("project_new");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Proyecto</a></li>
+                // line 50
+                echo $this->env->getExtension('routing')->getPath("project_new");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear proyecto</a></li>
                     <li>
                       <a href=\"";
-            // line 41
-            echo $this->env->getExtension('routing')->getPath("project_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Proyecto</a>
+                // line 52
+                echo $this->env->getExtension('routing')->getPath("project_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar proyectos</a>
                     </li> 
                   </ul>
                 </li> 
-                <li><a ><i class=\"fa fa-circle-o text-info\"></i> Fase 
+                <li><a ><i class=\"fa fa-circle-o text-info\"></i> Fases 
                       <i class=\"fa fa-angle-left pull-right\"></i> </a>
                   <ul class=\"treeview-menu\">
                     <li>
                     <a href=\"";
-            // line 49
-            echo $this->env->getExtension('routing')->getPath("fase_new");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Fase</a></li>
+                // line 60
+                echo $this->env->getExtension('routing')->getPath("fase_new");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear fase</a></li>
                     <li>
                       <a href=\"";
-            // line 51
-            echo $this->env->getExtension('routing')->getPath("fase_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Fase</a>
+                // line 62
+                echo $this->env->getExtension('routing')->getPath("fase_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar fases</a>
                     </li>                                        
                   </ul>
                 </li>                
-               <li><a><i class=\"fa fa-circle-o text-info\"></i> Actividad 
+               <li><a><i class=\"fa fa-circle-o text-info\"></i> Actividades 
                       <i class=\"fa fa-angle-left pull-right\"></i> </a>
                   <ul class=\"treeview-menu\">
                     <li>
                     <a href=\"";
-            // line 59
-            echo $this->env->getExtension('routing')->getPath("activities_new");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Actividad</a></li>
+                // line 70
+                echo $this->env->getExtension('routing')->getPath("activities_new");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear actividad</a></li>
                     <li>
                       <a href=\"";
-            // line 61
-            echo $this->env->getExtension('routing')->getPath("activities_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Actividad</a>
+                // line 72
+                echo $this->env->getExtension('routing')->getPath("activities_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar actividades</a>
                     </li>                                        
                   </ul>
                 </li>                                                 
               </ul>
-            </li>            
+            </li>   
+
+   
+
+    <!-- GESTIONAR ASIGNACIONES-->      
             <li class=\"treeview\">
               <a >
-                <i class=\"fa fa-pencil-square-o\"></i> <span>Gestión de Tutores</span> <i class=\"fa fa-angle-left pull-right\"></i>  
+                <i class=\"fa fa-pencil-square-o\"></i> <span>Gestionar asignaciones</span> <i class=\"fa fa-angle-left pull-right\"></i>  
               </a>
               <ul class=\"treeview-menu\">
-                <li><a href=\"";
-            // line 72
-            echo $this->env->getExtension('routing')->getPath("tutors_add");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Asignar Tutores</a>
+                <li><a><i class=\"fa fa-circle-o text-info\"></i> Tutores a proyectos <i class=\"fa fa-angle-left pull-right\"></i> </a>
+                  <ul class=\"treeview-menu\">
+                    <li>
+                    <a href=\"";
+                // line 90
+                echo $this->env->getExtension('routing')->getPath("tutors_add");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear asignación</a>
+                    </li>
+                    <li>
+                      <a href=\"";
+                // line 93
+                echo $this->env->getExtension('routing')->getPath("tutors_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                    </li>                   
+                  </ul>
                 </li>
-                <li>
-                  <a href=\"";
-            // line 75
-            echo $this->env->getExtension('routing')->getPath("tutors_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Asignaciones</a>
-                </li>                           
-              </ul>
-            </li>
-            ";
-        }
-        // line 80
-        echo "
+                <li><a><i class=\"fa fa-circle-o text-info\"></i> Tutores a estudiantes <i class=\"fa fa-angle-left pull-right\"></i> </a>
+                  <ul class=\"treeview-menu\">
+                    <li>
+                    <a href=\"";
+                // line 100
+                echo $this->env->getExtension('routing')->getPath("tutor_add");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear asignación</a>
+                    </li>
+                    <li>
+                      <a href=\"";
+                // line 103
+                echo $this->env->getExtension('routing')->getPath("tutor_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                    </li>                   
+                  </ul>
+                </li>
+                <li><a><i class=\"fa fa-circle-o text-info\"></i> Estudiantes a proyectos <i class=\"fa fa-angle-left pull-right\"></i> </a>
+                  <ul class=\"treeview-menu\">
+                    <li>
+                    <a href=\"";
+                // line 110
+                echo $this->env->getExtension('routing')->getPath("laborsc_add");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear asignación</a>
+                    </li>
+                    <li>
+                      <a href=\"";
+                // line 113
+                echo $this->env->getExtension('routing')->getPath("laborsc_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                    </li>                   
+                  </ul>
+                </li>
+                <li><a><i class=\"fa fa-circle-o text-info\"></i> Coordinadores a proyectos <i class=\"fa fa-angle-left pull-right\"></i> </a>
+                  <ul class=\"treeview-menu\">
+                    <li>
+                    <a href=\"";
+                // line 120
+                echo $this->env->getExtension('routing')->getPath("cronograma_new");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear asignación</a>
+                    </li>
+                    <li>
+                      <a href=\"";
+                // line 123
+                echo $this->env->getExtension('routing')->getPath("cronograma_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                    </li>                   
+                  </ul>
+                </li>                                                  
+              </ul>  
+            </li>                   
+          ";
+            }
+            // line 130
+            echo "
 
+    <!-- GESTIONAR PRODUCTOS -->  
             ";
-        // line 82
-        if ((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "estudiante") || ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador de servicio comunitario"))) {
-            // line 83
-            echo "            <li class=\"treeview\">
+            // line 133
+            if ((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante") && ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "estatus", array()) == "activo"))) {
+                // line 134
+                echo "            <li class=\"treeview\">
               <a >
                 <i class=\"fa fa-th\"></i> <span>Gestión de Productos</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
@@ -157,104 +229,104 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                 <li><a><i class=\"fa fa-circle-o text-info\"></i> Cronogramas <i class=\"fa fa-angle-left pull-right\"></i> </a>
                   <ul class=\"treeview-menu\">
                   ";
-            // line 90
-            if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "estudiante")) {
-                // line 91
-                echo "                    <li>
+                // line 141
+                if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+                    // line 142
+                    echo "                    <li>
                     <a href=\"";
-                // line 92
-                echo $this->env->getExtension('routing')->getPath("cronograma_new");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Cronograma</a>
+                    // line 143
+                    echo $this->env->getExtension('routing')->getPath("cronograma_new");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Cronograma</a>
                     </li>
                     <li>
                       <a href=\"";
-                // line 95
-                echo $this->env->getExtension('routing')->getPath("cronograma_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Cronogramas</a>
+                    // line 146
+                    echo $this->env->getExtension('routing')->getPath("cronograma_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Cronogramas</a>
                     </li> 
                   ";
-            } else {
-                // line 97
-                echo "  
+                } else {
+                    // line 148
+                    echo "  
                     <li>
                       <a href=\"";
-                // line 99
-                echo $this->env->getExtension('routing')->getPath("cronograma_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Cronogramas</a>
+                    // line 150
+                    echo $this->env->getExtension('routing')->getPath("cronograma_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Cronogramas</a>
                     </li> 
                   ";
-            }
-            // line 101
-            echo "                   
+                }
+                // line 152
+                echo "                   
                   </ul>
                 </li>
                 <li><a><i class=\"fa fa-circle-o text-info\"></i> Diarios de Campo <i class=\"fa fa-angle-left pull-right\"></i> </a>
                   <ul class=\"treeview-menu\">
                     ";
-            // line 106
-            if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "estudiante")) {
-                // line 107
-                echo "                    <li>
+                // line 157
+                if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+                    // line 158
+                    echo "                    <li>
                     <a href=\"";
-                // line 108
-                echo $this->env->getExtension('routing')->getPath("diario_new");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Diario</a>
+                    // line 159
+                    echo $this->env->getExtension('routing')->getPath("diario_new");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Diario</a>
                   </li>
                   <li>
                       <a href=\"";
-                // line 111
-                echo $this->env->getExtension('routing')->getPath("diario_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Diarios</a>
+                    // line 162
+                    echo $this->env->getExtension('routing')->getPath("diario_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Diarios</a>
                   </li>                  
                   ";
-            }
-            // line 113
-            echo "  
+                }
+                // line 164
+                echo "  
                     ";
-            // line 114
-            if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) != "estudiante")) {
-                // line 115
-                echo "                    <li>
+                // line 165
+                if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) != "estudiante")) {
+                    // line 166
+                    echo "                    <li>
                       <a href=\"";
-                // line 116
-                echo $this->env->getExtension('routing')->getPath("diario_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Listar Diarios</a>
+                    // line 167
+                    echo $this->env->getExtension('routing')->getPath("diario_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i> Listar Diarios</a>
                     </li>
                     ";
-            }
-            // line 119
-            echo "                    <li> <a> <i class=\"fa fa-circle-o text-info\"></i> Act. Adicionales <i class=\"fa fa-angle-left pull-right\"></i> </a>
+                }
+                // line 170
+                echo "                    <li> <a> <i class=\"fa fa-circle-o text-info\"></i> Act. Adicionales <i class=\"fa fa-angle-left pull-right\"></i> </a>
                       <ul class=\"treeview-menu\">
                         ";
-            // line 121
-            if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "estudiante")) {
-                // line 122
-                echo "                        <li>
+                // line 172
+                if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+                    // line 173
+                    echo "                        <li>
                         <a href=\"";
-                // line 123
-                echo $this->env->getExtension('routing')->getPath("resultados_new");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Actividad</a>
+                    // line 174
+                    echo $this->env->getExtension('routing')->getPath("resultados_new");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Actividad</a>
                         </li>
                         <li>
                           <a href=\"";
-                // line 126
-                echo $this->env->getExtension('routing')->getPath("resultados_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Actividad</a>
+                    // line 177
+                    echo $this->env->getExtension('routing')->getPath("resultados_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Actividad</a>
                         </li>
                         ";
-            } else {
-                // line 128
-                echo " 
+                } else {
+                    // line 179
+                    echo " 
                         <li>
                           <a href=\"";
-                // line 130
-                echo $this->env->getExtension('routing')->getPath("resultados_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Actividad</a>
+                    // line 181
+                    echo $this->env->getExtension('routing')->getPath("resultados_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Actividad</a>
                         </li> 
                         ";
-            }
-            // line 132
-            echo "                                       
+                }
+                // line 183
+                echo "                                       
                       </ul>
                     </li>               
                   </ul>
@@ -263,83 +335,84 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                 <li><a><i class=\"fa fa-circle-o text-info\"></i> Información Adicional <i class=\"fa fa-angle-left pull-right\"></i></a>
                   <ul class=\"treeview-menu\">
                     ";
-            // line 140
-            if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "estudiante")) {
-                // line 141
-                echo "                    <li>
+                // line 191
+                if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+                    // line 192
+                    echo "                    <li>
                     <a href=\"";
-                // line 142
-                echo $this->env->getExtension('routing')->getPath("infoAdicional_new");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Info Adicional</a>
+                    // line 193
+                    echo $this->env->getExtension('routing')->getPath("infoAdicional_new");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Info Adicional</a>
                    </li>
                    <li>
                       <a  href=\"";
-                // line 145
-                echo $this->env->getExtension('routing')->getPath("infoAdicional_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Info Adicional</a>
+                    // line 196
+                    echo $this->env->getExtension('routing')->getPath("infoAdicional_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Info Adicional</a>
                     </li>
                   ";
-            } else {
-                // line 147
-                echo "  
+                } else {
+                    // line 198
+                    echo "  
                     <li>
                       <a href=\"";
-                // line 149
-                echo $this->env->getExtension('routing')->getPath("infoAdicional_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Información Adicional</a>
+                    // line 200
+                    echo $this->env->getExtension('routing')->getPath("infoAdicional_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Información Adicional</a>
                     </li>
                     ";
-            }
-            // line 151
-            echo "                   
+                }
+                // line 202
+                echo "                   
                   </ul>
                 </li>   
                 <li><a ><i class=\"fa fa-circle-o text-info\"></i> Informe Final <i class=\"fa fa-angle-left pull-right\"></i></a>
                   <ul class=\"treeview-menu\">
                   ";
-            // line 156
-            if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "estudiante")) {
-                // line 157
-                echo "                    <li>
+                // line 207
+                if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+                    // line 208
+                    echo "                    <li>
                     <a  href=\"";
-                // line 158
-                echo $this->env->getExtension('routing')->getPath("infofinal");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Visualizar Informe Final</a>
+                    // line 209
+                    echo $this->env->getExtension('routing')->getPath("infofinal");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Visualizar Informe Final</a>
                   </li>  
                     <li>
                       <a href=\"";
-                // line 161
-                echo $this->env->getExtension('routing')->getPath("infofinal_check", array("id" => 0));
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Evaluación Informe Final</a>
+                    // line 212
+                    echo $this->env->getExtension('routing')->getPath("infofinal_check", array("id" => 0));
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Evaluación Informe Final</a>
                     </li>
                   ";
-            } else {
-                // line 164
-                echo "                    <li>
+                } else {
+                    // line 215
+                    echo "                    <li>
                       <a href=\"";
-                // line 165
-                echo $this->env->getExtension('routing')->getPath("infofinal_list");
-                echo "\"><i class=\"fa fa-circle-o text-info\">
+                    // line 216
+                    echo $this->env->getExtension('routing')->getPath("infofinal_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\">
                       </i>Evaluación Informe Final</a>
                     </li>
                   ";
-            }
-            // line 168
-            echo "                                           
+                }
+                // line 219
+                echo "                                           
                   </ul>
                 </li>     
               </ul>
             </li>
             ";
-        }
-        // line 174
-        echo "
+            }
+            // line 225
+            echo "
 
+    <!-- EVALUACIÓN DE PRODUCTOS -->
             ";
-        // line 176
-        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) != "estudiante")) {
-            // line 177
-            echo "            <li class=\"treeview\">
+            // line 228
+            if ((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) != "estudiante") && ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "estatus", array()) == "activo"))) {
+                // line 229
+                echo "            <li class=\"treeview\">
               <a >
                 <i class=\"fa fa-check-square-o\"></i> <span>Evaluar Productos</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
@@ -348,9 +421,9 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                   <ul class=\"treeview-menu\">
                     <li>
                       <a href=\"";
-            // line 185
-            echo $this->env->getExtension('routing')->getPath("cronograma_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                // line 237
+                echo $this->env->getExtension('routing')->getPath("cronograma_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
                     </li>                    
                   </ul>
                 </li>
@@ -358,30 +431,30 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                   <ul class=\"treeview-menu\">
                     <li>
                       <a href=\"";
-            // line 192
-            echo $this->env->getExtension('routing')->getPath("diario_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                // line 244
+                echo $this->env->getExtension('routing')->getPath("diario_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
                     </li>
                     <li> <a> <i class=\"fa fa-circle-o text-info\"></i> Act. Adicionales <i class=\"fa fa-angle-left pull-right\"></i> </a>
                       <ul class=\"treeview-menu\">
                         ";
-            // line 196
-            if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "estudiante")) {
-                // line 197
-                echo "                        <li>
+                // line 248
+                if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+                    // line 249
+                    echo "                        <li>
                         <a href=\"";
-                // line 198
-                echo $this->env->getExtension('routing')->getPath("resultados_new");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Actividad</a></li>
+                    // line 250
+                    echo $this->env->getExtension('routing')->getPath("resultados_new");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Actividad</a></li>
                         ";
-            }
-            // line 199
-            echo " 
+                }
+                // line 251
+                echo " 
                         <li>
                           <a href=\"";
-            // line 201
-            echo $this->env->getExtension('routing')->getPath("resultados_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Actividad</a>
+                // line 253
+                echo $this->env->getExtension('routing')->getPath("resultados_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Actividad</a>
                         </li>                                        
                       </ul>
                     </li>                     
@@ -392,9 +465,9 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                   <ul class=\"treeview-menu\"> 
                     <li>
                       <a href=\"";
-            // line 211
-            echo $this->env->getExtension('routing')->getPath("infoAdicional_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                // line 263
+                echo $this->env->getExtension('routing')->getPath("infoAdicional_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
                     </li>                   
                   </ul>
                 </li>   
@@ -402,61 +475,61 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                   <ul class=\"treeview-menu\">  
                     <li>
                       <a href=\"";
-            // line 218
-            echo $this->env->getExtension('routing')->getPath("infofinal_list");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
+                // line 270
+                echo $this->env->getExtension('routing')->getPath("infofinal_list");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
                     </li>                                       
                   </ul>
                 </li>     
               </ul>
             </li>
             ";
-        }
-        // line 225
-        echo "
+            }
+            // line 277
+            echo "
 
             ";
-        // line 227
-        if (((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador de proyecto") || ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador de servicio comunitario")) || ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "rol", array()) == "coordinador suplente"))) {
-            // line 228
-            echo "            <li class=\"treeview\">
+            // line 279
+            if ((($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "coordinador de servicio comunitario") && ($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "estatus", array()) == "activo"))) {
+                // line 280
+                echo "            <li class=\"treeview\">
               <a >
                 <i class=\"fa fa-download\"></i> <span>Reportes</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
               <ul class=\"treeview-menu\">
                 <li><a href=\"";
-            // line 233
-            echo $this->env->getExtension('routing')->getPath("reports_1");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes Inscritos </a></li> 
+                // line 285
+                echo $this->env->getExtension('routing')->getPath("reports_1");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes Inscritos </a></li> 
                 <li><a href=\"";
-            // line 234
-            echo $this->env->getExtension('routing')->getPath("reports_2");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes Aprobados </a></li>                                                                   
+                // line 286
+                echo $this->env->getExtension('routing')->getPath("reports_2");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes Aprobados </a></li>                                                                   
                 <li><a href=\"";
-            // line 235
-            echo $this->env->getExtension('routing')->getPath("reports_3");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Tutores</a></li> 
+                // line 287
+                echo $this->env->getExtension('routing')->getPath("reports_3");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Tutores</a></li> 
 
                 <li><a href=\"";
-            // line 237
-            echo $this->env->getExtension('routing')->getPath("reports_4");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Coordinadores </a></li> 
+                // line 289
+                echo $this->env->getExtension('routing')->getPath("reports_4");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Coordinadores </a></li> 
                 <li><a href=\"";
-            // line 238
-            echo $this->env->getExtension('routing')->getPath("reports_5");
-            echo "\"><i class=\"fa fa-circle-o text-info\"></i> Proyectos </a></li>      
+                // line 290
+                echo $this->env->getExtension('routing')->getPath("reports_5");
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Proyectos </a></li>      
               </ul>
             </li>
             ";
-        }
-        // line 241
-        echo " 
-            
-
+            }
+            // line 293
+            echo " 
           </ul>
         </section>
         <!-- /.sidebar -->
-      </aside>";
+      </aside>
+  ";
+        }
     }
 
     public function getTemplateName()
@@ -471,9 +544,10 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 
     public function getDebugInfo()
     {
-        return array (  453 => 241,  446 => 238,  442 => 237,  437 => 235,  433 => 234,  429 => 233,  422 => 228,  420 => 227,  416 => 225,  406 => 218,  396 => 211,  383 => 201,  379 => 199,  374 => 198,  371 => 197,  369 => 196,  362 => 192,  352 => 185,  342 => 177,  340 => 176,  336 => 174,  328 => 168,  321 => 165,  318 => 164,  312 => 161,  306 => 158,  303 => 157,  301 => 156,  294 => 151,  288 => 149,  284 => 147,  278 => 145,  272 => 142,  269 => 141,  267 => 140,  257 => 132,  251 => 130,  247 => 128,  241 => 126,  235 => 123,  232 => 122,  230 => 121,  226 => 119,  220 => 116,  217 => 115,  215 => 114,  212 => 113,  206 => 111,  200 => 108,  197 => 107,  195 => 106,  188 => 101,  182 => 99,  178 => 97,  172 => 95,  166 => 92,  163 => 91,  161 => 90,  152 => 83,  150 => 82,  146 => 80,  138 => 75,  132 => 72,  118 => 61,  113 => 59,  102 => 51,  97 => 49,  86 => 41,  81 => 39,  69 => 29,  67 => 28,  61 => 24,  56 => 22,  52 => 21,  47 => 20,  45 => 19,  39 => 16,  34 => 14,  19 => 1,);
+        return array (  526 => 293,  519 => 290,  515 => 289,  510 => 287,  506 => 286,  502 => 285,  495 => 280,  493 => 279,  489 => 277,  479 => 270,  469 => 263,  456 => 253,  452 => 251,  447 => 250,  444 => 249,  442 => 248,  435 => 244,  425 => 237,  415 => 229,  413 => 228,  408 => 225,  400 => 219,  393 => 216,  390 => 215,  384 => 212,  378 => 209,  375 => 208,  373 => 207,  366 => 202,  360 => 200,  356 => 198,  350 => 196,  344 => 193,  341 => 192,  339 => 191,  329 => 183,  323 => 181,  319 => 179,  313 => 177,  307 => 174,  304 => 173,  302 => 172,  298 => 170,  292 => 167,  289 => 166,  287 => 165,  284 => 164,  278 => 162,  272 => 159,  269 => 158,  267 => 157,  260 => 152,  254 => 150,  250 => 148,  244 => 146,  238 => 143,  235 => 142,  233 => 141,  224 => 134,  222 => 133,  217 => 130,  207 => 123,  201 => 120,  191 => 113,  185 => 110,  175 => 103,  169 => 100,  159 => 93,  153 => 90,  132 => 72,  127 => 70,  116 => 62,  111 => 60,  100 => 52,  95 => 50,  82 => 39,  80 => 38,  76 => 36,  68 => 31,  64 => 30,  60 => 29,  53 => 24,  51 => 23,  43 => 18,  38 => 16,  19 => 1,);
     }
 }
+/*   {% if (user != null) %}  */
 /*       <!-- Left side column. contains the sidebar -->*/
 /*       <aside class="main-sidebar">*/
 /*         <!-- sidebar: style can be found in sidebar.less -->*/
@@ -481,81 +555,131 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*           <ul class="sidebar-menu">*/
 /*             <li class="header">PANEL DE NAVEGACIÓN PRINCIPAL</li>*/
 /* */
+/*     <!-- ADMINISTRAR MI PERFIL -->*/
 /*             <li class="treeview">*/
 /*               <a>*/
-/*                 <i class="fa fa-user-plus"></i> <span>Gestión de Usuarios</span> <i class="fa fa-angle-left pull-right"></i>*/
+/*                 <i class="fa fa-male"></i> <span>Administrar mi perfil</span> <i class="fa fa-angle-left pull-right"></i>*/
 /*               </a>*/
 /*               <ul class="treeview-menu">*/
 /* */
-/*                 <li><a href="{{ path('user_check', {'cedula': user.cedula}) }}"><i class="fa fa-circle-o text-info"></i> Consultar Perfil</a></li>                      */
+/*                 <li><a href="{{ path('user_check', {'cedula': user.cedula}) }}"><i class="fa fa-circle-o text-info"></i> Consultar perfil</a></li>                      */
 /* */
-/*                 <li><a href="{{ path('user_edit', {'cedula': user.cedula}) }}"><i class="fa fa-circle-o text-info"></i> Editar Perfil</a></li>   */
-/* */
-/* */
-/*               {% if (user.rol == 'coordinador de proyecto') or (user.rol == 'coordinador de servicio comunitario') or (user.rol == 'coordinador suplente') %}*/
-/*                 <li><a href="{{ path('user_new') }}"><i class="fa fa-circle-o text-info"></i> Crear Tutor/Coordinador</a></li> */
-/*                 <li><a href="{{ path('student_new') }}"><i class="fa fa-circle-o text-info"></i> Crear Estudiante</a></li>                                                                   */
-/*                 <li><a href="{{ path('user_list') }}"><i class="fa fa-circle-o text-info"></i> Listar Usuarios</a></li> */
-/*                 {% endif %}*/
+/*                 <li><a href="{{ path('user_edit', {'cedula': user.cedula}) }}"><i class="fa fa-circle-o text-info"></i> Editar perfil</a></li>   */
 /*               </ul>*/
 /*             </li>*/
 /* */
+/*     <!-- GESTIONAR USUARIOS -->*/
+/*             {% if ((user.perfil == 'coordinador de servicio comunitario') and (user.estatus == 'activo'))%}*/
+/*               <li class="treeview">*/
+/*                 <a>*/
+/*                   <i class="fa fa-user-plus"></i> <span>Gestionar usuarios</span> <i class="fa fa-angle-left pull-right"></i>*/
+/*                 </a>*/
+/*                 <ul class="treeview-menu">*/
+/*                   <li><a href="{{ path('user_new') }}"><i class="fa fa-circle-o text-info"></i> Crear profesor</a></li> */
+/*                   <li><a href="{{ path('student_new') }}"><i class="fa fa-circle-o text-info"></i> Crear estudiante</a></li>                                                                   */
+/*                   <li><a href="{{ path('user_list') }}"><i class="fa fa-circle-o text-info"></i> Listar usuarios</a></li> */
+/*                 </ul>*/
+/*               </li>*/
 /* */
-/*             {% if (user.rol == 'coordinador de proyecto') or (user.rol == 'coordinador de servicio comunitario') or (user.rol == 'coordinador suplente') %}*/
+/*           {% endif %}*/
+/* */
+/*     <!-- GESTIONAR PROYECTOS -->*/
+/*           {% if ((user.perfil == 'coordinador de proyecto') and (user.estatus == 'activo')) or ((user.perfil == 'coordinador de servicio comunitario') and (user.estatus == 'activo')) or ((user.perfil == 'coordinador suplente') and (user.estatus == 'activo')) %}*/
+/* */
 /*             <li class="treeview">*/
 /*               <a >*/
-/*                 <i class="fa fa-files-o"></i> <span>Gestión de Proyectos</span> <i class="fa fa-angle-left pull-right"></i>*/
+/*                 <i class="fa fa-files-o"></i> <span>Gestionar proyectos</span> <i class="fa fa-angle-left pull-right"></i>*/
 /*               </a>*/
 /*               <ul class="treeview-menu">*/
 /* */
-/*                 <li><a ><i class="fa fa-circle-o text-info"></i> Proyecto */
+/*                 <li><a ><i class="fa fa-circle-o text-info"></i> Proyectos */
 /*                       <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
 /*                     <li>*/
-/*                     <a href="{{ path('project_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Proyecto</a></li>*/
+/*                     <a href="{{ path('project_new') }}"><i class="fa fa-circle-o text-info"></i>Crear proyecto</a></li>*/
 /*                     <li>*/
-/*                       <a href="{{ path('project_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Proyecto</a>*/
+/*                       <a href="{{ path('project_list') }}"><i class="fa fa-circle-o text-info"></i>Listar proyectos</a>*/
 /*                     </li> */
 /*                   </ul>*/
 /*                 </li> */
-/*                 <li><a ><i class="fa fa-circle-o text-info"></i> Fase */
+/*                 <li><a ><i class="fa fa-circle-o text-info"></i> Fases */
 /*                       <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
 /*                     <li>*/
-/*                     <a href="{{ path('fase_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Fase</a></li>*/
+/*                     <a href="{{ path('fase_new') }}"><i class="fa fa-circle-o text-info"></i>Crear fase</a></li>*/
 /*                     <li>*/
-/*                       <a href="{{ path('fase_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Fase</a>*/
+/*                       <a href="{{ path('fase_list') }}"><i class="fa fa-circle-o text-info"></i>Listar fases</a>*/
 /*                     </li>                                        */
 /*                   </ul>*/
 /*                 </li>                */
-/*                <li><a><i class="fa fa-circle-o text-info"></i> Actividad */
+/*                <li><a><i class="fa fa-circle-o text-info"></i> Actividades */
 /*                       <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
 /*                     <li>*/
-/*                     <a href="{{ path('activities_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Actividad</a></li>*/
+/*                     <a href="{{ path('activities_new') }}"><i class="fa fa-circle-o text-info"></i>Crear actividad</a></li>*/
 /*                     <li>*/
-/*                       <a href="{{ path('activities_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Actividad</a>*/
+/*                       <a href="{{ path('activities_list') }}"><i class="fa fa-circle-o text-info"></i>Listar actividades</a>*/
 /*                     </li>                                        */
 /*                   </ul>*/
 /*                 </li>                                                 */
 /*               </ul>*/
-/*             </li>            */
+/*             </li>   */
+/* */
+/*    */
+/* */
+/*     <!-- GESTIONAR ASIGNACIONES-->      */
 /*             <li class="treeview">*/
 /*               <a >*/
-/*                 <i class="fa fa-pencil-square-o"></i> <span>Gestión de Tutores</span> <i class="fa fa-angle-left pull-right"></i>  */
+/*                 <i class="fa fa-pencil-square-o"></i> <span>Gestionar asignaciones</span> <i class="fa fa-angle-left pull-right"></i>  */
 /*               </a>*/
 /*               <ul class="treeview-menu">*/
-/*                 <li><a href="{{ path('tutors_add') }}"><i class="fa fa-circle-o text-info"></i> Asignar Tutores</a>*/
+/*                 <li><a><i class="fa fa-circle-o text-info"></i> Tutores a proyectos <i class="fa fa-angle-left pull-right"></i> </a>*/
+/*                   <ul class="treeview-menu">*/
+/*                     <li>*/
+/*                     <a href="{{ path('tutors_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>*/
+/*                     </li>*/
+/*                     <li>*/
+/*                       <a href="{{ path('tutors_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
+/*                     </li>                   */
+/*                   </ul>*/
 /*                 </li>*/
-/*                 <li>*/
-/*                   <a href="{{ path('tutors_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Asignaciones</a>*/
-/*                 </li>                           */
-/*               </ul>*/
-/*             </li>*/
-/*             {% endif %}*/
+/*                 <li><a><i class="fa fa-circle-o text-info"></i> Tutores a estudiantes <i class="fa fa-angle-left pull-right"></i> </a>*/
+/*                   <ul class="treeview-menu">*/
+/*                     <li>*/
+/*                     <a href="{{ path('tutor_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>*/
+/*                     </li>*/
+/*                     <li>*/
+/*                       <a href="{{ path('tutor_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
+/*                     </li>                   */
+/*                   </ul>*/
+/*                 </li>*/
+/*                 <li><a><i class="fa fa-circle-o text-info"></i> Estudiantes a proyectos <i class="fa fa-angle-left pull-right"></i> </a>*/
+/*                   <ul class="treeview-menu">*/
+/*                     <li>*/
+/*                     <a href="{{ path('laborsc_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>*/
+/*                     </li>*/
+/*                     <li>*/
+/*                       <a href="{{ path('laborsc_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
+/*                     </li>                   */
+/*                   </ul>*/
+/*                 </li>*/
+/*                 <li><a><i class="fa fa-circle-o text-info"></i> Coordinadores a proyectos <i class="fa fa-angle-left pull-right"></i> </a>*/
+/*                   <ul class="treeview-menu">*/
+/*                     <li>*/
+/*                     <a href="{{ path('cronograma_new') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>*/
+/*                     </li>*/
+/*                     <li>*/
+/*                       <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
+/*                     </li>                   */
+/*                   </ul>*/
+/*                 </li>                                                  */
+/*               </ul>  */
+/*             </li>                   */
+/*           {% endif %}*/
 /* */
 /* */
-/*             {% if (user.rol == 'estudiante') or (user.rol == 'coordinador de servicio comunitario') %}*/
+/*     <!-- GESTIONAR PRODUCTOS -->  */
+/*             {% if ((user.perfil == 'estudiante') and (user.estatus == 'activo')) %}*/
 /*             <li class="treeview">*/
 /*               <a >*/
 /*                 <i class="fa fa-th"></i> <span>Gestión de Productos</span> <i class="fa fa-angle-left pull-right"></i>*/
@@ -563,7 +687,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*               <ul class="treeview-menu">*/
 /*                 <li><a><i class="fa fa-circle-o text-info"></i> Cronogramas <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
-/*                   {% if (user.rol == 'estudiante') %}*/
+/*                   {% if (user.perfil == 'estudiante') %}*/
 /*                     <li>*/
 /*                     <a href="{{ path('cronograma_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Cronograma</a>*/
 /*                     </li>*/
@@ -579,7 +703,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                 </li>*/
 /*                 <li><a><i class="fa fa-circle-o text-info"></i> Diarios de Campo <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
-/*                     {% if (user.rol == 'estudiante') %}*/
+/*                     {% if (user.perfil == 'estudiante') %}*/
 /*                     <li>*/
 /*                     <a href="{{ path('diario_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Diario</a>*/
 /*                   </li>*/
@@ -587,14 +711,14 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                       <a href="{{ path('diario_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Diarios</a>*/
 /*                   </li>                  */
 /*                   {% endif %}  */
-/*                     {% if (user.rol != 'estudiante') %}*/
+/*                     {% if (user.perfil != 'estudiante') %}*/
 /*                     <li>*/
 /*                       <a href="{{ path('diario_list') }}"><i class="fa fa-circle-o text-info"></i> Listar Diarios</a>*/
 /*                     </li>*/
 /*                     {% endif %}*/
 /*                     <li> <a> <i class="fa fa-circle-o text-info"></i> Act. Adicionales <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                       <ul class="treeview-menu">*/
-/*                         {% if (user.rol == 'estudiante') %}*/
+/*                         {% if (user.perfil == 'estudiante') %}*/
 /*                         <li>*/
 /*                         <a href="{{ path('resultados_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Actividad</a>*/
 /*                         </li>*/
@@ -613,7 +737,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /* */
 /*                 <li><a><i class="fa fa-circle-o text-info"></i> Información Adicional <i class="fa fa-angle-left pull-right"></i></a>*/
 /*                   <ul class="treeview-menu">*/
-/*                     {% if (user.rol == 'estudiante') %}*/
+/*                     {% if (user.perfil == 'estudiante') %}*/
 /*                     <li>*/
 /*                     <a href="{{ path('infoAdicional_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Info Adicional</a>*/
 /*                    </li>*/
@@ -629,7 +753,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                 </li>   */
 /*                 <li><a ><i class="fa fa-circle-o text-info"></i> Informe Final <i class="fa fa-angle-left pull-right"></i></a>*/
 /*                   <ul class="treeview-menu">*/
-/*                   {% if (user.rol == 'estudiante') %}*/
+/*                   {% if (user.perfil == 'estudiante') %}*/
 /*                     <li>*/
 /*                     <a  href="{{ path('infofinal') }}"><i class="fa fa-circle-o text-info"></i>Visualizar Informe Final</a>*/
 /*                   </li>  */
@@ -649,7 +773,8 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*             {% endif %}*/
 /* */
 /* */
-/*             {% if (user.rol != 'estudiante')  %}*/
+/*     <!-- EVALUACIÓN DE PRODUCTOS -->*/
+/*             {% if ((user.perfil != 'estudiante') and (user.estatus == 'activo')) %}*/
 /*             <li class="treeview">*/
 /*               <a >*/
 /*                 <i class="fa fa-check-square-o"></i> <span>Evaluar Productos</span> <i class="fa fa-angle-left pull-right"></i>*/
@@ -669,7 +794,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                     </li>*/
 /*                     <li> <a> <i class="fa fa-circle-o text-info"></i> Act. Adicionales <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                       <ul class="treeview-menu">*/
-/*                         {% if (user.rol == 'estudiante') %}*/
+/*                         {% if (user.perfil == 'estudiante') %}*/
 /*                         <li>*/
 /*                         <a href="{{ path('resultados_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Actividad</a></li>*/
 /*                         {% endif %} */
@@ -700,7 +825,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*             {% endif %}*/
 /* */
 /* */
-/*             {% if (user.rol == 'coordinador de proyecto') or (user.rol == 'coordinador de servicio comunitario') or (user.rol == 'coordinador suplente') %}*/
+/*             {% if ((user.perfil == 'coordinador de servicio comunitario') and (user.estatus == 'activo')) %}*/
 /*             <li class="treeview">*/
 /*               <a >*/
 /*                 <i class="fa fa-download"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>*/
@@ -715,9 +840,8 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*               </ul>*/
 /*             </li>*/
 /*             {% endif %} */
-/*             */
-/* */
 /*           </ul>*/
 /*         </section>*/
 /*         <!-- /.sidebar -->*/
 /*       </aside>*/
+/*   {% endif %}*/

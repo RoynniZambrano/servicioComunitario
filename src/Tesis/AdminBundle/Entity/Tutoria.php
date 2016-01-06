@@ -10,121 +10,155 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Tutoria
  *
- * @ORM\Table(name="tutoria", indexes={@ORM\Index(name="fk_gestiona_proyecto1_idx", columns={"proyecto_id_proyecto"})})
+ * @ORM\Table(name="tutoria", indexes={@ORM\Index(name="fk_tutoria_profesor1_idx", columns={"profesor_id_profesor"})})
  * @ORM\Entity
- * @UniqueEntity(fields="proyectoProyecto", message="Este proyecto ya esta registrado.")   
+ * @UniqueEntity(fields={"profesorProfesor", "periodo"}, errorPath="profesorProfesor", message="Esta profesor ya esta registrado.")   
  */
 class Tutoria
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_tutores", type="integer")
+     * @ORM\Column(name="id_tutoria", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idTutores;
+    private $idTutoria;
 
     /**
-     * @var \Tesis\AdminBundle\Entity\Proyecto
-     * @Assert\NotBlank(message="Porfavor introduzca un proyecto.")
+     * @var \Tesis\AdminBundle\Entity\Profesor
+     * @Assert\NotBlank(message="Porfavor introduzca un profesor.")      
      *
-     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Proyecto")
+     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="proyecto_id_proyecto", referencedColumnName="id_proyecto")
+     *   @ORM\JoinColumn(name="profesor_id_profesor", referencedColumnName="id_profesor")
      * })
      */
-    private $proyectoProyecto;
+    private $profesorProfesor;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @Assert\NotBlank(message="Porfavor introduzca un tutor.")
      *
-     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Usuario", inversedBy="tutoriaTutores")
-     * @ORM\JoinTable(name="tutoria_has_usuario",
+     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Estudiante", inversedBy="tutoriaTutoria")
+     * @ORM\JoinTable(name="tutoria_has_estudiante",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="tutoria_id_tutores", referencedColumnName="id_tutores")
+     *     @ORM\JoinColumn(name="tutoria_id_tutoria", referencedColumnName="id_tutoria")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="usuario_id_usuario", referencedColumnName="id_usuario")
+     *     @ORM\JoinColumn(name="estudiante_id_estudiante", referencedColumnName="id_estudiante")
      *   }
      * )
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un Tutor")      
+     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un Estudiante")       
      */
-    private $usuarioUsuario;
+    private $estudianteEstudiante;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca periodo.")       
+     */
+    private $periodo = '2015-1';      
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->usuarioUsuario = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->estudianteEstudiante = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
     /**
-     * Get idTutores
+     * Get idTutoria
      *
      * @return integer 
      */
-    public function getIdTutores()
+    public function getIdTutoria()
     {
-        return $this->idTutores;
+        return $this->idTutoria;
     }
 
     /**
-     * Set proyectoProyecto
+     * Set profesorProfesor
      *
-     * @param \Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto
+     * @param \Tesis\AdminBundle\Entity\Profesor $profesorProfesor
      * @return Tutoria
      */
-    public function setProyectoProyecto(\Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto = null)
+    public function setProfesorProfesor(\Tesis\AdminBundle\Entity\Profesor $profesorProfesor = null)
     {
-        $this->proyectoProyecto = $proyectoProyecto;
+        $this->profesorProfesor = $profesorProfesor;
 
         return $this;
     }
 
     /**
-     * Get proyectoProyecto
+     * Get profesorProfesor
      *
-     * @return \Tesis\AdminBundle\Entity\Proyecto 
+     * @return \Tesis\AdminBundle\Entity\Profesor 
      */
-    public function getProyectoProyecto()
+    public function getProfesorProfesor()
     {
-        return $this->proyectoProyecto;
+        return $this->profesorProfesor;
     }
 
     /**
-     * Add usuarioUsuario
+     * Add estudianteEstudiante
      *
-     * @param \Tesis\AdminBundle\Entity\Usuario $usuarioUsuario
+     * @param \Tesis\AdminBundle\Entity\Estudiante $estudianteEstudiante
      * @return Tutoria
      */
-    public function addUsuarioUsuario(\Tesis\AdminBundle\Entity\Usuario $usuarioUsuario)
+    public function addEstudianteEstudiante(\Tesis\AdminBundle\Entity\Estudiante $estudianteEstudiante)
     {
-        $this->usuarioUsuario[] = $usuarioUsuario;
+        $this->estudianteEstudiante[] = $estudianteEstudiante;
 
         return $this;
     }
 
     /**
-     * Remove usuarioUsuario
+     * Remove estudianteEstudiante
      *
-     * @param \Tesis\AdminBundle\Entity\Usuario $usuarioUsuario
+     * @param \Tesis\AdminBundle\Entity\Estudiante $estudianteEstudiante
      */
-    public function removeUsuarioUsuario(\Tesis\AdminBundle\Entity\Usuario $usuarioUsuario)
+    public function removeEstudianteEstudiante(\Tesis\AdminBundle\Entity\Estudiante $estudianteEstudiante)
     {
-        $this->usuarioUsuario->removeElement($usuarioUsuario);
+        $this->estudianteEstudiante->removeElement($estudianteEstudiante);
     }
 
     /**
-     * Get usuarioUsuario
+     * Get estudianteEstudiante
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getUsuarioUsuario()
+    public function getEstudianteEstudiante()
     {
-        return $this->usuarioUsuario;
+        return $this->estudianteEstudiante;
     }
+
+
+    /**
+     * Set periodo
+     *
+     * @param string $periodo
+     * @return Profesor
+     */
+    public function setPeriodo($periodo)
+    {
+        $this->periodo = $periodo;
+
+        return $this;
+    }
+
+    /**
+     * Get periodo
+     *
+     * @return string 
+     */
+    public function getPeriodo()
+    {
+        return $this->periodo;
+    }
+
+    
 }

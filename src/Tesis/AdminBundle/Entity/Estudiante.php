@@ -10,42 +10,43 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Estudiante
  *
- * @ORM\Table(name="estudiante", indexes={@ORM\Index(name="fk_estudiante_usuario1_idx", columns={"usuario_id_usuario"})})
+ * @ORM\Table(name="estudiante")
  * @ORM\Entity
  * @UniqueEntity(fields="cedula", message="Esta cedula ya esta registrada.")
- * @UniqueEntity(fields="correo", message="Este correo ya esta registrado.")  
+ * @UniqueEntity(fields="correo", message="Este correo ya esta registrado.") 
+ * @UniqueEntity(fields="nameLogin", message="Este nombre de usuario ya esta registrado.")  
  */
 class Estudiante
 {
     /**
      * @var string
      * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca nombre.")
+     * @Assert\NotBlank(message="Porfavor introduzca un nombre.")
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z ñÑ]*$/",
      *      match=true,
      *      message="Porfavor introduzca un nombre que sea valido."
      *  )
      * @Assert\Length(
-     *      min = 2,
+     *      min = 1,
      *      max = 50,
      *      minMessage = "Su nombre debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "Su nombre debe tener maximo {{ limit }} caracteres.")
-     */  
+     */     
     private $nombre;
 
     /**
      * @var string
      *
      * @ORM\Column(name="apellido", type="string", length=50, nullable=false)     
-     * @Assert\NotBlank(message="Porfavor introduzca apellido.")
+     * @Assert\NotBlank(message="Porfavor introduzca un apellido.")
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z ñÑ ]*$/",
      *      match=true,
      *      message="Porfavor introduzca un apellido que sea valido."
      *  )
      * @Assert\Length(
-     *      min = 2,
+     *      min = 1,
      *      max = 50,
      *      minMessage = "Su nombre debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "Su nombre debe tener maximo {{ limit }} caracteres.")
@@ -56,7 +57,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="cedula", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca cedula.")
+     * @Assert\NotBlank(message="Porfavor introduzca una cedula.")
      * @Assert\Regex(
      *      pattern="/^[1-9][0-9]*$/",
      *      match=true,
@@ -74,11 +75,11 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="clave", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una contrasena.")
+     * @Assert\NotBlank(message="Porfavor introduzca una contraseña.")
      * @Assert\Regex(
      *      pattern="/[a-zA-Z ñÑ 0-9]+/",
      *      match=true,
-     *      message="Porfavor introduzca una contrasena valida.",
+     *      message="Porfavor introduzca una contraseña valida.",
      *      groups={"editpass"}
      *  )
      * @Assert\Length(
@@ -94,7 +95,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="correo", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message = "Porfavor introduzca correo.")
+     * @Assert\NotBlank(message = "Porfavor introduzca un correo.")
      * @Assert\Email(message = "El correo '{{ value }}' no es valido.")     
      */
     private $correo;
@@ -109,11 +110,11 @@ class Estudiante
      *      message="Porfavor introduzca un numero de teléfono valido."
      *  )
      * @Assert\Length(
-     *      min = 9,
+     *      min = 10,
      *      max = 11,
      *      minMessage = "el teléfono debe tener minimo {{ limit }} dígitos.",
      *      maxMessage = "la teléfono debe tener maximo {{ limit }} dígitos.")          
-     */           
+     */   
     private $telefono;
 
     /**
@@ -121,24 +122,41 @@ class Estudiante
      *
      * @ORM\Column(name="SC", type="string", nullable=false)
      */
-    private $sc = 'iniciado';
+    private $sc = 'iniciado';    
 
     /**
      * @var string
      *
      * @ORM\Column(name="genero", type="string", length=50, nullable=true)
-     * @Assert\NotBlank(message="Porfavor introduzca genero.")     
+     * @Assert\NotBlank(message="Porfavor introduzca genero.")
      */
     private $genero;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rol", type="string", length=50, nullable=false)
-      * @Assert\NotBlank(message="Porfavor introduzca rol.")       
+     * @ORM\Column(name="perfil", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca perfil.")      
      */
-    private $rol = 'estudiante';
+    private $perfil = 'estudiante';
 
+   /**
+     * @var string
+     *
+     * @ORM\Column(name="name_login", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message = "Porfavor introduzca un nombre de usuario.")
+     * @Assert\Regex(
+     *      pattern="/^[a-zA-Z]+[0-9]*$/",
+     *      match=true,
+     *      message="El nombre de usuario {{ value }} no es valido."
+     *  )     
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 18,
+     *      minMessage = "el nombre de usuario debe tener minimo {{ limit }} carácteres.",
+     *      maxMessage = "el nombre de usuario debe tener maximo {{ limit }} carácteres.") 
+     */    
+    private $nameLogin;
 
     /**
      * @var string
@@ -152,11 +170,26 @@ class Estudiante
     /**
      * @var string
      *
+     * @ORM\Column(name="semestre", type="string", length=50, nullable=true)
+     */
+    private $semestre;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
-      * @Assert\NotBlank(message="Porfavor introduzca periodo.")       
+     * @Assert\NotBlank(message="Porfavor introduzca periodo.")       
      */
     private $periodo = '2015-1';
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="estatus", type="string", nullable=false)
+     */
+    private $estatus = 'inactivo';
 
     /**
      * @var integer
@@ -168,27 +201,35 @@ class Estudiante
     private $idEstudiante;
 
     /**
-     * @var \Tesis\AdminBundle\Entity\Proyecto
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @Assert\NotBlank(message="Porfavor introduzca un proyecto.")     
-     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Proyecto")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="proyecto_id_proyecto", referencedColumnName="id_proyecto")
-     * })
+     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Tutoria", mappedBy="estudianteEstudiante")
      */
-    private $proyectoProyecto;
+    private $tutoriaTutoria;
 
     /**
-     * @var \Tesis\AdminBundle\Entity\Usuario
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @Assert\NotBlank(message="Porfavor introduzca un tutor.")        
-     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Usuario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="usuario_id_usuario", referencedColumnName="id_usuario")
-     * })
+     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Laborsc", inversedBy="estudianteEstudiante")
+     * @ORM\JoinTable(name="laborsc_has_estudiante",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="estudiante_id_estudiante", referencedColumnName="id_estudiante")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="laborsc_id_laborsc", referencedColumnName="id_laborsc")
+     *   }
+     * )
      */
-    private $usuarioUsuario;
+    private $laborscLaborsc;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tutoriaTutoria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->laborscLaborsc = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -376,38 +417,49 @@ class Estudiante
     }
 
     /**
-     * Set rol
+     * Set perfil
      *
-     * @param string $rol
+     * @param string $perfil
      * @return Estudiante
      */
-    public function setRol($rol)
+    public function setPerfil($perfil)
     {
-        $this->rol = $rol;
+        $this->perfil = $perfil;
 
         return $this;
     }
 
-
     /**
-     * Get rol
+     * Get perfil
      *
      * @return string 
      */
-    public function getRol()
+    public function getPerfil()
     {
-        return $this->rol;
-    } 
-
+        return $this->perfil;
+    }
 
     /**
-     * Get departamento
+     * Set nameLogin
+     *
+     * @param string $nameLogin
+     * @return Estudiante
+     */
+    public function setNameLogin($nameLogin)
+    {
+        $this->nameLogin = $nameLogin;
+
+        return $this;
+    }
+
+    /**
+     * Get nameLogin
      *
      * @return string 
      */
-    public function getDepartamento()
+    public function getNameLogin()
     {
-        return $this->departamento;
+        return $this->nameLogin;
     }
 
     /**
@@ -423,15 +475,37 @@ class Estudiante
         return $this;
     }
 
-
     /**
-     * Get periodo
+     * Get departamento
      *
      * @return string 
      */
-    public function getPeriodo()
+    public function getDepartamento()
     {
-        return $this->periodo;
+        return $this->departamento;
+    }
+
+    /**
+     * Set semestre
+     *
+     * @param string $semestre
+     * @return Estudiante
+     */
+    public function setSemestre($semestre)
+    {
+        $this->semestre = $semestre;
+
+        return $this;
+    }
+
+    /**
+     * Get semestre
+     *
+     * @return string 
+     */
+    public function getSemestre()
+    {
+        return $this->semestre;
     }
 
     /**
@@ -447,7 +521,39 @@ class Estudiante
         return $this;
     }
 
-   
+    /**
+     * Get periodo
+     *
+     * @return string 
+     */
+    public function getPeriodo()
+    {
+        return $this->periodo;
+    }
+
+    /**
+     * Set estatus
+     *
+     * @param string $estatus
+     * @return Estudiante
+     */
+    public function setEstatus($estatus)
+    {
+        $this->estatus = $estatus;
+
+        return $this;
+    }
+
+    /**
+     * Get estatus
+     *
+     * @return string 
+     */
+    public function getEstatus()
+    {
+        return $this->estatus;
+    }
+
     /**
      * Get idEstudiante
      *
@@ -459,58 +565,68 @@ class Estudiante
     }
 
     /**
-     * Set proyectoProyecto
+     * Add tutoriaTutoria
      *
-     * @param \Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto
+     * @param \Tesis\AdminBundle\Entity\Tutoria $tutoriaTutoria
      * @return Estudiante
      */
-    public function setProyectoProyecto(\Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto = null)
+    public function addTutoriaTutorium(\Tesis\AdminBundle\Entity\Tutoria $tutoriaTutoria)
     {
-        $this->proyectoProyecto = $proyectoProyecto;
+        $this->tutoriaTutoria[] = $tutoriaTutoria;
 
         return $this;
     }
 
     /**
-     * Get proyectoProyecto
+     * Remove tutoriaTutoria
      *
-     * @return \Tesis\AdminBundle\Entity\Proyecto 
+     * @param \Tesis\AdminBundle\Entity\Tutoria $tutoriaTutoria
      */
-    public function getProyectoProyecto()
+    public function removeTutoriaTutorium(\Tesis\AdminBundle\Entity\Tutoria $tutoriaTutoria)
     {
-        return $this->proyectoProyecto;
+        $this->tutoriaTutoria->removeElement($tutoriaTutoria);
     }
 
     /**
-     * Set usuarioUsuario
+     * Get tutoriaTutoria
      *
-     * @param \Tesis\AdminBundle\Entity\Usuario $usuarioUsuario
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTutoriaTutoria()
+    {
+        return $this->tutoriaTutoria;
+    }
+
+    /**
+     * Add laborscLaborsc
+     *
+     * @param \Tesis\AdminBundle\Entity\Laborsc $laborscLaborsc
      * @return Estudiante
      */
-    public function setUsuarioUsuario(\Tesis\AdminBundle\Entity\Usuario $usuarioUsuario = null)
+    public function addLaborscLaborsc(\Tesis\AdminBundle\Entity\Laborsc $laborscLaborsc)
     {
-        $this->usuarioUsuario = $usuarioUsuario;
+        $this->laborscLaborsc[] = $laborscLaborsc;
 
         return $this;
     }
 
     /**
-     * Get usuarioUsuario
+     * Remove laborscLaborsc
      *
-     * @return \Tesis\AdminBundle\Entity\Usuario 
+     * @param \Tesis\AdminBundle\Entity\Laborsc $laborscLaborsc
      */
-    public function getUsuarioUsuario()
+    public function removeLaborscLaborsc(\Tesis\AdminBundle\Entity\Laborsc $laborscLaborsc)
     {
-        return $this->usuarioUsuario;
+        $this->laborscLaborsc->removeElement($laborscLaborsc);
     }
 
     /**
-     * Get idEstudiante
+     * Get laborscLaborsc
      *
-     * @return integer 
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getIdEstudiante()
+    public function getLaborscLaborsc()
     {
-        return $this->idEstudiante;
+        return $this->laborscLaborsc;
     }
 }

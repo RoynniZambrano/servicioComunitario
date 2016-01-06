@@ -64,10 +64,10 @@ class Proyecto extends \Tesis\AdminBundle\Entity\Proyecto implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'locacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'instituto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'institutoPropone', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'justificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaDesco', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'idProyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'coordinador', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'coordSuplente', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'faseFase');
+            return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'locacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'instituto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'institutoPropone', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'justificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaDesco', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'estatus', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'idProyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'faseFase');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'locacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'instituto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'institutoPropone', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'justificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaDesco', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'idProyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'coordinador', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'coordSuplente', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'faseFase');
+        return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'locacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'instituto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'institutoPropone', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'justificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'fechaDesco', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'estatus', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'idProyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Proyecto' . "\0" . 'faseFase');
     }
 
     /**
@@ -330,23 +330,45 @@ class Proyecto extends \Tesis\AdminBundle\Entity\Proyecto implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function setDescripcion($descripcion)
+    public function setPeriodo($periodo)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescripcion', array($descripcion));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPeriodo', array($periodo));
 
-        return parent::setDescripcion($descripcion);
+        return parent::setPeriodo($periodo);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getDescripcion()
+    public function getPeriodo()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescripcion', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPeriodo', array());
 
-        return parent::getDescripcion();
+        return parent::getPeriodo();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDepartamento($departamento)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDepartamento', array($departamento));
+
+        return parent::setDepartamento($departamento);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDepartamento()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDepartamento', array());
+
+        return parent::getDepartamento();
     }
 
     /**
@@ -374,45 +396,45 @@ class Proyecto extends \Tesis\AdminBundle\Entity\Proyecto implements \Doctrine\O
     /**
      * {@inheritDoc}
      */
-    public function getDepartamento()
+    public function setDescripcion($descripcion)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDepartamento', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescripcion', array($descripcion));
 
-        return parent::getDepartamento();
+        return parent::setDescripcion($descripcion);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setDepartamento($departamento)
+    public function getDescripcion()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDepartamento', array($departamento));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescripcion', array());
 
-        return parent::setDepartamento($departamento);
+        return parent::getDescripcion();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getPeriodo()
+    public function setEstatus($estatus)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPeriodo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEstatus', array($estatus));
 
-        return parent::getPeriodo();
+        return parent::setEstatus($estatus);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setPeriodo($periodo)
+    public function getEstatus()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPeriodo', array($periodo));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEstatus', array());
 
-        return parent::setPeriodo($periodo);
+        return parent::getEstatus();
     }
 
     /**
@@ -428,50 +450,6 @@ class Proyecto extends \Tesis\AdminBundle\Entity\Proyecto implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIdProyecto', array());
 
         return parent::getIdProyecto();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCoordinador(\Tesis\AdminBundle\Entity\Usuario $coordinador = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCoordinador', array($coordinador));
-
-        return parent::setCoordinador($coordinador);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCoordinador()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCoordinador', array());
-
-        return parent::getCoordinador();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCoordSuplente(\Tesis\AdminBundle\Entity\Usuario $coordSuplente = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCoordSuplente', array($coordSuplente));
-
-        return parent::setCoordSuplente($coordSuplente);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCoordSuplente()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCoordSuplente', array());
-
-        return parent::getCoordSuplente();
     }
 
     /**

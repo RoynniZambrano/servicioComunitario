@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Tesis\AdminBundle\Entity\Estudiante" table="estudiante">
-    <indexes>
-      <index name="fk_estudiante_usuario1_idx" columns="usuario_id_usuario"/>
-      <index name="fk_estudiante_proyecto1_idx" columns="proyecto_id_proyecto"/>
-    </indexes>
     <id name="idEstudiante" type="integer" column="id_estudiante">
       <generator strategy="AUTO"/>
     </id>
@@ -16,18 +12,22 @@
     <field name="telefono" type="string" column="telefono" length="50" nullable="true"/>
     <field name="sc" type="string" column="SC" nullable="false"/>
     <field name="genero" type="string" column="genero" length="50" nullable="true"/>
-    <field name="rol" type="string" column="rol" length="50" nullable="false"/>
+    <field name="perfil" type="string" column="perfil" length="50" nullable="false"/>
+    <field name="nameLogin" type="string" column="name_login" length="50" nullable="false"/>
     <field name="departamento" type="string" column="departamento" length="50" nullable="false"/>
+    <field name="semestre" type="string" column="semestre" length="50" nullable="true"/>
     <field name="periodo" type="string" column="periodo" length="50" nullable="false"/>
-    <many-to-one field="proyectoProyecto" target-entity="Proyecto">
-      <join-columns>
-        <join-column name="proyecto_id_proyecto" referenced-column-name="id_proyecto"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="usuarioUsuario" target-entity="Usuario">
-      <join-columns>
-        <join-column name="usuario_id_usuario" referenced-column-name="id_usuario"/>
-      </join-columns>
-    </many-to-one>
+    <field name="estatus" type="string" column="estatus" nullable="false"/>
+    <many-to-many field="tutoriaTutoria" target-entity="Tutoria" mapped-by="estudianteEstudiante"/>
+    <many-to-many field="laborscLaborsc" target-entity="Laborsc" inversed-by="estudianteEstudiante">
+      <join-table name="laborsc_has_estudiante">
+        <join-columns>
+          <join-column name="estudiante_id_estudiante" referenced-column-name="id_estudiante"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="laborsc_id_laborsc" referenced-column-name="id_laborsc"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
   </entity>
 </doctrine-mapping>

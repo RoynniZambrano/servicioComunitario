@@ -50,7 +50,16 @@ class ActividadController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-                return new Response('.'); 
+
+                echo 
+                "<script>
+                    bootbox.alert('La actividad ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('activities_check', array('id' => $entity->getIdActividad())) . "';
+                        }, 2000);
+                </script>";
+
+                //return new Response('.'); 
               }
 
              return $this->render('TesisAdminBundle:Actividad:new-activities-form.html.twig',
@@ -167,7 +176,16 @@ class ActividadController extends Controller{
 
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
-                return $this->redirect($this->generateUrl('activities_checkform', array('id' => $id)));                    
+
+            echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('activities_check', array('id' => $id)) . "';
+                        }, 2000);
+                </script>";
+
+            //return $this->redirect($this->generateUrl('activities_checkform', array('id' => $id)));                    
 
             }
                 $user = $session->get('user');

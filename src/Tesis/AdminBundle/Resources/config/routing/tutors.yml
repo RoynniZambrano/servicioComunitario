@@ -1,34 +1,34 @@
 tutors_add:
     pattern:  /tutors_add
-    defaults: { _controller: TesisAdminBundle:Tutoria:add}
+    defaults: { _controller: TesisAdminBundle:Tutores:add}
     options:
         expose: true 
 
 tutors_addform:
     pattern:  /tutors_addform
-    defaults: { _controller: TesisAdminBundle:Tutoria:addform}
+    defaults: { _controller: TesisAdminBundle:Tutores:addform}
 
 tutors_list:
     pattern:  /list
-    defaults: { _controller: TesisAdminBundle:Tutoria:list}
+    defaults: { _controller: TesisAdminBundle:Tutores:list}
     options:
         expose: true
 
 tutors_check:
     pattern:  /{id}/check
-    defaults: { _controller: TesisAdminBundle:Tutoria:check}
+    defaults: { _controller: TesisAdminBundle:Tutores:check}
 
 tutors_checkform:
     pattern:  /{id}/check_form
-    defaults: { _controller: TesisAdminBundle:Tutoria:checkform}
+    defaults: { _controller: TesisAdminBundle:Tutores:checkform}
 
 tutors_edit:
     pattern:  /{id}/edit
-    defaults: { _controller: TesisAdminBundle:Tutoria:edit}
+    defaults: { _controller: TesisAdminBundle:Tutores:edit}
 
 tutors_editform:
     pattern:  /{id}/editform
-    defaults: { _controller: TesisAdminBundle:Tutoria:editform }
+    defaults: { _controller: TesisAdminBundle:Tutores:editform }
 
 
 

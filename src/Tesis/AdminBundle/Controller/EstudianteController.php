@@ -1,11 +1,14 @@
 <?php
 
 namespace Tesis\AdminBundle\Controller;
+
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Tesis\AdminBundle\Entity\Estudiante;
+use Tesis\AdminBundle\Entity\Profesor;
 use Tesis\AdminBundle\Entity\Informe;
 use Tesis\AdminBundle\Form\EstudianteType;
 use Symfony\Component\Form\FormError;
@@ -45,14 +48,24 @@ class EstudianteController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
 
+                /* ACTUALIZAR INFORME FINAL 
                 $informe = new Informe();
                 $informe->setIdEstudiante($entity);
                 $informe->setCalificacion("por evaluar");
                 $informe->setCalificacion(".");
                 $em->persist($informe);
+                **/
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('student_checkform', array('id' => $entity->getId()))); 
+                echo 
+                "<script>
+                    bootbox.alert('El estudiante ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
+                        }, 2000);
+                </script>";
+     
+              //  return $this->redirect($this->generateUrl('student_checkform', array('id' => $entity->getId()))); 
             }
 
              return $this->render('TesisAdminBundle:Estudiante:new-student-form.html.twig',
@@ -89,7 +102,7 @@ class EstudianteController extends Controller
                return $this->redirect($this->generateUrl('user_edit', array('cedula' => $cedula)));
             }
             if ($form->get('back')->isClicked()) {
-               return $this->redirect($this->generateUrl('user_list'));
+               return $this->redirect($this->generateUrl('tesis_admin_homepage'));
             }  
             
              return $this->render('TesisAdminBundle:Estudiante:check-student-form.html.twig',
@@ -140,7 +153,15 @@ class EstudianteController extends Controller
                     $em->persist($entity);
                     $em->flush();
 
-            return $this->redirect($this->generateUrl('student_checkform', array('id' => $id))); 
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
+                        }, 2000);
+                </script>";                    
+
+                //return $this->redirect($this->generateUrl('student_checkform', array('id' => $id))); 
             }
 
             return $this->render('TesisAdminBundle:Estudiante:edit-student-form.html.twig', array(
@@ -171,13 +192,7 @@ class EstudianteController extends Controller
             $entity = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
                 array('cedula' => $cedula));
 
-            $informe = $em->getRepository('TesisAdminBundle:Informe')->findOneBy(
-                array('idEstudiante' => $entity->getId()));
-
-
             try {
-                $em->remove($informe);
-                $em->flush();
                 $em->remove($entity);
                 $em->flush();
                 return new Response('.'); 
@@ -226,7 +241,16 @@ class EstudianteController extends Controller
                 $em->persist($entity);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('student_checkform', array('id' => $id))); 
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
+                        }, 2000);
+                </script>";
+
+
+              //  return $this->redirect($this->generateUrl('student_checkform', array('id' => $id))); 
             }
 
             $user = $session->get('user');
@@ -240,8 +264,90 @@ class EstudianteController extends Controller
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
     }    
 
+ 
+    public function new_alfaAction($nameLogin,$clave){
+
+        $session = $this->getRequest()->getSession();
+
+    //    if($session->has('user')){
+            $options['user'] = $session->get('user');
+            $options['nameLogin'] = $nameLogin;
+            $options['clave'] = $clave;
+            return $this->render('TesisAdminBundle:Estudiante:new-student-alfa.html.twig',$options);
+      //  }
+       //     return $this->render('TesisSCBundle:Main:denegado.html.twig');
+    }
+
+
+
+   // Crea un nuevo formulario para los usuarios alfa que se conectan por primera vez
+    public function newform_alfaAction(Request $request,$nameLogin,$clave){
+
+        $session = $this->getRequest()->getSession();
+    //    if($session->has('user')){
+            $em = $this->getDoctrine()->getManager();
+            $estudiante = new Estudiante();
+            $estudiante->setNameLogin($nameLogin);
+            $estudiante->setClave($clave);
+
+            $form = $this->createForm(new EstudianteType('new_alfa'), $estudiante, array(
+                'action' => $this->generateUrl('student_newform_alfa', array('nameLogin' => $nameLogin, 'clave' => $clave)),
+                'method' => 'POST',
+            ));
+
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                foreach ($_POST as $tempo=>$valor){
+                    $perfil = $valor['perfil'];
+                    $nombre = $valor['nombre'];
+                    $apellido = $valor['apellido'];
+                    $cedula = $valor['cedula'];
+                    $correo = $valor['correo'];
+                    $genero = $valor['genero'];
+                    $departamento = $valor['departamento'];
+                    $periodo = $valor['periodo'];
+                    $telefono = $valor['telefono'];
+                }
+
+                if ($perfil != 'estudiante') {
+                    $profesor = new Profesor();
+                    $profesor->setPerfil($perfil);
+                    $profesor->setNombre($nombre);
+                    $profesor->setApellido($apellido);
+                    $profesor->setClave($clave);
+                    $profesor->setNameLogin($nameLogin);
+                    $profesor->setCedula($cedula);
+                    $profesor->setCorreo($correo);
+                    $profesor->setGenero($genero);
+                    $profesor->setDepartamento($departamento);
+                    $profesor->setPeriodo($periodo);
+                    $profesor->setTelefono($telefono);
+
+                    $em->persist($profesor);
+                    $em->flush();
+
+                }else{
+                    $em->persist($estudiante);
+                    $em->flush();
+                }    
+
+                echo 
+                "<script>
+                    bootbox.alert('El usuario ha sido creado exitosamente. inicie sesión nuevamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('tesis_sc_homepage') . "';
+                        }, 2000);
+                </script>";
+     
+              //  return $this->redirect($this->generateUrl('student_checkform', array('id' => $entity->getId()))); 
+            }
+
+             return $this->render('TesisAdminBundle:Estudiante:new-student-form-alfa.html.twig',
+                array('form' => $form->createView()));           
+       // }
+        //  return $this->render('TesisSCBundle:Main:denegado.html.twig');
+    }
+
 
 }
-
-
-

@@ -9,10 +9,19 @@ class Login{
    /**
      * @var string
      *
-     * @Assert\NotBlank(message = "Porfavor introduzca su correo.")
-     * @Assert\Email(message = "El correo '{{ value }}' no es valido.")
+     * @Assert\NotBlank(message = "Porfavor introduzca su nombre de usuario.")
+     * @Assert\Regex(
+     *      pattern="/^[a-zA-Z]+[0-9]*$/",
+     *      match=true,
+     *      message="El nombre de usuario {{ value }} no es valido."
+     *  )     
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 18,
+     *      minMessage = "el nombre de usuario debe tener minimo {{ limit }} carácteres.",
+     *      maxMessage = "el nombre de usuario debe tener maximo {{ limit }} carácteres.") 
      */
-	private $correo;
+	private $nameLogin;
 
 	/**
 	 * @var string
@@ -27,27 +36,28 @@ class Login{
 	private $clave;
 
     /**
-     * Set correo
+     * Set nameLogin
      *
-     * @param string $correo
-     * @return User
+     * @param string $nameLogin
+     * @return Estudiante
      */
-    public function setCorreo($correo)
+    public function setNameLogin($nameLogin)
     {
-        $this->correo = $correo;
-    
+        $this->nameLogin = $nameLogin;
+
         return $this;
     }
 
     /**
-     * Get correo
+     * Get nameLogin
      *
      * @return string 
      */
-    public function getCorreo()
+    public function getNameLogin()
     {
-        return $this->correo;
+        return $this->nameLogin;
     }
+
 
     /**
      * Set clave

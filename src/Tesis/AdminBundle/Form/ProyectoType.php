@@ -45,43 +45,8 @@ class ProyectoType extends AbstractType
                 ->add('faseFase', 'entity', array('class' => 'TesisAdminBundle:Fase','property' => 'nombre',
                  'label' => 'Fases','multiple'=>true, 'disabled' =>'true', 'required' => false,
                  'attr' => array('size' => '10')))
-
-
-        ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química', 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'), 'label' => 'Departamento', 'disabled' =>'true','required' => false))
-        ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2', '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1', '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'), 'label' => 'Periodo'))                
-        
-                //->add('faseFase', 'entity', array('class' => 'TesisAdminBundle:Fase','property' => 'nombre', 'label' => 'Fases','multiple'=>true, 'disabled' =>'true', 'required' => false, 'required' => false))
-                
-                ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
-                    $form = $event->getForm();
-
-                        $form->add('coordinador', 'entity', array(
-                            "class"     => "TesisAdminBundle:Usuario",
-                            "property"  => "nombre",
-                            'disabled' =>'true',
-                            'required' => false,
-                            'label' => 'Coordinador de Proyecto',
-                            'query_builder' => function(EntityRepository $er) {
-                                return $er->createQueryBuilder('u')
-                                    ->where('u.rol = :rol')
-                                    ->setParameter('rol', "coordinador de proyecto");
-                            },
-                        ));
-
-                        $form->add('coordSuplente', 'entity', array(
-                            "class"     => "TesisAdminBundle:Usuario",
-                            "property"  => "nombre",
-                            'disabled' =>'true',
-                            'required' => false,
-                            'label' => 'Coordinador Suplente',
-                            'query_builder' => function(EntityRepository $er) {
-                                return $er->createQueryBuilder('u')
-                                    ->where('u.rol = :rol')
-                                    ->setParameter('rol', "coordinador suplente");
-                            },
-                        ));
-
-                })
+                ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química', 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'), 'label' => 'Departamento', 'disabled' =>'true','required' => false))
+                ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2', '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1', '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'), 'label' => 'Periodo', 'disabled' =>'true'))                
             ;
         }
         else{
@@ -102,41 +67,9 @@ class ProyectoType extends AbstractType
                 ->add('faseFase', 'entity', array('class' => 'TesisAdminBundle:Fase','property' => 'nombre',
                  'label' => 'Fases','multiple'=>true, 'required' => false,
                  'attr' => array('size' => '10')))
-
-        ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química', 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'), 'label' => 'Departamento'))
-        ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2', '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1', '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'), 'label' => 'Periodo'))  
-
-
-                ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
-                    $form = $event->getForm();
-
-                        $form->add('coordinador', 'entity', array(
-                            "class"     => "TesisAdminBundle:Usuario",
-                            "property"  => "nombre",
-                            'label' => 'Coordinador de Proyecto',
-                            'query_builder' => function(EntityRepository $er) {
-                                return $er->createQueryBuilder('u')
-                                    ->where('u.rol = :rol')
-                                    ->setParameter('rol', "coordinador de proyecto");
-                            },
-                        ));
-
-                        $form->add('coordSuplente', 'entity', array(
-                            "class"     => "TesisAdminBundle:Usuario",
-                            "property"  => "nombre",
-                            'label' => 'Coordinador Suplente',
-                            'query_builder' => function(EntityRepository $er) {
-                                return $er->createQueryBuilder('u')
-                                    ->where('u.rol = :rol')
-                                    ->setParameter('rol', "coordinador suplente");
-                            },
-                        ));
-
-                })
-
-
+                ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química', 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'), 'label' => 'Departamento'))
+                ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2', '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1', '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'), 'label' => 'Periodo'))  
             ;
-
         }
     }   
     

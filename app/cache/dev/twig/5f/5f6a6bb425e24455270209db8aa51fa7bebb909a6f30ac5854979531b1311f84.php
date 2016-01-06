@@ -34,7 +34,7 @@ class __TwigTemplate_23aeb68f3536c770c890602b361de96f798df3eb4f1087193d00e5eb45a
 \t\t\t<div class=\"col-xs-7 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-4 col-lg-offset-4\">
 \t\t\t\t";
         // line 11
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "correo", array()), 'row');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nameLogin", array()), 'row');
         echo "
 \t\t\t\t";
         // line 12
@@ -85,7 +85,7 @@ class __TwigTemplate_23aeb68f3536c770c890602b361de96f798df3eb4f1087193d00e5eb45a
 /* 		</div>*/
 /* 		<div class="row">*/
 /* 			<div class="col-xs-7 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-4 col-lg-offset-4">*/
-/* 				{{ form_row(form.correo) }}*/
+/* 				{{ form_row(form.nameLogin) }}*/
 /* 				{{ form_row(form.clave) }}*/
 /* 				<div  id="loggin-usuario-boton" align="center">*/
 /* 					{{ form_row(form.submit, {'attr': {'class': 'btn btn-success'}} ) }}*/

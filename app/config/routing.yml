@@ -66,6 +66,14 @@ app:
     type:     annotation
 
 
+tesis_tutor:
+    resource: "@TesisAdminBundle/Resources/config/routing/tutor.yml"
+    prefix:   /tutor
+
+tesis_laborsc:
+    resource: "@TesisAdminBundle/Resources/config/routing/laborsc.yml"
+    prefix:   /laborsc
+
 
 #acme_website:
 #    resource: "@AcmeDemoBundle/Resources/config/routing.yml"

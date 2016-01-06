@@ -12,11 +12,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="actividad")
  * @ORM\Entity
- * @UniqueEntity(fields="nombre", message="Este nombre ya esta registrado.")  
+ * @UniqueEntity(fields="nombre", message="Este nombre ya esta registrado.") 
  */
 class Actividad
 {
-
     /**
      * @var string
      * @ORM\Column(name="nombre", type="string", length=500, nullable=false)
@@ -26,20 +25,21 @@ class Actividad
      *      max = 500,
      *      minMessage = "el nombre debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "el nombre debe tener maximo {{ limit }} caracteres.")
-     */     
+     */  
     private $nombre;
 
     /**
      * @var string
      * @ORM\Column(name="descripcion", type="string", length=2000, nullable=true)
-     * @Assert\NotBlank(message="Porfavor introduzca descripción.")
-     * @Assert\Length(
+     * _Assert\NotBlank(message="Porfavor introduzca descripción.")
+     * _Assert\Length(
      *      min = 20,
      *      max = 1999,
      *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la descripción tener maximo {{ limit }} caracteres.")
      */ 
     private $descripcion;
+
 
     /**
      * @var integer
@@ -49,6 +49,13 @@ class Actividad
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idActividad;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Periodo", mappedBy="actividadActividad")
+     */
+    private $periodoPeriodo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -65,20 +72,13 @@ class Actividad
     private $diarioDiario;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Cronograma", mappedBy="actividadActividad")
-     */
-    private $cronogramacronograma;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
+        $this->periodoPeriodo = new \Doctrine\Common\Collections\ArrayCollection();
         $this->faseFase = new \Doctrine\Common\Collections\ArrayCollection();
         $this->diarioDiario = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->cronogramacronograma = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -128,6 +128,7 @@ class Actividad
         return $this->descripcion;
     }
 
+
     /**
      * Get idActividad
      *
@@ -136,6 +137,39 @@ class Actividad
     public function getIdActividad()
     {
         return $this->idActividad;
+    }
+
+    /**
+     * Add periodoPeriodo
+     *
+     * @param \Tesis\AdminBundle\Entity\Periodo $periodoPeriodo
+     * @return Actividad
+     */
+    public function addPeriodoPeriodo(\Tesis\AdminBundle\Entity\Periodo $periodoPeriodo)
+    {
+        $this->periodoPeriodo[] = $periodoPeriodo;
+
+        return $this;
+    }
+
+    /**
+     * Remove periodoPeriodo
+     *
+     * @param \Tesis\AdminBundle\Entity\Periodo $periodoPeriodo
+     */
+    public function removePeriodoPeriodo(\Tesis\AdminBundle\Entity\Periodo $periodoPeriodo)
+    {
+        $this->periodoPeriodo->removeElement($periodoPeriodo);
+    }
+
+    /**
+     * Get periodoPeriodo
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPeriodoPeriodo()
+    {
+        return $this->periodoPeriodo;
     }
 
     /**
@@ -203,45 +237,4 @@ class Actividad
     {
         return $this->diarioDiario;
     }
-
-    /**
-     * Add cronogramacronograma
-     *
-     * @param \Tesis\AdminBundle\Entity\Cronograma $cronogramacronograma
-     * @return Actividad
-     */
-    public function addCronogramacronograma(\Tesis\AdminBundle\Entity\Cronograma $cronogramacronograma)
-    {
-        $this->cronogramacronograma[] = $cronogramacronograma;
-
-        return $this;
-    }
-
-    /**
-     * Remove cronogramacronograma
-     *
-     * @param \Tesis\AdminBundle\Entity\Cronograma $cronogramacronograma
-     */
-    public function removeCronogramacronograma(\Tesis\AdminBundle\Entity\Cronograma $cronogramacronograma)
-    {
-        $this->cronogramacronograma->removeElement($cronogramacronograma);
-    }
-
-    /**
-     * Get cronogramacronograma
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCronogramacronograma()
-    {
-        return $this->cronogramacronograma;
-    }
-
-/*
-    public function __toString()
-    {
-        return $this->idActividad;
-    }
-**/
-
 }

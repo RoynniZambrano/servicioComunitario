@@ -48,7 +48,7 @@ class __TwigTemplate_39c968b3d8ca861cd5afdc1ec3781e93961f9b9fa4d3650f857f276221f
           <!-- Content Header (Page header) -->
           <section class=\"content-header\">
             <h1>
-              Gestión de Usuarios
+              Administrar mi perfil
               <small></small>
             </h1>
             <ol class=\"breadcrumb\">
@@ -56,8 +56,8 @@ class __TwigTemplate_39c968b3d8ca861cd5afdc1ec3781e93961f9b9fa4d3650f857f276221f
         // line 22
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
-              <li class=\"active\">Gestión de Usuarios</li>
-              <li class=\"active\">Consultar</li>
+              <li class=\"active\">Administrar mi perfil</li>
+              <li class=\"active\">Consultar cuenta</li>
             </ol>
           </section>
 
@@ -67,7 +67,7 @@ class __TwigTemplate_39c968b3d8ca861cd5afdc1ec3781e93961f9b9fa4d3650f857f276221f
             <!-- Default box -->
             <div class=\"box box-primary\">
               <div class=\"box-header with-border\">
-                <h3 class=\"box-title\">Consultar usuario</h3>
+                <h3 class=\"box-title\">Consultar cuenta</h3>
                 <div class=\"box-tools pull-right\">
                   <button class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\"><i class=\"fa fa-times\"></i></button>
                 </div>
@@ -128,13 +128,13 @@ class __TwigTemplate_39c968b3d8ca861cd5afdc1ec3781e93961f9b9fa4d3650f857f276221f
 /*           <!-- Content Header (Page header) -->*/
 /*           <section class="content-header">*/
 /*             <h1>*/
-/*               Gestión de Usuarios*/
+/*               Administrar mi perfil*/
 /*               <small></small>*/
 /*             </h1>*/
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
-/*               <li class="active">Gestión de Usuarios</li>*/
-/*               <li class="active">Consultar</li>*/
+/*               <li class="active">Administrar mi perfil</li>*/
+/*               <li class="active">Consultar cuenta</li>*/
 /*             </ol>*/
 /*           </section>*/
 /* */
@@ -144,7 +144,7 @@ class __TwigTemplate_39c968b3d8ca861cd5afdc1ec3781e93961f9b9fa4d3650f857f276221f
 /*             <!-- Default box -->*/
 /*             <div class="box box-primary">*/
 /*               <div class="box-header with-border">*/
-/*                 <h3 class="box-title">Consultar usuario</h3>*/
+/*                 <h3 class="box-title">Consultar cuenta</h3>*/
 /*                 <div class="box-tools pull-right">*/
 /*                   <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>*/
 /*                 </div>*/

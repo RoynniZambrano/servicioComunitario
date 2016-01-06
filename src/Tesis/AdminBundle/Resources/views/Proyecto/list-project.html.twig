@@ -15,14 +15,14 @@
           <!-- Content Header (Page header) -->
           <section class="content-header">
             <h1>
-              Gestión de Proyectos
+              Gestionar proyectos
               <small></small>
             </h1>
             <ol class="breadcrumb">
               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>
-              <li class="active">Gestión de Proyectos</li>
-              <li class="active">Proyecto</li>
-              <li class="active">Listar</li>
+              <li class="active">Gestionar proyectos</li>
+              <li class="active">Proyectos</li>
+              <li class="active">Listar proyecto</li>
             </ol>
           </section>
 
@@ -44,11 +44,9 @@
                   <thead>
                     <tr>
                       <th>Nombre</th>
-                      <th>Coordinador Proyecto</th>
-                      <th>Coordinador Suplente</th>
                       <th></th>
                       <th></th>
-                      {% if (user.rol != 'estudiante') and (user.rol != 'tutor')  %}
+                      {% if (user.perfil != 'estudiante') and (user.perfil != 'tutor')  %}
                       <th></th>
                       {% endif %}                       
                     </tr>
@@ -57,8 +55,6 @@
                   {% for proyecto in proyectos %}
                     <tr>  
                     <td>{{ proyecto.nombre }}</td>
-                    <td>{{ proyecto.coordinador.nombre }}</td>
-                    <td>{{ proyecto.coordSuplente.nombre }}</td>                    
                     <td align="center">
                       <a href="{{ path('project_check', {'id': proyecto.idProyecto}) }}">
                           <button class="btn btn-success">Consultar</button>
@@ -69,7 +65,7 @@
                           <button class="btn btn-success">Editar</button>
                       </a>
                     </td>
-                    {% if (user.rol != 'estudiante') and (user.rol != 'tutor')  %}
+                    {% if (user.perfil != 'estudiante') and (user.perfil != 'tutor')  %}
                     <td align="center">
                       <a href="{{ path('project_edit', {'id': proyecto.idProyecto}) }}">
                           <button class="btn btn-danger">Eliminar</button>
@@ -82,11 +78,9 @@
                   <tfoot>
                     <tr>
                       <th>Nombre</th>
-                      <th>Coordinador Proyecto</th>
-                      <th>Coordinador Suplente</th>
                       <th></th>
                       <th></th>
-                      {% if (user.rol != 'estudiante') and (user.rol != 'tutor')  %}
+                      {% if (user.perfil != 'estudiante') and (user.perfil != 'tutor')  %}
                       <th></th>
                       {% endif %}                       
                     </tr>
