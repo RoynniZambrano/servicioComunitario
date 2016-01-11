@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Tesis\AdminBundle\Entity\FechaPeriodo" table="fecha_periodo">
+    <id name="idFechaPeriodo" type="integer" column="id_fecha_periodo">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="actual" type="boolean" column="actual" nullable="true"/>
+    <field name="anterior" type="boolean" column="anterior" nullable="true"/>
+    <field name="proximo" type="boolean" column="proximo" nullable="true"/>
+    <field name="periodo" type="string" column="periodo" length="50" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -430,6 +430,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutors_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::editformAction',));
             }
 
+            // tutores_select
+            if (preg_match('#^/tutors/(?P<id>[^/]++)/tutores_select$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'tutores_select')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\TutoresController::editSelectAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/daily')) {
@@ -844,6 +849,47 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // laborsc_editform
             if (preg_match('#^/laborsc/(?P<id>[^/]++)/editform$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'laborsc_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\LaborscController::editformAction',));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/coord')) {
+            if (0 === strpos($pathinfo, '/coord/coord_add')) {
+                // coord_add
+                if ($pathinfo === '/coord/coord_add') {
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CoordinadoresController::addAction',  '_route' => 'coord_add',);
+                }
+
+                // coord_addform
+                if ($pathinfo === '/coord/coord_addform') {
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CoordinadoresController::addformAction',  '_route' => 'coord_addform',);
+                }
+
+            }
+
+            // coord_list
+            if ($pathinfo === '/coord/list') {
+                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CoordinadoresController::listAction',  '_route' => 'coord_list',);
+            }
+
+            // coord_check
+            if (preg_match('#^/coord/(?P<id>[^/]++)/check$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'coord_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CoordinadoresController::checkAction',));
+            }
+
+            // coord_checkform
+            if (preg_match('#^/coord/(?P<id>[^/]++)/check_form$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'coord_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CoordinadoresController::checkformAction',));
+            }
+
+            // coord_edit
+            if (preg_match('#^/coord/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'coord_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CoordinadoresController::editAction',));
+            }
+
+            // coord_editform
+            if (preg_match('#^/coord/(?P<id>[^/]++)/editform$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'coord_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CoordinadoresController::editformAction',));
             }
 
         }

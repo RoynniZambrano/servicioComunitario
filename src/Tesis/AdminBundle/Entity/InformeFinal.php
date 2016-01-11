@@ -24,7 +24,7 @@ class InformeFinal
      *
      * @ORM\Column(name="id_informe_final", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idInformeFinal;
 

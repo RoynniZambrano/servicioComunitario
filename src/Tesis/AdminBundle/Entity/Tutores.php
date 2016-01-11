@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="tutores", indexes={@ORM\Index(name="fk_gestiona_proyecto1_idx", columns={"proyecto_id_proyecto"})})
  * @ORM\Entity
- * @UniqueEntity(fields={"proyectoProyecto", "periodo"}, errorPath="proyectoProyecto", message="Esta proyecto ya esta registrado.")  
+ * @UniqueEntity(fields={"proyectoProyecto", "periodo"}, errorPath="proyectoProyecto", message="Este proyecto ya esta registrado.")  
  */
 class Tutores
 {

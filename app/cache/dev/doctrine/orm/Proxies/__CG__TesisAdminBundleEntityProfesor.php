@@ -64,10 +64,10 @@ class Profesor extends \Tesis\AdminBundle\Entity\Profesor implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'apellido', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'cedula', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'clave', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'correo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'telefono', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'perfil', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'genero', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nameLogin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'estatus', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'idProfesor', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'tutoresTutores');
+            return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'apellido', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'cedula', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'clave', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'correo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'telefono', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'perfil', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'genero', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nameLogin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'estatus', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'proyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'idProfesor', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'tutoresTutores');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'apellido', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'cedula', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'clave', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'correo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'telefono', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'perfil', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'genero', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nameLogin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'estatus', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'idProfesor', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'tutoresTutores');
+        return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nombre', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'apellido', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'cedula', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'clave', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'correo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'telefono', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'perfil', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'genero', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'nameLogin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'departamento', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'periodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'estatus', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'proyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'idProfesor', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Profesor' . "\0" . 'tutoresTutores');
     }
 
     /**
@@ -435,6 +435,28 @@ class Profesor extends \Tesis\AdminBundle\Entity\Profesor implements \Doctrine\O
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEstatus', array());
 
         return parent::getEstatus();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setProyecto($proyecto)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProyecto', array($proyecto));
+
+        return parent::setProyecto($proyecto);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProyecto()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProyecto', array());
+
+        return parent::getProyecto();
     }
 
     /**

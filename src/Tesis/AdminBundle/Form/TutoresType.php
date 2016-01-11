@@ -32,8 +32,27 @@ class TutoresType extends AbstractType
 
             $builder
             ->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyectos','disabled' => true, 'required' => false))
-            ->add('profesorProfesor', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Tutores',
-             'multiple'=>true,'disabled' => true, 'required' => false, 'attr' => array('size' => '20')))
+         //   ->add('profesorProfesor', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Tutores',
+          //   'multiple'=>true,'disabled' => true, 'required' => false, 'attr' => array('size' => '20')))
+          
+            ->add('profesorProfesor', 'entity', array(
+                "class"     => "TesisAdminBundle:Profesor",
+                "property"  => "nombre",
+                'label' => 'Tutores',
+                'disabled' => true,
+                'multiple' => true,
+                'required' => false,
+                'attr' => array('size' => '20'),
+                'query_builder' => function(EntityRepository $er) {
+                 return $er->createQueryBuilder('p')
+                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
+                        ->setParameter('estatus', "activo")
+                        ->setParameter('perfil', "tutor");
+                        },
+                ))
+
+
+
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
@@ -44,8 +63,30 @@ class TutoresType extends AbstractType
 
             $builder
             ->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyectos'))
+          
+            /*
             ->add('profesorProfesor', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre',
             'label' => 'Tutores', 'multiple'=>true, 'attr' => array('size' => '20')))
+            **/        
+
+            ->add('profesorProfesor', 'entity', array(
+                "class"     => "TesisAdminBundle:Profesor",
+                "property"  => "nombre",
+                'label' => 'Tutores',
+                'disabled' => false,
+                'multiple' => true,
+                'required' => true,
+                'attr' => array('size' => '20'),
+                'query_builder' => function(EntityRepository $er) {
+                 return $er->createQueryBuilder('p')
+                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
+                        ->setParameter('estatus', "activo")
+                        ->setParameter('perfil', "tutor");
+                        },
+                ))
+
+
+
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),

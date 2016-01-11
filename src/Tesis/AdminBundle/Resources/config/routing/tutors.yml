@@ -31,7 +31,12 @@ tutors_editform:
     defaults: { _controller: TesisAdminBundle:Tutores:editform }
 
 
-
+# eliecer fuck
+tutores_select:
+    pattern:  /{id}/tutores_select
+    defaults: { _controller: TesisAdminBundle:Tutores:editSelect}
+    options:
+        expose: true 
 
 
 

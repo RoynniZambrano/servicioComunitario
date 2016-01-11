@@ -59,7 +59,7 @@ class InfoAdicional
      *
      * @ORM\Column(name="id_info_adicional", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idInfoAdicional;
 

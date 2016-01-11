@@ -3,52 +3,114 @@
 namespace Tesis\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * CoordinadoresHasProfesor
  *
- * @ORM\Table(name="coordinadores_has_profesor", indexes={@ORM\Index(name="fk_tutoria_has_usuario_usuario1_idx", columns={"profesor_id_proyecto"}), @ORM\Index(name="fk_coordinadores_has_profesor_coordinadores1_idx", columns={"coordinadores_id_coordinadores"}), @ORM\Index(name="fk_coordinadores_has_profesor_profesor1_idx", columns={"profesor_id_suplente"})})
+ * @ORM\Table(name="coordinadores_has_profesor")
  * @ORM\Entity
+ * @UniqueEntity(fields={"proyectoProyecto", "periodo"}, errorPath="proyectoProyecto", message="Este proyecto ya esta registrado.") 
  */
 class CoordinadoresHasProfesor
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="coordinadores_has_profesor_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $coordinadoresHasProfesorId;
+
+    /**
+     * @var \Tesis\AdminBundle\Entity\Proyecto
+     *
+     * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Proyecto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="proyecto_id_proyecto", referencedColumnName="id_proyecto")
+     * })
+     */
+    private $proyectoProyecto;
+
+    /**
      * @var \Tesis\AdminBundle\Entity\Profesor
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="profesor_id_suplente", referencedColumnName="id_profesor")
      * })
+     * @Assert\NotBlank(message="Porfavor introduzca un coordinador.")      
      */
     private $profesorSuplente;
 
-    /**
-     * @var \Tesis\AdminBundle\Entity\Coordinadores
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Coordinadores")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="coordinadores_id_coordinadores", referencedColumnName="id_coordinadores")
-     * })
-     */
-    private $coordinadoresCoordinadores;
 
     /**
      * @var \Tesis\AdminBundle\Entity\Profesor
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="profesor_id_proyecto", referencedColumnName="id_profesor")
      * })
+     * @Assert\NotBlank(message="Porfavor introduzca un coordinador.")      
      */
-    private $profesorProyecto;
+    private $profesorProyecto;    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca periodo.")       
+     */
+    private $periodo = '2015-1'; 
 
 
+    /**
+     * Set coordinadoresHasProfesorId
+     *
+     * @param integer $coordinadoresHasProfesorId
+     * @return CoordinadoresHasProfesor
+     */
+    public function setCoordinadoresHasProfesorId($coordinadoresHasProfesorId)
+    {
+        $this->coordinadoresHasProfesorId = $coordinadoresHasProfesorId;
+
+        return $this;
+    }
+
+    /**
+     * Get coordinadoresHasProfesorId
+     *
+     * @return integer 
+     */
+    public function getCoordinadoresHasProfesorId()
+    {
+        return $this->coordinadoresHasProfesorId;
+    }
+
+    /**
+     * Set proyectoProyecto
+     *
+     * @param \Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto
+     * @return CoordinadoresHasProfesor
+     */
+    public function setProyectoProyecto(\Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto)
+    {
+        $this->proyectoProyecto = $proyectoProyecto;
+
+        return $this;
+    }
+
+    /**
+     * Get proyectoProyecto
+     *
+     * @return \Tesis\AdminBundle\Entity\Proyecto 
+     */
+    public function getProyectoProyecto()
+    {
+        return $this->proyectoProyecto;
+    }
 
     /**
      * Set profesorSuplente
@@ -74,29 +136,6 @@ class CoordinadoresHasProfesor
     }
 
     /**
-     * Set coordinadoresCoordinadores
-     *
-     * @param \Tesis\AdminBundle\Entity\Coordinadores $coordinadoresCoordinadores
-     * @return CoordinadoresHasProfesor
-     */
-    public function setCoordinadoresCoordinadores(\Tesis\AdminBundle\Entity\Coordinadores $coordinadoresCoordinadores)
-    {
-        $this->coordinadoresCoordinadores = $coordinadoresCoordinadores;
-
-        return $this;
-    }
-
-    /**
-     * Get coordinadoresCoordinadores
-     *
-     * @return \Tesis\AdminBundle\Entity\Coordinadores 
-     */
-    public function getCoordinadoresCoordinadores()
-    {
-        return $this->coordinadoresCoordinadores;
-    }
-
-    /**
      * Set profesorProyecto
      *
      * @param \Tesis\AdminBundle\Entity\Profesor $profesorProyecto
@@ -117,5 +156,29 @@ class CoordinadoresHasProfesor
     public function getProfesorProyecto()
     {
         return $this->profesorProyecto;
+    } 
+
+    /**
+     * Set periodo
+     *
+     * @param string $periodo
+     * @return Profesor
+     */
+    public function setPeriodo($periodo)
+    {
+        $this->periodo = $periodo;
+
+        return $this;
     }
+
+    /**
+     * Get periodo
+     *
+     * @return string 
+     */
+    public function getPeriodo()
+    {
+        return $this->periodo;
+    }
+
 }

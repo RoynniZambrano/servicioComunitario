@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="tutoria", indexes={@ORM\Index(name="fk_tutoria_profesor1_idx", columns={"profesor_id_profesor"})})
  * @ORM\Entity
- * @UniqueEntity(fields={"profesorProfesor", "periodo"}, errorPath="profesorProfesor", message="Esta profesor ya esta registrado.")   
+ * @UniqueEntity(fields={"profesorProfesor", "periodo"}, errorPath="profesorProfesor", message="Este profesor ya esta registrado.")   
  */
 class Tutoria
 {
@@ -48,7 +48,7 @@ class Tutoria
      *     @ORM\JoinColumn(name="estudiante_id_estudiante", referencedColumnName="id_estudiante")
      *   }
      * )
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un Estudiante")       
+     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un estudiante")       
      */
     private $estudianteEstudiante;
 

@@ -57,7 +57,7 @@ class __TwigTemplate_206079c60a4e3678285b4962890a56894046db6d714c06386eeaa00a41f
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
               <li class=\"active\">Gestionar asignaciones</li>             
-              <li class=\"active\">Editar asignación Tutores a estudiantes</li>
+              <li class=\"active\">Editar asignación de tutores a estudiantes</li>
             </ol>
           </section>
 
@@ -67,7 +67,7 @@ class __TwigTemplate_206079c60a4e3678285b4962890a56894046db6d714c06386eeaa00a41f
             <!-- Default box -->
             <div class=\"box box-primary\">
               <div class=\"box-header with-border\">
-                <h3 class=\"box-title\">Editar asignación Tutores a estudiantes</h3>
+                <h3 class=\"box-title\">Editar asignación de tutores a estudiantes</h3>
                 <div class=\"box-tools pull-right\">
                   <button class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\"><i class=\"fa fa-times\"></i></button>
                 </div>
@@ -134,7 +134,7 @@ class __TwigTemplate_206079c60a4e3678285b4962890a56894046db6d714c06386eeaa00a41f
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
 /*               <li class="active">Gestionar asignaciones</li>             */
-/*               <li class="active">Editar asignación Tutores a estudiantes</li>*/
+/*               <li class="active">Editar asignación de tutores a estudiantes</li>*/
 /*             </ol>*/
 /*           </section>*/
 /* */
@@ -144,7 +144,7 @@ class __TwigTemplate_206079c60a4e3678285b4962890a56894046db6d714c06386eeaa00a41f
 /*             <!-- Default box -->*/
 /*             <div class="box box-primary">*/
 /*               <div class="box-header with-border">*/
-/*                 <h3 class="box-title">Editar asignación Tutores a estudiantes</h3>*/
+/*                 <h3 class="box-title">Editar asignación de tutores a estudiantes</h3>*/
 /*                 <div class="box-tools pull-right">*/
 /*                   <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>*/
 /*                 </div>*/

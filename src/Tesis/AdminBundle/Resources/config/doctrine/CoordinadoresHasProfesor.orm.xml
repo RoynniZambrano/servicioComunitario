@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Tesis\AdminBundle\Entity\CoordinadoresHasProfesor" table="coordinadores_has_profesor">
-    <indexes>
-      <index name="fk_tutoria_has_usuario_usuario1_idx" columns="profesor_id_proyecto"/>
-      <index name="fk_coordinadores_has_profesor_coordinadores1_idx" columns="coordinadores_id_coordinadores"/>
-      <index name="fk_coordinadores_has_profesor_profesor1_idx" columns="profesor_id_suplente"/>
-    </indexes>
-    <id name="profesorProyecto" association-key="true"/>
-    <id name="coordinadoresCoordinadores" association-key="true"/>
-    <id name="profesorSuplente" association-key="true"/>
+    
+    <id name="coordinadoresHasProfesorId" type="integer" column="coordinadores_has_profesor_id">
+    <generator strategy="AUTO"/>
+    </id>  
+
+    <field name="periodo" type="string" column="periodo" length="50" nullable="false"/> 
+    <one-to-one field="proyectoProyecto" target-entity="Proyecto">
+      <join-columns>
+        <join-column name="proyecto_id_proyecto" referenced-column-name="id_proyecto"/>
+      </join-columns>
+    </one-to-one>
     <one-to-one field="profesorSuplente" target-entity="Profesor">
       <join-columns>
         <join-column name="profesor_id_suplente" referenced-column-name="id_profesor"/>
-      </join-columns>
-    </one-to-one>
-    <one-to-one field="coordinadoresCoordinadores" target-entity="Coordinadores">
-      <join-columns>
-        <join-column name="coordinadores_id_coordinadores" referenced-column-name="id_coordinadores"/>
       </join-columns>
     </one-to-one>
     <one-to-one field="profesorProyecto" target-entity="Profesor">

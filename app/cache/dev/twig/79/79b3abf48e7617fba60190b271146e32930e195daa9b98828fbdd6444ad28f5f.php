@@ -36,7 +36,7 @@ class __TwigTemplate_41f35539226b6b844bd3db7c6b34e8a08174fb2c1385d235afb5afbad2a
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "proyectoProyecto", array()), 'row');
         echo " 
 \t\t\t</div>
-\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 \tcol-lg-offset-0\">
+\t    \t<div id=\"tutores_select\" class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 \tcol-lg-offset-0\">
 \t\t\t\t";
         // line 13
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "profesorProfesor", array()), 'row');
@@ -108,7 +108,7 @@ class __TwigTemplate_41f35539226b6b844bd3db7c6b34e8a08174fb2c1385d235afb5afbad2a
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2 col-lg-4 	col-lg-offset-2">*/
 /* 				{{ form_row(form.proyectoProyecto) }} */
 /* 			</div>*/
-/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 	col-lg-offset-0">*/
+/* 	    	<div id="tutores_select" class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-0 col-lg-3 	col-lg-offset-0">*/
 /* 				{{ form_row(form.profesorProfesor) }}*/
 /* 				<h5>Mantén presionado la Tecla Ctrl (windows) / Command (Mac) para <b>seleccionar</b> y <b>desmarcar</b> múltiples opciones.</h5> 			*/
 /* 			</div>*/

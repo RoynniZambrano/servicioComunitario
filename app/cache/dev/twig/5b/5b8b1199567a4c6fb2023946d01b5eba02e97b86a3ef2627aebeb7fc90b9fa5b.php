@@ -57,7 +57,7 @@ class __TwigTemplate_8e73844fa5bcd65c27859736a86ac45ab18659272a41a59dca390f355a5
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
               <li class=\"active\">Gestionar asignaciones</li>             
-              <li class=\"active\">Crear asignación estudiantes a proyecto</li>
+              <li class=\"active\">Crear asignación de estudiantes a proyecto</li>
             </ol>
           </section>
 
@@ -67,7 +67,7 @@ class __TwigTemplate_8e73844fa5bcd65c27859736a86ac45ab18659272a41a59dca390f355a5
             <!-- Default box -->
             <div class=\"box box-primary\">
               <div class=\"box-header with-border\">
-                <h3 class=\"box-title\">Crear asignación estudiantes a proyecto</h3>
+                <h3 class=\"box-title\">Crear asignación de estudiantes a proyecto</h3>
                 <div class=\"box-tools pull-right\">
                   <button class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\"><i class=\"fa fa-times\"></i></button>
                 </div>
@@ -133,7 +133,7 @@ class __TwigTemplate_8e73844fa5bcd65c27859736a86ac45ab18659272a41a59dca390f355a5
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
 /*               <li class="active">Gestionar asignaciones</li>             */
-/*               <li class="active">Crear asignación estudiantes a proyecto</li>*/
+/*               <li class="active">Crear asignación de estudiantes a proyecto</li>*/
 /*             </ol>*/
 /*           </section>*/
 /* */
@@ -143,7 +143,7 @@ class __TwigTemplate_8e73844fa5bcd65c27859736a86ac45ab18659272a41a59dca390f355a5
 /*             <!-- Default box -->*/
 /*             <div class="box box-primary">*/
 /*               <div class="box-header with-border">*/
-/*                 <h3 class="box-title">Crear asignación estudiantes a proyecto</h3>*/
+/*                 <h3 class="box-title">Crear asignación de estudiantes a proyecto</h3>*/
 /*                 <div class="box-tools pull-right">*/
 /*                   <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>*/
 /*                 </div>*/

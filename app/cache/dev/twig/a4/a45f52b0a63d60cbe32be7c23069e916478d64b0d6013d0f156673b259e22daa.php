@@ -198,13 +198,13 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                     <li>
                     <a href=\"";
                 // line 120
-                echo $this->env->getExtension('routing')->getPath("cronograma_new");
+                echo $this->env->getExtension('routing')->getPath("coord_add");
                 echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear asignación</a>
                     </li>
                     <li>
                       <a href=\"";
                 // line 123
-                echo $this->env->getExtension('routing')->getPath("cronograma_list");
+                echo $this->env->getExtension('routing')->getPath("coord_list");
                 echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
                     </li>                   
                   </ul>
@@ -666,10 +666,10 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                 <li><a><i class="fa fa-circle-o text-info"></i> Coordinadores a proyectos <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
 /*                     <li>*/
-/*                     <a href="{{ path('cronograma_new') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>*/
+/*                     <a href="{{ path('coord_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>*/
 /*                     </li>*/
 /*                     <li>*/
-/*                       <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
+/*                       <a href="{{ path('coord_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
 /*                     </li>                   */
 /*                   </ul>*/
 /*                 </li>                                                  */

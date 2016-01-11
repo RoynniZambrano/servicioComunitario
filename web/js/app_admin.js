@@ -37,6 +37,45 @@
   editarTutoria();
   asignarLaborsc();
   editarLaborsc();
+  asignarCoord();
+  editarCoord();
+
+  /* eliecer fuck
+  //console.log($('#tutores_form_profesorProfesor option:selected').text());
+  $('#tutores_form_proyectoProyecto').change(function() {
+      var text = $('#tutores_form_proyectoProyecto option:selected').val();
+      alert( "Texto es : " + text );
+
+      var inform = function(result){
+
+      if(result != 0)
+        alert("Hello Roynnizambranooaoa");
+      else
+        alert("NO entro");
+          //window.location.href = Routing.generate('tesis_admin_homepage');
+  
+          //edit_form.remove();
+          //$("#editar-tutores-div").prepend(result);   
+      
+    };
+    var ruta  = Routing.generate('tutores_select');
+    console.log(ruta);
+
+    $.ajax({
+      //type: edit_form.attr('method'),
+      //async: true,
+     // url: edit_form.attr('action'),
+      url: Routing.generate('tutores_select'), //Routing.generate('tutores_select'),
+      data: {
+        id : '88'
+      },
+      //data: $('#tutores_form_proyectoProyecto option:selected').serialize(),
+      /*dataType: 'POST',
+      success: inform
+      });
+    }
+  );
+  **/
 
 }); 
 
@@ -1317,6 +1356,65 @@ function editarLaborsc(){
   
           edit_form.remove();
           $("#editar-laborsc-div").prepend(result);   
+      
+    };
+
+
+    $.ajax({
+      type: edit_form.attr('method'),
+      async: true,
+      url: edit_form.attr('action'),
+      data: edit_form.serialize(),
+      dataType: 'text',
+      success: inform
+      });
+  });
+}
+
+
+
+function asignarCoord(){
+
+  $("#add-coordinadores-div").on('click' , '#add-coordinadores-boton', function(event) {
+    event.preventDefault();
+    form = $("#add-coordinadores-form");
+    
+    var inform = function(result){
+
+      if(result == '.')
+          window.location.href = Routing.generate('coord_list');
+     
+          form.remove();
+          $("#add-coordinadores-div").prepend(result);
+      
+    };
+
+    $.ajax({
+      type: form.attr('method'),
+      async: true,
+      url: form.attr('action'),
+      data: form.serialize(),
+      dataType: 'text',
+      success: inform
+      });
+  });
+}
+
+
+// notificacion 
+function editarCoord(){
+
+  $("#editar-coordinadores-div").on('click' , '#editar-coordinadores-boton', function(event) {
+    event.preventDefault();
+    edit_form = $("#editar-coordinadores-form");
+
+    var inform = function(result){
+
+      if(result == '.')
+          window.location.href = Routing.generate('tesis_admin_homepage');
+  
+          edit_form.remove();
+          $("#editar-coordinadores-div").prepend(result);   
       
     };
 

@@ -59,7 +59,7 @@ class Periodo
      *
      * @ORM\Column(name="id_periodo", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idPeriodo;
 

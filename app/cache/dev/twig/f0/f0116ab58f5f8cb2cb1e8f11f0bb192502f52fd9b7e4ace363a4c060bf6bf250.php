@@ -58,7 +58,7 @@ class __TwigTemplate_28b47e1bd8c5161e23a5e757255cd34b5361fca2ba33382e7d9b7fbd877
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
               <li class=\"active\">Gestionar asignaciones</li>             
-              <li class=\"active\">Listar asignación tutores a proyecto</li>
+              <li class=\"active\">Listar asignación de tutores a proyecto</li>
             </ol>
           </section>
 
@@ -68,7 +68,7 @@ class __TwigTemplate_28b47e1bd8c5161e23a5e757255cd34b5361fca2ba33382e7d9b7fbd877
             <!-- Default box -->
             <div class=\"box box-primary\">
               <div class=\"box-header with-border\">
-                <h3 class=\"box-title\">Listar asignaciónes tutores a proyecto</h3>
+                <h3 class=\"box-title\">Listar asignaciónes de tutores a proyecto</h3>
                 <div class=\"box-tools pull-right\">
                   <button class=\"btn btn-box-tool\" data-widget=\"remove\" data-toggle=\"tooltip\" title=\"Remove\"><i class=\"fa fa-times\"></i></button>
                 </div>
@@ -197,7 +197,7 @@ class __TwigTemplate_28b47e1bd8c5161e23a5e757255cd34b5361fca2ba33382e7d9b7fbd877
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
 /*               <li class="active">Gestionar asignaciones</li>             */
-/*               <li class="active">Listar asignación tutores a proyecto</li>*/
+/*               <li class="active">Listar asignación de tutores a proyecto</li>*/
 /*             </ol>*/
 /*           </section>*/
 /* */
@@ -207,7 +207,7 @@ class __TwigTemplate_28b47e1bd8c5161e23a5e757255cd34b5361fca2ba33382e7d9b7fbd877
 /*             <!-- Default box -->*/
 /*             <div class="box box-primary">*/
 /*               <div class="box-header with-border">*/
-/*                 <h3 class="box-title">Listar asignaciónes tutores a proyecto</h3>*/
+/*                 <h3 class="box-title">Listar asignaciónes de tutores a proyecto</h3>*/
 /*                 <div class="box-tools pull-right">*/
 /*                   <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>*/
 /*                 </div>*/

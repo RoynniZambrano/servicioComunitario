@@ -38,7 +38,7 @@ class Adicionales
      *
      * @ORM\Column(name="id_adicionales", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idAdicionales;
 

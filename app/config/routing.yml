@@ -74,6 +74,10 @@ tesis_laborsc:
     resource: "@TesisAdminBundle/Resources/config/routing/laborsc.yml"
     prefix:   /laborsc
 
+tesis_coord:
+    resource: "@TesisAdminBundle/Resources/config/routing/coord.yml"
+    prefix:   /coord
+
 
 #acme_website:
 #    resource: "@AcmeDemoBundle/Resources/config/routing.yml"
