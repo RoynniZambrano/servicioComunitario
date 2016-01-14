@@ -14,7 +14,7 @@
     <field name="genero" type="string" column="genero" length="50" nullable="true"/>
     <field name="nameLogin" type="string" column="name_login" length="50" nullable="false"/>
     <field name="departamento" type="string" column="departamento" length="50" nullable="false"/>
-    <field name="periodo" type="string" column="periodo" length="50" nullable="false"/>
+    <field name="periodo" type="string" column="periodo" length="50" nullable="true"/>
     <field name="estatus" type="string" column="estatus" nullable="false"/>
     <field name="proyecto" type="string" column="proyecto" nullable="true"/>      
     <many-to-many field="tutoresTutores" target-entity="Tutores" mapped-by="profesorProfesor"/>

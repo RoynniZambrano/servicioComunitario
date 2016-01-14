@@ -108,19 +108,29 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
         echo "
 \t\t\t</div>
 \t\t</div>\t
-\t</div>\t
+\t</div>
+\t<div class=\"row field-c\"> 
+\t\t<div class=\"form-group\">
+\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
+\t\t\t";
+        // line 61
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "periodo", array()), 'row');
+        echo "
+\t\t\t</div>
+\t\t</div>\t
+\t</div>\t\t
 
 \t\t<br><br>
 \t<div class=\"row\">
 \t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-4 col-lg-3 \tcol-lg-offset-2\" align=\"center\" style=\"margin-bottom: 2%;\">
 \t\t\t ";
-        // line 62
+        // line 69
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "edit", array()), 'row', array("attr" => array("class" => "btn btn-success btn-lg")));
         echo " 
 \t\t</div>\t
 \t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\"align=\"center\" style=\"margin-bottom: 2%;\">
 \t\t\t ";
-        // line 65
+        // line 72
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "back", array()), 'row', array("attr" => array("class" => "btn btn-success btn-lg")));
         echo " 
 \t\t</div>\t
@@ -130,7 +140,7 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 </div>\t
 
 ";
-        // line 72
+        // line 79
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 ";
@@ -148,7 +158,7 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 
     public function getDebugInfo()
     {
-        return array (  134 => 72,  124 => 65,  118 => 62,  107 => 54,  101 => 51,  91 => 44,  85 => 41,  75 => 34,  69 => 31,  59 => 24,  53 => 21,  43 => 14,  37 => 11,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
+        return array (  144 => 79,  134 => 72,  128 => 69,  117 => 61,  107 => 54,  101 => 51,  91 => 44,  85 => 41,  75 => 34,  69 => 31,  59 => 24,  53 => 21,  43 => 14,  37 => 11,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
     }
 }
 /* */
@@ -207,7 +217,14 @@ class __TwigTemplate_ef65f596888fe208af31d7146d6b26cf50d956a2831f730123689df9817
 /* 				{{ form_row(form.estatus) }}*/
 /* 			</div>*/
 /* 		</div>	*/
-/* 	</div>	*/
+/* 	</div>*/
+/* 	<div class="row field-c"> */
+/* 		<div class="form-group">*/
+/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
+/* 			{{ form_row(form.periodo) }}*/
+/* 			</div>*/
+/* 		</div>	*/
+/* 	</div>		*/
 /* */
 /* 		<br><br>*/
 /* 	<div class="row">*/

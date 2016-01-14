@@ -161,6 +161,8 @@ class UsuarioController extends Controller
                return $this->redirect($this->generateUrl('user_edit', array('cedula' => $cedula)));
             }  
             if ($form->get('back')->isClicked()) {
+                if ($session->get('user')->getPerfil() != 'coordinador de servicio comunitario')
+                    return $this->redirect($this->generateUrl('tesis_admin_homepage'));
                return $this->redirect($this->generateUrl('user_list'));
             }  
 

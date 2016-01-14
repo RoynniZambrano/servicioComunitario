@@ -47,12 +47,13 @@ class EstudianteType extends AbstractType
                 ))
             **/
 
-            
+            /*            
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo de Inscripción'))                         
-           
+                'label' => 'Periodo'))                         
+           **/
+
 
             ->add('clave','repeated', array('type' => 'password','invalid_message' => 'Las contraseñas deben coincidir.',
             'first_options' => array('label' => 'Contraseña', 'attr' => array('placeholder' => '**********')),
@@ -65,9 +66,9 @@ class EstudianteType extends AbstractType
                 'label' => 'SC Estatus', 'disabled' =>'true')) **/
 
 
-            ->add('semestre','choice', array('choices' => array('1' => '1', '2' => '2',
-                '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7',
-                '8' => '8', '9' => '9', '10' => '10'),
+            ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
+                '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
+                '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario'))
            
@@ -92,7 +93,7 @@ class EstudianteType extends AbstractType
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo de Inscripción', 'disabled' =>'true','required' => false))  
+                'label' => 'Periodo', 'disabled' =>'true','required' => false))  
             
 
 
@@ -113,9 +114,9 @@ class EstudianteType extends AbstractType
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' =>'true', 'required' => false))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' =>'true', 'required' => false))
            // ->add('perfil','text', array('label' => 'Rol', 'disabled' =>'true','required' => false))
-            ->add('semestre','choice', array('choices' => array('1' => '1', '2' => '2',
-                '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7',
-                '8' => '8', '9' => '9', '10' => '10'),
+            ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
+                '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
+                '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' =>'true','required' => false)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true','required' => false))
             ->add('estatus','text', array('label' => 'Estatus', 'disabled' =>'true', 'required' => false))
@@ -135,11 +136,12 @@ class EstudianteType extends AbstractType
                'label' => 'Departamento', 'disabled' =>false, 'required' => true))
             
 
+            /*
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
                 'label' => 'Periodo de Inscripción', 'disabled' => false,'required' => true)) 
-            
+            **/
 
             /*
             ->add('periodo', 'entity', array(
@@ -157,13 +159,19 @@ class EstudianteType extends AbstractType
             ->add('sc','text', array('label' => 'Estatus SC', 'disabled' => false, 'required' => true))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' => false, 'required' => true))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
-           // ->add('perfil','text', array('label' => 'Rol', 'disabled' =>'true','required' => false))
-            ->add('semestre','choice', array('choices' => array('1' => '1', '2' => '2',
-                '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7',
-                '8' => '8', '9' => '9', '10' => '10'),
+          // ->add('perfil','text', array('label' => 'Rol', 'disabled' => false,'required' => false))
+            
+            ->add('perfil','choice', array('choices' => array('estudiante' => 'Estudiante', 'tutor' => 'Tutor',
+                'coordinador de proyecto' => 'Coordinador de Proyecto',
+                'coordinador suplente' => 'Coordinador Suplente'),
+                'label' => 'Perfil', 'required' => true))  
+
+            ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
+                '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
+                '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' => false ,'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' => false,'required' => true))
-            ->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
+           // ->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
             //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
             //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
             ;
@@ -180,12 +188,13 @@ class EstudianteType extends AbstractType
                'label' => 'Departamento', 'disabled' =>'true', 'required' => false))
             
 
-            
+            /*
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
                 'label' => 'Periodo de Inscripción', 'disabled' =>'true','required' => false))             
-            
+            **/
+
             /*
             ->add('periodo', 'entity', array(
                 "class"     => "TesisAdminBundle:FechaPeriodo",
@@ -203,13 +212,13 @@ class EstudianteType extends AbstractType
             ->add('sc','text', array('label' => 'Estatus SC', 'disabled' =>'true', 'required' => false))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' =>'true', 'required' => false))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
-           // ->add('perfil','text', array('label' => 'Rol', 'disabled' =>'true','required' => false))
-            ->add('semestre','choice', array('choices' => array('1' => '1', '2' => '2',
-                '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7',
-                '8' => '8', '9' => '9', '10' => '10'),
+            ->add('perfil','text', array('label' => 'Rol', 'disabled' =>'true','required' => false))
+            ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
+                '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
+                '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' => false,'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true','required' => false))
-            ->add('estatus','text', array('label' => 'Estatus', 'disabled' =>  true, 'required' => false))
+           // ->add('estatus','text', array('label' => 'Estatus', 'disabled' =>  true, 'required' => false))
             //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
             //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
             ;
@@ -235,10 +244,12 @@ class EstudianteType extends AbstractType
                 'label' => 'Departamento'))
             
             
+            /*
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
                 'label' => 'Periodo de Inscripción')) 
+            **/
                                    
            
            /*
@@ -262,13 +273,13 @@ class EstudianteType extends AbstractType
 
             ->add('cedula', 'text', array('label' => 'Cedula'))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'required' => false))
-            ->add('semestre','choice', array('choices' => array('1' => '1', '2' => '2',
-                '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7',
-                '8' => '8', '9' => '9', '10' => '10'),
+            ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
+                '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
+                '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true', 'required' => true))
             ->add('perfil','choice', array('choices' => array('estudiante' => 'Estudiante', 'tutor' => 'Tutor',
-                'coordinador de proyecto' => 'Coordinador de Proyecto', 'coordinador de servicio comunitario' => 'Coordinador de Servicio Comunitario',
+                'coordinador de proyecto' => 'Coordinador de Proyecto',
                 'coordinador suplente' => 'Coordinador Suplente'),
                 'label' => 'Perfil', 'required' => true))            
             ;

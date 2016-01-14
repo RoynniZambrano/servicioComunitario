@@ -295,8 +295,11 @@ class EstudianteController extends Controller
                 'method' => 'POST',
             ));
 
+            echo "antes de validar->";
+
             $form->handleRequest($request);
             if ($form->isValid()) {
+                    echo "valido";
                 $em = $this->getDoctrine()->getManager();
                 foreach ($_POST as $tempo=>$valor){
                     $perfil = $valor['perfil'];
@@ -306,7 +309,7 @@ class EstudianteController extends Controller
                     $correo = $valor['correo'];
                     $genero = $valor['genero'];
                     $departamento = $valor['departamento'];
-                    $periodo = $valor['periodo'];
+                  //  $periodo = $valor['periodo'];
                     $telefono = $valor['telefono'];
                 }
 
@@ -321,7 +324,7 @@ class EstudianteController extends Controller
                     $profesor->setCorreo($correo);
                     $profesor->setGenero($genero);
                     $profesor->setDepartamento($departamento);
-                    $profesor->setPeriodo($periodo);
+                  //  $profesor->setPeriodo($periodo);
                     $profesor->setTelefono($telefono);
 
                     $em->persist($profesor);
@@ -342,6 +345,7 @@ class EstudianteController extends Controller
      
               //  return $this->redirect($this->generateUrl('student_checkform', array('id' => $entity->getId()))); 
             }
+                echo "despues de validar->";
 
              return $this->render('TesisAdminBundle:Estudiante:new-student-form-alfa.html.twig',
                 array('form' => $form->createView()));           

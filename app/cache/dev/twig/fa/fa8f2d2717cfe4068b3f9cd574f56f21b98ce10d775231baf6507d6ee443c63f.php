@@ -112,14 +112,8 @@ class __TwigTemplate_cee9d34150cb53ba257fbf2f6dfcd04206a9582596202c9aae797e91699
 \t<div class=\"row field-c\"> 
 \t\t<div class=\"form-group\">
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
-\t\t\t\t";
+\t\t\t";
         // line 61
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "periodo", array()), 'row');
-        echo " 
-\t\t\t</div>
-\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
-\t\t\t\t";
-        // line 64
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "telefono", array()), 'row');
         echo "
 \t\t\t</div>
@@ -144,11 +138,11 @@ class __TwigTemplate_cee9d34150cb53ba257fbf2f6dfcd04206a9582596202c9aae797e91699
 </div>\t
 
 ";
-        // line 86
+        // line 83
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
 ";
-        // line 87
+        // line 84
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
     }
 
@@ -164,7 +158,7 @@ class __TwigTemplate_cee9d34150cb53ba257fbf2f6dfcd04206a9582596202c9aae797e91699
 
     public function getDebugInfo()
     {
-        return array (  152 => 87,  148 => 86,  123 => 64,  117 => 61,  107 => 54,  101 => 51,  91 => 44,  85 => 41,  75 => 34,  69 => 31,  59 => 24,  53 => 21,  43 => 14,  37 => 11,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
+        return array (  146 => 84,  142 => 83,  117 => 61,  107 => 54,  101 => 51,  91 => 44,  85 => 41,  75 => 34,  69 => 31,  59 => 24,  53 => 21,  43 => 14,  37 => 11,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
     }
 }
 /* */
@@ -227,10 +221,7 @@ class __TwigTemplate_cee9d34150cb53ba257fbf2f6dfcd04206a9582596202c9aae797e91699
 /* 	<div class="row field-c"> */
 /* 		<div class="form-group">*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
-/* 				{{ form_row(form.periodo) }} */
-/* 			</div>*/
-/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
-/* 				{{ form_row(form.telefono) }}*/
+/* 			{{ form_row(form.telefono) }}*/
 /* 			</div>*/
 /* 		</div>	*/
 /* 	</div>	*/

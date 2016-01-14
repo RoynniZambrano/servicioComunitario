@@ -55,6 +55,11 @@ class UsuarioType extends AbstractType
             ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química',
                 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'),
                'label' => 'Departamento', 'disabled' =>'true','required' => false))
+
+            ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
+                '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
+                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
+                'label' => 'Periodo', 'disabled' =>'true','required' => false))            
                         
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' =>'true', 'required' => false))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' =>'true', 'required' => false))
@@ -79,7 +84,7 @@ class UsuarioType extends AbstractType
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
           
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' => false,'required' => true))
-            ->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
+            //->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
             ->add('perfil','choice', array('choices' => array('tutor' => 'Tutor',
                 'coordinador de proyecto' => 'Coordinador de Proyecto', 'coordinador de servicio comunitario' => 'Coordinador de Servicio Comunitario',
                 'coordinador suplente' => 'Coordinador Suplente'),
@@ -102,7 +107,7 @@ class UsuarioType extends AbstractType
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
           
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' => true,'required' => false))
-            ->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
+           // ->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
             ->add('perfil','text', array('label' => 'Perfil', 'disabled' => true ,'required' => false))
             ; 
 

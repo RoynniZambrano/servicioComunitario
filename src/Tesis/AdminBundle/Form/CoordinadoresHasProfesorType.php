@@ -48,8 +48,8 @@ class CoordinadoresHasProfesorType extends AbstractType
                 'required' => false,
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
-                        ->setParameter('estatus', "activo")
+                        ->where('p.perfil = :perfil')
+                      //  ->setParameter('estatus', "activo")
                         ->setParameter('perfil', "coordinador de proyecto");
                         },
                 ))
@@ -64,8 +64,8 @@ class CoordinadoresHasProfesorType extends AbstractType
                 'required' => false,
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
-                        ->setParameter('estatus', "activo")
+                        ->where('p.perfil = :perfil')
+                     //   ->setParameter('estatus', "activo")
                         ->setParameter('perfil', "coordinador suplente");
                         },
                 ))

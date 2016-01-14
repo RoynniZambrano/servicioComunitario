@@ -98,33 +98,29 @@ class __TwigTemplate_2e4a04c20f89cd6595a6d193605ef02ea31e04b5723777316b2c7cbc355
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
 \t\t\t\t";
         // line 51
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "periodo", array()), 'row');
-        echo " 
-\t\t\t</div>\t
-\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
-\t\t\t";
-        // line 54
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "telefono", array()), 'row');
-        echo "
-\t\t\t</div>
-\t\t</div>
-\t</div>
-\t<div class=\"row field-c\"> 
-\t\t<div class=\"form-group\">
-\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
-\t\t\t\t";
-        // line 61
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "sc", array()), 'row');
         echo " 
 \t\t\t</div>
 \t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\">
 \t\t\t\t";
-        // line 64
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "estatus", array()), 'row');
+        // line 54
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "perfil", array()), 'row');
         echo "
 \t\t\t</div>
 \t\t</div>\t
-\t</div>\t\t\t
+\t</div>
+\t<div class=\"row field-c\"> 
+\t\t<div class=\"form-group\">
+\t    \t<div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 \tcol-lg-offset-2\">
+\t\t\t";
+        // line 61
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "telefono", array()), 'row');
+        echo "
+\t\t\t</div>
+\t\t</div>\t
+\t</div>\t\t
+
+
 \t<div class=\"row field-c\">
 \t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 \tcol-lg-offset-2\">
 \t\t<h5> (*) Campo Obligatorio</h5>
@@ -135,16 +131,16 @@ class __TwigTemplate_2e4a04c20f89cd6595a6d193605ef02ea31e04b5723777316b2c7cbc355
 \t<div class=\"row\" align=\"center\">\t
 
 \t    ";
-        // line 77
+        // line 76
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "coordinador de servicio comunitario")) {
-            // line 78
+            // line 77
             echo "\t\t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-2 col-md-2 col-md-offset-3 col-lg-2 \tcol-lg-offset-2\" align=\"center\" style=\"margin-bottom: 2%;\" id=\"editar-estudiante-boton\">
 \t\t\t\t<button class=\"btn btn-success btn-lg\"> Actualizar</button> 
 \t\t\t</div>
 
 \t\t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-2 \tcol-lg-offset-0\" align=\"center\" style=\"margin-bottom: 2%;\">
 \t\t\t\t";
-            // line 83
+            // line 82
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "editpass", array()), 'row', array("attr" => array("class" => "btn btn-primary btn-lg")));
             echo " 
 \t\t\t</div>\t
@@ -155,7 +151,7 @@ class __TwigTemplate_2e4a04c20f89cd6595a6d193605ef02ea31e04b5723777316b2c7cbc355
 
 \t\t";
         } else {
-            // line 91
+            // line 90
             echo "
 \t\t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-4 col-lg-3 \tcol-lg-offset-2\" id=\"editar-estudiante-boton\" align=\"center\" style=\"margin-bottom: 2%;\">
 \t\t\t\t<button class=\"btn btn-success btn-lg\"> Actualizar</button> 
@@ -163,14 +159,14 @@ class __TwigTemplate_2e4a04c20f89cd6595a6d193605ef02ea31e04b5723777316b2c7cbc355
 
 \t\t\t<div class=\"col-xs-8 col-xs-offset-1 col-sm-2 col-sm-offset-1 col-md-2 col-md-offset-1 col-lg-3 \tcol-lg-offset-0\" align=\"center\" style=\"margin-bottom: 2%;\">
 \t\t\t\t";
-            // line 97
+            // line 96
             echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), "editpass", array()), 'row', array("attr" => array("class" => "btn btn-primary btn-lg")));
             echo " 
 \t\t\t</div>
 
 \t\t";
         }
-        // line 100
+        // line 99
         echo "\t
 
 \t</div>\t\t
@@ -179,7 +175,7 @@ class __TwigTemplate_2e4a04c20f89cd6595a6d193605ef02ea31e04b5723777316b2c7cbc355
 </div>\t
 
 ";
-        // line 107
+        // line 106
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), 'form_end');
     }
 
@@ -195,7 +191,7 @@ class __TwigTemplate_2e4a04c20f89cd6595a6d193605ef02ea31e04b5723777316b2c7cbc355
 
     public function getDebugInfo()
     {
-        return array (  183 => 107,  174 => 100,  167 => 97,  159 => 91,  148 => 83,  141 => 78,  139 => 77,  123 => 64,  117 => 61,  107 => 54,  101 => 51,  91 => 44,  85 => 41,  75 => 34,  69 => 31,  59 => 24,  53 => 21,  43 => 14,  37 => 11,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
+        return array (  179 => 106,  170 => 99,  163 => 96,  155 => 90,  144 => 82,  137 => 77,  135 => 76,  117 => 61,  107 => 54,  101 => 51,  91 => 44,  85 => 41,  75 => 34,  69 => 31,  59 => 24,  53 => 21,  43 => 14,  37 => 11,  28 => 4,  26 => 3,  22 => 2,  19 => 1,);
     }
 }
 /* */
@@ -248,23 +244,22 @@ class __TwigTemplate_2e4a04c20f89cd6595a6d193605ef02ea31e04b5723777316b2c7cbc355
 /* 	<div class="row field-c"> */
 /* 		<div class="form-group">*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
-/* 				{{ form_row(edit_form.periodo) }} */
-/* 			</div>	*/
-/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
-/* 			{{ form_row(edit_form.telefono) }}*/
+/* 				{{ form_row(edit_form.sc) }} */
 /* 			</div>*/
-/* 		</div>*/
+/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
+/* 				{{ form_row(edit_form.perfil) }}*/
+/* 			</div>*/
+/* 		</div>	*/
 /* 	</div>*/
 /* 	<div class="row field-c"> */
 /* 		<div class="form-group">*/
 /* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-3 	col-lg-offset-2">*/
-/* 				{{ form_row(edit_form.sc) }} */
-/* 			</div>*/
-/* 	    	<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1 col-lg-3 	col-lg-offset-0">*/
-/* 				{{ form_row(edit_form.estatus) }}*/
+/* 			{{ form_row(edit_form.telefono) }}*/
 /* 			</div>*/
 /* 		</div>	*/
-/* 	</div>			*/
+/* 	</div>		*/
+/* */
+/* */
 /* 	<div class="row field-c">*/
 /* 		<div class="col-xs-8 col-xs-offset-1 col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 	col-lg-offset-2">*/
 /* 		<h5> (*) Campo Obligatorio</h5>*/

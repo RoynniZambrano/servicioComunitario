@@ -162,10 +162,10 @@ class Profesor
     /**
      * @var string
      *
-     * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca periodo.")       
+     * @ORM\Column(name="periodo", type="string", length=50, nullable=true)
+     * Assert\NotBlank(message="Porfavor introduzca periodo.")       
      */
-    private $periodo = '2015-1';
+    private $periodo;
 
      /**
      * @var string

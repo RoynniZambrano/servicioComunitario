@@ -45,8 +45,8 @@ class LaborscType extends AbstractType
                 'attr' => array('size' => '20'),
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
-                        ->setParameter('estatus', "activo")
+                        ->where('p.perfil = :perfil ')
+                    //    ->setParameter('estatus', "activo")
                         ->setParameter('perfil', "estudiante");
                         },
                 ))       
@@ -77,8 +77,8 @@ class LaborscType extends AbstractType
                 'attr' => array('size' => '20'),
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
-                        ->setParameter('estatus', "activo")
+                        ->where('p.perfil = :perfil ')
+                     //   ->setParameter('estatus', "activo")
                         ->setParameter('perfil', "estudiante");
                         },
                 ))
