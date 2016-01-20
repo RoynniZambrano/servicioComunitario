@@ -222,18 +222,9 @@ class Estudiante
      */
     private $tutoriaTutoria;
 
+
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Laborsc", inversedBy="estudianteEstudiante")
-     * @ORM\JoinTable(name="laborsc_has_estudiante",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="estudiante_id_estudiante", referencedColumnName="id_estudiante")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="laborsc_id_laborsc", referencedColumnName="id_laborsc")
-     *   }
-     * )
+     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Laborsc", mappedBy="estudianteEstudiante")
      */
     private $laborscLaborsc;
 

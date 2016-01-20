@@ -49,6 +49,30 @@ class TutoriaController extends Controller{
                 $em->persist($entity);
                 $em->flush();
 
+
+                // activa los estudiantes que tienen tutores y proyecto asignado
+                foreach ($_POST as $clave=>$valor){
+                    $periodo = $valor['periodo'];
+                    $profesor = $valor['profesorProfesor'];        
+                    $estudiante = $valor['estudianteEstudiante'];
+
+                    foreach ($estudiante as $clave_e=>$valor_r){
+                        $selected = null;
+                        $selected = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
+                        array('idEstudiante' => $valor_r));
+
+                        $selected->setPeriodo($periodo);
+                        $selected->setProfesor($profesor);
+                        $selected->setSC("iniciado");                        
+                        if ($selected->getProyecto() != null) {
+                            $selected->setEstatus('activo'); 
+                        }
+                    } 
+                }
+                $em->flush();
+
+
+
                 echo 
                 "<script>
                     bootbox.alert('La asignación ha sido creado exitosamente');
@@ -180,6 +204,40 @@ class TutoriaController extends Controller{
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
+                $em->flush();
+
+
+                // desactiva todos los usuarios pertenecientes a esta asiganción
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery("UPDATE TesisAdminBundle:Estudiante e set e.estatus = :estatus 
+                WHERE e.profesor = :profesor AND e.periodo = :periodo");
+                $query->setParameter('estatus', 'inactivo');
+                $query->setParameter('profesor', $entity->getProfesorProfesor()->getId());
+                $query->setParameter('periodo', $entity->getPeriodo());
+                $numUpdated = $query->execute();;
+                $em->flush(); // Executes all updates.
+                $em->clear(); // Detaches all objects from Doctrine!
+
+
+                // activa los estudiantes que tienen tutores y proyecto asignado
+                foreach ($_POST as $clave=>$valor){
+                    $periodo = $valor['periodo'];
+                    $profesor = $valor['profesorProfesor'];        
+                    $estudiante = $valor['estudianteEstudiante'];
+
+                    foreach ($estudiante as $clave_e=>$valor_r){
+                        $selected = null;
+                        $selected = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
+                        array('idEstudiante' => $valor_r));
+
+                        $selected->setPeriodo($periodo);
+                        $selected->setProfesor($profesor);
+                        $selected->setSC("iniciado");
+                        if ($selected->getProyecto() != null) {
+                            $selected->setEstatus('activo'); 
+                        }
+                    } 
+                }
                 $em->flush();
                 
                 echo 

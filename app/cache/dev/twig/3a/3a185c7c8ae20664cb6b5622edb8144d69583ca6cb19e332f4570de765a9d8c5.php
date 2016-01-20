@@ -99,7 +99,7 @@ class __TwigTemplate_a98148e76de45a35ad7925c4541b07f13e0d166968a8cd06c40ff0e892c
                     <td align=\"center\">
                       <a href=\"";
             // line 55
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tutor_check", array("id" => $this->getAttribute($context["tutoria"], "idLaborsc", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("laborsc_check", array("id" => $this->getAttribute($context["tutoria"], "idLaborsc", array()))), "html", null, true);
             echo "\">
                           <button class=\"btn btn-success\">Consultar</button>
                       </a>
@@ -107,7 +107,7 @@ class __TwigTemplate_a98148e76de45a35ad7925c4541b07f13e0d166968a8cd06c40ff0e892c
                     <td align=\"center\">
                       <a href=\"";
             // line 60
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tutor_edit", array("id" => $this->getAttribute($context["tutoria"], "idLaborsc", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("laborsc_edit", array("id" => $this->getAttribute($context["tutoria"], "idLaborsc", array()))), "html", null, true);
             echo "\">
                           <button class=\"btn btn-success\">Editar</button>
                       </a>
@@ -228,12 +228,12 @@ class __TwigTemplate_a98148e76de45a35ad7925c4541b07f13e0d166968a8cd06c40ff0e892c
 /*                     <tr> */
 /*                     <td>{{ tutoria.proyectoProyecto.nombre }}</td>           */
 /*                     <td align="center">*/
-/*                       <a href="{{ path('tutor_check', {'id': tutoria.idLaborsc}) }}">*/
+/*                       <a href="{{ path('laborsc_check', {'id': tutoria.idLaborsc}) }}">*/
 /*                           <button class="btn btn-success">Consultar</button>*/
 /*                       </a>*/
 /*                     </td>*/
 /*                     <td align="center">*/
-/*                       <a href="{{ path('tutor_edit', {'id': tutoria.idLaborsc}) }}">*/
+/*                       <a href="{{ path('laborsc_edit', {'id': tutoria.idLaborsc}) }}">*/
 /*                           <button class="btn btn-success">Editar</button>*/
 /*                       </a>*/
 /*                     </td>*/

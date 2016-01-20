@@ -211,7 +211,7 @@ class TutoresController extends Controller{
                 $em->flush();
 
                 // desactiva todos los usuarios pertenecientes a esta asiganción
-                 $em = $this->getDoctrine()->getManager();
+                $em = $this->getDoctrine()->getManager();
                 $query = $em->createQuery("UPDATE TesisAdminBundle:Profesor e set e.estatus = :estatus 
                 WHERE e.proyecto = :proyecto AND e.periodo = :periodo");
                 $query->setParameter('estatus', 'inactivo');

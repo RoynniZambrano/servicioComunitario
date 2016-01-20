@@ -38,11 +38,19 @@ class Laborsc
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Estudiante", mappedBy="laborscLaborsc")
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un Estudiante")
-     * @Assert\NotBlank(message="Porfavor introduzca un tutor.")       
+     * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Estudiante", inversedBy="laborscLaborsc")
+     * @ORM\JoinTable(name="laborsc_has_estudiante",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="laborsc_id_laborsc", referencedColumnName="id_laborsc")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="estudiante_id_estudiante", referencedColumnName="id_estudiante")
+     *   }
+     * )
+     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un estudiante")       
      */
     private $estudianteEstudiante;
+
 
 
     /**

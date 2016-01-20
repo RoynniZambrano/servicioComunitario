@@ -13,6 +13,17 @@
         <join-column name="proyecto_id_proyecto" referenced-column-name="id_proyecto"/>
       </join-columns>
     </many-to-one>
-    <many-to-many field="estudianteEstudiante" target-entity="Estudiante" mapped-by="laborscLaborsc"/>
+    <many-to-many field="estudianteEstudiante" target-entity="Estudiante" inversed-by="laborscLaborsc">
+      <join-table name="laborsc_has_estudiante">
+        <join-columns>
+          <join-column name="laborsc_id_laborsc" referenced-column-name="id_laborsc"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="estudiante_id_estudiante" referenced-column-name="id_estudiante"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+
+
   </entity>
 </doctrine-mapping>

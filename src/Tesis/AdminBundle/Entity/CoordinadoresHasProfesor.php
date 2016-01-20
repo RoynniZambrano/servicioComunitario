@@ -31,6 +31,7 @@ class CoordinadoresHasProfesor
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="proyecto_id_proyecto", referencedColumnName="id_proyecto")
      * })
+     * @Assert\NotBlank(message="Porfavor introduzca un proyecto.")      
      */
     private $proyectoProyecto;
 
