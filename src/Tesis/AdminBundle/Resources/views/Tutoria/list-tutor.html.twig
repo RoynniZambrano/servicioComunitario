@@ -43,6 +43,7 @@
                   <thead>
                     <tr>
                       <th>Profesor</th>
+                      <th>Periodo</th>
                       <th></th>
                       <th></th>   
                     </tr>
@@ -50,7 +51,8 @@
                   <tbody>
                   {% for tutoria in tutorias %}
                     <tr> 
-                    <td>{{ tutoria.profesorProfesor.nombre }}</td>           
+                    <td>{{ tutoria.profesorProfesor.nombre }}</td> 
+                    <td>{{ tutoria.periodo }}</td>                            
                     <td align="center">
                       <a href="{{ path('tutor_check', {'id': tutoria.idTutoria}) }}">
                           <button class="btn btn-success">Consultar</button>
@@ -67,6 +69,7 @@
                   <tfoot>
                     <tr>
                       <th>Profesor</th>
+                      <th>Periodo</th>
                       <th></th>
                       <th></th>
                     </tr>

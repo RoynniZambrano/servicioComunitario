@@ -73,9 +73,6 @@ CREATE TABLE IF NOT EXISTS `coordinadores_has_profesor` (
   `profesor_id_proyecto` int(11) DEFAULT NULL,
   `periodo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`coordinadores_has_profesor_id`),
-  UNIQUE KEY `UNIQ_9B9348758A19767` (`proyecto_id_proyecto`),
-  UNIQUE KEY `UNIQ_9B934875BE148839` (`profesor_id_suplente`),
-  UNIQUE KEY `UNIQ_9B93487547B163A5` (`profesor_id_proyecto`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --

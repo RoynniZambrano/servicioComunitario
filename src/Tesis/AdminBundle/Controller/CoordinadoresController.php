@@ -212,7 +212,7 @@ class CoordinadoresController extends Controller{
                 $query = $em->createQuery("UPDATE TesisAdminBundle:Profesor e set e.estatus = :estatus 
                 WHERE e.proyecto = :proyecto AND e.periodo = :periodo");
                 $query->setParameter('estatus', 'inactivo');
-                $query->setParameter('proyecto', $entity->getProyectoProyecto()->getId());
+                $query->setParameter('proyecto', $entity->getProyectoProyecto()->getIdProyecto());
                 $query->setParameter('periodo', $entity->getPeriodo());
                 $numUpdated = $query->execute();;
                 $em->flush(); // Executes all updates.

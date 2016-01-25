@@ -27,35 +27,36 @@ class CoordinadoresHasProfesor
     /**
      * @var \Tesis\AdminBundle\Entity\Proyecto
      *
-     * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Proyecto")
+     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Proyecto")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="proyecto_id_proyecto", referencedColumnName="id_proyecto")
      * })
-     * @Assert\NotBlank(message="Porfavor introduzca un proyecto.")      
+     * @Assert\NotBlank(message="Porfavor introduzca un proyecto.")     
      */
     private $proyectoProyecto;
 
     /**
-     * @var \Tesis\AdminBundle\Entity\Profesor
-     *
-     * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
+     * var \Tesis\AdminBundle\Entity\Profesor
+     *    
+     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="profesor_id_suplente", referencedColumnName="id_profesor")
      * })
-     * @Assert\NotBlank(message="Porfavor introduzca un coordinador.")      
-     */
+     * @Assert\NotBlank(message="Debe elegir al menos un coordinador.")      
+     * Assert\Count(min = 1, minMessage = "Debe elegir al menos un coordinador")      
+    */    
     private $profesorSuplente;
 
-
     /**
-     * @var \Tesis\AdminBundle\Entity\Profesor
-     *
-     * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
+     * var \Tesis\AdminBundle\Entity\Profesor
+     *    
+     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="profesor_id_proyecto", referencedColumnName="id_profesor")
      * })
-     * @Assert\NotBlank(message="Porfavor introduzca un coordinador.")      
-     */
+     * @Assert\NotBlank(message="Debe elegir al menos un coordinador.")      
+     * Assert\Count(min = 1, minMessage = "Debe elegir al menos un coordinador")       
+    */
     private $profesorProyecto;    
 
     /**
@@ -96,7 +97,7 @@ class CoordinadoresHasProfesor
      * @param \Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto
      * @return CoordinadoresHasProfesor
      */
-    public function setProyectoProyecto(\Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto)
+    public function setProyectoProyecto(\Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto = null)
     {
         $this->proyectoProyecto = $proyectoProyecto;
 
@@ -119,7 +120,7 @@ class CoordinadoresHasProfesor
      * @param \Tesis\AdminBundle\Entity\Profesor $profesorSuplente
      * @return CoordinadoresHasProfesor
      */
-    public function setProfesorSuplente(\Tesis\AdminBundle\Entity\Profesor $profesorSuplente)
+    public function setProfesorSuplente(\Tesis\AdminBundle\Entity\Profesor $profesorSuplente = null)
     {
         $this->profesorSuplente = $profesorSuplente;
 
@@ -142,7 +143,7 @@ class CoordinadoresHasProfesor
      * @param \Tesis\AdminBundle\Entity\Profesor $profesorProyecto
      * @return CoordinadoresHasProfesor
      */
-    public function setProfesorProyecto(\Tesis\AdminBundle\Entity\Profesor $profesorProyecto)
+    public function setProfesorProyecto(\Tesis\AdminBundle\Entity\Profesor $profesorProyecto = null)
     {
         $this->profesorProyecto = $profesorProyecto;
 

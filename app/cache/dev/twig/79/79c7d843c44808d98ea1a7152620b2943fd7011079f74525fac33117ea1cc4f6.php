@@ -80,25 +80,30 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
                   <thead>
                     <tr>
                       <th>Profesor</th>
+                      <th>Periodo</th>
                       <th></th>
                       <th></th>   
                     </tr>
                   </thead>
                   <tbody>
                   ";
-        // line 51
+        // line 52
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["tutorias"]) ? $context["tutorias"] : $this->getContext($context, "tutorias")));
         foreach ($context['_seq'] as $context["_key"] => $context["tutoria"]) {
-            // line 52
+            // line 53
             echo "                    <tr> 
                     <td>";
-            // line 53
+            // line 54
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["tutoria"], "profesorProfesor", array()), "nombre", array()), "html", null, true);
-            echo "</td>           
+            echo "</td> 
+                    <td>";
+            // line 55
+            echo twig_escape_filter($this->env, $this->getAttribute($context["tutoria"], "periodo", array()), "html", null, true);
+            echo "</td>                            
                     <td align=\"center\">
                       <a href=\"";
-            // line 55
+            // line 57
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tutor_check", array("id" => $this->getAttribute($context["tutoria"], "idTutoria", array()))), "html", null, true);
             echo "\">
                           <button class=\"btn btn-success\">Consultar</button>
@@ -106,7 +111,7 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
                     </td>
                     <td align=\"center\">
                       <a href=\"";
-            // line 60
+            // line 62
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("tutor_edit", array("id" => $this->getAttribute($context["tutoria"], "idTutoria", array()))), "html", null, true);
             echo "\">
                           <button class=\"btn btn-success\">Editar</button>
@@ -118,12 +123,13 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tutoria'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 65
+        // line 67
         echo "         
                   </tbody>
                   <tfoot>
                     <tr>
                       <th>Profesor</th>
+                      <th>Periodo</th>
                       <th></th>
                       <th></th>
                     </tr>
@@ -135,7 +141,7 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
         </div><!-- /.content-wrapper -->
 
       ";
-        // line 80
+        // line 83
         echo twig_include($this->env, $context, "TesisAdminBundle:Main:footer.html.twig");
         echo "
      
@@ -145,10 +151,10 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
 ";
     }
 
-    // line 88
+    // line 91
     public function block_js($context, array $blocks = array())
     {
-        // line 89
+        // line 92
         echo "        <!-- page script -->
     <script type=\"text/javascript\">
       \$(function () {
@@ -171,7 +177,7 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
 
     public function getDebugInfo()
     {
-        return array (  152 => 89,  149 => 88,  139 => 80,  122 => 65,  110 => 60,  102 => 55,  97 => 53,  94 => 52,  90 => 51,  58 => 22,  44 => 11,  39 => 9,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  158 => 92,  155 => 91,  145 => 83,  127 => 67,  115 => 62,  107 => 57,  102 => 55,  98 => 54,  95 => 53,  91 => 52,  58 => 22,  44 => 11,  39 => 9,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends '::admin_base.html.twig' %}*/
@@ -219,6 +225,7 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
 /*                   <thead>*/
 /*                     <tr>*/
 /*                       <th>Profesor</th>*/
+/*                       <th>Periodo</th>*/
 /*                       <th></th>*/
 /*                       <th></th>   */
 /*                     </tr>*/
@@ -226,7 +233,8 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
 /*                   <tbody>*/
 /*                   {% for tutoria in tutorias %}*/
 /*                     <tr> */
-/*                     <td>{{ tutoria.profesorProfesor.nombre }}</td>           */
+/*                     <td>{{ tutoria.profesorProfesor.nombre }}</td> */
+/*                     <td>{{ tutoria.periodo }}</td>                            */
 /*                     <td align="center">*/
 /*                       <a href="{{ path('tutor_check', {'id': tutoria.idTutoria}) }}">*/
 /*                           <button class="btn btn-success">Consultar</button>*/
@@ -243,6 +251,7 @@ class __TwigTemplate_3d4f9c58eeb13dfc36143bcd69c6c4343b2ff2a209ab29d0369b79ccbfd
 /*                   <tfoot>*/
 /*                     <tr>*/
 /*                       <th>Profesor</th>*/
+/*                       <th>Periodo</th>*/
 /*                       <th></th>*/
 /*                       <th></th>*/
 /*                     </tr>*/
