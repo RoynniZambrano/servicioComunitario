@@ -20,9 +20,9 @@
   eliminarProyecto();
   asignarTutores();
   editarTutores();
-  creacionCronograma();
-  editarCronograma();
-  eliminarCronograma();
+  creacionPeriodo();
+  editarPeriodo();
+  eliminarPeriodo();
   creacionDiario();
   editarDiario();
   eliminarDiario();
@@ -735,20 +735,20 @@ function editarTutores(){
 }
 
 
-// notificacion - creacion de cronograma
-function creacionCronograma(){
+// notificacion - creacion de Periodo
+function creacionPeriodo(){
 
-  $("#nuevo-cronograma-div").on('click' , '#nuevo-cronograma-boton', function(event) {
+  $("#nuevo-periodo-div").on('click' , '#nuevo-periodo-boton', function(event) {
     event.preventDefault();
-    form = $("#nuevo-cronograma-form");
+    form = $("#nuevo-periodo-form");
     
     var inform = function(result){
 
       if(result == '.')
-          window.location.href = Routing.generate('cronograma_list');
+          window.location.href = Routing.generate('periodo_list');
      
           form.remove();
-          $("#nuevo-cronograma-div").prepend(result);
+          $("#nuevo-periodo-div").prepend(result);
           $( "#datepicker1" ).datepicker({
             dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
             dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
@@ -779,12 +779,12 @@ function creacionCronograma(){
 }
 
 
-// notificacion - editar cronograma
-function editarCronograma(){
+// notificacion - editar Periodo
+function editarPeriodo(){
 
-  $("#editar-cronograma-div").on('click' , '#editar-cronograma-boton', function(event) {
+  $("#editar-periodo-div").on('click' , '#editar-periodo-boton', function(event) {
     event.preventDefault();
-    edit_form = $("#editar-cronograma-form");
+    edit_form = $("#editar-periodo-form");
 
     var inform = function(result){
 
@@ -792,7 +792,7 @@ function editarCronograma(){
           window.location.href = Routing.generate('tesis_admin_homepage');
   
           edit_form.remove();
-          $("#editar-cronograma-div").prepend(result); 
+          $("#editar-periodo-div").prepend(result); 
           $( "#datepicker1" ).datepicker({
             dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
             dayNames: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
@@ -822,11 +822,11 @@ function editarCronograma(){
 }
 
 
-function eliminarCronograma(){
+function eliminarPeriodo(){
 
-  $("#editar-cronograma-div").on('click' , '#eliminar-cronograma-boton', function(event) {
+  $("#editar-periodo-div").on('click' , '#eliminar-periodo-boton', function(event) {
     event.preventDefault();
-    edit_form = $("#editar-cronograma-form");
+    edit_form = $("#editar-periodo-form");
 
       bootbox.confirm("¿Esta seguro que desea eliminarlo?", function(res) {
     
@@ -837,7 +837,7 @@ function eliminarCronograma(){
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
-                  window.location.href = Routing.generate('cronograma_list');
+                  window.location.href = Routing.generate('periodo_list');
                 }, 1500);
               }
 
@@ -846,7 +846,7 @@ function eliminarCronograma(){
             $.ajax({
               type: edit_form.attr('method'),
               async: true,
-              url: Routing.generate('cronograma_delete'),
+              url: Routing.generate('periodo_delete'),
               data: edit_form.serialize(),
               dataType: 'text',
               success: inform

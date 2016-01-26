@@ -1,37 +1,37 @@
 
-cronograma_new:
+periodo_new:
     pattern:  /new
-    defaults: { _controller: TesisAdminBundle:Cronograma:new}
+    defaults: { _controller: TesisAdminBundle:Periodo:new}
 
-cronograma_newform:
+periodo_newform:
     pattern:  /newform
-    defaults: { _controller: TesisAdminBundle:Cronograma:newform }
+    defaults: { _controller: TesisAdminBundle:Periodo:newform }
 
-cronograma_list:
+periodo_list:
     pattern:  /list
-    defaults: { _controller: TesisAdminBundle:Cronograma:list}
+    defaults: { _controller: TesisAdminBundle:Periodo:list}
     options:
         expose: true
 
-cronograma_check:
+periodo_check:
     pattern:  /{id}/check
-    defaults: { _controller: TesisAdminBundle:Cronograma:check}
+    defaults: { _controller: TesisAdminBundle:Periodo:check}
 
-cronograma_checkform:
+periodo_checkform:
     pattern:  /{id}/check_form
-    defaults: { _controller: TesisAdminBundle:Cronograma:checkform}
+    defaults: { _controller: TesisAdminBundle:Periodo:checkform}
 
-cronograma_edit:
+periodo_edit:
     pattern:  /{id}/edit
-    defaults: { _controller: TesisAdminBundle:Cronograma:edit}
+    defaults: { _controller: TesisAdminBundle:Periodo:edit}
 
-cronograma_editform:
+periodo_editform:
     pattern:  /{id}/editform
-    defaults: { _controller: TesisAdminBundle:Cronograma:editform }
+    defaults: { _controller: TesisAdminBundle:Periodo:editform }
 
-cronograma_delete:
+periodo_delete:
     pattern:  /delete
-    defaults: { _controller: TesisAdminBundle:Cronograma:delete}
+    defaults: { _controller: TesisAdminBundle:Periodo:delete}
     options:
         expose: true 
 

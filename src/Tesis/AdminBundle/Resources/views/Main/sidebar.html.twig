@@ -133,21 +133,21 @@
             {% if ((user.perfil == 'estudiante') and (user.estatus == 'activo')) %}
             <li class="treeview">
               <a >
-                <i class="fa fa-th"></i> <span>Gestión de Productos</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-th"></i> <span>Gestionar Productos</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a><i class="fa fa-circle-o text-info"></i> Cronogramas <i class="fa fa-angle-left pull-right"></i> </a>
+                <li><a><i class="fa fa-circle-o text-info"></i> Periodos <i class="fa fa-angle-left pull-right"></i> </a>
                   <ul class="treeview-menu">
                   {% if (user.perfil == 'estudiante') %}
                     <li>
-                    <a href="{{ path('cronograma_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Cronograma</a>
+                    <a href="{{ path('periodo_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Periodo</a>
                     </li>
                     <li>
-                      <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Cronogramas</a>
+                      <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Periodo</a>
                     </li> 
                   {% else %}  
                     <li>
-                      <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Cronogramas</a>
+                      <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Periodos</a>
                     </li> 
                   {% endif %}                   
                   </ul>
@@ -190,10 +190,10 @@
                   <ul class="treeview-menu">
                     {% if (user.perfil == 'estudiante') %}
                     <li>
-                    <a href="{{ path('infoAdicional_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Info Adicional</a>
+                    <a href="{{ path('infoAdicional_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Información Adicional</a>
                    </li>
                    <li>
-                      <a  href="{{ path('infoAdicional_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Info Adicional</a>
+                      <a  href="{{ path('infoAdicional_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Información Adicional</a>
                     </li>
                   {% else %}  
                     <li>
@@ -231,10 +231,10 @@
                 <i class="fa fa-check-square-o"></i> <span>Evaluar Productos</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a><i class="fa fa-circle-o text-info"></i> Cronogramas <i class="fa fa-angle-left pull-right"></i> </a>
+                <li><a><i class="fa fa-circle-o text-info"></i> Periodos <i class="fa fa-angle-left pull-right"></i> </a>
                   <ul class="treeview-menu">
                     <li>
-                      <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
                     </li>                    
                   </ul>
                 </li>

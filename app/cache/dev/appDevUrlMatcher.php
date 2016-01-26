@@ -485,46 +485,46 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/timetable')) {
             if (0 === strpos($pathinfo, '/timetable/new')) {
-                // cronograma_new
+                // periodo_new
                 if ($pathinfo === '/timetable/new') {
-                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::newAction',  '_route' => 'cronograma_new',);
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::newAction',  '_route' => 'periodo_new',);
                 }
 
-                // cronograma_newform
+                // periodo_newform
                 if ($pathinfo === '/timetable/newform') {
-                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::newformAction',  '_route' => 'cronograma_newform',);
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::newformAction',  '_route' => 'periodo_newform',);
                 }
 
             }
 
-            // cronograma_list
+            // periodo_list
             if ($pathinfo === '/timetable/list') {
-                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::listAction',  '_route' => 'cronograma_list',);
+                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::listAction',  '_route' => 'periodo_list',);
             }
 
-            // cronograma_check
+            // periodo_check
             if (preg_match('#^/timetable/(?P<id>[^/]++)/check$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cronograma_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::checkAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'periodo_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::checkAction',));
             }
 
-            // cronograma_checkform
+            // periodo_checkform
             if (preg_match('#^/timetable/(?P<id>[^/]++)/check_form$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cronograma_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::checkformAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'periodo_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::checkformAction',));
             }
 
-            // cronograma_edit
+            // periodo_edit
             if (preg_match('#^/timetable/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cronograma_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::editAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'periodo_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::editAction',));
             }
 
-            // cronograma_editform
+            // periodo_editform
             if (preg_match('#^/timetable/(?P<id>[^/]++)/editform$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'cronograma_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::editformAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'periodo_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::editformAction',));
             }
 
-            // cronograma_delete
+            // periodo_delete
             if ($pathinfo === '/timetable/delete') {
-                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\CronogramaController::deleteAction',  '_route' => 'cronograma_delete',);
+                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\PeriodoController::deleteAction',  '_route' => 'periodo_delete',);
             }
 
         }

@@ -223,10 +223,10 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                 // line 134
                 echo "            <li class=\"treeview\">
               <a >
-                <i class=\"fa fa-th\"></i> <span>Gestión de Productos</span> <i class=\"fa fa-angle-left pull-right\"></i>
+                <i class=\"fa fa-th\"></i> <span>Gestionar Productos</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
               <ul class=\"treeview-menu\">
-                <li><a><i class=\"fa fa-circle-o text-info\"></i> Cronogramas <i class=\"fa fa-angle-left pull-right\"></i> </a>
+                <li><a><i class=\"fa fa-circle-o text-info\"></i> Periodos <i class=\"fa fa-angle-left pull-right\"></i> </a>
                   <ul class=\"treeview-menu\">
                   ";
                 // line 141
@@ -235,14 +235,14 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                     echo "                    <li>
                     <a href=\"";
                     // line 143
-                    echo $this->env->getExtension('routing')->getPath("cronograma_new");
-                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Cronograma</a>
+                    echo $this->env->getExtension('routing')->getPath("periodo_new");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Periodo</a>
                     </li>
                     <li>
                       <a href=\"";
                     // line 146
-                    echo $this->env->getExtension('routing')->getPath("cronograma_list");
-                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Cronogramas</a>
+                    echo $this->env->getExtension('routing')->getPath("periodo_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Periodo</a>
                     </li> 
                   ";
                 } else {
@@ -251,8 +251,8 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                     <li>
                       <a href=\"";
                     // line 150
-                    echo $this->env->getExtension('routing')->getPath("cronograma_list");
-                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Cronogramas</a>
+                    echo $this->env->getExtension('routing')->getPath("periodo_list");
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Periodos</a>
                     </li> 
                   ";
                 }
@@ -342,13 +342,13 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                     <a href=\"";
                     // line 193
                     echo $this->env->getExtension('routing')->getPath("infoAdicional_new");
-                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Info Adicional</a>
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Información Adicional</a>
                    </li>
                    <li>
                       <a  href=\"";
                     // line 196
                     echo $this->env->getExtension('routing')->getPath("infoAdicional_list");
-                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Info Adicional</a>
+                    echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Información Adicional</a>
                     </li>
                   ";
                 } else {
@@ -417,12 +417,12 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                 <i class=\"fa fa-check-square-o\"></i> <span>Evaluar Productos</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
               <ul class=\"treeview-menu\">
-                <li><a><i class=\"fa fa-circle-o text-info\"></i> Cronogramas <i class=\"fa fa-angle-left pull-right\"></i> </a>
+                <li><a><i class=\"fa fa-circle-o text-info\"></i> Periodos <i class=\"fa fa-angle-left pull-right\"></i> </a>
                   <ul class=\"treeview-menu\">
                     <li>
                       <a href=\"";
                 // line 237
-                echo $this->env->getExtension('routing')->getPath("cronograma_list");
+                echo $this->env->getExtension('routing')->getPath("periodo_list");
                 echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar</a>
                     </li>                    
                   </ul>
@@ -682,21 +682,21 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*             {% if ((user.perfil == 'estudiante') and (user.estatus == 'activo')) %}*/
 /*             <li class="treeview">*/
 /*               <a >*/
-/*                 <i class="fa fa-th"></i> <span>Gestión de Productos</span> <i class="fa fa-angle-left pull-right"></i>*/
+/*                 <i class="fa fa-th"></i> <span>Gestionar Productos</span> <i class="fa fa-angle-left pull-right"></i>*/
 /*               </a>*/
 /*               <ul class="treeview-menu">*/
-/*                 <li><a><i class="fa fa-circle-o text-info"></i> Cronogramas <i class="fa fa-angle-left pull-right"></i> </a>*/
+/*                 <li><a><i class="fa fa-circle-o text-info"></i> Periodos <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
 /*                   {% if (user.perfil == 'estudiante') %}*/
 /*                     <li>*/
-/*                     <a href="{{ path('cronograma_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Cronograma</a>*/
+/*                     <a href="{{ path('periodo_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Periodo</a>*/
 /*                     </li>*/
 /*                     <li>*/
-/*                       <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Cronogramas</a>*/
+/*                       <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Periodo</a>*/
 /*                     </li> */
 /*                   {% else %}  */
 /*                     <li>*/
-/*                       <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Cronogramas</a>*/
+/*                       <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Periodos</a>*/
 /*                     </li> */
 /*                   {% endif %}                   */
 /*                   </ul>*/
@@ -739,10 +739,10 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                   <ul class="treeview-menu">*/
 /*                     {% if (user.perfil == 'estudiante') %}*/
 /*                     <li>*/
-/*                     <a href="{{ path('infoAdicional_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Info Adicional</a>*/
+/*                     <a href="{{ path('infoAdicional_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Información Adicional</a>*/
 /*                    </li>*/
 /*                    <li>*/
-/*                       <a  href="{{ path('infoAdicional_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Info Adicional</a>*/
+/*                       <a  href="{{ path('infoAdicional_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Información Adicional</a>*/
 /*                     </li>*/
 /*                   {% else %}  */
 /*                     <li>*/
@@ -780,10 +780,10 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                 <i class="fa fa-check-square-o"></i> <span>Evaluar Productos</span> <i class="fa fa-angle-left pull-right"></i>*/
 /*               </a>*/
 /*               <ul class="treeview-menu">*/
-/*                 <li><a><i class="fa fa-circle-o text-info"></i> Cronogramas <i class="fa fa-angle-left pull-right"></i> </a>*/
+/*                 <li><a><i class="fa fa-circle-o text-info"></i> Periodos <i class="fa fa-angle-left pull-right"></i> </a>*/
 /*                   <ul class="treeview-menu">*/
 /*                     <li>*/
-/*                       <a href="{{ path('cronograma_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
+/*                       <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>*/
 /*                     </li>                    */
 /*                   </ul>*/
 /*                 </li>*/

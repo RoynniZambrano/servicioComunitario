@@ -56,7 +56,16 @@ class InfoAdicionalController extends Controller{
                 $entity->setCalificacion("por evaluar");
                 $em->persist($entity);
                 $em->flush();
-                return new Response('.'); 
+
+                echo 
+                "<script>
+                    bootbox.alert('La información adicional ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('infoAdicional_list') . "';
+                        }, 2000);
+                </script>";
+
+              //  return new Response('.'); 
             }
     
              return $this->render('TesisAdminBundle:InfoAdicional:new-infoAdicional-form.html.twig',
@@ -78,7 +87,7 @@ class InfoAdicionalController extends Controller{
                 $options['user'] = $user;
             
                 $em = $this->getDoctrine()->getManager();
-                if ($user->getRol() == "estudiante") {
+                if ($user->getPerfil() == "estudiante") {
                    
                     $query = $em->createQuery("SELECT i1 FROM TesisAdminBundle:InfoAdicional i1  
                     WHERE i1.idEstudiante = :estudiante_id");
@@ -86,22 +95,23 @@ class InfoAdicionalController extends Controller{
                     $entity = $query->execute();
 
 
-                }else if ($user->getRol() == "tutor") {
+                }else if ($user->getPerfil() == "tutor") {
                     
                     $query = $em->createQuery("SELECT i1 FROM TesisAdminBundle:InfoAdicional i1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  i1.idEstudiante = e1.idEstudiante 
-                    INNER JOIN TesisAdminBundle:Usuario u1 WITH e1.usuarioUsuario = u1.idUsuario
-                    AND u1.idUsuario = :tutor_id");
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesorProfesor = u1.idProfesor
+                    AND u1.idProfesor = :tutor_id");
                     $query->setParameter('tutor_id', $user->getId());
                     $entity = $query->execute();
    
-                }else if ($user->getRol() == "coordinador de proyecto") {
+                }else if (($user->getPerfil() == "coordinador de proyecto")
+                || ($user->getPerfil() == "coordinador suplente") ) {
                     
                     $query = $em->createQuery("SELECT i1 FROM TesisAdminBundle:InfoAdicional i1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  i1.idEstudiante = e1.idEstudiante 
                     INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyectoProyecto = p1.idProyecto
-                    INNER JOIN TesisAdminBundle:Usuario u1 WITH p1.coordinador = u1.idUsuario
-                    AND u1.idUsuario = :coordiandor_id");
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH p1.coordinador = u1.idProfesor
+                    AND u1.idProfesor = :coordiandor_id");
                     $query->setParameter('coordinador_id', $user->getId());
                     $entity = $query->execute();
 
@@ -162,7 +172,7 @@ class InfoAdicionalController extends Controller{
             ));
 
 
-            if ($user->getRol() == "estudiante") 
+            if ($user->getPerfil() == "estudiante") 
                 $form->add('edit', 'submit', array('label' => 'Editar'));
             else 
                 $form->add('edit', 'submit', array('label' => 'Evaluar'));
@@ -174,7 +184,7 @@ class InfoAdicionalController extends Controller{
                return $this->redirect($this->generateUrl('infoAdicional_edit', array('id' => $id)));
             }
             if ($form->get('back')->isClicked()) {
-                if ($user->getRol() == "estudiante")
+                if ($user->getPerfil() == "estudiante")
                 return $this->redirect($this->generateUrl('tesis_admin_homepage'));    
                 return $this->redirect($this->generateUrl('infoAdicional_list'));
             }                   
@@ -214,7 +224,7 @@ class InfoAdicionalController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:InfoAdicional')->findOneBy(
                 array('idInfoAdicional' => $id));
 
-            if ($user->getRol() == "estudiante") 
+            if ($user->getPerfil() == "estudiante") 
                 $options['status'] = 'edit_student'; 
             else
                 $options['status'] = 'edit_tutor'; 
@@ -226,19 +236,37 @@ class InfoAdicionalController extends Controller{
             ));
 
             $editForm->submit($request->request->get($editForm->getName()), false);            
-            if ($user->getRol() == "estudiante") {
+            if ($user->getPerfil() == "estudiante") {
                
                 if ($editForm->isValid()) {
                     $entity->setCalificacion("por evaluar");
                     $em->flush();
-                    return $this->redirect($this->generateUrl('infoAdicional_checkform', array('id' => $id)));                    
+
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('infoAdicional_check', array('id' => $id)) . "';
+                        }, 2000);
+                </script>";
+
+                //    return $this->redirect($this->generateUrl('infoAdicional_checkform', array('id' => $id)));                    
                 }
 
             }else{
 
                if ($this->getRequest()->getMethod() == 'POST'){
                     $em->flush();
-                    return $this->redirect($this->generateUrl('infoAdicional_checkform', array('id' => $id)));                    
+
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('infoAdicional_check', array('id' => $id)) . "';
+                        }, 2000);
+                </script>";
+
+                //    return $this->redirect($this->generateUrl('infoAdicional_checkform', array('id' => $id)));                    
                 }
             }
 

@@ -295,11 +295,8 @@ class EstudianteController extends Controller
                 'method' => 'POST',
             ));
 
-            echo "antes de validar->";
-
             $form->handleRequest($request);
             if ($form->isValid()) {
-                    echo "valido";
                 $em = $this->getDoctrine()->getManager();
                 foreach ($_POST as $tempo=>$valor){
                     $perfil = $valor['perfil'];
@@ -345,7 +342,6 @@ class EstudianteController extends Controller
      
               //  return $this->redirect($this->generateUrl('student_checkform', array('id' => $entity->getId()))); 
             }
-                echo "despues de validar->";
 
              return $this->render('TesisAdminBundle:Estudiante:new-student-form-alfa.html.twig',
                 array('form' => $form->createView()));           

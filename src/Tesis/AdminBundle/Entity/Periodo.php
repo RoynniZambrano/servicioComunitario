@@ -3,12 +3,19 @@
 namespace Tesis\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\ExecutionContextInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Tesis\AdminBundle\Validator\Constraints as AdminAssert2;
 
 /**
  * Periodo
  *
  * @ORM\Table(name="periodo", indexes={@ORM\Index(name="fk_cronograma_estudiante1_idx", columns={"estudiante_id_estudiante"})})
  * @ORM\Entity
+ * @AdminAssert2\ValidDate2
+ * @UniqueEntity(fields={"nombre", "estudianteEstudiante"}, errorPath="nombre", message="Ya existe un periodo con este nombre.") 
  */
 class Periodo
 {
@@ -16,28 +23,41 @@ class Periodo
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca nombre.")     
      */
     private $nombre;
+
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="date", nullable=false)
-     */
+     * @Assert\NotBlank(message="Porfavor introduzca una fecha.") 
+     * Assert\Date(message="Porfavor introduzca una fecha valida.")              
+     */    
     private $fechaInicio;
+
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_fin", type="date", nullable=false)
-     */
+     * Assert\Date(message="Porfavor introduzca una fecha valida.")                 
+     */    
     private $fechaFin;
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="comentario", type="string", length=2000, nullable=false)
-     */
+     * @Assert\NotBlank(message="Porfavor introduzca comentario.")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 2000,
+     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
+     */     
     private $comentario;
 
     /**
