@@ -100,11 +100,7 @@ class PeriodoController extends Controller{
                     AND u1.idProfesor = :tutor_id");
                     $query->setParameter('tutor_id', $user->getId());
                     $periodos = $query->execute();
-                   /*
-                    SELECT * FROM Periodo c1 INNER JOIN estudiante e1 ON c1.estudiante_id_estudiante = e1.id_estudiante 
-                    INNER JOIN usuario u1 ON e1.usuario_id_usuario = u1.id_usuario
-                    AND u1.id_usuario = '3';
-                    **/
+
                 }else if (($user->getPerfil() == "coordinador de proyecto")
                 || ($user->getPerfil() == "coordinador suplente") ) {
                     

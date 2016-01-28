@@ -49,16 +49,37 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
           <!-- Content Header (Page header) -->
           <section class=\"content-header\">
             <h1>
-              Gestionar productos
-              <small></small>
-            </h1>
+              ";
+        // line 18
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 19
+            echo "                Gestionar productos
+              ";
+        } else {
+            // line 21
+            echo "                Evaluar productos
+              ";
+        }
+        // line 23
+        echo "            </h1>
             <ol class=\"breadcrumb\">
               <li><a href=\"";
-        // line 22
+        // line 25
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
-              <li class=\"active\">Gestionar productos</li>
-              <li class=\"active\">Listar información adicional</li>
+              ";
+        // line 26
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 27
+            echo "                <li class=\"active\">Gestionar productos</li>
+              ";
+        } else {
+            // line 29
+            echo "                <li class=\"active\">Evaluar productos</li>
+              ";
+        }
+        // line 31
+        echo "              <li class=\"active\">Listar información adicional</li>
             </ol>
           </section>
 
@@ -85,39 +106,39 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
                       <th></th>
                       <th></th>
                       ";
-        // line 50
+        // line 57
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
-            // line 51
+            // line 58
             echo "                      <th></th>  
                       ";
         }
-        // line 52
+        // line 59
         echo "                      
                     </tr>
                   </thead>
                   <tbody>
                   ";
-        // line 56
+        // line 63
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")));
         foreach ($context['_seq'] as $context["_key"] => $context["infoAdicional"]) {
-            // line 57
+            // line 64
             echo "                    <tr>
                     <td>";
-            // line 58
+            // line 65
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["infoAdicional"], "idEstudiante", array()), "nombre", array()), "html", null, true);
             echo "</td>                   
                     <td>";
-            // line 59
+            // line 66
             echo twig_escape_filter($this->env, $this->getAttribute($context["infoAdicional"], "calificacion", array()), "html", null, true);
             echo "</td>    
                     <td>";
-            // line 60
+            // line 67
             echo twig_escape_filter($this->env, $this->getAttribute($context["infoAdicional"], "observacion", array()), "html", null, true);
             echo "</td>
                     <td align=\"center\">
                       <a href=\"";
-            // line 62
+            // line 69
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("infoAdicional_check", array("id" => $this->getAttribute($context["infoAdicional"], "idInfoAdicional", array()))), "html", null, true);
             echo "\">
                           <button class=\"btn btn-success\">Consultar</button>
@@ -125,30 +146,30 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
                     </td>
                     <td align=\"center\">
                       <a href=\"";
-            // line 67
+            // line 74
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("infoAdicional_edit", array("id" => $this->getAttribute($context["infoAdicional"], "idInfoAdicional", array()))), "html", null, true);
             echo "\">
                         ";
-            // line 68
+            // line 75
             if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) != "estudiante")) {
-                // line 69
+                // line 76
                 echo "                          <button class=\"btn btn-success\">Evaluar</button>
                         ";
             } else {
-                // line 71
+                // line 78
                 echo "                          <button class=\"btn btn-success\">Editar</button>
                         ";
             }
-            // line 73
+            // line 80
             echo "                      </a>
                     </td>
                     ";
-            // line 75
+            // line 82
             if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
-                // line 76
+                // line 83
                 echo "                    <td align=\"center\">
                       <a href=\"";
-                // line 77
+                // line 84
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("infoAdicional_edit", array("id" => $this->getAttribute($context["infoAdicional"], "idInfoAdicional", array()))), "html", null, true);
                 echo "\">
                           <button class=\"btn btn-danger\">Eliminar</button>
@@ -156,7 +177,7 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
                     </td> 
                     ";
             }
-            // line 81
+            // line 88
             echo "                                       
                     </tr> 
                   ";
@@ -164,7 +185,7 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['infoAdicional'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 83
+        // line 90
         echo "         
                   </tbody>
                   <tfoot>
@@ -175,13 +196,13 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
                       <th></th>
                       <th></th>
                       ";
-        // line 92
+        // line 99
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
-            // line 93
+            // line 100
             echo "                      <th></th> 
                       ";
         }
-        // line 94
+        // line 101
         echo "                       
                     </tr>
                   </tfoot>
@@ -192,7 +213,7 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
         </div><!-- /.content-wrapper -->
 
       ";
-        // line 103
+        // line 110
         echo twig_include($this->env, $context, "TesisAdminBundle:Main:footer.html.twig");
         echo "
      
@@ -202,10 +223,10 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
 ";
     }
 
-    // line 111
+    // line 118
     public function block_js($context, array $blocks = array())
     {
-        // line 112
+        // line 119
         echo "        <!-- page script -->
     <script type=\"text/javascript\">
       \$(function () {
@@ -228,7 +249,7 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
 
     public function getDebugInfo()
     {
-        return array (  209 => 112,  206 => 111,  196 => 103,  185 => 94,  181 => 93,  179 => 92,  168 => 83,  160 => 81,  152 => 77,  149 => 76,  147 => 75,  143 => 73,  139 => 71,  135 => 69,  133 => 68,  129 => 67,  121 => 62,  116 => 60,  112 => 59,  108 => 58,  105 => 57,  101 => 56,  95 => 52,  91 => 51,  89 => 50,  58 => 22,  44 => 11,  39 => 9,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  230 => 119,  227 => 118,  217 => 110,  206 => 101,  202 => 100,  200 => 99,  189 => 90,  181 => 88,  173 => 84,  170 => 83,  168 => 82,  164 => 80,  160 => 78,  156 => 76,  154 => 75,  150 => 74,  142 => 69,  137 => 67,  133 => 66,  129 => 65,  126 => 64,  122 => 63,  116 => 59,  112 => 58,  110 => 57,  82 => 31,  78 => 29,  74 => 27,  72 => 26,  68 => 25,  64 => 23,  60 => 21,  56 => 19,  54 => 18,  44 => 11,  39 => 9,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends '::admin_base.html.twig' %}*/
@@ -248,12 +269,19 @@ class __TwigTemplate_0a372e65346de34b0a2272fbc7d6d08015752f1d429b3d44e5d58d7219c
 /*           <!-- Content Header (Page header) -->*/
 /*           <section class="content-header">*/
 /*             <h1>*/
-/*               Gestionar productos*/
-/*               <small></small>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 Gestionar productos*/
+/*               {% else %}*/
+/*                 Evaluar productos*/
+/*               {% endif %}*/
 /*             </h1>*/
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
-/*               <li class="active">Gestionar productos</li>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 <li class="active">Gestionar productos</li>*/
+/*               {% else %}*/
+/*                 <li class="active">Evaluar productos</li>*/
+/*               {% endif %}*/
 /*               <li class="active">Listar información adicional</li>*/
 /*             </ol>*/
 /*           </section>*/

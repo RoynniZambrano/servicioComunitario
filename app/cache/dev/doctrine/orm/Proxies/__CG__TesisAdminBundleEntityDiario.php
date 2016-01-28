@@ -64,10 +64,10 @@ class Diario extends \Tesis\AdminBundle\Entity\Diario implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fecha', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'personal', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fortalezas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'debilidades', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'conclusion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'persona', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'calificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'observacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'ninos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'adultos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'terceraEdad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'discapacidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'comunidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'idDiario', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'periodoPeriodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'estudianteEstudiante', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'actividadActividad');
+            return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fecha', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'personal', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fortalezas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'debilidades', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'conclusion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'personas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'calificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'observacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'ninos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'adultos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'terceraEdad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'discapacidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'comunidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'idDiario', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'periodoPeriodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'proyectoProyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'estudianteEstudiante', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'actividadActividad');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fecha', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'personal', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fortalezas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'debilidades', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'conclusion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'persona', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'calificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'observacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'ninos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'adultos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'terceraEdad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'discapacidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'comunidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'idDiario', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'periodoPeriodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'estudianteEstudiante', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'actividadActividad');
+        return array('__isInitialized__', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fecha', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'personal', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'fortalezas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'debilidades', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'conclusion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaInicio', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horaFin', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'personas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'calificacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'observacion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'horas', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'ninos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'adultos', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'terceraEdad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'discapacidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'comunidad', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'descripcion', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'idDiario', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'periodoPeriodo', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'proyectoProyecto', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'estudianteEstudiante', '' . "\0" . 'Tesis\\AdminBundle\\Entity\\Diario' . "\0" . 'actividadActividad');
     }
 
     /**
@@ -330,23 +330,23 @@ class Diario extends \Tesis\AdminBundle\Entity\Diario implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      */
-    public function setPersona($persona)
+    public function setPersonas($personas)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPersona', array($persona));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPersonas', array($personas));
 
-        return parent::setPersona($persona);
+        return parent::setPersonas($personas);
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getPersona()
+    public function getPersonas()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPersona', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPersonas', array());
 
-        return parent::getPersona();
+        return parent::getPersonas();
     }
 
     /**
@@ -648,6 +648,39 @@ class Diario extends \Tesis\AdminBundle\Entity\Diario implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActividadActividad', array());
 
         return parent::getActividadActividad();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setProyectoProyecto(\Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProyectoProyecto', array($proyectoProyecto));
+
+        return parent::setProyectoProyecto($proyectoProyecto);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProyectoProyecto()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProyectoProyecto', array());
+
+        return parent::getProyectoProyecto();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+
+        return parent::__toString();
     }
 
 }

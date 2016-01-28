@@ -38,13 +38,17 @@ class DiarioController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = new Diario();
             $options['id'] = $session->get('user')->getId();
-            $options['proyecto'] = $session->get('user')->getProyectoProyecto();
+            $options['proyecto'] = $session->get('user')->getProyecto();
             $options['status'] = 'new';
 
             $estudiante = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
             array('idEstudiante' => $user->getId()));
             $entity->setEstudianteEstudiante($estudiante);
-            $entity->setProyectoProyecto($estudiante->getProyectoProyecto());
+
+            $proyecto = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
+            array('idProyecto' => $estudiante->getProyecto()));
+
+            $entity->setProyectoProyecto($proyecto);
 
             $form = $this->createForm(new DiarioType($options), $entity, array(
                 'action' => $this->generateUrl('diario_newform'),
@@ -57,7 +61,17 @@ class DiarioController extends Controller{
                 $entity->setCalificacion("por evaluar");
                 $em->persist($entity);
                 $em->flush();
-                return new Response('.'); 
+
+                echo 
+                "<script>
+                    bootbox.alert('El diario de campo ha sido creado exitosamente');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('diario_list') . "';
+                        }, 2000);
+                </script>";
+
+
+                //return new Response('.'); 
             }
     
              return $this->render('TesisAdminBundle:Diario:new-diario-form.html.twig',
@@ -78,7 +92,7 @@ class DiarioController extends Controller{
                 $options['user'] = $user;
             
                 $em = $this->getDoctrine()->getManager();
-                if ($user->getRol() == "estudiante") {
+                if ($user->getPerfil() == "estudiante") {
                    
                     $query = $em->createQuery("SELECT d1 FROM TesisAdminBundle:Diario d1  
                     WHERE d1.estudianteEstudiante = :estudiante_id");
@@ -86,22 +100,23 @@ class DiarioController extends Controller{
                     $diarios = $query->execute();
 
 
-                }else if ($user->getRol() == "tutor") {
+                }else if ($user->getPerfil() == "tutor") {
                     
                     $query = $em->createQuery("SELECT d1 FROM TesisAdminBundle:Diario d1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  d1.estudianteEstudiante = e1.idEstudiante 
-                    INNER JOIN TesisAdminBundle:Usuario u1 WITH e1.usuarioUsuario = u1.idUsuario
-                    AND u1.idUsuario = :tutor_id");
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesorProfesor = u1.idProfesor
+                    AND u1.idProfesor = :tutor_id");
                     $query->setParameter('tutor_id', $user->getId());
                     $diarios = $query->execute();
    
-                }else if ($user->getRol() == "coordinador de proyecto") {
+                }else if (($user->getPerfil() == "coordinador de proyecto")
+                || ($user->getPerfil() == "coordinador suplente") ) {
                     
                     $query = $em->createQuery("SELECT d1 FROM TesisAdminBundle:Diario d1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  d1.estudianteEstudiante = e1.idEstudiante 
                     INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyectoProyecto = p1.idProyecto
-                    INNER JOIN TesisAdminBundle:Usuario u1 WITH p1.coordinador = u1.idUsuario
-                    AND u1.idUsuario = :coordiandor_id");
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH p1.coordinador = u1.idProfesor
+                    AND u1.idProfesor = :coordiandor_id");
                     $query->setParameter('coordinador_id', $user->getId());
                     $diarios = $query->execute();
 
@@ -145,12 +160,12 @@ class DiarioController extends Controller{
                 array('idDiario' => $id));
 
             $user = $session->get('user');
-            if ($user->getRol()== 'estudiante') {
-                $options['proyecto'] = $user->getProyectoProyecto();
+            if ($user->getPerfil()== 'estudiante') {
+                $options['proyecto'] = $user->getProyecto();
                 $options['id'] = $user;
             }
             else{
-               $options['proyecto'] = $entity->getEstudianteEstudiante()->getProyectoProyecto();
+               $options['proyecto'] = $entity->getEstudianteEstudiante()->getProyecto();
                $options['id'] = $entity->getEstudianteEstudiante();
             }
 
@@ -162,18 +177,22 @@ class DiarioController extends Controller{
             ));
 
 
-            if ($user->getRol() == "estudiante") 
+            if ($user->getPerfil() == "estudiante") 
                 $form->add('edit', 'submit', array('label' => 'Editar'));
             else 
                 $form->add('edit', 'submit', array('label' => 'Evaluar'));
             
-            $form->add('back', 'submit', array('label' => 'Regresar'));            
+            $form->add('back', 'submit', array('label' => 'Regresar'));
+            $form->add('pdf', 'submit', array('label' => 'Descargar'));            
         
             $form->handleRequest($request);
             if ($form->get('edit')->isClicked()) {
                return $this->redirect($this->generateUrl('diario_edit', array('id' => $id)));
             }
             if ($form->get('back')->isClicked()) {
+               return $this->redirect($this->generateUrl('diario_list'));
+            } 
+            if ($form->get('pdf')->isClicked()) {
                return $this->redirect($this->generateUrl('diario_list'));
             }                   
 
@@ -212,18 +231,18 @@ class DiarioController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
                 array('idDiario' => $id));
 
-            if ($user->getRol() == "estudiante") 
+            if ($user->getPerfil() == "estudiante") 
                 $options['status'] = 'edit_student'; 
             else
                 $options['status'] = 'edit_tutor'; 
 
             $user = $session->get('user');
-            if ($user->getRol()== 'estudiante') {
-                $options['proyecto'] = $user->getProyectoProyecto();
+            if ($user->getPerfil()== 'estudiante') {
+                $options['proyecto'] = $user->getProyecto();
                 $options['id'] = $user;
             }
             else{
-               $options['proyecto'] = $entity->getEstudianteEstudiante()->getProyectoProyecto();
+               $options['proyecto'] = $entity->getEstudianteEstudiante()->getProyecto();
                $options['id'] = $entity->getEstudianteEstudiante();
             }
             
@@ -233,19 +252,48 @@ class DiarioController extends Controller{
             ));
 
             $editForm->submit($request->request->get($editForm->getName()), false);
-            if ($user->getRol() == "estudiante") {
+           // $editForm->handleRequest($request);
+            if ($user->getPerfil() == "estudiante") {
                
                 if ($editForm->isValid()) {
                     $entity->setCalificacion("por evaluar");
+
+                    $diario = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
+                    array('idDiario' => $entity->getIdDiario()));
+                    $entity->setObservacion($diario->getObservacion());
                     $em->flush();
-                    return $this->redirect($this->generateUrl('diario_checkform', array('id' => $id)));                    
+
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('diario_check', array('id' => $id)) . "';
+                        }, 2000);
+                </script>";
+
+
+                  //  return $this->redirect($this->generateUrl('diario_checkform', array('id' => $id)));                    
                 }
 
             }else{
 
                if ($this->getRequest()->getMethod() == 'POST'){
+               // echo "Today is " . date("Y/m/d") . "<br>";
+                    $diario = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
+                    array('idDiario' => $entity->getIdDiario()));
+
+                    $entity->setObservacion($entity->getObservacion() . " fecha ultima correción: " .  date("d/m/Y"));
                     $em->flush();
-                    return $this->redirect($this->generateUrl('diario_checkform', array('id' => $id)));                    
+
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito');
+                        setTimeout(function() {
+                            window.location.href ='" .$this->generateUrl('diario_check', array('id' => $id)) . "';
+                        }, 2000);
+                </script>";
+
+                    //return $this->redirect($this->generateUrl('diario_checkform', array('id' => $id)));                    
                 }
             }
 

@@ -1,37 +1,37 @@
 
-resultados_new:
+adicionales_new:
     pattern:  /new
-    defaults: { _controller: TesisAdminBundle:Resultados:new}
+    defaults: { _controller: TesisAdminBundle:Adicionales:new}
 
-resultados_newform:
+adicionales_newform:
     pattern:  /newform
-    defaults: { _controller: TesisAdminBundle:Resultados:newform}
+    defaults: { _controller: TesisAdminBundle:Adicionales:newform}
 
-resultados_list:
+adicionales_list:
     pattern:  /list
-    defaults: { _controller: TesisAdminBundle:Resultados:list}
+    defaults: { _controller: TesisAdminBundle:Adicionales:list}
     options:
         expose: true
 
-resultados_check:
+adicionales_check:
     pattern:  /{id}/check
-    defaults: { _controller: TesisAdminBundle:Resultados:check}
+    defaults: { _controller: TesisAdminBundle:Adicionales:check}
 
-resultados_checkform:
+adicionales_checkform:
     pattern:  /{id}/check_form
-    defaults: { _controller: TesisAdminBundle:Resultados:checkform}
+    defaults: { _controller: TesisAdminBundle:Adicionales:checkform}
 
-resultados_edit:
+adicionales_edit:
     pattern:  /{id}/edit
-    defaults: { _controller: TesisAdminBundle:Resultados:edit}
+    defaults: { _controller: TesisAdminBundle:Adicionales:edit}
 
-resultados_editform:
+adicionales_editform:
     pattern:  /{id}/editform
-    defaults: { _controller: TesisAdminBundle:Resultados:editform }
+    defaults: { _controller: TesisAdminBundle:Adicionales:editform }
 
-resultados_delete:
+adicionales_delete:
     pattern:  /delete
-    defaults: { _controller: TesisAdminBundle:Resultados:delete}
+    defaults: { _controller: TesisAdminBundle:Adicionales:delete}
     options:
         expose: true 
 

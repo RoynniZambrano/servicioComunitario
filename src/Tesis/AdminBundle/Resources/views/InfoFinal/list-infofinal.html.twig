@@ -15,14 +15,20 @@
           <!-- Content Header (Page header) -->
           <section class="content-header">
             <h1>
-              Gestión de Productos
-              <small></small>
+              {% if (user.perfil == 'estudiante') %}
+                Gestionar productos
+              {% else %}
+                Evaluar productos
+              {% endif %}
             </h1>
             <ol class="breadcrumb">
               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>
-              <li class="active">Gestión de Productos</li>
-              <li class="active">Informe Final</li>
-              <li class="active">Listar</li>
+              {% if (user.perfil == 'estudiante') %}
+                <li class="active">Gestionar productos</li>
+              {% else %}
+                <li class="active">Evaluar productos</li>
+              {% endif %}
+              <li class="active">Listar informe final</li>
             </ol>
           </section>
 

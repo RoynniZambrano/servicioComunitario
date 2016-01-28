@@ -3,26 +3,44 @@
 namespace Tesis\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Adicionales
  *
  * @ORM\Table(name="adicionales", indexes={@ORM\Index(name="fk_resultados_diario1_idx", columns={"diario_id_diario"})})
  * @ORM\Entity
+ * @UniqueEntity(fields={"nombre", "diarioDiario"}, errorPath="nombre", message="Esta nombre ya esta registrado para este diario.")  
  */
 class Adicionales
 {
+
     /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=500, nullable=false)
-     */
+     * @Assert\NotBlank(message="Porfavor introduzca nombre.")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 500,
+     *      minMessage = "el nombre debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "el nombre debe tener maximo {{ limit }} caracteres.")      
+     */    
     private $nombre;
+
 
     /**
      * @var string
      *
      * @ORM\Column(name="cantidad", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca una cantidad.")      
+     * @Assert\Regex(
+     *      pattern="/^[0-9][0-9]*$/",
+     *      match=true,
+     *      message="Porfavor introduzca un número valido."
+     *  )      
      */
     private $cantidad;
 
@@ -34,6 +52,17 @@ class Adicionales
     private $comentario;
 
     /**
+     * @var \Tesis\AdminBundle\Entity\Diario
+     *
+     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Diario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="diario_id_diario", referencedColumnName="id_diario")
+     * })
+     * @Assert\NotBlank(message="Debe elegir al menos un diario.")            
+     */
+    private $diarioDiario;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id_adicionales", type="integer")
@@ -41,17 +70,6 @@ class Adicionales
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idAdicionales;
-
-    /**
-     * @var \Tesis\AdminBundle\Entity\Diario
-     *
-     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Diario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="diario_id_diario", referencedColumnName="id_diario")
-     * })
-     */
-    private $diarioDiario;
-
 
 
     /**

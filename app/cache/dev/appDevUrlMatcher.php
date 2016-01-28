@@ -698,46 +698,46 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/results')) {
             if (0 === strpos($pathinfo, '/results/new')) {
-                // resultados_new
+                // adicionales_new
                 if ($pathinfo === '/results/new') {
-                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::newAction',  '_route' => 'resultados_new',);
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::newAction',  '_route' => 'adicionales_new',);
                 }
 
-                // resultados_newform
+                // adicionales_newform
                 if ($pathinfo === '/results/newform') {
-                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::newformAction',  '_route' => 'resultados_newform',);
+                    return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::newformAction',  '_route' => 'adicionales_newform',);
                 }
 
             }
 
-            // resultados_list
+            // adicionales_list
             if ($pathinfo === '/results/list') {
-                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::listAction',  '_route' => 'resultados_list',);
+                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::listAction',  '_route' => 'adicionales_list',);
             }
 
-            // resultados_check
+            // adicionales_check
             if (preg_match('#^/results/(?P<id>[^/]++)/check$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'resultados_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::checkAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'adicionales_check')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::checkAction',));
             }
 
-            // resultados_checkform
+            // adicionales_checkform
             if (preg_match('#^/results/(?P<id>[^/]++)/check_form$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'resultados_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::checkformAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'adicionales_checkform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::checkformAction',));
             }
 
-            // resultados_edit
+            // adicionales_edit
             if (preg_match('#^/results/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'resultados_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::editAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'adicionales_edit')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::editAction',));
             }
 
-            // resultados_editform
+            // adicionales_editform
             if (preg_match('#^/results/(?P<id>[^/]++)/editform$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'resultados_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::editformAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'adicionales_editform')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::editformAction',));
             }
 
-            // resultados_delete
+            // adicionales_delete
             if ($pathinfo === '/results/delete') {
-                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\ResultadosController::deleteAction',  '_route' => 'resultados_delete',);
+                return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\AdicionalesController::deleteAction',  '_route' => 'adicionales_delete',);
             }
 
         }

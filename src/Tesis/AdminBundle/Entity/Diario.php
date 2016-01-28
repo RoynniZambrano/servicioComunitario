@@ -3,12 +3,16 @@
 namespace Tesis\AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Diario
  *
  * @ORM\Table(name="diario", indexes={@ORM\Index(name="fk_diario_estudiante1_idx", columns={"estudiante_id_estudiante"}), @ORM\Index(name="fk_diario_cronograma1_idx", columns={"periodo_id_periodo"})})
  * @ORM\Entity
+ * @UniqueEntity(fields={"fecha", "estudianteEstudiante"}, errorPath="fecha", message="Esta fecha ya esta registrada.")  
  */
 class Diario
 {
@@ -16,13 +20,21 @@ class Diario
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="date", nullable=false)
-     */
+     * @Assert\NotBlank(message="Porfavor introduzca una fecha.")
+     * @Assert\Date(message="Porfavor introduzca una fecha valida.")
+     */     
     private $fecha;
 
     /**
      * @var string
      *
      * @ORM\Column(name="personal", type="string", length=3000, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca personal.")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 3000,
+     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $personal;
 
@@ -30,6 +42,12 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="fortalezas", type="string", length=3000, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca fortalezas.")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 3000,
+     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $fortalezas;
 
@@ -37,6 +55,12 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="debilidades", type="string", length=3000, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca debilidades.")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 3000,
+     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $debilidades;
 
@@ -44,90 +68,160 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="conclusion", type="string", length=3000, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca conclusion.")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 3000,
+     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $conclusion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hora_inicio", type="string", length=100, nullable=true)
-     */
+     * @ORM\Column(name="hora_inicio", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca una hora de inicio.")
+     * @Assert\Length(
+     *      min = 7,
+     *      max = 7,
+     *      exactMessage = "Porfavor intruduzca una hora valida.")      
+     */       
     private $horaInicio;
+
 
     /**
      * @var string
      *
-     * @ORM\Column(name="hora_fin", type="string", length=100, nullable=true)
-     */
+     * @ORM\Column(name="hora_fin", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca una hora de culminacion.") 
+     * @Assert\Length(
+     *      min = 7,
+     *      max = 7,
+     *      exactMessage = "Porfavor intruduzca una hora valida.")       
+     */ 
     private $horaFin;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="persona", type="string", length=100, nullable=true)
+     * @ORM\Column(name="personas", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca cantidad de personas.")      
+     * @Assert\Regex(
+     *      pattern="/^[0-9][0-9]*$/",
+     *      match=true,
+     *      message="Porfavor introduzca un número de personas valido."
+     *  )      
      */
-    private $persona;
+    private $personas;
+
 
     /**
      * @var string
      *
-     * @ORM\Column(name="calificacion", type="string", length=100, nullable=true)
+     * @ORM\Column(name="calificacion", type="string", length=100, nullable=true)  
      */
     private $calificacion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="observacion", type="string", length=3000, nullable=true)
+     * @ORM\Column(name="observacion", type="string", length=3000, nullable=true)   
      */
     private $observacion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="horas", type="string", length=100, nullable=true)
+     * @ORM\Column(name="horas", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca cantidad de horas.")      
+     * @Assert\Regex(
+     *      pattern="/^[0-9][0-9]*$/",
+     *      match=true,
+     *      message="Porfavor introduzca un número de horas valido."
+     *  )      
      */
     private $horas;
 
+
     /**
      * @var string
      *
-     * @ORM\Column(name="ninos", type="string", length=100, nullable=true)
+     * @ORM\Column(name="ninos", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca niños.")      
+     * @Assert\Regex(
+     *      pattern="/^[0-9][0-9]*$/",
+     *      match=true,
+     *      message="Porfavor introduzca un número de niños valido."
+     *  )      
      */
     private $ninos;
 
+
     /**
      * @var string
      *
-     * @ORM\Column(name="adultos", type="string", length=100, nullable=true)
+     * @ORM\Column(name="adultos", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca adultos.")      
+     * @Assert\Regex(
+     *      pattern="/^[0-9][0-9]*$/",
+     *      match=true,
+     *      message="Porfavor introduzca un número de adultos valido."
+     *  )      
      */
     private $adultos;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tercera_edad", type="string", length=100, nullable=true)
-     */
-    private $terceraEdad;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="discapacidad", type="string", length=100, nullable=true)
+     * @ORM\Column(name="tercera_edad", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca tercera edad.")      
+     * @Assert\Regex(
+     *      pattern="/^[0-9][0-9]*$/",
+     *      match=true,
+     *      message="Porfavor introduzca un número de tercera edad valido."
+     *  )      
+     */
+    private $terceraEdad;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="discapacidad", type="string", length=100, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca discapacidad.")      
+     * @Assert\Regex(
+     *      pattern="/^[0-9][0-9]*$/",
+     *      match=true,
+     *      message="Porfavor introduzca un número de discapacidad valido."
+     *  )      
      */
     private $discapacidad;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="comunidad", type="text", nullable=true)
-     */
+     * @ORM\Column(name="comunidad", type="string", length=3000, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca comunidad.")
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 300,
+     *      minMessage = "la comunidad debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "la comunidad debe tener maximo {{ limit }} caracteres.")      
+     */    
     private $comunidad;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=3000, nullable=true)
+     * @ORM\Column(name="descripcion", type="string", length=3000, nullable=false)
+     * @Assert\NotBlank(message="Porfavor introduzca descripción.")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 3000,
+     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
+     *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $descripcion;
 
@@ -136,21 +230,30 @@ class Diario
      *
      * @ORM\Column(name="id_diario", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idDiario;
 
     /**
      * @var \Tesis\AdminBundle\Entity\Periodo
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Periodo")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="periodo_id_periodo", referencedColumnName="id_periodo")
      * })
      */
     private $periodoPeriodo;
+
+    /**
+     * @var \Tesis\AdminBundle\Entity\Proyecto
+     *
+     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Proyecto")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="proyecto_id_proyecto", referencedColumnName="id_proyecto")
+     * })         
+     */
+    private $proyectoProyecto;
+
 
     /**
      * @var \Tesis\AdminBundle\Entity\Estudiante
@@ -348,26 +451,26 @@ class Diario
     }
 
     /**
-     * Set persona
+     * Set personas
      *
-     * @param string $persona
+     * @param string $personas
      * @return Diario
      */
-    public function setPersona($persona)
+    public function setPersonas($personas)
     {
-        $this->persona = $persona;
+        $this->personas = $personas;
 
         return $this;
     }
 
     /**
-     * Get persona
+     * Get personas
      *
      * @return string 
      */
-    public function getPersona()
+    public function getPersonas()
     {
-        return $this->persona;
+        return $this->personas;
     }
 
     /**
@@ -678,4 +781,34 @@ class Diario
     {
         return $this->actividadActividad;
     }
+
+    /**
+     * Set proyectoProyecto
+     *
+     * @param \Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto
+     * @return Diario
+     */
+    public function setProyectoProyecto(\Tesis\AdminBundle\Entity\Proyecto $proyectoProyecto = null)
+    {
+        $this->proyectoProyecto = $proyectoProyecto;
+
+        return $this;
+    }
+
+    /**
+     * Get proyectoProyecto
+     *
+     * @return \Tesis\AdminBundle\Entity\Proyecto 
+     */
+    public function getProyectoProyecto()
+    {
+        return $this->proyectoProyecto;
+    }
+
+
+    public function __toString()
+    {
+        return (string) $this->fecha->format('d-m-Y');
+    }
+
 }

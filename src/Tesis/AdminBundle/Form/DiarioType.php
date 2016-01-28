@@ -62,6 +62,10 @@ class DiarioType extends AbstractType
                     'attr' => array('size' => '10')))
 
 
+                ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad', 'required' => false, 'disabled' => true))
+
+
+                
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
@@ -69,7 +73,7 @@ class DiarioType extends AbstractType
                             "class"     => "TesisAdminBundle:Proyecto",
                             "property"  => "nombre",
                             'label' => 'Proyecto',
-                            'disabled' =>'true',
+                            'disabled' => true,
                             'required' => false,
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('p')
@@ -78,17 +82,18 @@ class DiarioType extends AbstractType
                             },
                         ));
                 })
+                
 
 
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
-                        $form->add('cronogramacronograma', 'entity', array(
-                            "class"     => "TesisAdminBundle:Cronograma",
-                            "property"  => "semana",
+                        $form->add('periodoPeriodo', 'entity', array(
+                            "class"     => "TesisAdminBundle:Periodo",
+                            "property"  => "nombre",
                             'disabled' =>'true',
                             'required' => false,
-                            'label' => 'Cronograma',
+                            'label' => 'Periodo',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')
@@ -126,7 +131,10 @@ class DiarioType extends AbstractType
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
                     'attr' => array('size' => '10')))
         
+                ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad'))
 
+
+                
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
@@ -134,7 +142,7 @@ class DiarioType extends AbstractType
                             "class"     => "TesisAdminBundle:Proyecto",
                             "property"  => "nombre",
                             'label' => 'Proyecto',
-                            'disabled' =>'true',
+                            'disabled' => true,
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('p')
                                     ->where('p.idProyecto = :estudiante')
@@ -142,15 +150,16 @@ class DiarioType extends AbstractType
                             },
                         ));
                 })
+                
 
 
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
-                        $form->add('cronogramacronograma', 'entity', array(
-                            "class"     => "TesisAdminBundle:Cronograma",
-                            "property"  => "semana",
-                            'label' => 'Cronograma',
+                        $form->add('periodoPeriodo', 'entity', array(
+                            "class"     => "TesisAdminBundle:Periodo",
+                            "property"  => "nombre",
+                            'label' => 'Periodo',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')
@@ -192,6 +201,10 @@ class DiarioType extends AbstractType
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
                     'attr' => array('size' => '10')))
 
+
+                ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad'))
+
+                
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
@@ -199,7 +212,7 @@ class DiarioType extends AbstractType
                             "class"     => "TesisAdminBundle:Proyecto",
                             "property"  => "nombre",
                             'label' => 'Proyecto',
-                            'disabled' =>'true',
+                            'disabled' => true,
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('p')
                                     ->where('p.idProyecto = :estudiante')
@@ -207,15 +220,16 @@ class DiarioType extends AbstractType
                             },
                         ));
                 })
+                
 
 
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
-                        $form->add('cronogramacronograma', 'entity', array(
-                            "class"     => "TesisAdminBundle:Cronograma",
-                            "property"  => "semana",
-                            'label' => 'Cronograma',
+                        $form->add('periodoPeriodo', 'entity', array(
+                            "class"     => "TesisAdminBundle:Periodo",
+                            "property"  => "nombre",
+                            'label' => 'Periodo',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')
@@ -257,7 +271,10 @@ class DiarioType extends AbstractType
                 ->add('terceraEdad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Tercera edad', 'disabled' =>'true'))
                 ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Discapacidad', 'disabled' =>'true'))                
 
+                ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad', 'disabled' => true))
 
+
+                
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
@@ -265,7 +282,7 @@ class DiarioType extends AbstractType
                             "class"     => "TesisAdminBundle:Proyecto",
                             "property"  => "nombre",
                             'label' => 'Proyecto',
-                            'disabled' =>'true',
+                            'disabled' => true,
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('p')
                                     ->where('p.idProyecto = :estudiante')
@@ -273,15 +290,16 @@ class DiarioType extends AbstractType
                             },
                         ));
                 })
+                
 
                 ->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event)  {
                     $form = $event->getForm();
 
-                        $form->add('cronogramacronograma', 'entity', array(
-                            "class"     => "TesisAdminBundle:Cronograma",
-                            "property"  => "semana",
+                        $form->add('periodoPeriodo', 'entity', array(
+                            "class"     => "TesisAdminBundle:Periodo",
+                            "property"  => "nombre",
                             'disabled' =>'true',
-                            'label' => 'Cronograma',
+                            'label' => 'Periodo',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')

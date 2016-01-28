@@ -49,16 +49,37 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
           <!-- Content Header (Page header) -->
           <section class=\"content-header\">
             <h1>
-              Gestionar productos
-              <small></small>
-            </h1>
+              ";
+        // line 18
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 19
+            echo "                Gestionar productos
+              ";
+        } else {
+            // line 21
+            echo "                Evaluar productos
+              ";
+        }
+        // line 23
+        echo "            </h1>
             <ol class=\"breadcrumb\">
               <li><a href=\"";
-        // line 22
+        // line 25
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
-              <li class=\"active\">Gestionar productos</li>
-              <li class=\"active\">Listar periodos</li>
+              ";
+        // line 26
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 27
+            echo "                <li class=\"active\">Gestionar productos</li>
+              ";
+        } else {
+            // line 29
+            echo "                <li class=\"active\">Evaluar productos</li>
+              ";
+        }
+        // line 31
+        echo "              <li class=\"active\">Listar periodos</li>
             </ol>
           </section>
 
@@ -80,25 +101,25 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
                   <thead>
                     <tr>
                         ";
-        // line 45
+        // line 52
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) != "estudiante")) {
-            // line 46
+            // line 53
             echo "                      <th>Estudiante</th>      
                         ";
         }
-        // line 47
+        // line 54
         echo "                
                       <th>Fecha inicio</th>
                       <th>Fecha culminacion</th>                      
                       <th>Nombre</th>
                       ";
-        // line 51
+        // line 58
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
-            // line 52
+            // line 59
             echo "                      <th></th> 
                       ";
         }
-        // line 53
+        // line 60
         echo "                      
                       <th></th>
                       <th></th>
@@ -106,38 +127,38 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
                   </thead>
                   <tbody>
                   ";
-        // line 59
+        // line 66
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["periodos"]) ? $context["periodos"] : $this->getContext($context, "periodos")));
         foreach ($context['_seq'] as $context["_key"] => $context["periodo"]) {
-            // line 60
+            // line 67
             echo "                    <tr>
                        ";
-            // line 61
+            // line 68
             if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) != "estudiante")) {
-                // line 62
+                // line 69
                 echo "                    <td>";
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["periodo"], "estudianteEstudiante", array()), "nombre", array()), "html", null, true);
                 echo "</td>
                        ";
             }
-            // line 63
+            // line 70
             echo "                                              
                     <td>";
-            // line 64
+            // line 71
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["periodo"], "fechaInicio", array()), "d-m-Y"), "html", null, true);
             echo "</td> 
                     <td>";
-            // line 65
+            // line 72
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["periodo"], "fechaFin", array()), "d-m-Y"), "html", null, true);
             echo "</td>                    
                     <td>";
-            // line 66
+            // line 73
             echo twig_escape_filter($this->env, $this->getAttribute($context["periodo"], "nombre", array()), "html", null, true);
             echo "</td>                  
                     <td align=\"center\">
                       <a href=\"";
-            // line 68
+            // line 75
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("periodo_check", array("id" => $this->getAttribute($context["periodo"], "idPeriodo", array()))), "html", null, true);
             echo "\">
                           <button class=\"btn btn-success\">Consultar</button>
@@ -145,30 +166,30 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
                     </td>
                     <td align=\"center\">
                       <a href=\"";
-            // line 73
+            // line 80
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("periodo_edit", array("id" => $this->getAttribute($context["periodo"], "idPeriodo", array()))), "html", null, true);
             echo "\">
                         ";
-            // line 74
+            // line 81
             if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) != "estudiante")) {
-                // line 75
+                // line 82
                 echo "                          <button class=\"btn btn-success\">Evaluar</button>
                         ";
             } else {
-                // line 77
+                // line 84
                 echo "                          <button class=\"btn btn-success\">Editar</button>
                         ";
             }
-            // line 79
+            // line 86
             echo "                      </a>
                     </td>
                     ";
-            // line 81
+            // line 88
             if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
-                // line 82
+                // line 89
                 echo "                    <td align=\"center\">
                       <a href=\"";
-                // line 83
+                // line 90
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("periodo_edit", array("id" => $this->getAttribute($context["periodo"], "idPeriodo", array()))), "html", null, true);
                 echo "\">
                           <button class=\"btn btn-danger\">Eliminar</button>
@@ -176,7 +197,7 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
                     </td> 
                     ";
             }
-            // line 87
+            // line 94
             echo "                                         
                     </tr> 
                   ";
@@ -184,31 +205,31 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['periodo'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 89
+        // line 96
         echo "         
                   </tbody>
                   <tfoot>
                     <tr>
                         ";
-        // line 93
+        // line 100
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) != "estudiante")) {
-            // line 94
+            // line 101
             echo "                      <th>Estudiante</th> 
                         ";
         }
-        // line 95
+        // line 102
         echo "                          
                       <th>Fecha inicio</th>
                       <th>Fecha culminacion</th>                      
                       <th>Nombre</th>
                       ";
-        // line 99
+        // line 106
         if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
-            // line 100
+            // line 107
             echo "                      <th></th> 
                       ";
         }
-        // line 101
+        // line 108
         echo "                      
                       <th></th>
                       <th></th>
@@ -221,7 +242,7 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
         </div><!-- /.content-wrapper -->
 
       ";
-        // line 112
+        // line 119
         echo twig_include($this->env, $context, "TesisAdminBundle:Main:footer.html.twig");
         echo "
      
@@ -231,10 +252,10 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
 ";
     }
 
-    // line 120
+    // line 127
     public function block_js($context, array $blocks = array())
     {
-        // line 121
+        // line 128
         echo "        <!-- page script -->
     <script type=\"text/javascript\">
       \$(function () {
@@ -257,7 +278,7 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
 
     public function getDebugInfo()
     {
-        return array (  238 => 121,  235 => 120,  225 => 112,  212 => 101,  208 => 100,  206 => 99,  200 => 95,  196 => 94,  194 => 93,  188 => 89,  180 => 87,  172 => 83,  169 => 82,  167 => 81,  163 => 79,  159 => 77,  155 => 75,  153 => 74,  149 => 73,  141 => 68,  136 => 66,  132 => 65,  128 => 64,  125 => 63,  119 => 62,  117 => 61,  114 => 60,  110 => 59,  102 => 53,  98 => 52,  96 => 51,  90 => 47,  86 => 46,  84 => 45,  58 => 22,  44 => 11,  39 => 9,  32 => 4,  29 => 3,  11 => 1,);
+        return array (  259 => 128,  256 => 127,  246 => 119,  233 => 108,  229 => 107,  227 => 106,  221 => 102,  217 => 101,  215 => 100,  209 => 96,  201 => 94,  193 => 90,  190 => 89,  188 => 88,  184 => 86,  180 => 84,  176 => 82,  174 => 81,  170 => 80,  162 => 75,  157 => 73,  153 => 72,  149 => 71,  146 => 70,  140 => 69,  138 => 68,  135 => 67,  131 => 66,  123 => 60,  119 => 59,  117 => 58,  111 => 54,  107 => 53,  105 => 52,  82 => 31,  78 => 29,  74 => 27,  72 => 26,  68 => 25,  64 => 23,  60 => 21,  56 => 19,  54 => 18,  44 => 11,  39 => 9,  32 => 4,  29 => 3,  11 => 1,);
     }
 }
 /* {% extends '::admin_base.html.twig' %}*/
@@ -277,12 +298,19 @@ class __TwigTemplate_ae1ad79077f6d796de8601151468b15cc03d5c422e763a54e7a6b79a7c8
 /*           <!-- Content Header (Page header) -->*/
 /*           <section class="content-header">*/
 /*             <h1>*/
-/*               Gestionar productos*/
-/*               <small></small>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 Gestionar productos*/
+/*               {% else %}*/
+/*                 Evaluar productos*/
+/*               {% endif %}*/
 /*             </h1>*/
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
-/*               <li class="active">Gestionar productos</li>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 <li class="active">Gestionar productos</li>*/
+/*               {% else %}*/
+/*                 <li class="active">Evaluar productos</li>*/
+/*               {% endif %}*/
 /*               <li class="active">Listar periodos</li>*/
 /*             </ol>*/
 /*           </section>*/

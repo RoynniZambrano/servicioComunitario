@@ -1143,7 +1143,7 @@ function creacionResultados(){
     var inform = function(result){
 
       if(result == '.')
-          window.location.href = Routing.generate('resultados_list');
+          window.location.href = Routing.generate('adicionales_list');
           form.remove();
           $("#nuevo-resultados-div").prepend(result);
                  
@@ -1170,7 +1170,7 @@ function editarResultados(){
     var inform = function(result){
 
       if(result == '.')
-          window.location.href = Routing.generate('resultados_list');
+          window.location.href = Routing.generate('adicionales_list');
           form.remove();
           $("#editar-resultados-div").prepend(result);
                  
@@ -1204,7 +1204,7 @@ function eliminarResultados(){
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
-                  window.location.href = Routing.generate('resultados_list');
+                  window.location.href = Routing.generate('adicionales_list');
                 }, 1500);
               }
 
@@ -1213,7 +1213,7 @@ function eliminarResultados(){
             $.ajax({
               type: edit_form.attr('method'),
               async: true,
-              url: Routing.generate('resultados_delete'),
+              url: Routing.generate('adicionales_delete'),
               data: edit_form.serialize(),
               dataType: 'text',
               success: inform

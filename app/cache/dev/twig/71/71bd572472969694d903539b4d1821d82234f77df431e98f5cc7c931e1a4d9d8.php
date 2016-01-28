@@ -47,16 +47,38 @@ class __TwigTemplate_733e9e9fddd06bf707e20157f6063b8e614bb87746eee285b88cefb8ba4
           <!-- Content Header (Page header) -->
           <section class=\"content-header\">
             <h1>
-              Gestionar productos
-              <small></small>
+              ";
+        // line 17
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 18
+            echo "                Gestionar productos
+              ";
+        } else {
+            // line 20
+            echo "                Evaluar productos
+              ";
+        }
+        // line 21
+        echo "  
             </h1>
             <ol class=\"breadcrumb\">
               <li><a href=\"";
-        // line 21
+        // line 24
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
-              <li class=\"active\">Gestionar productos</li>
-              <li class=\"active\">crear periodo</li>
+              ";
+        // line 25
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 26
+            echo "                <li class=\"active\">Gestionar productos</li>
+              ";
+        } else {
+            // line 28
+            echo "                <li class=\"active\">Evaluar productos</li>
+              ";
+        }
+        // line 30
+        echo "              <li class=\"active\">crear periodo</li>
             </ol>
           </section>
 
@@ -75,7 +97,7 @@ class __TwigTemplate_733e9e9fddd06bf707e20157f6063b8e614bb87746eee285b88cefb8ba4
                 <!-- form -->
                 <div id=\"nuevo-periodo-div\">
                     ";
-        // line 41
+        // line 48
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("TesisAdminBundle:Periodo:newform"));
         echo "
                 </div>
@@ -85,7 +107,7 @@ class __TwigTemplate_733e9e9fddd06bf707e20157f6063b8e614bb87746eee285b88cefb8ba4
         </div><!-- /.content-wrapper -->
 
       ";
-        // line 48
+        // line 55
         echo twig_include($this->env, $context, "TesisAdminBundle:Main:footer.html.twig");
         echo "
      
@@ -106,7 +128,7 @@ class __TwigTemplate_733e9e9fddd06bf707e20157f6063b8e614bb87746eee285b88cefb8ba4
 
     public function getDebugInfo()
     {
-        return array (  89 => 48,  79 => 41,  56 => 21,  42 => 10,  37 => 8,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  111 => 55,  101 => 48,  81 => 30,  77 => 28,  73 => 26,  71 => 25,  67 => 24,  62 => 21,  58 => 20,  54 => 18,  52 => 17,  42 => 10,  37 => 8,  31 => 4,  28 => 3,  11 => 1,);
     }
 }
 /* {% extends '::admin_base_datepicker.html.twig' %}*/
@@ -125,12 +147,19 @@ class __TwigTemplate_733e9e9fddd06bf707e20157f6063b8e614bb87746eee285b88cefb8ba4
 /*           <!-- Content Header (Page header) -->*/
 /*           <section class="content-header">*/
 /*             <h1>*/
-/*               Gestionar productos*/
-/*               <small></small>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 Gestionar productos*/
+/*               {% else %}*/
+/*                 Evaluar productos*/
+/*               {% endif %}  */
 /*             </h1>*/
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
-/*               <li class="active">Gestionar productos</li>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 <li class="active">Gestionar productos</li>*/
+/*               {% else %}*/
+/*                 <li class="active">Evaluar productos</li>*/
+/*               {% endif %}*/
 /*               <li class="active">crear periodo</li>*/
 /*             </ol>*/
 /*           </section>*/

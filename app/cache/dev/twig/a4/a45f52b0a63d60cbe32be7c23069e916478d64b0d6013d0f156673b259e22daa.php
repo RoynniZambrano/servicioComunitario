@@ -304,13 +304,13 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                     echo "                        <li>
                         <a href=\"";
                     // line 174
-                    echo $this->env->getExtension('routing')->getPath("resultados_new");
+                    echo $this->env->getExtension('routing')->getPath("adicionales_new");
                     echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Actividad</a>
                         </li>
                         <li>
                           <a href=\"";
                     // line 177
-                    echo $this->env->getExtension('routing')->getPath("resultados_list");
+                    echo $this->env->getExtension('routing')->getPath("adicionales_list");
                     echo "\"><i class=\"fa fa-circle-o text-info\"></i>Editar Actividad</a>
                         </li>
                         ";
@@ -320,7 +320,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                         <li>
                           <a href=\"";
                     // line 181
-                    echo $this->env->getExtension('routing')->getPath("resultados_list");
+                    echo $this->env->getExtension('routing')->getPath("adicionales_list");
                     echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Actividad</a>
                         </li> 
                         ";
@@ -444,7 +444,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                     echo "                        <li>
                         <a href=\"";
                     // line 250
-                    echo $this->env->getExtension('routing')->getPath("resultados_new");
+                    echo $this->env->getExtension('routing')->getPath("adicionales_new");
                     echo "\"><i class=\"fa fa-circle-o text-info\"></i>Crear Actividad</a></li>
                         ";
                 }
@@ -453,7 +453,7 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                         <li>
                           <a href=\"";
                 // line 253
-                echo $this->env->getExtension('routing')->getPath("resultados_list");
+                echo $this->env->getExtension('routing')->getPath("adicionales_list");
                 echo "\"><i class=\"fa fa-circle-o text-info\"></i>Listar Actividad</a>
                         </li>                                        
                       </ul>
@@ -720,14 +720,14 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                       <ul class="treeview-menu">*/
 /*                         {% if (user.perfil == 'estudiante') %}*/
 /*                         <li>*/
-/*                         <a href="{{ path('resultados_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Actividad</a>*/
+/*                         <a href="{{ path('adicionales_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Actividad</a>*/
 /*                         </li>*/
 /*                         <li>*/
-/*                           <a href="{{ path('resultados_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Actividad</a>*/
+/*                           <a href="{{ path('adicionales_list') }}"><i class="fa fa-circle-o text-info"></i>Editar Actividad</a>*/
 /*                         </li>*/
 /*                         {% else %} */
 /*                         <li>*/
-/*                           <a href="{{ path('resultados_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Actividad</a>*/
+/*                           <a href="{{ path('adicionales_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Actividad</a>*/
 /*                         </li> */
 /*                         {% endif %}                                       */
 /*                       </ul>*/
@@ -796,10 +796,10 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*                       <ul class="treeview-menu">*/
 /*                         {% if (user.perfil == 'estudiante') %}*/
 /*                         <li>*/
-/*                         <a href="{{ path('resultados_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Actividad</a></li>*/
+/*                         <a href="{{ path('adicionales_new') }}"><i class="fa fa-circle-o text-info"></i>Crear Actividad</a></li>*/
 /*                         {% endif %} */
 /*                         <li>*/
-/*                           <a href="{{ path('resultados_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Actividad</a>*/
+/*                           <a href="{{ path('adicionales_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Actividad</a>*/
 /*                         </li>                                        */
 /*                       </ul>*/
 /*                     </li>                     */
