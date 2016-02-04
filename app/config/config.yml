@@ -97,8 +97,8 @@ services:
 knp_snappy:
     pdf:
         enabled:    true
-        binary:      /var/www/html/ServicioComunitario/pdf/wkhtmltopdf
-        #binary:     /usr/local/bin/wkhtmltopdf
+        #binary:      /var/www/html/ServicioComunitarioFACYT/pdf/wkhtmltopdf
+        binary:     /usr/local/bin/wkhtmltopdf
         options:    []
 
 

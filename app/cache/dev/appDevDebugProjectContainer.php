@@ -1476,7 +1476,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getKnpSnappy_PdfService()
     {
-        return $this->services['knp_snappy.pdf'] = new \Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator(new \Knp\Snappy\Pdf(($this->targetDirs[4].'/ServicioComunitario/pdf/wkhtmltopdf'), array(), array()), $this->get('monolog.logger.snappy', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['knp_snappy.pdf'] = new \Knp\Bundle\SnappyBundle\Snappy\LoggableGenerator(new \Knp\Snappy\Pdf('/usr/local/bin/wkhtmltopdf', array(), array()), $this->get('monolog.logger.snappy', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -4151,7 +4151,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'knp_snappy.pdf.internal_generator.class' => 'Knp\\Snappy\\Pdf',
             'knp_snappy.pdf.class' => 'Knp\\Bundle\\SnappyBundle\\Snappy\\LoggableGenerator',
-            'knp_snappy.pdf.binary' => ($this->targetDirs[4].'/ServicioComunitario/pdf/wkhtmltopdf'),
+            'knp_snappy.pdf.binary' => '/usr/local/bin/wkhtmltopdf',
             'knp_snappy.pdf.options' => array(
 
             ),

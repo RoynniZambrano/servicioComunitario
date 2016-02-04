@@ -35,4 +35,8 @@ diario_delete:
     options:
         expose: true 
 
+pdf_diario:
+    pattern:  /{id}/pdf_diario
+    defaults: { _controller: TesisAdminBundle:Diario:pdf_diario}
+
 

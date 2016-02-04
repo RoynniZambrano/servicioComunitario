@@ -481,6 +481,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\DiarioController::deleteAction',  '_route' => 'diario_delete',);
             }
 
+            // pdf_diario
+            if (preg_match('#^/daily/(?P<id>[^/]++)/pdf_diario$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pdf_diario')), array (  '_controller' => 'Tesis\\AdminBundle\\Controller\\DiarioController::pdf_diarioAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/timetable')) {

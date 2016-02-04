@@ -193,7 +193,7 @@ class DiarioController extends Controller{
                return $this->redirect($this->generateUrl('diario_list'));
             } 
             if ($form->get('pdf')->isClicked()) {
-               return $this->redirect($this->generateUrl('diario_list'));
+               return $this->redirect($this->generateUrl('pdf_diario', array('id' => $id)));
             }                   
 
              return $this->render('TesisAdminBundle:Diario:check-diario-form.html.twig',
@@ -340,5 +340,52 @@ class DiarioController extends Controller{
         
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
     }
+
+
+    public function pdf_diarioAction(Request $request, $id = null){
+
+        $session = $this->getRequest()->getSession();
+        if($session->has('user')){
+            $user = $session->get('user');
+            $options['user'] = $user;
+            $em = $this->getDoctrine()->getManager();
+
+            $entity = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
+                array('idDiario' => $id));
+
+            $estudiante = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
+                array('idEstudiante' => $entity->getEstudianteEstudiante()->getId()));
+
+            $tutor = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
+            array('idProfesor' => $entity->getEstudianteEstudiante()->getProfesor()));
+
+            // crea la vista
+            $html = $this->renderView('TesisAdminBundle:Diario:pdf_diario.html.twig', array(
+                'diario' => $entity,
+                'estudiante' => $estudiante,
+                'tutor' => $tutor
+               ));  
+
+
+            // retorna la vista en pdf.
+            return new Response(
+                $this->get('knp_snappy.pdf')->getOutputFromHtml($html,
+                array(
+                'footer-font-size' => '8', 
+                'margin-top' => '10',
+                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+                'footer-line' => true,
+                'footer-right' => 'Pagina [page] de [toPage]'
+                )),
+                200,
+                array(
+                    'Content-Type'          => 'application/pdf',
+                    'Content-Disposition'   => 'attachment;  filename="diario_de_campo.pdf"'
+                )
+            );
+
+        }
+            return $this->render('TesisSCBundle:Main:denegado.html.twig');
+    }    
 
 }

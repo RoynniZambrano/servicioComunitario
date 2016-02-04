@@ -1,0 +1,147 @@
+
+{% extends '::base.html.twig' %}  
+
+{% block body -%}
+
+<style type="text/css">
+
+.page {
+    margin-left: 30px;
+    margin-right: 20px;
+    font-family: Arial, "Open Sans", sans-serif; 
+    /*page-break-after: always;*/    
+}
+
+.parrafo{
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: justify;
+    text-align: left;
+}
+
+#header1 {   
+    color: #337ab7;
+    font-size: 18px;  
+}
+
+#header2 {   
+    color: black;
+    text-align: center;
+    font-size: 18px;   
+}
+
+#header3 {   
+    font-family: "Open Sans", Arial, sans-serif;
+    color: #555555;
+}
+
+</style>
+
+
+<div class="page">
+<h3 id="header1"> Universidad de Carabobo <br> Facultad Experimental de Ciencias y Tecnología </h3>
+
+<h2 id="header2"> <br> Diario de Campo <br></h2>
+
+<div class="parrafo">
+ <pr > <b>Nombre:</b>{{estudiante.nombre}} {{estudiante.apellido}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>CI:</b>{{estudiante.cedula}}  </pr> 
+<br>
+</div>
+
+<div class="parrafo">
+<pr > <b>Fecha:</b> {{diario.fecha |date('d-m-Y') }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> Hora Inicio:</b>
+{{diario.horaInicio}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b> Hora Culminación:</b> {{diario.HoraFin}}</pr>
+<br>
+</div>
+
+<div class="parrafo">
+<pr > <b>Proyecto:</b> {{diario.proyectoProyecto.nombre }} &nbsp;&nbsp; </pr>
+<br>
+</div>
+
+<div class="parrafo">
+<pr >  <b>Tutor:</b> {{tutor.nombre }} {{tutor.apellido }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Firma del Tutor:</b> _____________</pr>
+<br>
+</div>
+
+<div class="parrafo">
+<pr > <b>Periodo:</b> 
+  {{estudiante.periodo }} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+  <b> Total horas:</b>
+{{diario.horas}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+<b> Total personas:</b>
+ {{diario.personas}}</pr>
+<br>
+</div>
+
+<div class="parrafo">
+<pr > 
+  <b>Niños:</b> 
+  {{diario.ninos }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <b> Adultos:</b>  
+  {{diario.adultos}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b> Tercera edad:</b> 
+  {{diario.terceraEdad}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b> Discapacidad:</b> 
+  {{diario.discapacidad}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</pr>
+<br>
+</div>
+
+  <div class="parrafo">
+    <br>
+    <b> 1. DESCRIPCIÓN: </b>  
+      {{ diario.descripcion }}
+  </div>  
+
+  <div class="parrafo">
+    <br>
+    <b> 2. PLANO PERSONAL: </b>  
+      {{ diario.personal }}
+  </div>  
+
+  <div class="parrafo">
+    <br>
+    <b> 3. FORTALEZAS: </b>  
+      {{ diario.fortalezas }}
+  </div>  
+
+  <div class="parrafo">
+    <br>
+    <b> 4. DEBILIDADES : </b>  
+      {{ diario.debilidades }}
+  </div>  
+
+  <div class="parrafo">
+    <br>
+    <b> 5. CONCLUSIÓN: </b>  
+      {{ diario.conclusion }}
+  </div>  
+      
+
+</div>
+
+{#
+{{diario.proyectoProyecto.nombre}} <br>
+{{diario.fecha |date('d-m-Y')}} <br>
+{{diario.horaInicio}} <br>
+{{diario.horaFin}} <br>
+{{diario.personas}} <br>
+{{diario.horas}} <br>
+
+{{diario.ninos}} <br>
+{{diario.adultos}} <br>
+{{diario.terceraEdad}} <br>
+{{diario.discapacidad}} <br>
+{{diario.descripcion}} <br>
+
+{{diario.personal}} <br>
+{{diario.fortalezas}} <br>
+{{diario.debilidades}} <br>
+{{diario.conclusion}} <br>
+{{diario.comunidad}} <br>
+#}
+
+{% endblock %}

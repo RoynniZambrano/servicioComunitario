@@ -181,7 +181,7 @@ class Estudiante
      * @ORM\Column(name="periodo", type="string", length=50, nullable=true)
      * Assert\NotBlank(message="Porfavor introduzca periodo.")       
      */
-    private $periodo;
+    private $periodo ;
 
 
     /**
