@@ -47,16 +47,37 @@ class __TwigTemplate_72ecd70ca82d7fb94c44da20794e85b01167bfdbd3c841fe8ddb422a65f
           <!-- Content Header (Page header) -->
           <section class=\"content-header\">
             <h1>
-              Gestionar productos
-              <small></small>
-            </h1>
+              ";
+        // line 17
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 18
+            echo "                Gestionar productos
+              ";
+        } else {
+            // line 20
+            echo "                Evaluar productos
+              ";
+        }
+        // line 22
+        echo "            </h1>
             <ol class=\"breadcrumb\">
               <li><a href=\"";
-        // line 21
+        // line 24
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
-              <li class=\"active\">Gestionar productos</li>
-              <li class=\"active\">Editar información adicional</li>
+              ";
+        // line 25
+        if (($this->getAttribute((isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "perfil", array()) == "estudiante")) {
+            // line 26
+            echo "                <li class=\"active\">Gestionar productos</li>
+              ";
+        } else {
+            // line 28
+            echo "                <li class=\"active\">Evaluar productos</li>
+              ";
+        }
+        // line 30
+        echo "              <li class=\"active\">Editar información adicional</li>
             </ol>
           </section>
 
@@ -75,7 +96,7 @@ class __TwigTemplate_72ecd70ca82d7fb94c44da20794e85b01167bfdbd3c841fe8ddb422a65f
                 <!-- form -->
                 <div id=\"editar-infoAdicional-div\">
                     ";
-        // line 41
+        // line 48
         echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("TesisAdminBundle:InfoAdicional:editform", array("id" => (isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")))));
         echo "
                 </div>
@@ -85,7 +106,7 @@ class __TwigTemplate_72ecd70ca82d7fb94c44da20794e85b01167bfdbd3c841fe8ddb422a65f
         </div><!-- /.content-wrapper -->
 
       ";
-        // line 48
+        // line 55
         echo twig_include($this->env, $context, "TesisAdminBundle:Main:footer.html.twig");
         echo "
      
@@ -106,7 +127,7 @@ class __TwigTemplate_72ecd70ca82d7fb94c44da20794e85b01167bfdbd3c841fe8ddb422a65f
 
     public function getDebugInfo()
     {
-        return array (  89 => 48,  79 => 41,  56 => 21,  42 => 10,  37 => 8,  31 => 4,  28 => 3,  11 => 1,);
+        return array (  110 => 55,  100 => 48,  80 => 30,  76 => 28,  72 => 26,  70 => 25,  66 => 24,  62 => 22,  58 => 20,  54 => 18,  52 => 17,  42 => 10,  37 => 8,  31 => 4,  28 => 3,  11 => 1,);
     }
 }
 /* {% extends '::admin_base_datepicker.html.twig' %}*/
@@ -125,12 +146,19 @@ class __TwigTemplate_72ecd70ca82d7fb94c44da20794e85b01167bfdbd3c841fe8ddb422a65f
 /*           <!-- Content Header (Page header) -->*/
 /*           <section class="content-header">*/
 /*             <h1>*/
-/*               Gestionar productos*/
-/*               <small></small>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 Gestionar productos*/
+/*               {% else %}*/
+/*                 Evaluar productos*/
+/*               {% endif %}*/
 /*             </h1>*/
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
-/*               <li class="active">Gestionar productos</li>*/
+/*               {% if (user.perfil == 'estudiante') %}*/
+/*                 <li class="active">Gestionar productos</li>*/
+/*               {% else %}*/
+/*                 <li class="active">Evaluar productos</li>*/
+/*               {% endif %}*/
 /*               <li class="active">Editar información adicional</li>*/
 /*             </ol>*/
 /*           </section>*/

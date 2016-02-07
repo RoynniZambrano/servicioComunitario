@@ -20,7 +20,8 @@
 
 
 .portada{
-    margin-top: 355px; 
+    /* margin-top: 355px; */
+    margin-top: 500px; 
     font-size: 16px;
     line-height: 24px;
     font-family: Arial, "Open Sans", sans-serif;
@@ -90,10 +91,12 @@ table#t01 th	{
 </style>
 
 
-
+{#
 <div class="portada">
-  {{ estudiante.proyectoProyecto.nombre }}
+  {{ proyecto.nombre }}
 </div>
+#}
+
 
 <div class="portada_principal">
   
@@ -114,7 +117,7 @@ FACULTAD EXPERIMENTAL DE CIENCIAS Y TECNOLOGÍA
   </div>
   
   <div>
-  {{ estudiante.proyectoProyecto.nombre }} <br><br><br>
+  {{ proyecto.nombre }} <br><br><br>
   </div>
   
   <div>
@@ -124,12 +127,12 @@ FACULTAD EXPERIMENTAL DE CIENCIAS Y TECNOLOGÍA
 
   <div>
   <b>Tutor:</b> <br>
-  {{ estudiante.usuarioUsuario.nombre }} <br><br>
+  {{ profesor.nombre }} <br><br>
   </div>
 
   <div>
   <b> Comunidad Objetivo: </b> <br> 
-  {{ estudiante.proyectoProyecto.locacion }} <br><br>
+  {{ proyecto.locacion }} <br><br>
   </div>
 
 </div>
@@ -212,9 +215,9 @@ FACULTAD EXPERIMENTAL DE CIENCIAS Y TECNOLOGÍA
 
       {% set i = 0 %}
       {% for result in resultados %}
-        <b> Semana:</b> {{ result.semana }} <br>
-        <b>Fecha Inicio:</b>{{ result.fechaInicio | date('d-m-Y') }} 
-        <b>Fecha Fin:</b> {{ result.fechaFin | date('d-m-Y') }} <br>
+        <b> Comunidad:</b> {{ result.comunidad }} <br>
+       {# <b>Fecha Inicio:</b>{{ result.fechaInicio | date('d-m-Y') }} 
+        <b>Fecha Fin:</b> {{ result.fechaFin | date('d-m-Y') }} <br> #}
           <table id="t01">  
             <tr>
               <th>Total Horas </th>
@@ -234,27 +237,28 @@ FACULTAD EXPERIMENTAL DE CIENCIAS Y TECNOLOGÍA
             </tr> 
         </table> 
 
-        Actividades de la Semana:<br>
+        <br>       
+        <b>Actividades realizadas en la comunidad:</b><br>
         {% set j = 0 %}
         {% for actividad in actividades %}
 
           {% if i == j %} 
 
               {% if actividad is empty %} 
-                <td> <b> no aplica </b> </td>
+                <td> no aplica  </td>
               {% else %}
 
                  <table id="t01">  
                     <tr>
                       <th>Nombre</th>
-                      <th>Cantidad</th>
+                  {#  <th>Cantidad</th> #}
                       <th>Descripción</th>
                     </tr>
                     {% for act in actividad %}
                     <tr>
                       <td>{{ act.nombre }}</td>
-                      <td>{{ act.cantidad }}</td>                    
-                      <td>{{ act.comentario }}</td>
+                  {#  <td>{{ act.cantidad }}</td>   #}                 
+                      <td>{{ act.descripcion }}</td>
                     </tr> 
                     {% endfor %}
                  </table>
@@ -273,6 +277,7 @@ FACULTAD EXPERIMENTAL DE CIENCIAS Y TECNOLOGÍA
   </div>
   {% endif %} 
 </div>
+
 
 
 <div class="page_last">

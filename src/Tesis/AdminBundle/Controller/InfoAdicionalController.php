@@ -256,6 +256,7 @@ class InfoAdicionalController extends Controller{
             }else{
 
                if ($this->getRequest()->getMethod() == 'POST'){
+                    $entity->setObservacion($entity->getObservacion() . "   [fecha ultima correción: " .  date("d/m/Y") ."]");
                     $em->flush();
 
                 echo 

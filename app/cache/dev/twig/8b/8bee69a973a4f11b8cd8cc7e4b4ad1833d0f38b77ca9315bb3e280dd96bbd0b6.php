@@ -83,34 +83,29 @@ table#t01 th\t{
               <th>Apellidos</th>
               <th>Cedula</th>
               <th>Proyecto</th>
-              <th>Tutor</th>
             </tr>
  \t\t\t";
-        // line 58
+        // line 57
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["estudiantes"]) ? $context["estudiantes"] : $this->getContext($context, "estudiantes")));
         foreach ($context['_seq'] as $context["_key"] => $context["estudiante"]) {
-            // line 59
+            // line 58
             echo "\t            <tr>
 \t            \t<td>";
-            // line 60
+            // line 59
             echo twig_escape_filter($this->env, $this->getAttribute($context["estudiante"], "nombre", array()), "html", null, true);
             echo "</td>
 \t            \t<td>";
-            // line 61
+            // line 60
             echo twig_escape_filter($this->env, $this->getAttribute($context["estudiante"], "apellido", array()), "html", null, true);
             echo "</td>                    
 \t            \t<td>";
-            // line 62
+            // line 61
             echo twig_escape_filter($this->env, $this->getAttribute($context["estudiante"], "cedula", array()), "html", null, true);
-            echo "</td>
-\t            \t<td>";
-            // line 63
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["estudiante"], "proyectoProyecto", array()), "nombre", array()), "html", null, true);
             echo "</td>\t            \t
 \t            \t<td>";
-            // line 64
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["estudiante"], "usuarioUsuario", array()), "nombre", array()), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, $this->getAttribute($context["estudiante"], "proyecto", array()), "html", null, true);
             echo "</td>
 \t            </tr> 
             ";
@@ -118,7 +113,7 @@ table#t01 th\t{
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['estudiante'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 67
+        // line 65
         echo "        </table> 
 ";
     }
@@ -135,7 +130,7 @@ table#t01 th\t{
 
     public function getDebugInfo()
     {
-        return array (  122 => 67,  113 => 64,  109 => 63,  105 => 62,  101 => 61,  97 => 60,  94 => 59,  90 => 58,  75 => 48,  31 => 6,  28 => 4,  11 => 2,);
+        return array (  117 => 65,  108 => 62,  104 => 61,  100 => 60,  96 => 59,  93 => 58,  89 => 57,  75 => 48,  31 => 6,  28 => 4,  11 => 2,);
     }
 }
 /* */
@@ -193,15 +188,13 @@ table#t01 th\t{
 /*               <th>Apellidos</th>*/
 /*               <th>Cedula</th>*/
 /*               <th>Proyecto</th>*/
-/*               <th>Tutor</th>*/
 /*             </tr>*/
 /*  			{% for estudiante in estudiantes %}*/
 /* 	            <tr>*/
 /* 	            	<td>{{ estudiante.nombre }}</td>*/
 /* 	            	<td>{{ estudiante.apellido }}</td>                    */
-/* 	            	<td>{{ estudiante.cedula }}</td>*/
-/* 	            	<td>{{ estudiante.proyectoProyecto.nombre }}</td>	            	*/
-/* 	            	<td>{{ estudiante.usuarioUsuario.nombre }}</td>*/
+/* 	            	<td>{{ estudiante.cedula }}</td>	            	*/
+/* 	            	<td>{{ estudiante.proyecto }}</td>*/
 /* 	            </tr> */
 /*             {% endfor %}*/
 /*         </table> */

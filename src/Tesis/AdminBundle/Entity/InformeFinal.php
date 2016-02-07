@@ -15,9 +15,17 @@ class InformeFinal
     /**
      * @var string
      *
-     * @ORM\Column(name="informe", type="blob", nullable=true)
+     * @ORM\Column(name="calificacion", type="string", length=100, nullable=true)
      */
-    private $informe;
+    private $calificacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observacion", type="string", length=3000, nullable=true)
+     */
+    private $observacion;
+
 
     /**
      * @var integer
@@ -40,28 +48,53 @@ class InformeFinal
 
 
 
+
     /**
-     * Set informe
+     * Set calificacion
      *
-     * @param string $informe
-     * @return InformeFinal
+     * @param string $calificacion
+     * @return Informe
      */
-    public function setInforme($informe)
+    public function setCalificacion($calificacion)
     {
-        $this->informe = $informe;
+        $this->calificacion = $calificacion;
 
         return $this;
     }
 
     /**
-     * Get informe
+     * Get calificacion
      *
      * @return string 
      */
-    public function getInforme()
+    public function getCalificacion()
     {
-        return $this->informe;
+        return $this->calificacion;
     }
+
+    /**
+     * Set observacion
+     *
+     * @param string $observacion
+     * @return Informe
+     */
+    public function setObservacion($observacion)
+    {
+        $this->observacion = $observacion;
+
+        return $this;
+    }
+
+    /**
+     * Get observacion
+     *
+     * @return string 
+     */
+    public function getObservacion()
+    {
+        return $this->observacion;
+    }
+
 
     /**
      * Get idInformeFinal

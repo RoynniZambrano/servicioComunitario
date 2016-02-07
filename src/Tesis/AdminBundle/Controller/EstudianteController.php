@@ -48,13 +48,13 @@ class EstudianteController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
 
-                /* ACTUALIZAR INFORME FINAL 
-                $informe = new Informe();
+                // ACTUALIZAR INFORME FINAL 
+                $informe = new InformeFinal();
                 $informe->setIdEstudiante($entity);
                 $informe->setCalificacion("por evaluar");
                 $informe->setCalificacion(".");
                 $em->persist($informe);
-                **/
+                
                 $em->flush();
 
                 echo 

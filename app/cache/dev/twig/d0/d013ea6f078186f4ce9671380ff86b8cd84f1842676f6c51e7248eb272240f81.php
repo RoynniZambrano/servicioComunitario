@@ -47,7 +47,7 @@ class __TwigTemplate_db8a61308f11df286edd6740ac27eba9d34d47784c633893e92d9d7439e
           <!-- Content Header (Page header) -->
           <section class=\"content-header\">
             <h1>
-              Gestión de Reportes
+              Gestionar Reportes
               <small></small>
             </h1>
             <ol class=\"breadcrumb\">
@@ -55,8 +55,8 @@ class __TwigTemplate_db8a61308f11df286edd6740ac27eba9d34d47784c633893e92d9d7439e
         // line 21
         echo $this->env->getExtension('routing')->getPath("tesis_admin_homepage");
         echo "\"><i class=\"fa fa-dashboard\"></i>Inicio</a></li>
-              <li class=\"active\">Gestión de Reportes</li>
-              <li class=\"active\">Tutores</li>
+              <li class=\"active\">Gestionar Reportes</li>
+              <li class=\"active\">Reporte tutores</li>
             </ol>
           </section>
 
@@ -135,13 +135,13 @@ class __TwigTemplate_db8a61308f11df286edd6740ac27eba9d34d47784c633893e92d9d7439e
 /*           <!-- Content Header (Page header) -->*/
 /*           <section class="content-header">*/
 /*             <h1>*/
-/*               Gestión de Reportes*/
+/*               Gestionar Reportes*/
 /*               <small></small>*/
 /*             </h1>*/
 /*             <ol class="breadcrumb">*/
 /*               <li><a href="{{ path('tesis_admin_homepage') }}"><i class="fa fa-dashboard"></i>Inicio</a></li>*/
-/*               <li class="active">Gestión de Reportes</li>*/
-/*               <li class="active">Tutores</li>*/
+/*               <li class="active">Gestionar Reportes</li>*/
+/*               <li class="active">Reporte tutores</li>*/
 /*             </ol>*/
 /*           </section>*/
 /* */

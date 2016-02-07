@@ -278,11 +278,8 @@ class DiarioController extends Controller{
             }else{
 
                if ($this->getRequest()->getMethod() == 'POST'){
-               // echo "Today is " . date("Y/m/d") . "<br>";
-                    $diario = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
-                    array('idDiario' => $entity->getIdDiario()));
 
-                    $entity->setObservacion($entity->getObservacion() . " fecha ultima correción: " .  date("d/m/Y"));
+                    $entity->setObservacion($entity->getObservacion() . "   [fecha ultima correción: " .  date("d/m/Y") ."]");
                     $em->flush();
 
                 echo 
@@ -373,7 +370,7 @@ class DiarioController extends Controller{
                 array(
                 'footer-font-size' => '8', 
                 'margin-top' => '10',
-                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+                'footer-left' => 'Generado: [date].  Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),

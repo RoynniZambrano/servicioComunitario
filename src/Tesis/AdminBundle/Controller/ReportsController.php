@@ -60,12 +60,18 @@ class ReportsController extends Controller
              }
                  
             $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT e1 FROM TesisAdminBundle:Estudiante e1  
-            WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo");
+            $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
+            e1.cedula as cedula, p1.nombre as proyecto 
+            FROM TesisAdminBundle:Estudiante e1
+            INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
+            WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo
+            AND e1.estatus = :estatus");
             $query->setParameter('sc', "iniciado");
             $query->setParameter('departamento', $departamento );
             $query->setParameter('periodo', $periodo);
+            $query->setParameter('estatus', "activo");
             $entity = $query->execute();
+
 
             // crea la vista
             $html = $this->renderView('TesisAdminBundle:Reports:reports1_pdf.html.twig', array(
@@ -144,14 +150,19 @@ class ReportsController extends Controller
                $periodo = $valor['periodo'];
              }
 
-
             $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT e1 FROM TesisAdminBundle:Estudiante e1  
-            WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo");
+            $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
+            e1.cedula as cedula, p1.nombre as proyecto 
+            FROM TesisAdminBundle:Estudiante e1
+            INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
+            WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo
+            AND e1.estatus = :estatus");
             $query->setParameter('sc', "culminado");
             $query->setParameter('departamento', $departamento );
             $query->setParameter('periodo', $periodo);
+            $query->setParameter('estatus', "activo");
             $entity = $query->execute();
+
 
 
             // crea la vista
@@ -230,7 +241,7 @@ class ReportsController extends Controller
 
 
             $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Usuario u1  
+            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
             WHERE u1.departamento = :departamento AND u1.periodo = :periodo ");
             $query->setParameter('departamento', $departamento );
             $query->setParameter('periodo', $periodo);

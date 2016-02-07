@@ -27,11 +27,11 @@
     <field name="discapacidad" type="string" column="discapacidad" length="100" nullable="true"/>
     <field name="comunidad" type="text" column="comunidad" nullable="true"/>
     <field name="descripcion" type="string" column="descripcion" length="3000" nullable="true"/>
-    <one-to-one field="periodoPeriodo" target-entity="Periodo">
+    <many-to-one field="periodoPeriodo" target-entity="Periodo">
       <join-columns>
         <join-column name="periodo_id_periodo" referenced-column-name="id_periodo"/>
       </join-columns>
-    </one-to-one>
+    </many-to-one>
     <many-to-one field="proyectoProyecto" target-entity="Proyecto">
       <join-columns>
         <join-column name="proyecto_id_proyecto" referenced-column-name="id_proyecto"/>

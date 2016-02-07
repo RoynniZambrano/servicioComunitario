@@ -7,7 +7,8 @@
     <id name="idInformeFinal" type="integer" column="id_informe_final">
       <generator strategy="AUTO"/>
     </id>
-    <field name="informe" type="blob" column="informe" nullable="true"/>
+    <field name="calificacion" type="string" column="calificacion" length="100" nullable="true"/>
+    <field name="observacion" type="string" column="observacion" length="3000" nullable="true"/>
     <many-to-one field="idEstudiante" target-entity="Estudiante">
       <join-columns>
         <join-column name="id_estudiante" referenced-column-name="id_estudiante"/>

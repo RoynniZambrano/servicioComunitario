@@ -53,15 +53,13 @@ table#t01 th	{
               <th>Apellidos</th>
               <th>Cedula</th>
               <th>Proyecto</th>
-              <th>Tutor</th>
             </tr>
  			{% for estudiante in estudiantes %}
 	            <tr>
 	            	<td>{{ estudiante.nombre }}</td>
 	            	<td>{{ estudiante.apellido }}</td>                    
-	            	<td>{{ estudiante.cedula }}</td>
-	            	<td>{{ estudiante.proyectoProyecto.nombre }}</td>	            	
-	            	<td>{{ estudiante.usuarioUsuario.nombre }}</td>
+	            	<td>{{ estudiante.cedula }}</td>	            	
+	            	<td>{{ estudiante.proyecto }}</td>
 	            </tr> 
             {% endfor %}
         </table> 

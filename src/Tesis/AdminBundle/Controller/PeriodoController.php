@@ -235,15 +235,17 @@ class PeriodoController extends Controller{
             }else{
 
                if ($this->getRequest()->getMethod() == 'POST'){
+
+                    $entity->setObservacion($entity->getObservacion() . "   [fecha ultima correción: " .  date("d/m/Y") ."]");
                     $em->flush();
 
-                echo 
-                "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('periodo_check', array('id' => $id)) . "';
-                        }, 2000);
-                </script>";
+                    echo 
+                    "<script>
+                        bootbox.alert('Los cambios se han guardado con éxito');
+                            setTimeout(function() {
+                                window.location.href ='" .$this->generateUrl('periodo_check', array('id' => $id)) . "';
+                            }, 2000);
+                    </script>";
 
                   //  return $this->redirect($this->generateUrl('periodo_checkform', array('id' => $id)));                    
                 }

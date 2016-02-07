@@ -113,7 +113,7 @@ class __TwigTemplate_65ee137865b7aef6dc16495c7dd19c95ce323ff379974a95b19f038fdf1
 
     <div class=\"row field-c\"> 
       <div class=\"col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3   col-lg-offset-2 subtitulos\">  
-        <h2>Evaluativo <hr style=\"border-top: 3px solid #3c8dbc;\"></h2>  
+        <h2>Evaluación <hr style=\"border-top: 3px solid #3c8dbc;\"></h2>  
       </div>
     </div> 
 
@@ -266,7 +266,7 @@ class __TwigTemplate_65ee137865b7aef6dc16495c7dd19c95ce323ff379974a95b19f038fdf1
 /* */
 /*     <div class="row field-c"> */
 /*       <div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-2 col-lg-3   col-lg-offset-2 subtitulos">  */
-/*         <h2>Evaluativo <hr style="border-top: 3px solid #3c8dbc;"></h2>  */
+/*         <h2>Evaluación <hr style="border-top: 3px solid #3c8dbc;"></h2>  */
 /*       </div>*/
 /*     </div> */
 /* */

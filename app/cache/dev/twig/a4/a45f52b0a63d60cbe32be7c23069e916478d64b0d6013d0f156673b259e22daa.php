@@ -494,17 +494,17 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
                 // line 280
                 echo "            <li class=\"treeview\">
               <a >
-                <i class=\"fa fa-download\"></i> <span>Reportes</span> <i class=\"fa fa-angle-left pull-right\"></i>
+                <i class=\"fa fa-download\"></i> <span>Gestionar Reportes</span> <i class=\"fa fa-angle-left pull-right\"></i>
               </a>
               <ul class=\"treeview-menu\">
                 <li><a href=\"";
                 // line 285
                 echo $this->env->getExtension('routing')->getPath("reports_1");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes Inscritos </a></li> 
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes inscritos </a></li> 
                 <li><a href=\"";
                 // line 286
                 echo $this->env->getExtension('routing')->getPath("reports_2");
-                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes Aprobados </a></li>                                                                   
+                echo "\"><i class=\"fa fa-circle-o text-info\"></i> Estudiantes aprobados </a></li>                                                                   
                 <li><a href=\"";
                 // line 287
                 echo $this->env->getExtension('routing')->getPath("reports_3");
@@ -828,11 +828,11 @@ class __TwigTemplate_544fb94fe9e58ee7cdef32d1da73f97d9bdb024b945c3de1b449a80f648
 /*             {% if ((user.perfil == 'coordinador de servicio comunitario') and (user.estatus == 'activo')) %}*/
 /*             <li class="treeview">*/
 /*               <a >*/
-/*                 <i class="fa fa-download"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>*/
+/*                 <i class="fa fa-download"></i> <span>Gestionar Reportes</span> <i class="fa fa-angle-left pull-right"></i>*/
 /*               </a>*/
 /*               <ul class="treeview-menu">*/
-/*                 <li><a href="{{ path('reports_1') }}"><i class="fa fa-circle-o text-info"></i> Estudiantes Inscritos </a></li> */
-/*                 <li><a href="{{ path('reports_2') }}"><i class="fa fa-circle-o text-info"></i> Estudiantes Aprobados </a></li>                                                                   */
+/*                 <li><a href="{{ path('reports_1') }}"><i class="fa fa-circle-o text-info"></i> Estudiantes inscritos </a></li> */
+/*                 <li><a href="{{ path('reports_2') }}"><i class="fa fa-circle-o text-info"></i> Estudiantes aprobados </a></li>                                                                   */
 /*                 <li><a href="{{ path('reports_3') }}"><i class="fa fa-circle-o text-info"></i> Tutores</a></li> */
 /* */
 /*                 <li><a href="{{ path('reports_4') }}"><i class="fa fa-circle-o text-info"></i> Coordinadores </a></li> */

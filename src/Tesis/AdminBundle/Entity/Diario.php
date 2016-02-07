@@ -237,7 +237,7 @@ class Diario
     /**
      * @var \Tesis\AdminBundle\Entity\Periodo
      *
-     * @ORM\OneToOne(targetEntity="Tesis\AdminBundle\Entity\Periodo")
+     * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Periodo")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="periodo_id_periodo", referencedColumnName="id_periodo")
      * })
@@ -275,8 +275,9 @@ class Diario
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="actividad_id_actividad", referencedColumnName="id_actividad")
-     *   }
+     *   }  
      * )
+     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos una actividad")      
      */
     private $actividadActividad;
 
