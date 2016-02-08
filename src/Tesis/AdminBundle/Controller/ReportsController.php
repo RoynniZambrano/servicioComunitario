@@ -33,7 +33,8 @@ class ReportsController extends Controller
         $session = $this->getRequest()->getSession();
 
             $reporte = new Reporte();
-            $form = $this->createForm(new ReporteType(), $reporte, array(
+            $options['type'] = 'normal';
+            $form = $this->createForm(new ReporteType($options), $reporte, array(
                 'action' => $this->generateUrl('reports_1pdf'),
                 'method' => 'POST',
             ));
@@ -59,18 +60,37 @@ class ReportsController extends Controller
                $periodo = $valor['periodo'];
              }
                  
-            $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
-            e1.cedula as cedula, p1.nombre as proyecto 
-            FROM TesisAdminBundle:Estudiante e1
-            INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
-            WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo
-            AND e1.estatus = :estatus");
-            $query->setParameter('sc', "iniciado");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);
-            $query->setParameter('estatus', "activo");
-            $entity = $query->execute();
+
+            if ($periodo != "todos") {
+
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
+                e1.cedula as cedula, p1.nombre as proyecto 
+                FROM TesisAdminBundle:Estudiante e1
+                INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
+                WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo
+                AND e1.estatus = :estatus");
+                $query->setParameter('sc', "iniciado");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('periodo', $periodo);
+                $query->setParameter('estatus', "activo");
+                $entity = $query->execute();
+
+            }else{
+
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
+                e1.cedula as cedula, p1.nombre as proyecto 
+                FROM TesisAdminBundle:Estudiante e1
+                INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
+                WHERE e1.sc = :sc AND e1.departamento = :departamento
+                AND e1.estatus = :estatus");
+                $query->setParameter('sc', "iniciado");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('estatus', "activo");
+                $entity = $query->execute();
+
+            }    
 
 
             // crea la vista
@@ -109,7 +129,8 @@ class ReportsController extends Controller
         $session = $this->getRequest()->getSession();
 
             $reporte = new Reporte();
-            $form = $this->createForm(new ReporteType(), $reporte, array(
+            $options['type'] = 'normal';
+            $form = $this->createForm(new ReporteType($options), $reporte, array(
                 'action' => $this->generateUrl('reports_2pdf'),
                 'method' => 'POST',
             ));
@@ -150,19 +171,37 @@ class ReportsController extends Controller
                $periodo = $valor['periodo'];
              }
 
-            $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
-            e1.cedula as cedula, p1.nombre as proyecto 
-            FROM TesisAdminBundle:Estudiante e1
-            INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
-            WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo
-            AND e1.estatus = :estatus");
-            $query->setParameter('sc', "culminado");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);
-            $query->setParameter('estatus', "activo");
-            $entity = $query->execute();
 
+            if ($periodo != "todos") {
+
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
+                e1.cedula as cedula, p1.nombre as proyecto 
+                FROM TesisAdminBundle:Estudiante e1
+                INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
+                WHERE e1.sc = :sc AND e1.departamento = :departamento AND e1.periodo = :periodo
+                AND e1.estatus = :estatus");
+                $query->setParameter('sc', "culminado");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('periodo', $periodo);
+                $query->setParameter('estatus', "activo");
+                $entity = $query->execute();
+
+            }else{
+
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido,
+                e1.cedula as cedula, p1.nombre as proyecto 
+                FROM TesisAdminBundle:Estudiante e1
+                INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyecto = p1.idProyecto
+                WHERE e1.sc = :sc AND e1.departamento = :departamento 
+                AND e1.estatus = :estatus");
+                $query->setParameter('sc', "culminado");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('estatus', "activo");
+                $entity = $query->execute();
+
+            }
 
 
             // crea la vista
@@ -199,14 +238,15 @@ class ReportsController extends Controller
         $session = $this->getRequest()->getSession();
 
             $reporte = new Reporte();
-            $form = $this->createForm(new ReporteType(), $reporte, array(
+            $options['type'] = 'custom';
+            $form = $this->createForm(new ReporteType($options), $reporte, array(
                 'action' => $this->generateUrl('reports_3pdf'),
                 'method' => 'POST',
             ));
              $form->add('submit', 'submit', array('label' => 'Descargar Reporte'));
             $form->handleRequest($request);
 
-            return $this->render('TesisAdminBundle:Reports:reports-form.html.twig',
+            return $this->render('TesisAdminBundle:Reports:reports-formcustom.html.twig',
                 array('form' => $form->createView()));
 
     }
@@ -237,32 +277,90 @@ class ReportsController extends Controller
             foreach ($_POST as $clave=>$valor){
                $departamento = $valor['departamento'];
                $periodo = $valor['periodo'];
+               $tutor = $valor['profesor'];
              }
 
+            if ($tutor == null ) {
+                 
+                 if ($periodo != "todos") {
+                    $em = $this->getDoctrine()->getManager();
+                    $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+                    WHERE u1.departamento = :departamento AND u1.periodo = :periodo 
+                    AND u1.estatus = :estatus");
+                    $query->setParameter('departamento', $departamento );
+                    $query->setParameter('periodo', $periodo);
+                    $query->setParameter('estatus', "activo"); 
+                    $tutores = $query->execute();
+                 }else{
+                    $em = $this->getDoctrine()->getManager();
+                    $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+                    WHERE u1.departamento = :departamento  AND u1.estatus = :estatus");
+                    $query->setParameter('departamento', $departamento );
+                    $query->setParameter('estatus', "activo"); 
+                    $tutores = $query->execute();
+                 }
 
-            $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
-            WHERE u1.departamento = :departamento AND u1.periodo = :periodo ");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);
-            $tutores = $query->execute();
+             }else{
+                    $em = $this->getDoctrine()->getManager();
+                    $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+                    WHERE u1.idProfesor = :profesor ");
+                    $query->setParameter('profesor', $tutor );
+                    $tutores = $query->execute();
 
+            }
 
             $i = 0;
             foreach ($tutores as $tutor) {
 
-                $em = $this->getDoctrine()->getEntityManager();
-                $connection = $em->getConnection();
-                $statement = $connection->prepare("SELECT * FROM tutoria_has_usuario 
-                WHERE usuario_id_usuario = :id");
-                $statement->bindValue('id', $tutor->getId());
-                $statement->execute();
-                $results = $statement->fetchAll();
+                $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido
+                FROM TesisAdminBundle:Estudiante e1  
+                WHERE e1.profesor = :profesor");
+                $query->setParameter('profesor', $tutor->getId());
+                $estudiantes[$i] = $query->execute();
+
+                $tamano = 0;
+                $tamano = sizeof($estudiantes[$i]);
+                if ($tamano < 1) {
+                    $estudiantes[$i] = null;
+                }
+
+
+                $query = $em->createQuery("SELECT p1.nombre as nombre
+                FROM TesisAdminBundle:Proyecto p1
+                INNER JOIN TesisAdminBundle:Profesor pf1 WITH p1.idProyecto = pf1.proyecto 
+                WHERE pf1.idProfesor = :profesor");
+                $query->setParameter('profesor', $tutor->getId());
+                $proyectos[$i] = $query->execute();   
+
+                $tamano = 0;
+                $tamano = sizeof($estudiantes[$i]);
+                if ($tamano < 1) {
+                    $proyectos[$i] = null;
+                }                             
+
+                $i++;
+            }
+
+
+            /*
+            $i = 0;
+            foreach ($tutores as $tutor) {
+
+                
+                //$em = $this->getDoctrine()->getEntityManager();
+                //$connection = $em->getConnection();
+                //$statement = $connection->prepare("SELECT * FROM tutoria_has_usuario 
+                //WHERE usuario_id_usuario = :id");
+                //$statement->bindValue('id', $tutor->getId());
+                //$statement->execute();
+                //$results = $statement->fetchAll();
+                
 
                 $tamano = 0;
                 $tamano = sizeof($results);
                 if ($tamano>0) {
 
+                    
                     $j = 0;
                     foreach ($results as $rs) {
                                 
@@ -282,12 +380,20 @@ class ReportsController extends Controller
 
                         $j++;
                     }
+                    
+
+                    $query = $em->createQuery("SELECT p1.nombre as nombre
+                    FROM TesisAdminBundle:Proyecto p1
+                    INNER JOIN TesisAdminBundle:Profesor pf1 WITH p1.idProyecto = pf1.proyecto 
+                    WHERE e1.profesor = :profesor");
+                    $query->setParameter('profesor', $tutor->getId());
+                    $proyectos[$i] = $query->execute();
 
 
                     $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido
                     FROM TesisAdminBundle:Estudiante e1  
-                    WHERE e1.usuarioUsuario = :usuario");
-                    $query->setParameter('usuario', $tutor->getId());
+                    WHERE e1.profesor = :profesor");
+                    $query->setParameter('profesor', $tutor->getId());
                     $estudiantes[$i] = $query->execute();
 
                 } else{
@@ -301,6 +407,7 @@ class ReportsController extends Controller
                 $estudiantes = null;
                 $proyectos = null;
             }
+            **/
 
 
             // crea la vista
@@ -341,7 +448,8 @@ class ReportsController extends Controller
         $session = $this->getRequest()->getSession();
 
             $reporte = new Reporte();
-            $form = $this->createForm(new ReporteType(), $reporte, array(
+            $options['type'] = 'normal';
+            $form = $this->createForm(new ReporteType($options), $reporte, array(
                 'action' => $this->generateUrl('reports_4pdf'),
                 'method' => 'POST',
             ));
@@ -380,17 +488,21 @@ class ReportsController extends Controller
             foreach ($_POST as $clave=>$valor){
                $departamento = $valor['departamento'];
                $periodo = $valor['periodo'];
+
              }
 
+             $em = $this->getDoctrine()->getManager();
 
+
+/*
             $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Usuario u1  
-            WHERE u1.departamento = :departamento AND u1.periodo = :periodo ");
+            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+            WHERE u1.departamento = :departamento AND u1.periodo = :periodo
+            AND u1.estatus = :estatus ");
             $query->setParameter('departamento', $departamento );
             $query->setParameter('periodo', $periodo);
+            $query->setParameter('estatus', "activo");
             $tutores = $query->execute();
-
-
 
             $em = $this->getDoctrine()->getManager();
             $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Usuario u1  
@@ -399,22 +511,111 @@ class ReportsController extends Controller
             $query->setParameter('departamento', $departamento );
             $query->setParameter('periodo', $periodo);
             $c_extension = $query->execute();
+**/            
+
+            if ($periodo != "todos") {
+
+                $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+                WHERE u1.departamento = :departamento AND u1.periodo = :periodo 
+                AND u1.perfil = :perfil AND u1.estatus = :estatus");
+                $query->setParameter('perfil', "coordinador de proyecto");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('periodo', $periodo);
+                $query->setParameter('estatus', "activo");
+                $c_proyecto = $query->execute();
+
+                $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+                WHERE u1.departamento = :departamento AND u1.periodo = :periodo 
+                AND u1.perfil = :perfil AND u1.estatus = :estatus");
+                $query->setParameter('perfil', "coordinador suplente");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('periodo', $periodo);
+                $query->setParameter('estatus', "activo");            
+                $c_suplente = $query->execute(); 
+
+            }else{
+
+                $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+                WHERE u1.departamento = :departamento  
+                AND u1.perfil = :perfil AND u1.estatus = :estatus");
+                $query->setParameter('perfil', "coordinador de proyecto");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('estatus', "activo");
+                $c_proyecto = $query->execute();
+
+                $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
+                WHERE u1.departamento = :departamento
+                AND u1.perfil = :perfil AND u1.estatus = :estatus");
+                $query->setParameter('perfil', "coordinador suplente");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('estatus', "activo");            
+                $c_suplente = $query->execute(); 
 
 
-            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Usuario u1  
-            WHERE u1.departamento = :departamento AND u1.periodo = :periodo AND u1.rol = :rol");
-            $query->setParameter('rol', "coordinador de proyecto");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);
-            $c_proyecto = $query->execute();
+            }
 
 
-            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Usuario u1  
-            WHERE u1.departamento = :departamento AND u1.periodo = :periodo AND u1.rol = :rol");
-            $query->setParameter('rol', "coordinador suplente");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);
-            $c_suplente = $query->execute();            
+            $i=0;
+            foreach ($c_proyecto as $proyecto) {
+                $tamano =  0;
+// a1.nombre as nombre, a1.descripcion as descripcion
+                $em = $this->getDoctrine()->getEntityManager();
+                $connection = $em->getConnection();
+                $statement = $connection->prepare("SELECT DISTINCT (p1.nombre) as nombre
+                FROM proyecto p1 
+                INNER JOIN coordinadores_has_profesor cp1 ON
+                p1.id_proyecto = cp1.proyecto_id_proyecto
+                WHERE p1.id_proyecto = :id_proyecto");                  
+                $statement->bindValue('id_proyecto', $proyecto->getProyecto());
+                $statement->execute();
+                $entity = $statement->fetchAll();
+
+                $tamano = sizeof($entity);
+                if ($tamano>0) {
+                    $proyectos[$i] = $entity;
+                } else{
+                    $proyectos[$i] = null;
+
+                }
+
+                $i++;
+            }
+            if ($i == 0) {
+                $proyectos = null;
+            }             
+
+           // var_dump($proyectos);
+
+            $i=0;
+            foreach ($c_suplente as $suplente) {
+                $tamano =  0;
+// a1.nombre as nombre, a1.descripcion as descripcion
+                $em = $this->getDoctrine()->getEntityManager();
+                $connection = $em->getConnection();
+                $statement = $connection->prepare("SELECT DISTINCT (p1.nombre) as nombre
+                FROM proyecto p1 
+                INNER JOIN coordinadores_has_profesor cp1 ON
+                p1.id_proyecto = cp1.proyecto_id_proyecto
+                WHERE p1.id_proyecto = :id_proyecto");                  
+                $statement->bindValue('id_proyecto', $suplente->getProyecto());
+                $statement->execute();
+                $entity = $statement->fetchAll();
+
+                $tamano = sizeof($entity);
+                if ($tamano>0) {
+                    $suplentes[$i] = $entity;
+                } else{
+                    $suplentes[$i] = null;
+
+                }
+
+                $i++;
+            }
+            if ($i == 0) {
+                $suplentes = null;
+            } 
+
+            /*
 
 
             $i = 0;
@@ -454,10 +655,10 @@ class ReportsController extends Controller
             if ($i == 0) {
                 $suplentes = null;
             }
+            **/
 
             // crea la vista
             $html = $this->renderView('TesisAdminBundle:Reports:reports4_pdf.html.twig', array(
-                'c_extension' => $c_extension,
                 'c_proyecto' => $c_proyecto,
                 'c_suplente' => $c_suplente,
                 'proyectos' => $proyectos,
@@ -495,7 +696,8 @@ class ReportsController extends Controller
         $session = $this->getRequest()->getSession();
 
             $reporte = new Reporte();
-            $form = $this->createForm(new ReporteType(), $reporte, array(
+            $options['type'] = 'normal';
+            $form = $this->createForm(new ReporteType($options), $reporte, array(
                 'action' => $this->generateUrl('reports_5pdf'),
                 'method' => 'POST',
             ));
@@ -536,22 +738,35 @@ class ReportsController extends Controller
                $periodo = $valor['periodo'];
              }
 
-            $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT p1 FROM TesisAdminBundle:Proyecto p1 
-            WHERE p1.departamento = :departamento AND p1.periodo = :periodo ");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);            
-            $entity = $query->execute();
+
+            if ($periodo != "todos") {
+
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery("SELECT p1 FROM TesisAdminBundle:Proyecto p1 
+                WHERE p1.departamento = :departamento AND p1.periodo = :periodo ");
+                $query->setParameter('departamento', $departamento );
+                $query->setParameter('periodo', $periodo);            
+                $entity = $query->execute();
+
+
+            }else{
+
+                $em = $this->getDoctrine()->getManager();
+                $query = $em->createQuery("SELECT p1 FROM TesisAdminBundle:Proyecto p1 
+                WHERE p1.departamento = :departamento ");
+                $query->setParameter('departamento', $departamento );            
+                $entity = $query->execute();
+            }
 
             $i = 0;
             foreach ($entity as $proyecto) {
            
-                $tutoria = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
+                $tutores = $em->getRepository('TesisAdminBundle:Tutores')->findOneBy(
                     array('proyectoProyecto' => $proyecto->getIdProyecto()));
 
-                $tamano = sizeof($tutoria);
+                $tamano = sizeof($tutores);
                 if ($tamano>0) {
-                    $usuarios[$i] = $tutoria->getUsuarioUsuario();
+                    $usuarios[$i] = $tutores->getProfesorProfesor();
                 } else{
                     $usuarios[$i] = null;
 

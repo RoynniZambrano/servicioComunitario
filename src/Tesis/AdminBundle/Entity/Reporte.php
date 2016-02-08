@@ -21,6 +21,14 @@ class Reporte{
     private $periodo;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="profesor", type="string", nullable=true)
+     */
+    private $profesor;
+
+
+    /**
      * Set departamento
      *
      * @param string $departamento
@@ -65,4 +73,29 @@ class Reporte{
     {
         return $this->periodo;
     }
+
+    /**
+     * Set profesor
+     *
+     * @param string $profesor
+     * @return Estudiante
+     */
+    public function setProfesor($profesor)
+    {
+        $this->profesor = $profesor;
+
+        return $this;
+    }
+
+    /**
+     * Get profesor
+     *
+     * @return string 
+     */
+    public function getProfesor()
+    {
+        return $this->profesor;
+    }
+
+    
 }

@@ -49,16 +49,16 @@ table#t01 th	{
  		<table id="t01">   
             <tr>
               <th>Nombre</th>
-              <th>Coordinador proyecto</th>
-              <th>Coordinador suplente </th>
+             {# <th>Coordinador proyecto</th>
+              <th>Coordinador suplente </th> #}
               <th>Tutores</th>
             </tr>
             {% set i = 0 %}
  			{% for proyecto in proyectos %}
 	            <tr>
 	            	<td>{{ proyecto.nombre }}</td>              	
-	            	<td>{{ proyecto.coordinador.nombre }}</td>
-                <td>{{ proyecto.coordSuplente.nombre }}</td>
+	            {#	<td>{{ proyecto.coordinador.nombre }}</td>
+                <td>{{ proyecto.coordSuplente.nombre }}</td> #}
 
                   {% set j = 0 %}
                   {% for tutor in tutores %}

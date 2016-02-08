@@ -51,7 +51,7 @@ table#t01 th	{
               <th>Nombres</th>
               <th>Apellidos</th>            
               <th>Proyectos</th>
-              <th>Estudiantes</th>
+              <th>Estudiantes asignados</th>              
             </tr>
 
             {% set i = 0 %}
@@ -65,7 +65,7 @@ table#t01 th	{
                 {% for proyecto in proyectos %}
                   {% if i == k %} 
                     {% if proyecto is empty %}
-                      <td> ninguno</td>
+                      <td> no aplica</td>
                     {% else %}
 
                         <td>
