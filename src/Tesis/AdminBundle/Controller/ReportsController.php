@@ -342,74 +342,6 @@ class ReportsController extends Controller
             }
 
 
-            /*
-            $i = 0;
-            foreach ($tutores as $tutor) {
-
-                
-                //$em = $this->getDoctrine()->getEntityManager();
-                //$connection = $em->getConnection();
-                //$statement = $connection->prepare("SELECT * FROM tutoria_has_usuario 
-                //WHERE usuario_id_usuario = :id");
-                //$statement->bindValue('id', $tutor->getId());
-                //$statement->execute();
-                //$results = $statement->fetchAll();
-                
-
-                $tamano = 0;
-                $tamano = sizeof($results);
-                if ($tamano>0) {
-
-                    
-                    $j = 0;
-                    foreach ($results as $rs) {
-                                
-                        $tutorias = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
-                        array('idTutores' => $rs['tutoria_id_tutores']));
-
-                        $tamano2 = 0;
-                        $tamano2 = sizeof($tutorias);
-                        if ($tamano2>0) {
-                            
-                            $proyectos[$i][$j] = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
-                            array('idProyecto' => $tutorias->getProyectoProyecto()));
-
-                        }else{
-                            $proyectos[$i] = null;
-                        }
-
-                        $j++;
-                    }
-                    
-
-                    $query = $em->createQuery("SELECT p1.nombre as nombre
-                    FROM TesisAdminBundle:Proyecto p1
-                    INNER JOIN TesisAdminBundle:Profesor pf1 WITH p1.idProyecto = pf1.proyecto 
-                    WHERE e1.profesor = :profesor");
-                    $query->setParameter('profesor', $tutor->getId());
-                    $proyectos[$i] = $query->execute();
-
-
-                    $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido
-                    FROM TesisAdminBundle:Estudiante e1  
-                    WHERE e1.profesor = :profesor");
-                    $query->setParameter('profesor', $tutor->getId());
-                    $estudiantes[$i] = $query->execute();
-
-                } else{
-                    $proyectos[$i] = null;
-                    $estudiantes[$i] = null;
-                }
-               
-                $i++;
-            }
-            if ($i == 0) {
-                $estudiantes = null;
-                $proyectos = null;
-            }
-            **/
-
-
             // crea la vista
             $html = $this->renderView('TesisAdminBundle:Reports:reports3_pdf.html.twig', array(
                 'tutores' => $tutores,
@@ -492,26 +424,7 @@ class ReportsController extends Controller
              }
 
              $em = $this->getDoctrine()->getManager();
-
-
-/*
-            $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
-            WHERE u1.departamento = :departamento AND u1.periodo = :periodo
-            AND u1.estatus = :estatus ");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);
-            $query->setParameter('estatus', "activo");
-            $tutores = $query->execute();
-
-            $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Usuario u1  
-            WHERE u1.departamento = :departamento AND u1.periodo = :periodo AND u1.rol = :rol");
-            $query->setParameter('rol', "coordinador de servicio comunitario");
-            $query->setParameter('departamento', $departamento );
-            $query->setParameter('periodo', $periodo);
-            $c_extension = $query->execute();
-**/            
+           
 
             if ($periodo != "todos") {
 
@@ -615,47 +528,6 @@ class ReportsController extends Controller
                 $suplentes = null;
             } 
 
-            /*
-
-
-            $i = 0;
-            foreach ($c_proyecto as $proyecto) {
-                $tamano =  0;
-                $entity = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
-                    array('coordinador' => $proyecto->getId()));
-
-                $tamano = sizeof($entity);
-                if ($tamano>0) {
-                    $proyectos[$i] = $entity->getNombre();
-                } else{
-                    $proyectos[$i] = null;
-
-                }
-            }    
-            if ($i == 0) {
-                $proyectos = null;
-            }
-
-            $i=0;
-            foreach ($c_suplente as $suplente) {
-                $tamano =  0;
-                $entity = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
-                    array('coordSuplente' => $suplente->getId()));
-
-                $tamano = sizeof($entity);
-                if ($tamano>0) {
-                    $suplentes[$i] = $entity->getNombre();
-                } else{
-                    $suplentes[$i] = null;
-
-                }
-
-                $i++;
-            }
-            if ($i == 0) {
-                $suplentes = null;
-            }
-            **/
 
             // crea la vista
             $html = $this->renderView('TesisAdminBundle:Reports:reports4_pdf.html.twig', array(

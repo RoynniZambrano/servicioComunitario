@@ -28,7 +28,7 @@ class __TwigTemplate_4de161c79febddd26b5f2c55f5ca6fe5305a5898d46d3e513042fcef8bc
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "\tdon't be idiot
+        echo "\t<strong> <a href=\"http://www.google.com/\">Permiso Denegado</a> </strong>
 ";
     }
 
@@ -50,5 +50,5 @@ class __TwigTemplate_4de161c79febddd26b5f2c55f5ca6fe5305a5898d46d3e513042fcef8bc
 /* {% extends '::base.html.twig' %}*/
 /* */
 /* {% block body %}*/
-/* 	don't be idiot*/
+/* 	<strong> <a href="http://www.google.com/">Permiso Denegado</a> </strong>*/
 /* {% endblock %}*/

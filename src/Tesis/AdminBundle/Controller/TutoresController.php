@@ -274,33 +274,4 @@ class TutoresController extends Controller{
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
     }
 
-
-
-
-    /** eliecer fuck
-    public function editSelectAction($id = null){
-
-        //$session = $this->getRequest()->getSession();
-        foreach ($_POST as $clave=>$valor){
-               $id = $valor['id'];
-               echo "we are here bitches -> " . $id . " <- id";
-             }
-
-
-        return new Response($id); 
-
-
-        
-        if($session->has('user')){
-            $options['user'] = $session->get('user');
-            
-            $options['id'] = $id; 
-            return $this->render('TesisAdminBundle:Tutores:edit-tutors.html.twig',$options);
-
-        }
-        return $this->render('TesisSCBundle:Main:denegado.html.twig');
-        
-    }
-    */
-
 }

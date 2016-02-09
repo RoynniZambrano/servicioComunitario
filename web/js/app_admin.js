@@ -40,42 +40,7 @@
   asignarCoord();
   editarCoord();
 
-  /* eliecer fuck
-  //console.log($('#tutores_form_profesorProfesor option:selected').text());
-  $('#tutores_form_proyectoProyecto').change(function() {
-      var text = $('#tutores_form_proyectoProyecto option:selected').val();
-      alert( "Texto es : " + text );
 
-      var inform = function(result){
-
-      if(result != 0)
-        alert("Hello Roynnizambranooaoa");
-      else
-        alert("NO entro");
-          //window.location.href = Routing.generate('tesis_admin_homepage');
-  
-          //edit_form.remove();
-          //$("#editar-tutores-div").prepend(result);   
-      
-    };
-    var ruta  = Routing.generate('tutores_select');
-    console.log(ruta);
-
-    $.ajax({
-      //type: edit_form.attr('method'),
-      //async: true,
-     // url: edit_form.attr('action'),
-      url: Routing.generate('tutores_select'), //Routing.generate('tutores_select'),
-      data: {
-        id : '88'
-      },
-      //data: $('#tutores_form_proyectoProyecto option:selected').serialize(),
-      /*dataType: 'POST',
-      success: inform
-      });
-    }
-  );
-  **/
 
 }); 
 

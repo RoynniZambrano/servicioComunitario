@@ -50,7 +50,6 @@ table#t01 th	{
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Perfil</th>              
-              {# <th>Proyecto</th> #}
             </tr>
             {% set i = 0 %}
             {% for proyecto in c_proyecto %}
@@ -58,28 +57,6 @@ table#t01 th	{
                 <td>{{ proyecto.nombre }}</td>
                 <td>{{ proyecto.apellido }}</td>                     
                 <td>{{ proyecto.perfil }}</td>                           
-
-                {# 
-                  {% set j = 0 %}
-                  {% for proy in proyectos %}
-
-                    {% if i == j %} 
-
-                        <td>  
-                        {% for p in proy %}
-                          {% if p is empty %} 
-                             no aplica 
-                          {% else %}
-                             {{ p.nombre }} <br>
-                          {% endif %}
-                        {% endfor %}
-                        </td> 
-
-                    {% endif %}    
-
-                    {% set j = j + 1 %}
-                  {% endfor %}
-                #} 
 
                   {% set i = i + 1 %}
 
@@ -91,27 +68,6 @@ table#t01 th	{
                 <td>{{ suplente.nombre }}</td>
                 <td>{{ suplente.apellido }}</td>                     
                 <td>{{ suplente.perfil }}</td>                           
-
-                {# 
-                  {% set j = 0 %}
-                  {% for proy in suplentes %}
-
-                    {% if i == j %} 
-                        <td> 
-                        {% for p in proy %}
-                          {% if p is empty %} 
-                             no aplica 
-                          {% else %}
-                             {{ p.nombre }} <br>
-                          {% endif %}
-                        {% endfor %} 
-                        </td>
-
-                    {% endif %}     
-
-                    {% set j = j + 1 %}
-                  {% endfor %}
-                #} 
 
                   {% set i = i + 1 %}
 

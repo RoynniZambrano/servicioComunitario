@@ -67,7 +67,7 @@ class InfoFinalController extends Controller
             $i=0;
             foreach ($resul as $res) {
                 $tamano =  0;
-// a1.nombre as nombre, a1.descripcion as descripcion
+
                 $em = $this->getDoctrine()->getEntityManager();
                 $connection = $em->getConnection();
                 $statement = $connection->prepare("SELECT DISTINCT(a1.nombre) as nombre,
@@ -92,66 +92,6 @@ class InfoFinalController extends Controller
             }             
 
 
-
-
-
-/*
-            $query = $em->createQuery("SELECT p1.idPeriodo as periodo, p1.nombre as nombre_periodo, 
-            p1.fechaInicio as fechaInicio, p1.fechaFin as fechaFin, sum (d1.horas) as horas, 
-            sum (d1.personas) as personas, sum (d1.ninos) as ninos, sum (d1.adultos) as adultos, 
-            sum (d1.terceraEdad) as terceraEdad, sum (d1.discapacidad) as  discapacidad,
-            d1.comunidad as comunidad
-            FROM TesisAdminBundle:Periodo p1
-            INNER JOIN TesisAdminBundle:Diario d1 WITH  p1.idPeriodo = d1.periodoPeriodo
-            AND p1.estudianteEstudiante = :estudiante_id GROUP BY d1.comunidad");
-            $query->setParameter('estudiante_id', $id);
-            $resul = $query->execute(); 
-            */
-
-
-/*
-
-            $query = $em->createQuery("SELECT c1.idcronograma as cronograma, c1.semana as semana, 
-            c1.fechaInicio as fechaInicio, c1.fechaFin as fechaFin, sum (d1.horas) as horas, 
-            sum (d1.personas) as personas, sum (d1.ninos) as ninos, sum (d1.adultos) as adultos, 
-            sum (d1.terceraEdad) as terceraEdad, sum (d1.discapacidad) as  discapacidad
-            FROM TesisAdminBundle:Cronograma c1
-            INNER JOIN TesisAdminBundle:Diario d1 WITH  c1.idcronograma = d1.cronogramacronograma
-            AND c1.estudianteEstudiante = :estudiante_id GROUP BY c1.semana");
-            $query->setParameter('estudiante_id', $id);
-            $resul = $query->execute(); 
-
-
-            $actividades = null;
-
-            $i=0;
-            foreach ($resul as $res) {
-                $tamano =  0;
-
-                $query = $em->createQuery("SELECT r1.nombre as nombre, 
-                sum (r1.cantidad) as cantidad, r1.comentario as comentario
-                FROM TesisAdminBundle:Resultados r1
-                INNER JOIN TesisAdminBundle:Diario d1 WITH  d1.idDiario = r1.diarioDiario
-                INNER JOIN TesisAdminBundle:Cronograma c1 WITH c1.idcronograma = d1.cronogramacronograma
-                AND c1.idcronograma = :cronograma_id GROUP BY r1.nombre"); 
-                $query->setParameter('cronograma_id', $res['cronograma']); 
-                $actividad = $query->execute(); 
-
-                $tamano = sizeof($actividad);
-                if ($tamano>0) {
-                    $actividades[$i] = $actividad;
-                } else{
-                    $actividades[$i] = null;
-
-                }
-
-                $i++;
-            }
-            */
-
-         //var_dump($actividades);
-         //$tamano = sizeof(info_adicional);
-
             // crea la vista
             $html = $this->renderView('TesisAdminBundle:InfoFinal:pdf_final.html.twig', array(
                 'estudiante' => $estudiante,
@@ -161,19 +101,6 @@ class InfoFinalController extends Controller
                 'proyecto' => $proyecto,
                 'profesor' => $profesor
                ));  
-
-
-            /*
-            if ($estudiante->getSc() != "culminado") {
-                $informe = $em->getRepository('TesisAdminBundle:InformeFinal')->findOneBy(
-                    array('idEstudiante' => $id));
-
-                $informe->setCalificacion("por evaluar");
-                $informe->setCalificacion(".");
-                $em->persist($informe);
-                $em->flush();
-            }
-            */
 
 
             return new Response(

@@ -21,7 +21,7 @@ class __TwigTemplate_ce468479e930da23bdab23c218d9d6680bf4de66b8237bea8ea965dcf99
           <b>Versión</b> 1.0.0
         </div>
 
-        <strong><a href=\"http://www.facyt.uc.edu.ve/\">FACYT</a> 2014-2015 </strong> Desarrollado por <a href=\"https://www.linkedin.com/pub/roynny-zambrano/69/858/808\">Roynni Zambrano</a> Impulsado por
+        <strong><a href=\"http://www.facyt.uc.edu.ve/\">FACYT</a> 2014-2015 </strong> Desarrollado por <a href=\"https://www.linkedin.com/in/rzambrano2\">Roynni Zambrano</a> Impulsado por
         <a href=\"http://getbootstrap.com/\">Bootstrap</a>
         , <a href=\"http://symfony.com/\">Symfony</a>
         , <a href=\"http://fortawesome.github.io/Font-Awesome/\">Font Awesome</a>
@@ -45,7 +45,7 @@ class __TwigTemplate_ce468479e930da23bdab23c218d9d6680bf4de66b8237bea8ea965dcf99
 /*           <b>Versión</b> 1.0.0*/
 /*         </div>*/
 /* */
-/*         <strong><a href="http://www.facyt.uc.edu.ve/">FACYT</a> 2014-2015 </strong> Desarrollado por <a href="https://www.linkedin.com/pub/roynny-zambrano/69/858/808">Roynni Zambrano</a> Impulsado por*/
+/*         <strong><a href="http://www.facyt.uc.edu.ve/">FACYT</a> 2014-2015 </strong> Desarrollado por <a href="https://www.linkedin.com/in/rzambrano2">Roynni Zambrano</a> Impulsado por*/
 /*         <a href="http://getbootstrap.com/">Bootstrap</a>*/
 /*         , <a href="http://symfony.com/">Symfony</a>*/
 /*         , <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>*/
