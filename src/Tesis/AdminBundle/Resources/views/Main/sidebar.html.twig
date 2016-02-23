@@ -74,10 +74,11 @@
                   </ul>
                 </li>                                                 
               </ul>
-            </li>   
+            </li> 
+          {% endif %}  
 
    
-
+          {% if ((user.perfil == 'coordinador de servicio comunitario') and (user.estatus == 'activo')) %}
     <!-- GESTIONAR ASIGNACIONES-->      
             <li class="treeview">
               <a >
@@ -225,7 +226,10 @@
 
 
     <!-- EVALUACIÓN DE PRODUCTOS -->
-            {% if ((user.perfil != 'estudiante') and (user.estatus == 'activo')) %}
+            {# if ((user.perfil != 'estudiante') and (user.estatus == 'activo')) #}
+
+          {% if ((user.perfil == 'tutor') and (user.estatus == 'activo')) or ((user.perfil == 'coordinador de servicio comunitario') and (user.estatus == 'activo')) %}
+
             <li class="treeview">
               <a >
                 <i class="fa fa-check-square-o"></i> <span>Evaluar Productos</span> <i class="fa fa-angle-left pull-right"></i>
@@ -264,7 +268,7 @@
                     </li>                   
                   </ul>
                 </li>   
-                <li><a ><i class="fa fa-circle-o text-info"></i> Ver Informe Final <i class="fa fa-angle-left pull-right"></i></a>
+                <li><a ><i class="fa fa-circle-o text-info"></i> Informe Final <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">  
                     <li>
                       <a href="{{ path('infofinal_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>

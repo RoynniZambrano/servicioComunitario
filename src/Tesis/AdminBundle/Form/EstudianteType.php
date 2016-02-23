@@ -212,7 +212,7 @@ class EstudianteType extends AbstractType
             ->add('sc','text', array('label' => 'Estatus SC', 'disabled' =>'true', 'required' => false))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' =>'true', 'required' => false))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
-            ->add('perfil','text', array('label' => 'Rol', 'disabled' =>'true','required' => false))
+            ->add('perfil','text', array('label' => 'Perfil', 'disabled' =>'true','required' => false))
             ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
                 '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
                 '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),

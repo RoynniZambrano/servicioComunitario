@@ -104,7 +104,7 @@ class DiarioController extends Controller{
                     
                     $query = $em->createQuery("SELECT d1 FROM TesisAdminBundle:Diario d1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  d1.estudianteEstudiante = e1.idEstudiante 
-                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesorProfesor = u1.idProfesor
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesor = u1.idProfesor
                     AND u1.idProfesor = :tutor_id");
                     $query->setParameter('tutor_id', $user->getId());
                     $diarios = $query->execute();

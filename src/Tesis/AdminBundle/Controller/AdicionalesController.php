@@ -100,7 +100,7 @@ class AdicionalesController extends Controller{
                     $query = $em->createQuery("SELECT r1 FROM TesisAdminBundle:Adicionales r1
                     INNER JOIN TesisAdminBundle:Diario d1 WITH r1.diarioDiario = d1.idDiario
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  d1.estudianteEstudiante = e1.idEstudiante 
-                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesorProfesor = u1.idProfesor
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesor = u1.idProfesor
                     AND u1.idProfesor = :tutor_id");
                     $query->setParameter('tutor_id', $user->getId());
                     $resultados = $query->execute();

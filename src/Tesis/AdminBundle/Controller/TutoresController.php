@@ -60,17 +60,20 @@ class TutoresController extends Controller{
                         $selected = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                         array('idProfesor' => $valor_r));
                         
+
+                        /*
                         $count = 0;
                         $count = $em->getRepository('TesisAdminBundle:Estudiante')->findBy(
                         array('profesor' => $selected->getId()));
+                        */
 
                         $selected->setProyecto($proyecto);
                         $selected->setPeriodo($periodo);
                         
-                        $tamano = sizeof($count);
-                        if ($tamano>0) {
+                      //  $tamano = sizeof($count);
+                      //  if ($tamano>0) {
                             $selected->setEstatus('activo');  
-                        }
+                      //  }
                     } 
                 }
                 $em->flush();
@@ -232,18 +235,20 @@ class TutoresController extends Controller{
                         $selected = null;
                         $selected = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                         array('idProfesor' => $valor_r));
-                        
+                       
+                       /* 
                         $count = 0;
                         $count = $em->getRepository('TesisAdminBundle:Estudiante')->findBy(
                         array('profesor' => $selected->getId()));
+                        */
 
                         $selected->setProyecto($proyecto);
                         $selected->setPeriodo($periodo);
                         
-                        $tamano = sizeof($count);
-                        if ($tamano>0) {
+                        //$tamano = sizeof($count);
+                        //if ($tamano>0) {
                             $selected->setEstatus('activo'); 
-                        }
+                        //}
 
                     } 
                 }

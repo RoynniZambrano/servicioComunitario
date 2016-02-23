@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Tesis\AdminBundle\Entity\Estudiante;
 use Tesis\AdminBundle\Entity\Profesor;
-use Tesis\AdminBundle\Entity\Informe;
+use Tesis\AdminBundle\Entity\InformeFinal;
 use Tesis\AdminBundle\Form\EstudianteType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -52,7 +52,7 @@ class EstudianteController extends Controller
                 $informe = new InformeFinal();
                 $informe->setIdEstudiante($entity);
                 $informe->setCalificacion("por evaluar");
-                $informe->setCalificacion(".");
+                $informe->setObservacion(".");
                 $em->persist($informe);
                 
                 $em->flush();

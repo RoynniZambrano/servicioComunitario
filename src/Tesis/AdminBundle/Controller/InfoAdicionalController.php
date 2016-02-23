@@ -99,7 +99,7 @@ class InfoAdicionalController extends Controller{
                     
                     $query = $em->createQuery("SELECT i1 FROM TesisAdminBundle:InfoAdicional i1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  i1.idEstudiante = e1.idEstudiante 
-                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesorProfesor = u1.idProfesor
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesor = u1.idProfesor
                     AND u1.idProfesor = :tutor_id");
                     $query->setParameter('tutor_id', $user->getId());
                     $entity = $query->execute();

@@ -91,8 +91,8 @@ class TutoriaType extends AbstractType
                 'required' => true,
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
-                        ->setParameter('estatus', "activo")
+                        ->where('p.perfil = :perfil')
+                       // ->setParameter('estatus', "activo")
                         ->setParameter('perfil', "tutor");
                         },
                 ))

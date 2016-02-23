@@ -148,9 +148,10 @@ class InfoFinalController extends Controller
                     
                     $query = $em->createQuery("SELECT i1 FROM TesisAdminBundle:InformeFinal i1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  i1.idEstudiante = e1.idEstudiante 
-                    INNER JOIN TesisAdminBundle:Usuario u1 WITH e1.usuarioUsuario = u1.idUsuario
-                    AND u1.idUsuario = :tutor_id");
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH e1.profesor = u1.idProfesor
+                    AND u1.idProfesor = :tutor_id AND e1.estatus = :estatus");
                     $query->setParameter('tutor_id', $user->getId());
+                    $query->setParameter('estatus', "activo");
                     $informes = $query->execute();
    
                 }else if (($user->getPerfil() == "coordinador de proyecto")
@@ -159,7 +160,7 @@ class InfoFinalController extends Controller
                     $query = $em->createQuery("SELECT i1 FROM TesisAdminBundle:InformeFinal i1 
                     INNER JOIN TesisAdminBundle:Estudiante e1 WITH  i1.idEstudiante = e1.idEstudiante 
                     INNER JOIN TesisAdminBundle:Proyecto p1 WITH e1.proyectoProyecto = p1.idProyecto
-                    INNER JOIN TesisAdminBundle:Usuario u1 WITH p1.coordinador = u1.idUsuario
+                    INNER JOIN TesisAdminBundle:Profesor u1 WITH p1.coordinador = u1.idProfesor
                     AND u1.idUsuario = :coordiandor_id");
                     $query->setParameter('coordinador_id', $user->getId());
                     $informes = $query->execute();

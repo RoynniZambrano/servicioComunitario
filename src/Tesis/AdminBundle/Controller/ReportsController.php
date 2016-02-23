@@ -286,21 +286,24 @@ class ReportsController extends Controller
                     $em = $this->getDoctrine()->getManager();
                     $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
                     WHERE u1.departamento = :departamento AND u1.periodo = :periodo 
-                    AND u1.estatus = :estatus");
+                    AND u1.estatus = :estatus AND u1.perfil = :perfil");
                     $query->setParameter('departamento', $departamento );
                     $query->setParameter('periodo', $periodo);
                     $query->setParameter('estatus', "activo"); 
+                    $query->setParameter('perfil', "tutor"); 
                     $tutores = $query->execute();
                  }else{
                     $em = $this->getDoctrine()->getManager();
                     $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
-                    WHERE u1.departamento = :departamento  AND u1.estatus = :estatus");
+                    WHERE u1.departamento = :departamento  AND u1.estatus = :estatus
+                    AND u1.perfil = :perfil ");
                     $query->setParameter('departamento', $departamento );
                     $query->setParameter('estatus', "activo"); 
+                    $query->setParameter('perfil', "tutor");
                     $tutores = $query->execute();
                  }
 
-             }else{
+            }else{
                     $em = $this->getDoctrine()->getManager();
                     $query = $em->createQuery("SELECT u1 FROM TesisAdminBundle:Profesor u1  
                     WHERE u1.idProfesor = :profesor ");
@@ -310,6 +313,8 @@ class ReportsController extends Controller
             }
 
             $i = 0;
+            $estudiantes = null;
+            $proyectos = null;
             foreach ($tutores as $tutor) {
 
                 $query = $em->createQuery("SELECT e1.nombre as nombre, e1.apellido as apellido

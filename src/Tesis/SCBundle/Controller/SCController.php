@@ -30,6 +30,7 @@ class SCController extends Controller
     // Crea el formulario de inicio de sesion
     public function loginformAction(Request $request){
 
+        $bandera = 0;
 		$session = $this->getRequest()->getSession();
 
             $login = new Login();
@@ -51,13 +52,33 @@ class SCController extends Controller
 
    				$user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'clave' => $clave));
 
+                if (!$user) {
+                    $user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'estatus' => "activo"));
+
+                    if ($user) {
+                        $form->get('nameLogin')->addError(new FormError('contraseña no valida.'));
+                        $bandera = 1;
+                    }
+                }
+
                 if(!$user){
+                     $bandera = 0;
 
                     // consulta si es un estudiante
                      $repository = $this->getDoctrine()
                         ->getRepository('TesisAdminBundle:Estudiante');
 
                         $user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'clave' => $clave));
+
+
+                        if (!$user) {
+                            $user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'estatus' => "activo"));
+
+                            if ($user) {
+                                $form->get('nameLogin')->addError(new FormError('contraseña no valida.'));
+                                $bandera = 1;
+                            }
+                        }
 
 
                         /*
@@ -85,7 +106,7 @@ class SCController extends Controller
                     if(!$user && !$temp){  
                         $form->get('nameLogin')->addError(new FormError('usuario no valido.'));
                     }    
-                    else {
+                    else if($bandera != 1){
 
                         $session = $this->getRequest()->getSession();
                         $session->set('user', $user);
@@ -93,7 +114,7 @@ class SCController extends Controller
                     }
 
 
-                }else{
+                }else if ( $bandera != 1){
                     //inicia sesion con los datos del usuario que hizo login
                     $session = $this->getRequest()->getSession();
                     $session->set('user', $user);

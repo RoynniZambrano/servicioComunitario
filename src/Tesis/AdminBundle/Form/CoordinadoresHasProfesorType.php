@@ -31,14 +31,6 @@ class CoordinadoresHasProfesorType extends AbstractType
             $builder
             ->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' => true, 'required' => false))
 
-/*           
-            ->add('profesorProyecto', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Coord Proyecto',
-             'multiple'=> false,'disabled' => true, 'required' => false))
-
-            ->add('profesorSuplente', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Coord Suplente',
-             'multiple'=> false,'disabled' => true, 'required' => false))
-             **/
-
             ->add('profesorProyecto', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",
                 "property"  => "nombre",
@@ -49,7 +41,6 @@ class CoordinadoresHasProfesorType extends AbstractType
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
                         ->where('p.perfil = :perfil')
-                      //  ->setParameter('estatus', "activo")
                         ->setParameter('perfil', "coordinador de proyecto");
                         },
                 ))
@@ -65,7 +56,6 @@ class CoordinadoresHasProfesorType extends AbstractType
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
                         ->where('p.perfil = :perfil')
-                     //   ->setParameter('estatus', "activo")
                         ->setParameter('perfil', "coordinador suplente");
                         },
                 ))
@@ -93,8 +83,7 @@ class CoordinadoresHasProfesorType extends AbstractType
                 'required' => true,
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
-                        ->setParameter('estatus', "activo")
+                        ->where('p.perfil = :perfil')
                         ->setParameter('perfil', "coordinador de proyecto");
                         },
                 ))
@@ -109,20 +98,11 @@ class CoordinadoresHasProfesorType extends AbstractType
                 'required' => true,
                 'query_builder' => function(EntityRepository $er) {
                  return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil AND p.estatus = :estatus')
-                        ->setParameter('estatus', "activo")
+                        ->where('p.perfil = :perfil')
                         ->setParameter('perfil', "coordinador suplente");
                         },
                 ))
 
-
-            /*
-            ->add('profesorProyecto', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Coord Proyecto',
-             'multiple'=> false,'disabled' => false, 'required' => true))
-
-            ->add('profesorSuplente', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Coord Suplente',
-             'multiple'=> false,'disabled' => false, 'required' => true))            
-            **/
 
             ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
                 '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
