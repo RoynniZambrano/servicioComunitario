@@ -27,7 +27,7 @@ class ActividadType extends AbstractType
             $builder
                 ->add('nombre','text', array('label' => 'Nombre', 'required' => false, 'attr' => array('placeholder' => 'Nombre de la actividad', 'disabled' =>'true')))
                 ->add('descripcion','textarea', array('label' => 'Descripción', 'required' => false, 
-                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '10', 'disabled' =>'true')))
+                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '15', 'disabled' =>'true')))
             ;
         }
         else{
@@ -35,7 +35,7 @@ class ActividadType extends AbstractType
             $builder
                 ->add('nombre','text', array('label' => 'Nombre', 'attr' => array('placeholder' => 'Nombre de la actividad')))
                 ->add('descripcion','textarea', array('label' => 'Descripción', 'required' => false, 
-                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '10')))
+                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '15')))
             ;
         }
     }   

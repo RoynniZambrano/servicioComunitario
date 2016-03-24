@@ -65,6 +65,13 @@ comando para consultar la clave ssh del equipo.
 cat ~/.ssh/id_rsa.pub
 
 
+actualizar symfony
+composer update symfony/symfony
+composer update
+
+
+
+
 
 Notas de Symfony
 

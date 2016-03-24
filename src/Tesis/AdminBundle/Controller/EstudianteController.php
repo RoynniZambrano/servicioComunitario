@@ -95,15 +95,17 @@ class EstudianteController extends Controller
 
             
             $form->add('edit', 'submit', array('label' => 'Editar'));
-            $form->add('back', 'submit', array('label' => 'Regresar'));
+            //$form->add('back', 'submit', array('label' => 'Regresar'));
         
             $form->handleRequest($request);
             if ($form->get('edit')->isClicked()) {
                return $this->redirect($this->generateUrl('user_edit', array('cedula' => $cedula)));
             }
+            /*
             if ($form->get('back')->isClicked()) {
                return $this->redirect($this->generateUrl('tesis_admin_homepage'));
             }  
+            **/
             
              return $this->render('TesisAdminBundle:Estudiante:check-student-form.html.twig',
                 array('form' => $form->createView()));           

@@ -39,7 +39,9 @@ class FaseController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = new Fase();
 
-            $form = $this->createForm(new FaseType('new'), $entity, array(
+            $options['status'] = 'new';
+            $options['actividades'] = null;
+            $form = $this->createForm(new FaseType($options), $entity, array(
                 'action' => $this->generateUrl('fase_newform'),
                 'method' => 'POST',
             ));
@@ -116,9 +118,16 @@ class FaseController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
                 array('idFase' => $id));
 
-            $options['action'] = $this->generateUrl('fase_checkform', array('id' => $id));
-            $options['method'] = 'POST';
-            $form = $this->createForm(new FaseType('check'), $entity, $options);
+            //$options['action'] = $this->generateUrl('fase_checkform', array('id' => $id));
+           //$options['method'] = 'POST';
+            $options['actividades'] = $entity->getActividadActividad();
+            $options['status'] = 'check';
+
+            $form = $this->createForm(new FaseType($options), $entity, array(
+                'action' => $this->generateUrl('fase_checkform', array('id' => $id)),
+                'method' => 'POST'));
+            
+
             $form->add('edit', 'submit', array('label' => 'Editar'));
             $form->add('back', 'submit', array('label' => 'Regresar'));            
         
@@ -164,9 +173,18 @@ class FaseController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
             array('idFase' => $id));
 
-            $options['action'] = $this->generateUrl('fase_editform', array('id' => $id));
-            $options['method'] = 'POST';
-            $editForm = $this->createForm(new FaseType('edit'), $entity, $options);             
+           // $options['action'] = $this->generateUrl('fase_editform', array('id' => $id));
+           // $options['method'] = 'POST';
+           // $editForm = $this->createForm(new FaseType('edit'), $entity, $options);  
+
+            $options['actividades'] = $entity->getActividadActividad();
+            $options['status'] = 'edit';
+
+            $editForm = $this->createForm(new FaseType($options), $entity, array(
+                'action' => $this->generateUrl('fase_editform', array('id' => $id)),
+                'method' => 'POST'));
+
+
             $editForm->handleRequest($request);          
 
             if ($editForm->isValid()) {

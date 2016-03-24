@@ -25,7 +25,7 @@ class Profesor
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z ñÑ]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un nombre que sea valido."
+     *      message="Porfavor introduzca un nombre que sea válido."
      *  )
      * @Assert\Length(
      *      min = 1,
@@ -43,7 +43,7 @@ class Profesor
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z ñÑ ]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un apellido que sea valido."
+     *      message="Porfavor introduzca un apellido que sea válido."
      *  )
      * @Assert\Length(
      *      min = 1,
@@ -96,7 +96,7 @@ class Profesor
      *
      * @ORM\Column(name="correo", type="string", length=50, nullable=false)
      * @Assert\NotBlank(message = "Porfavor introduzca un correo.")
-     * @Assert\Email(message = "El correo '{{ value }}' no es valido.")     
+     * @Assert\Email(message = "El correo '{{ value }}' no es válido.")     
      */
     private $correo;
 
@@ -104,12 +104,12 @@ class Profesor
      * @var string
      *
      * @ORM\Column(name="telefono", type="string", length=50, nullable=true)
-     * @Assert\Regex(
+     * @Assert\Regex(<
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un numero de teléfono valido."
+     *      message="Porfavor, introduzca un número de teléfono válido."
      *  )
-     * @Assert\Length(
+     * Assert\Length(
      *      min = 10,
      *      max = 11,
      *      minMessage = "el teléfono debe tener minimo {{ limit }} dígitos.",
@@ -141,7 +141,7 @@ class Profesor
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z]+[0-9]*$/",
      *      match=true,
-     *      message="El nombre de usuario {{ value }} no es valido."
+     *      message="El nombre de usuario {{ value }} no es válido."
      *  )     
      * @Assert\Length(
      *      min = 2,

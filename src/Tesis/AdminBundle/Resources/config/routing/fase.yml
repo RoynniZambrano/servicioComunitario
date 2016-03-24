@@ -1,36 +1,36 @@
 
 fase_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: TesisAdminBundle:Fase:new}
 
 fase_newform:
-    pattern:  /newform
+    path:  /newform
     defaults: { _controller: TesisAdminBundle:Fase:newform }
 
 fase_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Fase:list}
     options:
         expose: true
 
 fase_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:Fase:check}
 
 fase_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Fase:checkform}
 
 fase_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:Fase:edit}
 
 fase_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Fase:editform }
 
 fase_delete:
-    pattern:  /delete
+    path:  /delete
     defaults: { _controller: TesisAdminBundle:Fase:delete}
     options:
         expose: true 

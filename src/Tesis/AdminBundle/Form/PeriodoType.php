@@ -35,7 +35,7 @@ class PeriodoType extends AbstractType
                 //->add('horas', 'text', array('label' => 'Total horas cumplidas', 'disabled' =>'true', 'required' => false))
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad','property' => 'nombre',
                  'label' => 'Actividades', 'disabled' =>'true','multiple'=>true, 'required' => false,
-                 'attr' => array('size' => '10')))
+                 'attr' => array('size' => '15')))
                 ->add('calificacion','choice', array('choices' => array('aprobado' => 'Aprobado', 'por evaluar' => 'Por Evaluar', 'no aprobado' => 'No Aprobado'),
                 'label' => 'Calificación', 'disabled' =>'true', 'required' => false))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 'required' => false, 
@@ -55,7 +55,7 @@ class PeriodoType extends AbstractType
               //  ->add('horas', 'text', array('label' => 'Total horas cumplidas'))
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
-                    'attr' => array('size' => '10')))
+                    'attr' => array('size' => '15')))
             ;
 
         }else if ($this->formtype == 'edit_student'){
@@ -70,7 +70,7 @@ class PeriodoType extends AbstractType
               //  ->add('horas', 'text', array('label' => 'Total horas cumplidas'))
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
-                    'attr' => array('size' => '10')))
+                    'attr' => array('size' => '15')))
                 ->add('calificacion','choice', array('choices' => array('aprobado' => 'Aprobado', 'por evaluar' => 'Por Evaluar', 'no aprobado' => 'No Aprobado'),
                 'label' => 'Calificación', 'disabled' =>'true'))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 
@@ -89,7 +89,7 @@ class PeriodoType extends AbstractType
               //  ->add('horas', 'text', array('label' => 'Total horas cumplidas', 'disabled' =>'true'))
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades', 'disabled' =>'true','multiple'=>true,
-                    'attr' => array('size' => '10'))) 
+                    'attr' => array('size' => '15'))) 
                 ->add('calificacion','choice', array('choices' => array('aprobado' => 'Aprobado', 'por evaluar' => 'Por Evaluar', 'no aprobado' => 'No Aprobado'),
                 'label' => 'Calificación'))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 

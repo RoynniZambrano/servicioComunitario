@@ -1,33 +1,33 @@
 laborsc_add:
-    pattern:  /laborsc_add
+    path:  /laborsc_add
     defaults: { _controller: TesisAdminBundle:Laborsc:add}
     options:
         expose: true 
 
 laborsc_addform:
-    pattern:  /laborsc_addform
+    path:  /laborsc_addform
     defaults: { _controller: TesisAdminBundle:Laborsc:addform}
 
 laborsc_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Laborsc:list}
     options:
         expose: true
 
 laborsc_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:Laborsc:check}
 
 laborsc_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Laborsc:checkform}
 
 laborsc_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:Laborsc:edit}
 
 laborsc_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Laborsc:editform }
 
 

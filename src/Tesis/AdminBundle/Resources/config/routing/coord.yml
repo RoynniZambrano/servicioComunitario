@@ -1,33 +1,33 @@
 coord_add:
-    pattern:  /coord_add
+    path:  /coord_add
     defaults: { _controller: TesisAdminBundle:Coordinadores:add}
     options:
         expose: true 
 
 coord_addform:
-    pattern:  /coord_addform
+    path:  /coord_addform
     defaults: { _controller: TesisAdminBundle:Coordinadores:addform}
 
 coord_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Coordinadores:list}
     options:
         expose: true
 
 coord_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:Coordinadores:check}
 
 coord_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Coordinadores:checkform}
 
 coord_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:Coordinadores:edit}
 
 coord_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Coordinadores:editform }
 
 

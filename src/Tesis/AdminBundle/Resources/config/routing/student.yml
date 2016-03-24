@@ -1,37 +1,37 @@
 
 student_checkform:
-    pattern:  /{id}/check_formst
+    path:  /{id}/check_formst
     defaults: { _controller: TesisAdminBundle:Estudiante:checkform}
     options:
         expose: true
 
 student_delete:
-    pattern:  /deletest
+    path:  /deletest
     defaults: { _controller: TesisAdminBundle:Estudiante:delete}
     options:
         expose: true 
 
 student_editform:
-    pattern:  /{id}/editformst
+    path:  /{id}/editformst
     defaults: { _controller: TesisAdminBundle:Estudiante:editform }
     options:
         expose: true    
 
 student_editpassform:
-    pattern:  /{cedula}/edit_pass_formst
+    path:  /{cedula}/edit_pass_formst
     defaults: { _controller: TesisAdminBundle:Estudiante:editpassform}
     options:
         expose: true
 
 student_new:
-    pattern:  /student_new
+    path:  /student_new
     defaults: { _controller: TesisAdminBundle:Estudiante:new}
     options:
         expose: true
 
 
 student_newform:
-    pattern:  /student_form
+    path:  /student_form
     defaults: { _controller: TesisAdminBundle:Estudiante:newform}
     options:
         expose: true
@@ -39,14 +39,14 @@ student_newform:
 
 
 student_new_alfa:
-    pattern:  /{nameLogin}/{clave}/useralfa_new
+    path:  /{nameLogin}/{clave}/useralfa_new
     defaults: { _controller: TesisAdminBundle:Estudiante:new_alfa}
     options:
         expose: true
 
 
 student_newform_alfa:
-    pattern:  /{nameLogin}/{clave}/user_newalfa
+    path:  /{nameLogin}/{clave}/user_newalfa
     defaults: { _controller: TesisAdminBundle:Estudiante:newform_alfa}
     options:
         expose: true

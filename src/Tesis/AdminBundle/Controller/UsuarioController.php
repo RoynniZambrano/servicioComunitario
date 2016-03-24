@@ -154,17 +154,19 @@ class UsuarioController extends Controller
             $options['method'] = 'POST';
             $form = $this->createForm(new UsuarioType('check'), $entity, $options);
             $form->add('edit', 'submit', array('label' => 'Editar'));
-            $form->add('back', 'submit', array('label' => 'Regresar'));
+          //  $form->add('back', 'submit', array('label' => 'Regresar'));
         
             $form->handleRequest($request);
             if ($form->get('edit')->isClicked()) {
                return $this->redirect($this->generateUrl('user_edit', array('cedula' => $cedula)));
             }  
+            /*
             if ($form->get('back')->isClicked()) {
                 if ($session->get('user')->getPerfil() != 'coordinador de servicio comunitario')
                     return $this->redirect($this->generateUrl('tesis_admin_homepage'));
                return $this->redirect($this->generateUrl('user_list'));
             }  
+            **/
 
 
              return $this->render('TesisAdminBundle:Usuario:check-user-form.html.twig',
@@ -395,6 +397,9 @@ class UsuarioController extends Controller
 
 
         /* llamadas a los servicios web **/
+
+        // llamada en la web
+        //http://localhost/ServicioComunitarioFACYT/web/app_dev.php/api/soap/checkalfa?wsdl
         
 	    //$client = new SoapClient("http://localhost:8000/app_dev.php/api/soap?wsdl");
 		//$response = $client->check('Chuck');

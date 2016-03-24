@@ -25,6 +25,17 @@ class SoapController extends Controller
         }
 
 
+        public function checkalfaAction()
+        {
+            if(isset($_GET['wsdl'])) {
+                return $this->handleWSDL($this->generateUrl('tesis_api_soap_checkalfa', array(), true), 'checkalfa_service'); 
+            } else {
+                return $this->handleSOAP($this->generateUrl('tesis_api_soap_checkalfa', array(), true), 'checkalfa_service'); 
+            }
+        }
+
+
+
         public function deleteAction()
         {
             if(isset($_GET['wsdl'])) {

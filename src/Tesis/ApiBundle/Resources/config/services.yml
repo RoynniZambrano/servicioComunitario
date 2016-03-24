@@ -9,5 +9,8 @@ services:
      check_service:
          class: Tesis\ApiBundle\Services\CheckService
 
+     checkalfa_service:
+         class: Tesis\ApiBundle\Services\CheckAlfaService         
+
      delete_service:
          class: Tesis\ApiBundle\Services\DeleteService

@@ -65,7 +65,7 @@ class UsuarioType extends AbstractType
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' =>'true', 'required' => false))
           
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true','required' => false))
-            ->add('estatus','text', array('label' => 'Estatus', 'disabled' =>'true', 'required' => false))
+            ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' =>'true', 'required' => false))
             ->add('perfil','text', array('label' => 'Perfil', 'disabled' => true ,'required' => false))
             ;      
 
@@ -84,7 +84,7 @@ class UsuarioType extends AbstractType
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
           
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' => false,'required' => true))
-            //->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
+            //->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' => true, 'required' => false))
             ->add('perfil','choice', array('choices' => array('tutor' => 'Tutor',
                 'coordinador de proyecto' => 'Coordinador de Proyecto', 'coordinador de servicio comunitario' => 'Coordinador de Servicio Comunitario',
                 'coordinador suplente' => 'Coordinador Suplente'),
@@ -107,7 +107,7 @@ class UsuarioType extends AbstractType
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
           
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' => true,'required' => false))
-           // ->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
+           // ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' => true, 'required' => false))
             ->add('perfil','text', array('label' => 'Perfil', 'disabled' => true ,'required' => false))
             ; 
 

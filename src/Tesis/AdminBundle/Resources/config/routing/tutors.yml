@@ -1,39 +1,39 @@
 tutors_add:
-    pattern:  /tutors_add
+    path:  /tutors_add
     defaults: { _controller: TesisAdminBundle:Tutores:add}
     options:
         expose: true 
 
 tutors_addform:
-    pattern:  /tutors_addform
+    path:  /tutors_addform
     defaults: { _controller: TesisAdminBundle:Tutores:addform}
 
 tutors_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Tutores:list}
     options:
         expose: true
 
 tutors_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:Tutores:check}
 
 tutors_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Tutores:checkform}
 
 tutors_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:Tutores:edit}
 
 tutors_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Tutores:editform }
 
 
 # eliecer fuck
 tutores_select:
-    pattern:  /{id}/tutores_select
+    path:  /{id}/tutores_select
     defaults: { _controller: TesisAdminBundle:Tutores:editSelect}
     options:
         expose: true 

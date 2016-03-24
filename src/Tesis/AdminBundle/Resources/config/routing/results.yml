@@ -1,36 +1,36 @@
 
 adicionales_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: TesisAdminBundle:Adicionales:new}
 
 adicionales_newform:
-    pattern:  /newform
+    path:  /newform
     defaults: { _controller: TesisAdminBundle:Adicionales:newform}
 
 adicionales_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Adicionales:list}
     options:
         expose: true
 
 adicionales_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:Adicionales:check}
 
 adicionales_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Adicionales:checkform}
 
 adicionales_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:Adicionales:edit}
 
 adicionales_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Adicionales:editform }
 
 adicionales_delete:
-    pattern:  /delete
+    path:  /delete
     defaults: { _controller: TesisAdminBundle:Adicionales:delete}
     options:
         expose: true 

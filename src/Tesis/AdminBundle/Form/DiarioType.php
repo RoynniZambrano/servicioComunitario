@@ -59,7 +59,7 @@ class DiarioType extends AbstractType
                     'attr' => array('placeholder' => '¿algun observación respecto a la calificación?', 'rows' => '10', 'disabled' =>'true')))                           
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades', 'disabled' =>'true','multiple'=>true, 'required' => false,
-                    'attr' => array('size' => '10')))
+                    'attr' => array('size' => '15')))
 
 
                 ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad', 'required' => false, 'disabled' => true))
@@ -129,7 +129,7 @@ class DiarioType extends AbstractType
                 ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Discapacidad'))            
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
-                    'attr' => array('size' => '10')))
+                    'attr' => array('size' => '15')))
         
                 ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad'))
 
@@ -199,7 +199,7 @@ class DiarioType extends AbstractType
                     'attr' => array('placeholder' => '¿algun observación respecto a la calificación?', 'rows' => '10', 'disabled' =>'true')))                            
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
-                    'attr' => array('size' => '10')))
+                    'attr' => array('size' => '15')))
 
 
                 ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad'))
@@ -264,7 +264,7 @@ class DiarioType extends AbstractType
                     'attr' => array('placeholder' => '¿algun observación respecto a la calificación?', 'rows' => '10')))                           
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades', 'disabled' =>'true','multiple'=>true,
-                    'attr' => array('size' => '10')))
+                    'attr' => array('size' => '15')))
 
                 ->add('ninos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Niños', 'disabled' =>'true'))
                 ->add('adultos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Adultos', 'disabled' =>'true'))

@@ -1,42 +1,42 @@
 
 diario_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: TesisAdminBundle:Diario:new}
 
 diario_newform:
-    pattern:  /newform
+    path:  /newform
     defaults: { _controller: TesisAdminBundle:Diario:newform}
 
 diario_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Diario:list}
     options:
         expose: true
 
 diario_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:Diario:check}
 
 diario_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Diario:checkform}
 
 diario_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:Diario:edit}
 
 diario_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Diario:editform }
 
 diario_delete:
-    pattern:  /delete
+    path:  /delete
     defaults: { _controller: TesisAdminBundle:Diario:delete}
     options:
         expose: true 
 
 pdf_diario:
-    pattern:  /{id}/pdf_diario
+    path:  /{id}/pdf_diario
     defaults: { _controller: TesisAdminBundle:Diario:pdf_diario}
 
 

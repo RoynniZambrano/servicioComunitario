@@ -1,31 +1,31 @@
 infofinal:
-    pattern:  /info_final
+    path:  /info_final
     defaults: { _controller: TesisAdminBundle:InfoFinal:new_infofinal}
     options:
         expose: true
 
 infofinal_pdf:
-    pattern:  /{id}/info_finalpdf
+    path:  /{id}/info_finalpdf
     defaults: { _controller: TesisAdminBundle:InfoFinal:pdf_infofinal}
 
 infofinal_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:InfoFinal:list}
     options:
         expose: true
 
 infofinal_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:InfoFinal:check}
 
 infofinal_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:InfoFinal:checkform}
 
 infofinal_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:InfoFinal:edit}
 
 infofinal_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:InfoFinal:editform }

@@ -39,7 +39,9 @@ class ProyectoController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = new Proyecto();
 
-            $form = $this->createForm(new ProyectoType('new'), $entity, array(
+            $options['status'] = 'new';
+            $options['fases'] = null;
+            $form = $this->createForm(new ProyectoType($options), $entity, array(
                 'action' => $this->generateUrl('project_newform'),
                 'method' => 'POST',
             ));
@@ -116,9 +118,11 @@ class ProyectoController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
                 array('idProyecto' => $id));
 
-            $options['action'] = $this->generateUrl('project_checkform', array('id' => $id));
-            $options['method'] = 'POST';
-            $form = $this->createForm(new ProyectoType('check'), $entity, $options);
+            $options['status'] = 'check';
+            $options['fases'] = $entity->getFaseFase();
+            $form = $this->createForm(new ProyectoType($options), $entity, array(
+                'action' => $this->generateUrl('project_checkform', array('id' => $id)),
+                'method' => 'POST'));
             $form->add('edit', 'submit', array('label' => 'Editar'));
             $form->add('back', 'submit', array('label' => 'Regresar'));            
         
@@ -164,9 +168,19 @@ class ProyectoController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
             array('idProyecto' => $id));
 
+            /*
             $options['action'] = $this->generateUrl('project_editform', array('id' => $id));
             $options['method'] = 'POST';
-            $editForm = $this->createForm(new ProyectoType('edit'), $entity, $options);             
+            $editForm = $this->createForm(new ProyectoType('edit'), $entity, $options);
+            */
+
+            $options['status'] = 'edit';
+            $options['fases'] = $entity->getFaseFase();
+            $editForm = $this->createForm(new ProyectoType($options), $entity, array(
+                'action' => $this->generateUrl('project_editform', array('id' => $id)),
+                'method' => 'POST'));
+
+
             $editForm->handleRequest($request);          
 
             if ($editForm->isValid()) {

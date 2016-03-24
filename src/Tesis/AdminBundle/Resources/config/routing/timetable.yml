@@ -1,36 +1,36 @@
 
 periodo_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: TesisAdminBundle:Periodo:new}
 
 periodo_newform:
-    pattern:  /newform
+    path:  /newform
     defaults: { _controller: TesisAdminBundle:Periodo:newform }
 
 periodo_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Periodo:list}
     options:
         expose: true
 
 periodo_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:Periodo:check}
 
 periodo_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Periodo:checkform}
 
 periodo_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:Periodo:edit}
 
 periodo_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Periodo:editform }
 
 periodo_delete:
-    pattern:  /delete
+    path:  /delete
     defaults: { _controller: TesisAdminBundle:Periodo:delete}
     options:
         expose: true 

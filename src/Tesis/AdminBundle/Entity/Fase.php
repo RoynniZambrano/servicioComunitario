@@ -70,7 +70,7 @@ class Fase
      *     @ORM\JoinColumn(name="actividad_id_actividad", referencedColumnName="id_actividad")
      *   }
      * )
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos una actividad") 
+     * Assert\Count(min = 1, minMessage = "Debe elegir al menos una actividad") 
      */
     private $actividadActividad;
 

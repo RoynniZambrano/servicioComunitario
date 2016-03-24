@@ -1,50 +1,50 @@
 
 user_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: TesisAdminBundle:Usuario:new}
 
 user_newform:
-    pattern:  /newform
+    path:  /newform
     defaults: { _controller: TesisAdminBundle:Usuario:newform }
 
 user_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:Usuario:list}
     options:
         expose: true
 
 user_check:
-    pattern:  /{cedula}/check
+    path:  /{cedula}/check
     defaults: { _controller: TesisAdminBundle:Usuario:check}
 
 user_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:Usuario:checkform}
 
 user_edit:
-    pattern:  /{cedula}/edit
+    path:  /{cedula}/edit
     defaults: { _controller: TesisAdminBundle:Usuario:edit}
 
 user_delete:
-    pattern:  /delete
+    path:  /delete
     defaults: { _controller: TesisAdminBundle:Usuario:delete}
     options:
         expose: true  
 
 user_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:Usuario:editform }
 
 user_editpass:
-    pattern:  /{cedula}/edit_pass
+    path:  /{cedula}/edit_pass
     defaults: { _controller: TesisAdminBundle:Usuario:editpass}
 
 user_editpassform:
-    pattern:  /{cedula}/edit_pass_form
+    path:  /{cedula}/edit_pass_form
     defaults: { _controller: TesisAdminBundle:Usuario:editpassform}
 
 user_logout:
-    pattern:  /
+    path:  /
     defaults: { _controller: TesisAdminBundle:Usuario:logout}
 
 

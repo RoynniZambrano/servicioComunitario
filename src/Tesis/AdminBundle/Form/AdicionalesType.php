@@ -46,7 +46,7 @@ class AdicionalesType extends AbstractType
                     ))
 
                 ->add('comentario','textarea', array('label' => 'Descripción', 'required' => false, 
-                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '10','disabled' =>'true')))
+                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '15','disabled' =>'true')))
                 ->add('cantidad', 'text', array('label' => 'Horas de la actividad' , 'disabled' =>'true', 'required' => false))
             ;
         }
@@ -70,7 +70,7 @@ class AdicionalesType extends AbstractType
                 
 
                 ->add('comentario','textarea', array('label' => 'Descripción', 
-                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '10')))
+                    'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '15')))
                 ->add('cantidad', 'text', array('label' => 'Horas de la actividad'))
             ;
         }

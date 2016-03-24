@@ -1,52 +1,52 @@
 
 reports_1:
-    pattern:  /reports1
+    path:  /reports1
     defaults: { _controller: TesisAdminBundle:Reports:new_reports1}
 
 report1form:
-    pattern:  /reportform
+    path:  /reportform
     defaults: { _controller: TesisAdminBundle:Reports:report1form}
 
 reports_1pdf:
-    pattern:  /reports1pdf
+    path:  /reports1pdf
     defaults: { _controller: TesisAdminBundle:Reports:pdf_reports1}
 
 reports_2:
-    pattern:  /reports2
+    path:  /reports2
     defaults: { _controller: TesisAdminBundle:Reports:new_reports2}
 
 report2form:
-    pattern:  /reportform
+    path:  /reportform
     defaults: { _controller: TesisAdminBundle:Reports:report2form}
 
 reports_2pdf:
-    pattern:  /reports2pdf
+    path:  /reports2pdf
     defaults: { _controller: TesisAdminBundle:Reports:pdf_reports2}
 
 reports_3:
-    pattern:  /reports3
+    path:  /reports3
     defaults: { _controller: TesisAdminBundle:Reports:new_reports3}
 
 report3form:
-    pattern:  /reportform
+    path:  /reportform
     defaults: { _controller: TesisAdminBundle:Reports:report3form}
 
 reports_3pdf:
-    pattern:  /reports3pdf
+    path:  /reports3pdf
     defaults: { _controller: TesisAdminBundle:Reports:pdf_reports3}
 
 reports_4:
-    pattern:  /reports4
+    path:  /reports4
     defaults: { _controller: TesisAdminBundle:Reports:new_reports4}
 
 reports_4pdf:
-    pattern:  /reports4pdf
+    path:  /reports4pdf
     defaults: { _controller: TesisAdminBundle:Reports:pdf_reports4}
 
 reports_5:
-    pattern:  /reports5
+    path:  /reports5
     defaults: { _controller: TesisAdminBundle:Reports:new_reports5}
 
 reports_5pdf:
-    pattern:  /reports5pdf
+    path:  /reports5pdf
     defaults: { _controller: TesisAdminBundle:Reports:pdf_reports5}

@@ -6,6 +6,10 @@ tesis_api_soap_check:
     path: /api/soap/check
     defaults: { _controller: TesisApiBundle:Soap:check }
 
+tesis_api_soap_checkalfa:
+    path: /api/soap/checkalfa
+    defaults: { _controller: TesisApiBundle:Soap:checkalfa }
+
 tesis_api_soap_delete:
     path: /api/soap/delete
     defaults: { _controller: TesisApiBundle:Soap:delete }

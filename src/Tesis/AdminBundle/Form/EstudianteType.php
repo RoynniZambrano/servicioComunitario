@@ -110,7 +110,7 @@ class EstudianteType extends AbstractType
                 ))
             **/
 
-            ->add('sc','text', array('label' => 'Estatus SC', 'disabled' =>'true', 'required' => false))
+            ->add('sc','text', array('label' => 'Estatus servicio comunitario', 'disabled' =>'true', 'required' => false))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' =>'true', 'required' => false))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' =>'true', 'required' => false))
            // ->add('perfil','text', array('label' => 'Rol', 'disabled' =>'true','required' => false))
@@ -119,7 +119,7 @@ class EstudianteType extends AbstractType
                 '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' =>'true','required' => false)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true','required' => false))
-            ->add('estatus','text', array('label' => 'Estatus', 'disabled' =>'true', 'required' => false))
+            ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' =>'true', 'required' => false))
             //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
             //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
             ;        
@@ -156,7 +156,7 @@ class EstudianteType extends AbstractType
                 ))
             **/
 
-            ->add('sc','text', array('label' => 'Estatus SC', 'disabled' => false, 'required' => true))
+            ->add('sc','text', array('label' => 'Estatus servicio comunitario', 'disabled' => false, 'required' => true))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' => false, 'required' => true))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
           // ->add('perfil','text', array('label' => 'Rol', 'disabled' => false,'required' => false))
@@ -171,7 +171,7 @@ class EstudianteType extends AbstractType
                 '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' => false ,'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' => false,'required' => true))
-           // ->add('estatus','text', array('label' => 'Estatus', 'disabled' => true, 'required' => false))
+           // ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' => true, 'required' => false))
             //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
             //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
             ;
@@ -209,7 +209,7 @@ class EstudianteType extends AbstractType
                 **/
 
 
-            ->add('sc','text', array('label' => 'Estatus SC', 'disabled' =>'true', 'required' => false))
+            ->add('sc','text', array('label' => 'Estatus servicio comunitario', 'disabled' =>'true', 'required' => false))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' =>'true', 'required' => false))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
             ->add('perfil','text', array('label' => 'Perfil', 'disabled' =>'true','required' => false))
@@ -218,7 +218,7 @@ class EstudianteType extends AbstractType
                 '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' => false,'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true','required' => false))
-           // ->add('estatus','text', array('label' => 'Estatus', 'disabled' =>  true, 'required' => false))
+           // ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' =>  true, 'required' => false))
             //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
             //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
             ;

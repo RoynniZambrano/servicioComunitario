@@ -2,37 +2,37 @@
 
 
 infoAdicional_new:
-    pattern:  /new
+    path:  /new
     defaults: { _controller: TesisAdminBundle:InfoAdicional:new}
 
 infoAdicional_newform:
-    pattern:  /newform
+    path:  /newform
     defaults: { _controller: TesisAdminBundle:InfoAdicional:newform}
 
 infoAdicional_list:
-    pattern:  /list
+    path:  /list
     defaults: { _controller: TesisAdminBundle:InfoAdicional:list}
     options:
         expose: true
 
 infoAdicional_check:
-    pattern:  /{id}/check
+    path:  /{id}/check
     defaults: { _controller: TesisAdminBundle:InfoAdicional:check}
 
 infoAdicional_checkform:
-    pattern:  /{id}/check_form
+    path:  /{id}/check_form
     defaults: { _controller: TesisAdminBundle:InfoAdicional:checkform}
 
 infoAdicional_edit:
-    pattern:  /{id}/edit
+    path:  /{id}/edit
     defaults: { _controller: TesisAdminBundle:InfoAdicional:edit}
 
 infoAdicional_editform:
-    pattern:  /{id}/editform
+    path:  /{id}/editform
     defaults: { _controller: TesisAdminBundle:InfoAdicional:editform }
 
 infoAdicional_delete:
-    pattern:  /delete
+    path:  /delete
     defaults: { _controller: TesisAdminBundle:InfoAdicional:delete}
     options:
         expose: true 
