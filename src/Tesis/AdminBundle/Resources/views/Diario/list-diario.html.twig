@@ -50,6 +50,7 @@
                   <thead>
                     <tr>
                         {% if (user.perfil != 'estudiante') %}
+                      <th>cedula estudiante</th>
                       <th>Estudiante</th>
                         {% endif %}  
                       <th>Fecha</th>                      
@@ -66,6 +67,7 @@
                   {% for diario in diarios %}
                     <tr>
                         {% if (user.perfil != 'estudiante') %}
+                          <td>{{ diario.estudianteEstudiante.cedula }}</td> 
                           <td>{{ diario.estudianteEstudiante.nombre }}</td> 
                         {% endif %}                   
                     <td>{{ diario.fecha |date('d-m-Y') }}</td>                      
@@ -98,6 +100,7 @@
                   <tfoot>
                     <tr>
                         {% if (user.perfil != 'estudiante') %}
+                      <th>cedula estudiante</th>                          
                       <th>Estudiante</th>
                         {% endif %}  
                       <th>Fecha</th>                      

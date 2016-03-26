@@ -13,14 +13,12 @@ use Doctrine\ORM\EntityRepository;
 class DiarioType extends AbstractType
 {
 
-
-    private $formtype;
-
     /*constructor que establece si el diario se va a crear o a editar*/
     public function __construct($options){
         $this->formtype = $options['status'];
         $this->id_estudiante = $options['id'];
         $this->id_proyecto = $options['proyecto'];
+        $this->actividades = $options['actividades'];
     }
 
     /**
@@ -57,9 +55,18 @@ class DiarioType extends AbstractType
                 'label' => 'Calificación', 'disabled' =>'true', 'required' => false))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 'required' => false,
                     'attr' => array('placeholder' => '¿algun observación respecto a la calificación?', 'rows' => '10', 'disabled' =>'true')))                           
-                ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
-                    'property' => 'nombre', 'label' => 'Actividades', 'disabled' =>'true','multiple'=>true, 'required' => false,
-                    'attr' => array('size' => '15')))
+            
+
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'choices' => $this->actividades,                    
+                    'property' => 'nombre',
+                    'label' => 'Actividades',
+                    'expanded' => false,
+                    'multiple'=>true,
+                    'disabled' => true,
+                    'required' => false,
+                    'attr' => array('size' => '15')))                 
 
 
                 ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad', 'required' => false, 'disabled' => true))
@@ -197,9 +204,25 @@ class DiarioType extends AbstractType
                 'label' => 'Calificación', 'disabled' =>'true'))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 
                     'attr' => array('placeholder' => '¿algun observación respecto a la calificación?', 'rows' => '10', 'disabled' =>'true')))                            
-                ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
-                    'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
+                
+
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'property' => 'nombre',
+                    'label' => 'Actividades',
+                    'multiple'=> true,
+                    'required' => true,
+                    'group_by' => function($val, $key, $index) {
+                        foreach ($this->actividades as $actividad) {
+                            if ($actividad->getNombre() == $val->getNombre()){
+                                return 'Actividades pertenicientes al diario de campo';
+                            } 
+                        }
+                        return 'Actividades disponible para agregar al diario de campo';
+                    },
                     'attr' => array('size' => '15')))
+
+
 
 
                 ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad'))
@@ -262,9 +285,19 @@ class DiarioType extends AbstractType
                 'label' => 'Calificación'))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 
                     'attr' => array('placeholder' => '¿algun observación respecto a la calificación?', 'rows' => '10')))                           
-                ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
-                    'property' => 'nombre', 'label' => 'Actividades', 'disabled' =>'true','multiple'=>true,
-                    'attr' => array('size' => '15')))
+        
+
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'choices' => $this->actividades,                    
+                    'property' => 'nombre',
+                    'label' => 'Actividades',
+                    'expanded' => false,
+                    'multiple'=> true,
+                    'disabled' => true,
+                    'required' => false,
+                    'attr' => array('size' => '15'))) 
+
 
                 ->add('ninos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Niños', 'disabled' =>'true'))
                 ->add('adultos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Adultos', 'disabled' =>'true'))

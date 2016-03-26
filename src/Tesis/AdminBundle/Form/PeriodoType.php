@@ -4,16 +4,15 @@ namespace Tesis\AdminBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Tesis\AdminBundle\Entity\Actividad;
+use Doctrine\ORM\EntityRepository;
 
 class PeriodoType extends AbstractType
 {
 
-
-    private $formtype;
-
-    /*constructor que establece si el cronograma se va a crear o a editar*/
-    public function __construct($type){
-        $this->formtype = $type;
+    public function __construct($options){
+        $this->formtype = $options['status'];
+        $this->actividades = $options['actividades'];
     }
 
     /**
@@ -24,18 +23,25 @@ class PeriodoType extends AbstractType
 
         if ($this->formtype == 'check' ) { 
 
-
             $builder
                 ->add('nombre','text', array('label' => 'Nombre', 'disabled' =>'true', 'required' => false))
                 ->add('fechaInicio', 'date', array('format' => 'dd-MM-yyyy', 'label' => 'Fecha de inicio', 'widget' => 'single_text', 'required' => false, 'attr' => array('placeholder' => 'dd-MM-yyyy', 'disabled' =>'true')))
                 ->add('fechaFin', 'date', array('format' => 'dd-MM-yyyy', 'label' => 'Fecha de culminación', 'widget' => 'single_text', 'required' => false, 'attr' => array('placeholder' => 'dd-MM-yyyy', 'disabled' =>'true')))
                 ->add('comentario','textarea', array('label' => 'Comentario', 'required' => false,
                     'attr' => array('placeholder' => '¿algo que agregar?', 'rows' => '10', 'disabled' =>'true'))) 
-                //->add('personas', 'text', array('label' => 'Total personas atendidas', 'disabled' =>'true', 'required' => false))
-                //->add('horas', 'text', array('label' => 'Total horas cumplidas', 'disabled' =>'true', 'required' => false))
-                ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad','property' => 'nombre',
-                 'label' => 'Actividades', 'disabled' =>'true','multiple'=>true, 'required' => false,
-                 'attr' => array('size' => '15')))
+
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'choices' => $this->actividades,                    
+                    'property' => 'nombre',
+                    'label' => 'Actividades',
+                    'expanded' => false,
+                    'multiple'=>true,
+                    'disabled' => true,
+                    'required' => false,
+                    'attr' => array('size' => '15'))) 
+
+
                 ->add('calificacion','choice', array('choices' => array('aprobado' => 'Aprobado', 'por evaluar' => 'Por Evaluar', 'no aprobado' => 'No Aprobado'),
                 'label' => 'Calificación', 'disabled' =>'true', 'required' => false))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 'required' => false, 
@@ -51,8 +57,6 @@ class PeriodoType extends AbstractType
                 ->add('fechaFin', 'date', array('format' => 'dd-MM-yyyy', 'label' => 'Fecha de culminación', 'widget' => 'single_text', 'attr' => array('placeholder' => 'dd-MM-yyyy')))
                 ->add('comentario','textarea', array('label' => 'Comentario', 
                     'attr' => array('placeholder' => '¿algo que agregar?', 'rows' => '10'))) 
-              //  ->add('personas', 'text', array('label' => 'Total personas atendidas'))
-              //  ->add('horas', 'text', array('label' => 'Total horas cumplidas'))
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
                     'attr' => array('size' => '15')))
@@ -66,11 +70,22 @@ class PeriodoType extends AbstractType
                 ->add('fechaFin', 'date', array('format' => 'dd-MM-yyyy', 'label' => 'Fecha de culminación', 'widget' => 'single_text', 'attr' => array('placeholder' => 'dd-MM-yyyy')))
                 ->add('comentario','textarea', array('label' => 'Comentario', 
                     'attr' => array('placeholder' => '¿algo que agregar?', 'rows' => '10'))) 
-              //  ->add('personas', 'text', array('label' => 'Total personas atendidas'))
-              //  ->add('horas', 'text', array('label' => 'Total horas cumplidas'))
-                ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
-                    'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
-                    'attr' => array('size' => '15')))
+            
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'property' => 'nombre',
+                    'label' => 'Actividades',
+                    'multiple'=>true,
+                    'group_by' => function($val, $key, $index) {
+                        foreach ($this->actividades as $actividad) {
+                            if ($actividad->getNombre() == $val->getNombre()){
+                                return 'Actividades pertenicientes al periodo';
+                            } 
+                        }
+                        return 'Actividades disponible para agregar al periodo';
+                    },
+                    'attr' => array('size' => '15')))   
+
                 ->add('calificacion','choice', array('choices' => array('aprobado' => 'Aprobado', 'por evaluar' => 'Por Evaluar', 'no aprobado' => 'No Aprobado'),
                 'label' => 'Calificación', 'disabled' =>'true'))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 
@@ -85,11 +100,27 @@ class PeriodoType extends AbstractType
                 ->add('fechaFin', 'date', array('format' => 'dd-MM-yyyy', 'label' => 'Fecha de culminación', 'widget' => 'single_text', 'attr' => array('placeholder' => 'dd-MM-yyyy', 'disabled' =>'true')))
                 ->add('comentario','textarea', array('label' => 'Comentario', 
                     'attr' => array('placeholder' => '¿algo que agregar?', 'rows' => '10', 'disabled' =>'true'))) 
-              //  ->add('personas', 'text', array('label' => 'Total personas atendidas', 'disabled' =>'true'))
-              //  ->add('horas', 'text', array('label' => 'Total horas cumplidas', 'disabled' =>'true'))
+                
+                    /*
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades', 'disabled' =>'true','multiple'=>true,
+                    'attr' => array('size' => '15')))
+                    */
+
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'choices' => $this->actividades,                    
+                    'property' => 'nombre',
+                    'label' => 'Actividades',
+                    'expanded' => false,
+                    'multiple'=>true,
+                    'disabled' => true,
+                    'required' => false,
                     'attr' => array('size' => '15'))) 
+
+
+
+
                 ->add('calificacion','choice', array('choices' => array('aprobado' => 'Aprobado', 'por evaluar' => 'Por Evaluar', 'no aprobado' => 'No Aprobado'),
                 'label' => 'Calificación'))                                
                 ->add('observacion','textarea', array('label' => 'Observación', 

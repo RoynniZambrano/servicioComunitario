@@ -54,20 +54,7 @@ class AdicionalesType extends AbstractType
 
             $builder
                 ->add('nombre','text', array('label' => 'Nombre de la actividad', 'attr' => array('placeholder' => 'Nombre de la actividad')))
-               ->add('diarioDiario', 'entity', array('class' => 'TesisAdminBundle:Diario', 'label' => 'Diario'))
-
-               /* 
-                ->add('diarioDiario', 'entity', array(
-                    'class' => 'TesisAdminBundle:Diario', 
-                    'label' => 'Diario',
-                    'query_builder' => function(EntityRepository $er) {
-                                return $er->createQueryBuilder('r')
-                                    ->where('r.estudianteEstudiante = :estudiante')
-                                    ->setParameter('estudiante', $this->id_estudiante);
-                            },
-                    ))
-                **/
-                
+               ->add('diarioDiario', 'entity', array('class' => 'TesisAdminBundle:Diario', 'label' => 'Diario'))               
 
                 ->add('comentario','textarea', array('label' => 'Descripción', 
                     'attr' => array('placeholder' => 'Descripción de la actividad', 'rows' => '15')))

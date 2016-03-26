@@ -38,7 +38,9 @@ class TutoriaController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = new Tutoria();
 
-            $form = $this->createForm(new TutoriaType('new'), $entity, array(
+            $options['status'] = 'new';
+            $options['estudiantes'] = null;
+            $form = $this->createForm(new TutoriaType($options), $entity, array(
                 'action' => $this->generateUrl('tutor_addform'),
                 'method' => 'POST',
             ));
@@ -138,10 +140,14 @@ class TutoriaController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
                 array('idTutoria' => $id));
+       
+            $options['status'] = 'check';
+            $options['estudiantes'] = $entity->getEstudianteEstudiante();
+            $form = $this->createForm(new TutoriaType($options), $entity, array(
+                'action' => $this->generateUrl('tutor_checkform', array('id' => $id)),
+                'method' => 'POST',
+            ));
 
-            $options['action'] = $this->generateUrl('tutor_checkform', array('id' => $id));
-            $options['method'] = 'POST';
-            $form = $this->createForm(new TutoriaType('check'), $entity, $options);
             $form->add('edit', 'submit', array('label' => 'Editar'));
             $form->add('back', 'submit', array('label' => 'Regresar'));            
         
@@ -187,11 +193,15 @@ class TutoriaController extends Controller{
 
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('TesisAdminBundle:Tutoria')->findOneBy(
-            array('idTutoria' => $id));
+            array('idTutoria' => $id));         
 
-            $options['action'] = $this->generateUrl('tutor_editform', array('id' => $id));
-            $options['method'] = 'POST';
-            $editForm = $this->createForm(new TutoriaType('edit'), $entity, $options); 
+            $options['status'] = 'edit';
+            $options['estudiantes'] = $entity->getEstudianteEstudiante();
+            $editForm = $this->createForm(new TutoriaType($options), $entity, array(
+                'action' => $this->generateUrl('tutor_editform', array('id' => $id)),
+                'method' => 'POST',
+            ));
+
             $editForm->add('back', 'submit', array('label' => 'Regresar'));                        
             $editForm->handleRequest($request);  
 

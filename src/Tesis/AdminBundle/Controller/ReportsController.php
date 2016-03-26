@@ -3,6 +3,7 @@
 namespace Tesis\AdminBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Tesis\AdminBundle\Entity\Tutoria;
@@ -38,7 +39,7 @@ class ReportsController extends Controller
                 'action' => $this->generateUrl('reports_1pdf'),
                 'method' => 'POST',
             ));
-             $form->add('submit', 'submit', array('label' => 'Descargar Reporte'));
+            $form->add('submit', 'submit', array('label' => 'Descargar Reporte'));
             $form->handleRequest($request);
 
             return $this->render('TesisAdminBundle:Reports:reports-form.html.twig',
@@ -59,7 +60,7 @@ class ReportsController extends Controller
                $departamento = $valor['departamento'];
                $periodo = $valor['periodo'];
              }
-                 
+           
 
             if ($periodo != "todos") {
 
@@ -90,7 +91,7 @@ class ReportsController extends Controller
                 $query->setParameter('estatus', "activo");
                 $entity = $query->execute();
 
-            }    
+            }   
 
 
             // crea la vista
@@ -100,6 +101,12 @@ class ReportsController extends Controller
                 'periodo' => $periodo
                ));  
 
+            $tamano = 0;
+            $tamano = sizeof($entity);
+            if ($tamano <= 0) {
+                return $this->render('TesisAdminBundle:Main:nodata.html.twig',  array(
+                'urlpath' => 'reports_1'));
+            }
 
             // retorna la vista en pdf.
             return new Response(
@@ -210,6 +217,14 @@ class ReportsController extends Controller
                 'departamento' => $departamento,
                 'periodo' => $periodo
                ));  
+
+            $tamano = 0;
+            $tamano = sizeof($entity);
+            if ($tamano <= 0) {
+                return $this->render('TesisAdminBundle:Main:nodata.html.twig',  array(
+                'urlpath' => 'reports_2'));
+            }
+
 
             // retorna la vista en pdf.
             return new Response(
@@ -344,6 +359,14 @@ class ReportsController extends Controller
                 }                             
 
                 $i++;
+            }
+
+
+            $tamano = 0;
+            $tamano = sizeof($tutores);
+            if ($tamano <= 0) {
+                return $this->render('TesisAdminBundle:Main:nodata.html.twig',  array(
+                'urlpath' => 'reports_3'));
             }
 
 
@@ -533,6 +556,15 @@ class ReportsController extends Controller
                 $suplentes = null;
             } 
 
+            $tamano = 0;
+            $tamano = sizeof($c_proyecto);
+            $tamano2 = 0;
+            $tamano2 = sizeof($c_suplente);            
+            if ($tamano <= 0 && $tamano2 <= 0) {
+                return $this->render('TesisAdminBundle:Main:nodata.html.twig',  array(
+                'urlpath' => 'reports_4'));
+            }
+
 
             // crea la vista
             $html = $this->renderView('TesisAdminBundle:Reports:reports4_pdf.html.twig', array(
@@ -654,6 +686,14 @@ class ReportsController extends Controller
                 $usuarios = null;
             }
         
+
+            $tamano = 0;
+            $tamano = sizeof($entity);            
+            if ($tamano <= 0) {
+                return $this->render('TesisAdminBundle:Main:nodata.html.twig',  array(
+                'urlpath' => 'reports_5'));
+            }
+
 
             // crea la vista
             $html = $this->renderView('TesisAdminBundle:Reports:reports5_pdf.html.twig', array(

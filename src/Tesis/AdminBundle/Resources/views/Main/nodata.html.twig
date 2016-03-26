@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+	<h3>Información no disponible para con el periodo suministrado</h3>	
+	
+	{% if (urlpath == 'reports_1') %}
+		<strong><a href="{{ path('reports_1') }}">Regresar</a><strong>
+	{% elseif (urlpath == 'reports_2') %}
+		<strong><a href="{{ path('reports_2') }}">Regresar</a><strong>
+	{% elseif (urlpath == 'reports_3') %}
+		<strong><a href="{{ path('reports_3') }}">Regresar</a><strong>	
+	{% elseif (urlpath == 'reports_4') %}
+		<strong><a href="{{ path('reports_4') }}">Regresar</a><strong>	
+	{% elseif (urlpath == 'reports_5') %}
+		<strong><a href="{{ path('reports_5') }}">Regresar</a><strong>		
+	{% endif %}
+		
+{% endblock %}

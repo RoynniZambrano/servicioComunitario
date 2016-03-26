@@ -49,6 +49,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
+                      <th>cedula estudiante</th>                      
                       <th>Estudiante</th>
                       <th>Observacion</th>
                       <th>Calificacion</th>
@@ -59,12 +60,13 @@
                   <tbody>
                   {% for informe in informes %}
                     <tr>
+                    <td>{{ informe.idEstudiante.cedula }}</td>                       
                     <td>{{ informe.idEstudiante.nombre }}</td>  
                     <td>{{ informe.observacion }}</td>
                     <td>{{ informe.calificacion }}</td>                    
                     <td align="center">
                       <a href="{{ path('infofinal_pdf', {'id': informe.idEstudiante.getId()}) }}">
-                          <button class="btn btn-success">Visualizar</button>
+                          <button class="btn btn-success">Descargar</button>
                       </a>
                     </td>
                     <td align="center">
@@ -77,6 +79,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                      <th>cedula estudiante</th>                      
                       <th>Estudiante</th>
                       <th>Observacion</th>
                       <th>Calificacion</th>

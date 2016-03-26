@@ -49,6 +49,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
+                      <th>cedula estudiante</th>
                       <th>Estudiante</th>
                       <th>Calificación</th>
                       <th>Observación</th>
@@ -62,6 +63,7 @@
                   <tbody>
                   {% for infoAdicional in entity %}
                     <tr>
+                    <td>{{ infoAdicional.idEstudiante.cedula }}</td>
                     <td>{{ infoAdicional.idEstudiante.nombre }}</td>                   
                     <td>{{ infoAdicional.calificacion }}</td>    
                     <td>{{ infoAdicional.observacion }}</td>
@@ -91,6 +93,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                      <th>cedula estudiante</th>                      
                       <th>Estudiante</th>
                       <th>Calificación</th>
                       <th>Observación</th>

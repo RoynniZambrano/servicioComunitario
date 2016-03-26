@@ -16,11 +16,10 @@ use Tesis\AdminBundle\Entity\Proyecto;
 
 class TutoriaType extends AbstractType
 {
-    private $formtype;
 
-    /*constructor que establece si la tutoria se va a crear o a editar*/
-    public function __construct($type){
-        $this->formtype = $type;
+    public function __construct($options){
+        $this->formtype = $options['status'];
+        $this->estudiantes = $options['estudiantes'];
     }
 
     /**
@@ -32,8 +31,6 @@ class TutoriaType extends AbstractType
         if ($this->formtype == 'check' ) {    
 
             $builder
-          //  ->add('profesorProfesor', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Tutor','disabled' => true, 'required' => false))
-            
 
             ->add('profesorProfesor', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",
@@ -49,40 +46,26 @@ class TutoriaType extends AbstractType
                         },
                 ))
 
-
-
-          //  ->add('estudianteEstudiante', 'entity', array('class' => 'TesisAdminBundle:Estudiante','property' => 'nombre', 'label' => 'Estudiantes',
-          //   'multiple'=>true,'disabled' => true, 'required' => false, 'attr' => array('size' => '20')))
-           
-
-             ->add('estudianteEstudiante', 'entity', array(
+            ->add('estudianteEstudiante', 'entity', array(
                 "class"     => "TesisAdminBundle:Estudiante",
+                'choices' => $this->estudiantes,  
                 "property"  => "nombre",
                 'label' => 'Estudiantes',
                 'disabled' => true,
                 'multiple' => true,
                 'required' => false,
-                'attr' => array('size' => '20'),
-                'query_builder' => function(EntityRepository $er) {
-                 return $er->createQueryBuilder('p')
-                        ->where('p.perfil = :perfil ')
-                      //  ->setParameter('estatus', "activo")
-                        ->setParameter('perfil', "estudiante");
-                        },
-                ))  
+                'attr' => array('size' => '20')
+                ))
 
 
-            ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
-                '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
+            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
                 'label' => 'Periodo', 'disabled' => true, 'required' => false))             
             ;
 
-        } else {
+        } else  if ($this->formtype == 'edit' ) { 
 
-            $builder
-          //  ->add('profesorProfesor', 'entity', array('class' => 'TesisAdminBundle:Profesor','property' => 'nombre', 'label' => 'Tutor'))
-            
+            $builder 
             ->add('profesorProfesor', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",
                 "property"  => "nombre",
@@ -98,9 +81,56 @@ class TutoriaType extends AbstractType
                 ))
 
 
-        //    ->add('estudianteEstudiante', 'entity', array('class' => 'TesisAdminBundle:Estudiante','property' => 'nombre',
-        //    'label' => 'Estudiantes', 'multiple'=>true, 'attr' => array('size' => '20')))
-          
+             ->add('estudianteEstudiante', 'entity', array(
+                "class"     => "TesisAdminBundle:Estudiante",
+                "property"  => "nombre",
+                'label' => 'Estudiantes',
+                'disabled' => false,
+                'multiple' => true,
+                'required' => true,
+                'attr' => array('size' => '20'),
+                 'group_by' => function($val, $key, $index) {
+                        foreach ($this->estudiantes as $estudiante) {
+                            if ($estudiante->getId() == $val->getId()){
+                                return 'Estudiantes asignados al tutor';
+                            } 
+                        }
+                        return 'Estudiantes disponible para asignar al tutor';
+                    },
+                'query_builder' => function(EntityRepository $er) {
+                 return $er->createQueryBuilder('p')
+                        ->where('p.perfil = :perfil')
+                      //  ->setParameter('estatus', "activo")
+                        ->setParameter('perfil', "estudiante");
+                        },
+                ))
+
+
+            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
+                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
+                'label' => 'Periodo', 'disabled' => false, 'required' => true))             
+           
+           ;
+   
+
+        } else  if ($this->formtype == 'new' ) { 
+
+
+            $builder 
+            ->add('profesorProfesor', 'entity', array(
+                "class"     => "TesisAdminBundle:Profesor",
+                "property"  => "nombre",
+                'label' => 'Tutor',
+                'disabled' => false,
+                'required' => true,
+                'query_builder' => function(EntityRepository $er) {
+                 return $er->createQueryBuilder('p')
+                        ->where('p.perfil = :perfil')
+                       // ->setParameter('estatus', "activo")
+                        ->setParameter('perfil', "tutor");
+                        },
+                ))
+
 
              ->add('estudianteEstudiante', 'entity', array(
                 "class"     => "TesisAdminBundle:Estudiante",
@@ -117,16 +147,15 @@ class TutoriaType extends AbstractType
                         ->setParameter('perfil', "estudiante");
                         },
                 )) 
+             
 
-
-            ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
-                '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
+            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
                 'label' => 'Periodo', 'disabled' => false, 'required' => true))             
            
            ;
-   
-        }  
+
+        } 
 
     }
  

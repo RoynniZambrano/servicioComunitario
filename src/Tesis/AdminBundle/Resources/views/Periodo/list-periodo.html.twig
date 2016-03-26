@@ -50,7 +50,8 @@
                   <thead>
                     <tr>
                         {% if (user.perfil != 'estudiante') %}
-                      <th>Estudiante</th>      
+                      <th>Cedula estudiante</th> 
+                      <th>Estudiante</th> 
                         {% endif %}                
                       <th>Fecha inicio</th>
                       <th>Fecha culminacion</th>                      
@@ -66,6 +67,7 @@
                   {% for periodo in periodos %}
                     <tr>
                        {% if (user.perfil != 'estudiante') %}
+                    <td>{{ periodo.estudianteEstudiante.cedula }}</td>
                     <td>{{ periodo.estudianteEstudiante.nombre }}</td>
                        {% endif %}                                              
                     <td>{{ periodo.fechaInicio |date('d-m-Y')}}</td> 
@@ -98,6 +100,7 @@
                   <tfoot>
                     <tr>
                         {% if (user.perfil != 'estudiante') %}
+                      <th>Cedula estudiante</th>                           
                       <th>Estudiante</th> 
                         {% endif %}                          
                       <th>Fecha inicio</th>

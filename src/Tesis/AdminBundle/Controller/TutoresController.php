@@ -38,7 +38,9 @@ class TutoresController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = new Tutores();
 
-            $form = $this->createForm(new TutoresType('new'), $entity, array(
+            $options['status'] = 'new';
+            $options['profesores'] = null;
+            $form = $this->createForm(new TutoresType($options), $entity, array(
                 'action' => $this->generateUrl('tutors_addform'),
                 'method' => 'POST',
             ));
@@ -49,7 +51,7 @@ class TutoresController extends Controller{
                 $em->persist($entity);
                 $em->flush();
 
-                // activa los tutores que tienen esudiante y proyecto asignado
+                // activa los tutores que tienen estudiante y proyecto asignado
                 foreach ($_POST as $clave=>$valor){
                     $periodo = $valor['periodo'];
                     $proyecto = $valor['proyectoProyecto'];        
@@ -59,21 +61,11 @@ class TutoresController extends Controller{
                         $selected = null;
                         $selected = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                         array('idProfesor' => $valor_r));
-                        
-
-                        /*
-                        $count = 0;
-                        $count = $em->getRepository('TesisAdminBundle:Estudiante')->findBy(
-                        array('profesor' => $selected->getId()));
-                        */
 
                         $selected->setProyecto($proyecto);
                         $selected->setPeriodo($periodo);
-                        
-                      //  $tamano = sizeof($count);
-                      //  if ($tamano>0) {
-                            $selected->setEstatus('activo');  
-                      //  }
+                        $selected->setEstatus('activo');  
+                      
                     } 
                 }
                 $em->flush();
@@ -146,9 +138,12 @@ class TutoresController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Tutores')->findOneBy(
                 array('idTutores' => $id));
 
-            $options['action'] = $this->generateUrl('tutors_checkform', array('id' => $id));
-            $options['method'] = 'POST';
-            $form = $this->createForm(new TutoresType('check'), $entity, $options);
+            $options['status'] = 'check';
+            $options['profesores'] = $entity->getProfesorProfesor();
+            $form = $this->createForm(new TutoresType($options), $entity, array(
+                'action' => $this->generateUrl('tutors_checkform', array('id' => $id)),
+                'method' => 'POST',
+            ));
             $form->add('edit', 'submit', array('label' => 'Editar'));
             $form->add('back', 'submit', array('label' => 'Regresar'));            
         
@@ -196,9 +191,13 @@ class TutoresController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Tutores')->findOneBy(
             array('idTutores' => $id));
 
-            $options['action'] = $this->generateUrl('tutors_editform', array('id' => $id));
-            $options['method'] = 'POST';
-            $editForm = $this->createForm(new TutoresType('edit'), $entity, $options); 
+            $options['status'] = 'edit';
+            $options['profesores'] = $entity->getProfesorProfesor();
+            $editForm = $this->createForm(new TutoresType($options), $entity, array(
+                'action' => $this->generateUrl('tutors_editform', array('id' => $id)),
+                'method' => 'POST',
+            ));
+
             $editForm->add('back', 'submit', array('label' => 'Regresar'));                        
             $editForm->handleRequest($request);  
 
@@ -236,19 +235,9 @@ class TutoresController extends Controller{
                         $selected = $em->getRepository('TesisAdminBundle:Profesor')->findOneBy(
                         array('idProfesor' => $valor_r));
                        
-                       /* 
-                        $count = 0;
-                        $count = $em->getRepository('TesisAdminBundle:Estudiante')->findBy(
-                        array('profesor' => $selected->getId()));
-                        */
-
                         $selected->setProyecto($proyecto);
                         $selected->setPeriodo($periodo);
-                        
-                        //$tamano = sizeof($count);
-                        //if ($tamano>0) {
-                            $selected->setEstatus('activo'); 
-                        //}
+                        $selected->setEstatus('activo'); 
 
                     } 
                 }

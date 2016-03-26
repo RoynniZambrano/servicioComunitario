@@ -40,6 +40,7 @@ class DiarioController extends Controller{
             $options['id'] = $session->get('user')->getId();
             $options['proyecto'] = $session->get('user')->getProyecto();
             $options['status'] = 'new';
+            $options['actividades'] = null;
 
             $estudiante = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
             array('idEstudiante' => $user->getId()));
@@ -141,6 +142,18 @@ class DiarioController extends Controller{
         if($session->has('user')){
             $options['user'] = $session->get('user');
             $options['id'] = $id; 
+
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
+                array('idDiario' => $id));
+            if ($session->get('user')->getPerfil() == "estudiante") {
+                $options['estudiante'] = $user; 
+            }
+            else {
+                $options['estudiante'] = $entity->getEstudianteEstudiante(); 
+            }
+
+
             return $this->render('TesisAdminBundle:Diario:check-diario.html.twig',$options);
         
         }
@@ -170,6 +183,7 @@ class DiarioController extends Controller{
             }
 
             $options['status'] = 'check';
+            $options['actividades'] = $entity->getActividadActividad();
 
             $form = $this->createForm(new DiarioType($options), $entity, array(
                 'action' => $this->generateUrl('diario_checkform', array('id' => $id)),
@@ -177,10 +191,12 @@ class DiarioController extends Controller{
             ));
 
 
-            if ($user->getPerfil() == "estudiante") 
+            if ($user->getPerfil() == "estudiante") {
                 $form->add('edit', 'submit', array('label' => 'Editar'));
-            else 
+            }
+            else {
                 $form->add('edit', 'submit', array('label' => 'Evaluar'));
+            }
             
             $form->add('back', 'submit', array('label' => 'Regresar'));
             $form->add('pdf', 'submit', array('label' => 'Descargar'));            
@@ -245,6 +261,7 @@ class DiarioController extends Controller{
                $options['proyecto'] = $entity->getEstudianteEstudiante()->getProyecto();
                $options['id'] = $entity->getEstudianteEstudiante();
             }
+            $options['actividades'] = $entity->getActividadActividad();
             
             $editForm = $this->createForm(new DiarioType($options), $entity, array(
                 'action' => $this->generateUrl('diario_editform', array('id' => $id)),

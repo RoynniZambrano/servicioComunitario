@@ -115,7 +115,7 @@ function eliminarUsuario(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -157,7 +157,7 @@ function eliminarEstudiante(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'( .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error  .No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -372,7 +372,7 @@ function eliminarActividad(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -469,7 +469,7 @@ function eliminarFase(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -614,7 +614,7 @@ function eliminarProyecto(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -798,7 +798,7 @@ function eliminarPeriodo(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -930,7 +930,7 @@ function eliminarDiario(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -1040,7 +1040,7 @@ function eliminarInfoAdicional(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {
@@ -1165,7 +1165,7 @@ function eliminarResultados(){
          if (res){
             var inform = function(result){
               if (result == ','){
-                bootbox.alert("Ha ocurrido un error  :'(  .No se puede eliminar debido a sus relaciones en la base de datos");
+                bootbox.alert("Ha ocurrido un error. No se puede eliminar debido a sus relaciones en la base de datos");
               }else{
                 bootbox.alert("Eliminado con exito");
                 setTimeout(function() {

@@ -34,26 +34,6 @@ class EstudianteType extends AbstractType
             ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química',
                 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'),
                 'label' => 'Departamento'))
-        
-
-            /*
-            ->add('periodo', 'entity', array(
-                "class"     => "TesisAdminBundle:FechaPeriodo",
-                "property"  => "periodo",
-                'label' => 'Periodo de Inscripción',
-                'query_builder' => function(EntityRepository $er) {
-                 return $er->createQueryBuilder('p');
-                        },
-                ))
-            **/
-
-            /*            
-            ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
-                '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo'))                         
-           **/
-
 
             ->add('clave','repeated', array('type' => 'password','invalid_message' => 'Las contraseñas deben coincidir.',
             'first_options' => array('label' => 'Contraseña', 'attr' => array('placeholder' => '**********')),
@@ -61,10 +41,6 @@ class EstudianteType extends AbstractType
             
             ->add('cedula', 'text', array('label' => 'Cedula'))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'required' => false))
-            /* ->add('sc','choice', array('choices' => array('iniciado' => 'Iniciado',
-                'culminado' => 'Culminado'),
-                'label' => 'SC Estatus', 'disabled' =>'true')) **/
-
 
             ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
                 '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
@@ -72,10 +48,6 @@ class EstudianteType extends AbstractType
                 'label' => 'Semestre en curso', 'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario'))
            
-
-           // ->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor'))
-           // ->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto'))            
-
             ;
             
         } else if ($this->formtype == 'check'){
@@ -90,10 +62,9 @@ class EstudianteType extends AbstractType
                'label' => 'Departamento', 'disabled' =>'true','required' => false))
             
 
-            ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
-                '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
+            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo', 'disabled' =>'true','required' => false))  
+                'label' => 'Periodo de registro', 'disabled' =>'true','required' => false))  
             
 
 
@@ -113,16 +84,13 @@ class EstudianteType extends AbstractType
             ->add('sc','text', array('label' => 'Estatus servicio comunitario', 'disabled' =>'true', 'required' => false))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' =>'true', 'required' => false))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' =>'true', 'required' => false))
-           // ->add('perfil','text', array('label' => 'Rol', 'disabled' =>'true','required' => false))
             ->add('semestre','choice', array('choices' => array('1' => 'Primero', '2' => 'Segundo',
                 '3' => 'Tercero', '4' => 'Cuarto', '5' => 'Quinto', '6' => 'Sexto', '7' => 'Séptimo',
                 '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' =>'true','required' => false)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true','required' => false))
             ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' =>'true', 'required' => false))
-            //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
-            //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
-            ;        
+           ;        
 
         }  else if ($this->formtype == 'edit_other'){
 
@@ -136,31 +104,10 @@ class EstudianteType extends AbstractType
                'label' => 'Departamento', 'disabled' =>false, 'required' => true))
             
 
-            /*
-            ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
-                '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo de Inscripción', 'disabled' => false,'required' => true)) 
-            **/
-
-            /*
-            ->add('periodo', 'entity', array(
-                "class"     => "TesisAdminBundle:FechaPeriodo",
-                "property"  => "periodo",
-                'label' => 'Periodo de Inscripción',
-                'disabled' => false,
-                'required' => true,
-                'query_builder' => function(EntityRepository $er) {
-                 return $er->createQueryBuilder('p');
-                        },
-                ))
-            **/
-
             ->add('sc','text', array('label' => 'Estatus servicio comunitario', 'disabled' => false, 'required' => true))
             ->add('cedula', 'text', array('label' => 'Cedula', 'disabled' => false, 'required' => true))
             ->add('telefono', 'text', array('label' => 'Teléfono', 'disabled' => false, 'required' => false))
-          // ->add('perfil','text', array('label' => 'Rol', 'disabled' => false,'required' => false))
-            
+        
             ->add('perfil','choice', array('choices' => array('estudiante' => 'Estudiante', 'tutor' => 'Tutor',
                 'coordinador de proyecto' => 'Coordinador de Proyecto',
                 'coordinador suplente' => 'Coordinador Suplente'),
@@ -171,9 +118,6 @@ class EstudianteType extends AbstractType
                 '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' => false ,'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' => false,'required' => true))
-           // ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' => true, 'required' => false))
-            //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
-            //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
             ;
 
         } else if ($this->formtype == 'edit_student'){
@@ -218,10 +162,7 @@ class EstudianteType extends AbstractType
                 '8' => 'Octavo', '9' => 'Noveno', '10' => 'Decimo'),
                 'label' => 'Semestre en curso', 'disabled' => false,'required' => true)) 
             ->add('nameLogin','text', array('label' => 'Nombre de usuario', 'disabled' =>'true','required' => false))
-           // ->add('estatus','text', array('label' => 'Estatus en el sistemaSC', 'disabled' =>  true, 'required' => false))
-            //->add('usuarioUsuario', 'entity', array('class' => 'TesisAdminBundle:Usuario','property' => 'nombre', 'label' => 'Tutor', 'disabled' =>'true', 'required' => false))            
-            //->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto','disabled' =>'true' , 'required' => false))
-            ;
+             ;
 
         } else if($this->formtype == 'editpass'){
             // si solo se quiere editar la contrasena 
@@ -242,33 +183,7 @@ class EstudianteType extends AbstractType
             ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química',
                 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'),
                 'label' => 'Departamento'))
-            
-            
-            /*
-            ->add('periodo','choice', array('choices' => array('2015-1' => '2015-1', '2015-2' => '2015-2',
-                '2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo de Inscripción')) 
-            **/
-                                   
-           
-           /*
-            ->add('periodo', 'entity', array(
-                "class"     => "TesisAdminBundle:FechaPeriodo",
-                "property"  => "periodo",
-                'label' => 'Periodo de Inscripción',
-                'required' => true,
-                'query_builder' => function(EntityRepository $er) {
-                 return $er->createQueryBuilder('p');
-                        },
-                ))
-             */ 
-
-
-           // ->add('clave','repeated', array('type' => 'password','invalid_message' => 'Las contraseñas deben coincidir.',
-           // 'first_options' => array('label' => 'Contraseña', 'attr' => array('placeholder' => '**********')),
-           // 'second_options' => array('label' => 'Confirmar', 'attr' => array('placeholder' => '**********'))))
-            
+                      
             ->add('clave','password', array('label' => 'Contraseña', 'disabled' =>'true', 'required' => true))
 
             ->add('cedula', 'text', array('label' => 'Cedula'))

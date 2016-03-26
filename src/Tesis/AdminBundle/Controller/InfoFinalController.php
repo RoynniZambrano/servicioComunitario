@@ -103,6 +103,9 @@ class InfoFinalController extends Controller
                ));  
 
 
+
+$tempo = " filename = " . $estudiante->getCedula() . "_" . $estudiante->getNombre() . "_" . $estudiante->getApellido() . ".pdf";
+
             return new Response(
                 $this->get('knp_snappy.pdf')->getOutputFromHtml($html,
                 array('footer-font-size' => '8',
@@ -116,7 +119,9 @@ class InfoFinalController extends Controller
                 200,
                 array(
                     'Content-Type'          => 'application/pdf',
-                    'Content-Disposition'   => 'attachment;  filename="informe_final.pdf"'
+                    'Content-Disposition'   => 'attachment; ' . $tempo
+
+                    //filename = "informe_final.pdf"'
                 )
             );
 

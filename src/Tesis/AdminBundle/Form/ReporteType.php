@@ -30,8 +30,7 @@ class ReporteType extends AbstractType
             $builder
             ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química', 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'), 'label' => 'Departamento'))
             ->add('periodo','choice', array('choices' => 
-                array('2015-1' => '2015-1', 
-                      '2015-2' => '2015-2', 
+                array( 
                       '2016-1' => '2016-1', 
                       '2016-2' => '2016-2', 
                       '2017-1' => '2017-1', 
@@ -43,15 +42,14 @@ class ReporteType extends AbstractType
                       '2020-1' => '2020-1', 
                       '2020-2' => '2020-2',
                       'todos' => 'Todos'), 
-                      'label' => 'Periodo de registro')) ; 
+                      'label' => 'Periodo')) ; 
 
         }else{
 
             $builder
             ->add('departamento','choice', array('choices' => array('Computación' => 'Computación', 'Química' => 'Química', 'Física' => 'Física', 'Biología' => 'Biología', 'Matemática' => 'Matemática'), 'label' => 'Departamento'))
             ->add('periodo','choice', array('choices' => 
-                array('2015-1' => '2015-1', 
-                      '2015-2' => '2015-2', 
+                array( 
                       '2016-1' => '2016-1', 
                       '2016-2' => '2016-2', 
                       '2017-1' => '2017-1', 
@@ -63,7 +61,7 @@ class ReporteType extends AbstractType
                       '2020-1' => '2020-1', 
                       '2020-2' => '2020-2',
                       'todos' => 'Todos'), 
-                      'label' => 'Periodo de registro')) 
+                      'label' => 'Periodo')) 
 
             ->add('profesor', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",

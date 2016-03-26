@@ -38,7 +38,10 @@ class LaborscController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = new Laborsc();
 
-            $form = $this->createForm(new LaborscType('new'), $entity, array(
+
+            $options['status'] = 'new';
+            $options['estudiantes'] = null;
+            $form = $this->createForm(new LaborscType($options), $entity, array(
                 'action' => $this->generateUrl('laborsc_addform'),
                 'method' => 'POST',
             ));
@@ -137,10 +140,14 @@ class LaborscController extends Controller{
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('TesisAdminBundle:Laborsc')->findOneBy(
                 array('idLaborsc' => $id));
+         
+            $options['status'] = 'check';
+            $options['estudiantes'] = $entity->getEstudianteEstudiante();
+            $form = $this->createForm(new LaborscType($options), $entity, array(
+                'action' => $this->generateUrl('laborsc_checkform', array('id' => $id)),
+                'method' => 'POST',
+            ));
 
-            $options['action'] = $this->generateUrl('laborsc_checkform', array('id' => $id));
-            $options['method'] = 'POST';
-            $form = $this->createForm(new LaborscType('check'), $entity, $options);
             $form->add('edit', 'submit', array('label' => 'Editar'));
             $form->add('back', 'submit', array('label' => 'Regresar'));            
         
@@ -188,9 +195,14 @@ class LaborscController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Laborsc')->findOneBy(
             array('idLaborsc' => $id));
 
-            $options['action'] = $this->generateUrl('laborsc_editform', array('id' => $id));
-            $options['method'] = 'POST';
-            $editForm = $this->createForm(new LaborscType('edit'), $entity, $options); 
+            $options['status'] = 'edit';
+            $options['estudiantes'] = $entity->getEstudianteEstudiante();
+            $editForm = $this->createForm(new LaborscType($options), $entity, array(
+                'action' => $this->generateUrl('laborsc_editform', array('id' => $id)),
+                'method' => 'POST',
+            ));
+
+
             $editForm->add('back', 'submit', array('label' => 'Regresar'));                        
             $editForm->handleRequest($request);  
 

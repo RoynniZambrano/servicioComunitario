@@ -43,7 +43,10 @@ class PeriodoController extends Controller{
             array('idEstudiante' => $user->getId()));
             $entity->setEstudianteEstudiante($estudiante);
 
-            $form = $this->createForm(new PeriodoType('new'), $entity, array(
+
+            $options['status'] = 'new';
+            $options['actividades'] = null;
+            $form = $this->createForm(new PeriodoType($options), $entity, array(
                 'action' => $this->generateUrl('periodo_newform'),
                 'method' => 'POST',
             ));
@@ -152,9 +155,16 @@ class PeriodoController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Periodo')->findOneBy(
                 array('idPeriodo' => $id));
 
-            $options['action'] = $this->generateUrl('periodo_checkform', array('id' => $id));
-            $options['method'] = 'POST';
-            $form = $this->createForm(new PeriodoType('check'), $entity, $options);
+           // $options['action'] = $this->generateUrl('periodo_checkform', array('id' => $id));
+            //$options['method'] = 'POST';
+           
+            $options['status'] = 'check';
+            $options['actividades'] = $entity->getActividadActividad();
+            $form = $this->createForm(new PeriodoType($options), $entity, array(
+                'action' => $this->generateUrl('periodo_checkform', array('id' => $id)),
+                'method' => 'POST',
+            ));
+
             if ($user->getPerfil() == "estudiante") 
                 $form->add('edit', 'submit', array('label' => 'Editar'));
             else 
@@ -206,13 +216,22 @@ class PeriodoController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Periodo')->findOneBy(
                 array('idPeriodo' => $id));
 
-            $options['action'] = $this->generateUrl('periodo_editform', array('id' => $id));
-            $options['method'] = 'POST';
+          //  $options['action'] = $this->generateUrl('periodo_editform', array('id' => $id));
+          //  $options['method'] = 'POST';
             if ($user->getPerfil() == "estudiante") 
-                $editForm = $this->createForm(new PeriodoType('edit_student'), $entity, $options); 
+                 $options['status'] = 'edit_student';
+              //  $editForm = $this->createForm(new PeriodoType('edit_student'), $entity, $options); 
             else
-                $editForm = $this->createForm(new PeriodoType('edit_tutor'), $entity, $options); 
-            
+                 $options['status'] = 'edit_tutor';
+              //  $editForm = $this->createForm(new PeriodoType('edit_tutor'), $entity, $options); 
+        
+            $options['actividades'] = $entity->getActividadActividad();
+            $editForm = $this->createForm(new PeriodoType($options), $entity, array(
+                'action' => $this->generateUrl('periodo_editform', array('id' => $id)),
+                'method' => 'POST',
+            ));
+
+
             $editForm->submit($request->request->get($editForm->getName()), false);
             if ($user->getPerfil() == "estudiante") {
                

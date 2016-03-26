@@ -29,11 +29,6 @@ class FaseType extends AbstractType
                 ->add('descripcion','textarea', array('label' => 'Descripción', 'required' => false,
                     'attr' => array('placeholder' => 'Descripción de la fase', 'rows' => '10','disabled' =>'true')))
                 
-                /*
-                ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad','property' => 'nombre',
-                 'label' => 'Actividades', 'expanded' => false, 'multiple'=>true, 'disabled' =>'true', 'required' => false,
-                 'attr' => array('size' => '15')))
-                 */
 
                 ->add('actividadActividad', 'entity', 
                     array('class' => 'TesisAdminBundle:Actividad',
@@ -53,16 +48,7 @@ class FaseType extends AbstractType
                 ->add('nombre','text', array('label' => 'Nombre', 'attr' => array('placeholder' => 'Nombre de la fase')))
                 ->add('descripcion','textarea', array('label' => 'Descripción', 'required' => false,
                     'attr' => array('placeholder' => 'Descripción de la fase', 'rows' => '10')))
-               
-                /*
-                ->add('actividadActividad', 'entity', 
-                    array('class' => 'TesisAdminBundle:Actividad',
-                    'property' => 'nombre',
-                    'label' => 'Actividades', 
-                    'expanded' => false, 
-                    'multiple'=>true,
-                    'attr' => array('size' => '15')))
-                */
+            
 
                 ->add('actividadActividad', 'entity', 
                     array('class' => 'TesisAdminBundle:Actividad',
