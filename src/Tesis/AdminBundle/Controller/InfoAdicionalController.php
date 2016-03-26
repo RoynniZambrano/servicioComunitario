@@ -139,8 +139,23 @@ class InfoAdicionalController extends Controller{
             $user = $session->get('user');
 
             if($session->has('user')){
-                $options['user'] = $session->get('user');
-                $options['id'] = $id; 
+
+                $user = $session->get('user');
+                $options['user'] = $user;
+                $options['id'] = $id;
+
+                if ($user->getPerfil() == "estudiante"){
+                    $options['estudiante'] = $user; 
+                }
+                else{
+                    $em = $this->getDoctrine()->getManager();
+                    $entity = $em->getRepository('TesisAdminBundle:InfoAdicional')->findOneBy(
+                    array('idInfoAdicional' => $id));
+                   //$entity = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
+                     //   array('idEstudiante' => $id));
+                    $options['estudiante'] = $entity->getIdEstudiante();                 
+                }
+
                 return $this->render('TesisAdminBundle:InfoAdicional:check-infoAdicional.html.twig',$options);
 
             }    
@@ -203,8 +218,21 @@ class InfoAdicionalController extends Controller{
         $session = $this->getRequest()->getSession();
 
         if($session->has('user')){
-            $options['user'] = $session->get('user');
-            $options['id'] = $id; 
+            $user = $session->get('user');
+            $options['user'] = $user;
+            $options['id'] = $id;
+
+            if ($user->getPerfil() == "estudiante"){
+                $options['estudiante'] = $user; 
+            }
+            else{
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('TesisAdminBundle:InfoAdicional')->findOneBy(
+                array('idInfoAdicional' => $id));
+               //$entity = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
+                 //   array('idEstudiante' => $id));
+                $options['estudiante'] = $entity->getIdEstudiante();                 
+            }
             return $this->render('TesisAdminBundle:InfoAdicional:edit-infoAdicional.html.twig',$options);
 
         }

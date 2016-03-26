@@ -103,8 +103,8 @@ class InfoFinalController extends Controller
                ));  
 
 
-
-$tempo = " filename = " . $estudiante->getCedula() . "_" . $estudiante->getNombre() . "_" . $estudiante->getApellido() . ".pdf";
+            // nombre del informe final
+            $tempo = " filename = " . $estudiante->getCedula() . "_" . $estudiante->getNombre() . "_" . $estudiante->getApellido() . ".pdf";
 
             return new Response(
                 $this->get('knp_snappy.pdf')->getOutputFromHtml($html,
@@ -189,13 +189,21 @@ $tempo = " filename = " . $estudiante->getCedula() . "_" . $estudiante->getNombr
 
         $session = $this->getRequest()->getSession();
         if($session->has('user')){
-            $options['user'] = $session->get('user');
             $user = $session->get('user');
+            $options['user'] = $user;
+            $options['id'] = $id;
 
-            if ($user->getPerfil() == "estudiante")
+            if ($user->getPerfil() == "estudiante"){
                 $options['id'] = $user->getId();
-            else
+                $options['estudiante'] = $user; 
+            }
+            else{
                 $options['id'] = $id;
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
+                    array('idEstudiante' => $id));
+                $options['estudiante'] = $entity;                 
+            }          
 
             return $this->render('TesisAdminBundle:InfoFinal:checkinfo_final.html.twig', $options);            
 
@@ -227,7 +235,7 @@ $tempo = " filename = " . $estudiante->getCedula() . "_" . $estudiante->getNombr
             ));
 
             if ($user->getPerfil() != "estudiante") 
-            $form->add('edit', 'submit', array('label' => 'Editar'));
+            $form->add('edit', 'submit', array('label' => 'Evaluar'));
             $form->add('view', 'submit', array('label' => 'Ver Informe'));
             $form->add('back', 'submit', array('label' => 'Regresar'));            
         
@@ -266,8 +274,20 @@ $tempo = " filename = " . $estudiante->getCedula() . "_" . $estudiante->getNombr
         $session = $this->getRequest()->getSession();
 
         if($session->has('user')){
-            $options['user'] = $session->get('user');
+
+            $user = $session->get('user');
+            $options['user'] = $user;
             $options['id'] = $id;
+
+            if ($user->getPerfil() == "estudiante"){
+                $options['estudiante'] = $user; 
+            }
+            else{
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
+                    array('idEstudiante' => $id));
+                $options['estudiante'] = $entity;                 
+            }
 
             return $this->render('TesisAdminBundle:InfoFinal:edit-infofinal.html.twig',$options);
 

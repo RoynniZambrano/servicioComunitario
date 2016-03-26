@@ -134,8 +134,20 @@ class PeriodoController extends Controller{
 
         $session = $this->getRequest()->getSession();
         if($session->has('user')){
-            $options['user'] = $session->get('user');
-            $options['id'] = $id; 
+            $user = $session->get('user');
+            $options['user'] = $user;
+            $options['id'] = $id;
+
+            if ($user->getPerfil() == "estudiante"){
+                $options['estudiante'] = $user; 
+            }
+            else{
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('TesisAdminBundle:Periodo')->findOneBy(
+                    array('idPeriodo' => $id));
+                $options['estudiante'] = $entity->getEstudianteEstudiante();                 
+            }
+
             return $this->render('TesisAdminBundle:Periodo:check-periodo.html.twig',$options);
         
         }
@@ -194,8 +206,20 @@ class PeriodoController extends Controller{
         $session = $this->getRequest()->getSession();
 
         if($session->has('user')){
-            $options['user'] = $session->get('user');
-            $options['id'] = $id; 
+            $user = $session->get('user');
+            $options['user'] = $user;
+            $options['id'] = $id;
+
+            if ($user->getPerfil() == "estudiante"){
+                $options['estudiante'] = $user; 
+            }
+            else{
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('TesisAdminBundle:Periodo')->findOneBy(
+                    array('idPeriodo' => $id));
+                $options['estudiante'] = $entity->getEstudianteEstudiante();                  
+            }
+            
             return $this->render('TesisAdminBundle:Periodo:edit-periodo.html.twig',$options);
 
         }

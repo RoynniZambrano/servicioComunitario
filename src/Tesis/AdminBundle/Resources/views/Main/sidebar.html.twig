@@ -209,15 +209,15 @@
                   <ul class="treeview-menu">
                   {% if (user.perfil == 'estudiante') %}
                     <li>
-                    <a  href="{{ path('infofinal') }}"><i class="fa fa-circle-o text-info"></i>Visualizar Informe Final</a>
+                    <a  href="{{ path('infofinal') }}"><i class="fa fa-circle-o text-info"></i>Descargar Informe Final</a>
                   </li>  
                     <li>
-                      <a href="{{ path('infofinal_check', {'id': 0}) }}"><i class="fa fa-circle-o text-info"></i>Evaluación Informe Final</a>
+                      <a href="{{ path('infofinal_check', {'id': 0}) }}"><i class="fa fa-circle-o text-info"></i>Consultar Informe Final</a>
                     </li>
                   {% else %}
                     <li>
                       <a href="{{ path('infofinal_list') }}"><i class="fa fa-circle-o text-info">
-                      </i>Evaluación Informe Final</a>
+                      </i>Consultar Informe Final</a>
                     </li>
                   {% endif %}                                           
                   </ul>

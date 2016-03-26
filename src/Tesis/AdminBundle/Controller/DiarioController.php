@@ -140,16 +140,17 @@ class DiarioController extends Controller{
 
         $session = $this->getRequest()->getSession();
         if($session->has('user')){
-            $options['user'] = $session->get('user');
+            $user = $session->get('user');
+            $options['user'] = $user;
             $options['id'] = $id; 
 
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
-                array('idDiario' => $id));
-            if ($session->get('user')->getPerfil() == "estudiante") {
+            if ($user->getPerfil() == "estudiante") {
                 $options['estudiante'] = $user; 
             }
             else {
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
+                    array('idDiario' => $id));                
                 $options['estudiante'] = $entity->getEstudianteEstudiante(); 
             }
 
@@ -225,11 +226,24 @@ class DiarioController extends Controller{
         $session = $this->getRequest()->getSession();
 
         if($session->has('user')){
-            $options['user'] = $session->get('user');            
-            $options['id'] = $id; 
+            $user = $session->get('user');
+            $options['user'] = $user;
+            $options['id'] = $id;
+
+            if ($user->getPerfil() == "estudiante") {
+                $options['estudiante'] = $user; 
+            }
+            else {
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('TesisAdminBundle:Diario')->findOneBy(
+                    array('idDiario' => $id));                
+                $options['estudiante'] = $entity->getEstudianteEstudiante(); 
+            }            
+
             return $this->render('TesisAdminBundle:Diario:edit-diario.html.twig',$options);
 
         }
+
         return $this->render('TesisSCBundle:Main:denegado.html.twig');
     }
 
