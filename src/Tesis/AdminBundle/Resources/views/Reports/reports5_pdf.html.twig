@@ -49,12 +49,25 @@ table#t01 th	{
  		<table id="t01">   
             <tr>
               <th>Nombre</th>
+              <th>Coord. Proyecto</th>
+              <th>Coord. Suplente</th>
               <th>Tutores</th>
+              <th>Estudiantes</th>
+
+               {% if (periodo == 'todos') %}
+                <th>periodo</th>
+               {% endif %}
+              
             </tr>
             {% set i = 0 %}
  			{% for proyecto in proyectos %}
 	            <tr>
-	            	<td>{{ proyecto.nombre }}</td>              	
+	            	<td>{{ proyecto.nombre_proyecto }}</td> 
+
+
+              <td>{{ proyecto.cedula_c }}_{{ proyecto.nombre_c }}_{{ proyecto.apellido_c }}</td> 
+              <td>{{ proyecto.cedula_s }}_{{ proyecto.nombre_s }}_{{ proyecto.apellido_s }}</td>
+
 
                   {% set j = 0 %}
                   {% for tutor in tutores %}
@@ -78,7 +91,38 @@ table#t01 th	{
                     {% set j = j + 1 %}
                   {% endfor %}
 
+
+                  {% set k = 0 %}
+                  {% for estudiante in estudiantes %}
+
+                    {% if i == k %} 
+
+                        {% if estudiante is empty %} 
+                          <td> no aplica</td>
+                        {% else %}
+
+                          <td>
+                          {% for estu in estudiante %}
+
+                          {{ estu.nombre }}_{{ estu.apellido }} <br>
+
+                          {% endfor %} 
+                          </td>
+                        {% endif %}
+                    {% endif %}    
+
+                    {% set k = k + 1 %}
+                  {% endfor %}
+
+
+
+
                   {% set i = i + 1 %}
+
+                {% if (periodo == 'todos') %}
+                  <td>{{ proyecto.periodo }}</td>
+                {% endif %}  
+
 
 	            </tr> 
             {% endfor %}

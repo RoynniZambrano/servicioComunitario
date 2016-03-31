@@ -52,13 +52,23 @@ table#t01 th	{
               <th>Apellido</th>
               <th>Cédula</th>
               <th>Proyecto</th>
+
+               {% if (periodo == 'todos') %}
+                <th>periodo</th>
+               {% endif %}
+
             </tr>
  			{% for estudiante in estudiantes %}
 	            <tr>
 	            	<td>{{ estudiante.nombre }}</td>
 	            	<td>{{ estudiante.apellido }}</td>                    
 	            	<td>{{ estudiante.cedula }}</td>
-	            	<td>{{ estudiante.proyecto }}</td>	            	
+	            	<td>{{ estudiante.proyecto }}</td>
+
+               {% if (periodo == 'todos') %}
+                <td>{{ estudiante.periodo }}</td>
+               {% endif %}
+
 	            </tr> 
             {% endfor %}
         </table> 

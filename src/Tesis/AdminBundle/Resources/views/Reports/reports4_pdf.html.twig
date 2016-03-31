@@ -49,14 +49,25 @@ table#t01 th	{
             <tr>
               <th>Nombre</th>
               <th>Apellido</th>
-              <th>Perfil</th>              
+              <th>Cédula</th>              
+              <th>Perfil</th>
+
+               {% if (periodo == 'todos') %}
+                <th>periodo</th>
+               {% endif %}
+
             </tr>
             {% set i = 0 %}
             {% for proyecto in c_proyecto %}
               <tr>
                 <td>{{ proyecto.nombre }}</td>
-                <td>{{ proyecto.apellido }}</td>                     
-                <td>{{ proyecto.perfil }}</td>                           
+                <td>{{ proyecto.apellido }}</td>
+                <td>{{ proyecto.cedula }}</td>                                       
+                <td>{{ proyecto.perfil }}</td>  
+
+                {% if (periodo == 'todos') %}
+                  <td>{{ proyecto.periodo }}</td>
+                {% endif %}                         
 
                   {% set i = i + 1 %}
 
@@ -66,8 +77,13 @@ table#t01 th	{
             {% for suplente in c_suplente %}
               <tr>
                 <td>{{ suplente.nombre }}</td>
-                <td>{{ suplente.apellido }}</td>                     
-                <td>{{ suplente.perfil }}</td>                           
+                <td>{{ suplente.apellido }}</td> 
+                <td>{{ suplente.cedula }}</td>                                     
+                <td>{{ suplente.perfil }}</td>
+
+                {% if (periodo == 'todos') %}
+                  <td>{{ suplente.periodo }}</td>
+                {% endif %}                                           
 
                   {% set i = i + 1 %}
 

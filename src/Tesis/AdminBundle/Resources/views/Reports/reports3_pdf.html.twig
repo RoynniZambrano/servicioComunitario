@@ -49,17 +49,23 @@ table#t01 th	{
  		<table id="t01">   
             <tr>
               <th>Nombre</th>
-              <th>Apellido</th>            
+              <th>Apellido</th>  
+              <th>Cédula</th>                        
               <th>Proyectos</th>
-              <th>Estudiantes asignados</th>              
+              <th>Estudiantes asignados</th>
+
+               {% if (periodo == 'todos') %}
+                <th>periodo</th>
+               {% endif %}
+
             </tr>
 
             {% set i = 0 %}
  			{% for tutor in tutores %}
 	            <tr>
 	            	<td>{{ tutor.nombre }}</td>
-	            	<td>{{ tutor.apellido }}</td>                                   
-
+	            	<td>{{ tutor.apellido }}</td> 
+                <td>{{ tutor.cedula }}</td>                  
 
                 {% set k = 0 %}
                 {% for proyecto in proyectos %}
@@ -104,6 +110,11 @@ table#t01 th	{
                 {% endfor %}
 
                 {% set i = i + 1 %}
+
+
+               {% if (periodo == 'todos') %}
+                <td>{{ tutor.periodo }}</td>
+               {% endif %}
 
 	            </tr> 
             {% endfor %}
