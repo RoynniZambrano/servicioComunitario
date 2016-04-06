@@ -91,7 +91,7 @@
                     <a href="{{ path('tutors_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>
                     </li>
                     <li>
-                      <a href="{{ path('tutors_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('tutors_list') }}"><i class="fa fa-circle-o text-info"></i>Listar asignaciones</a>
                     </li>                   
                   </ul>
                 </li>
@@ -101,7 +101,7 @@
                     <a href="{{ path('tutor_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>
                     </li>
                     <li>
-                      <a href="{{ path('tutor_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('tutor_list') }}"><i class="fa fa-circle-o text-info"></i>Listar asignaciones</a>
                     </li>                   
                   </ul>
                 </li>
@@ -111,7 +111,7 @@
                     <a href="{{ path('laborsc_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>
                     </li>
                     <li>
-                      <a href="{{ path('laborsc_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('laborsc_list') }}"><i class="fa fa-circle-o text-info"></i>Listar asignaciones</a>
                     </li>                   
                   </ul>
                 </li>
@@ -121,7 +121,7 @@
                     <a href="{{ path('coord_add') }}"><i class="fa fa-circle-o text-info"></i>Crear asignación</a>
                     </li>
                     <li>
-                      <a href="{{ path('coord_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('coord_list') }}"><i class="fa fa-circle-o text-info"></i>Listar asignaciones</a>
                     </li>                   
                   </ul>
                 </li>                                                  
@@ -148,7 +148,7 @@
                     </li> 
                   {% else %}  
                     <li>
-                      <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar Periodos</a>
+                      <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar periodos</a>
                     </li> 
                   {% endif %}                   
                   </ul>
@@ -165,7 +165,7 @@
                   {% endif %}  
                     {% if (user.perfil != 'estudiante') %}
                     <li>
-                      <a href="{{ path('diario_list') }}"><i class="fa fa-circle-o text-info"></i> Listar Diarios</a>
+                      <a href="{{ path('diario_list') }}"><i class="fa fa-circle-o text-info"></i> Listar diarios de campo</a>
                     </li>
                     {% endif %}
                     {#
@@ -240,14 +240,14 @@
                 <li><a><i class="fa fa-circle-o text-info"></i> Periodos <i class="fa fa-angle-left pull-right"></i> </a>
                   <ul class="treeview-menu">
                     <li>
-                      <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('periodo_list') }}"><i class="fa fa-circle-o text-info"></i>Listar periodos</a>
                     </li>                    
                   </ul>
                 </li>
                 <li><a ><i class="fa fa-circle-o text-info"></i> Diarios de Campo <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li>
-                      <a href="{{ path('diario_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('diario_list') }}"><i class="fa fa-circle-o text-info"></i>Listar diarios de campo</a>
                     </li>
 
                     {#
@@ -270,14 +270,14 @@
                 <li><a ><i class="fa fa-circle-o text-info"></i> Información Adicional <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu"> 
                     <li>
-                      <a href="{{ path('infoAdicional_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('infoAdicional_list') }}"><i class="fa fa-circle-o text-info"></i>Listar informaciónes adicionales</a>
                     </li>                   
                   </ul>
                 </li>   
                 <li><a ><i class="fa fa-circle-o text-info"></i> Informe Final <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">  
                     <li>
-                      <a href="{{ path('infofinal_list') }}"><i class="fa fa-circle-o text-info"></i>Listar</a>
+                      <a href="{{ path('infofinal_list') }}"><i class="fa fa-circle-o text-info"></i>Listar informes finales</a>
                     </li>                                       
                   </ul>
                 </li>     

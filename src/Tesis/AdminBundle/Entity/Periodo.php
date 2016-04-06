@@ -15,7 +15,7 @@ use Tesis\AdminBundle\Validator\Constraints as AdminAssert2;
  * @ORM\Table(name="periodo", indexes={@ORM\Index(name="fk_cronograma_estudiante1_idx", columns={"estudiante_id_estudiante"})})
  * @ORM\Entity
  * @AdminAssert2\ValidDate2
- * @UniqueEntity(fields={"nombre", "estudianteEstudiante"}, errorPath="nombre", message="Ya existe un periodo con este nombre.") 
+ * @UniqueEntity(fields={"nombre", "estudianteEstudiante"}, errorPath="nombre", message="Ya existe un Período con este nombre.") 
  */
 class Periodo
 {

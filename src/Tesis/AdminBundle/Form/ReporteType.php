@@ -42,7 +42,7 @@ class ReporteType extends AbstractType
                       '2020-1' => '2020-1', 
                       '2020-2' => '2020-2',
                       'todos' => 'Todos'), 
-                      'label' => 'Periodo')) ; 
+                      'label' => 'Período')) ; 
 
         }else{
 
@@ -61,7 +61,7 @@ class ReporteType extends AbstractType
                       '2020-1' => '2020-1', 
                       '2020-2' => '2020-2',
                       'todos' => 'Todos'), 
-                      'label' => 'Periodo')) 
+                      'label' => 'Período')) 
 
             ->add('profesor', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",

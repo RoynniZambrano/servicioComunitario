@@ -62,7 +62,20 @@
                   {% endif %}
 
                     <p>
-                      {{user.perfil}} <br> {{user.nameLogin}}
+                      {% if (user.perfil == 'estudiante') %}
+                        Estudiante
+                      {% elseif (user.perfil == 'coordinador de servicio comunitario') %}
+                        Coordinador General
+                      {% elseif ((user.perfil == 'coordinador suplente') 
+                        or (user.perfil == 'coordinador de proyecto'))  %}
+                          Coordinador de Proyecto                        
+                      {% elseif (user.perfil == 'tutor') %}
+                        Tutor 
+                      {% endif %}  
+
+                     {# {{user.perfil}} #} 
+                      <br> {{user.nameLogin}}
+                   
                     </p>
                   </li>
                   <!-- Menu Footer-->

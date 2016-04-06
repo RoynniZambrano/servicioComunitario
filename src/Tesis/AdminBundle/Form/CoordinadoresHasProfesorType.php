@@ -65,7 +65,7 @@ class CoordinadoresHasProfesorType extends AbstractType
 
             ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo', 'disabled' => true, 'required' => false))             
+                'label' => 'Período', 'disabled' => true, 'required' => false))             
             ;
 
         } else {
@@ -105,7 +105,7 @@ class CoordinadoresHasProfesorType extends AbstractType
 
             ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
                 '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
-                'label' => 'Periodo', 'disabled' => false, 'required' => true))             
+                'label' => 'Período', 'disabled' => false, 'required' => true))             
            
            ;
    

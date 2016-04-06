@@ -100,7 +100,7 @@ class DiarioType extends AbstractType
                             "property"  => "nombre",
                             'disabled' =>'true',
                             'required' => false,
-                            'label' => 'Periodo',
+                            'label' => 'Período',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')
@@ -166,7 +166,7 @@ class DiarioType extends AbstractType
                         $form->add('periodoPeriodo', 'entity', array(
                             "class"     => "TesisAdminBundle:Periodo",
                             "property"  => "nombre",
-                            'label' => 'Periodo',
+                            'label' => 'Período',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')
@@ -252,7 +252,7 @@ class DiarioType extends AbstractType
                         $form->add('periodoPeriodo', 'entity', array(
                             "class"     => "TesisAdminBundle:Periodo",
                             "property"  => "nombre",
-                            'label' => 'Periodo',
+                            'label' => 'Período',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')
@@ -332,7 +332,7 @@ class DiarioType extends AbstractType
                             "class"     => "TesisAdminBundle:Periodo",
                             "property"  => "nombre",
                             'disabled' =>'true',
-                            'label' => 'Periodo',
+                            'label' => 'Período',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')
                                     ->where('c.estudianteEstudiante = :estudiante')

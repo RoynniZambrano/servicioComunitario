@@ -79,10 +79,10 @@ class PeriodoType extends AbstractType
                     'group_by' => function($val, $key, $index) {
                         foreach ($this->actividades as $actividad) {
                             if ($actividad->getNombre() == $val->getNombre()){
-                                return 'Actividades pertenicientes al periodo';
+                                return 'Actividades pertenicientes al Período';
                             } 
                         }
-                        return 'Actividades disponible para agregar al periodo';
+                        return 'Actividades disponible para agregar al Período';
                     },
                     'attr' => array('size' => '15')))   
 

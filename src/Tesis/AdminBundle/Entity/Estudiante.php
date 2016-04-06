@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="estudiante")
  * @ORM\Entity
- * @UniqueEntity(fields="cedula", message="Esta cedula ya esta registrada.")
+ * @UniqueEntity(fields="cedula", message="Esta cédula ya esta registrada.")
  * @UniqueEntity(fields="correo", message="Este correo ya esta registrado.") 
  * @UniqueEntity(fields="nameLogin", message="Este nombre de usuario ya esta registrado.")  
  */
@@ -57,17 +57,17 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="cedula", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una cedula.")
+     * @Assert\NotBlank(message="Porfavor introduzca una cédula.")
      * @Assert\Regex(
      *      pattern="/^[1-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca una cedula valida."
+     *      message="Porfavor introduzca una cédula valida."
      *  )
      * @Assert\Length(
      *      min = 7,
      *      max = 10,
-     *      minMessage = "la cedula debe tener minimo {{ limit }} dígitos.",
-     *      maxMessage = "la cedula debe tener maximo {{ limit }} dígitos.")          
+     *      minMessage = "la cédula debe tener minimo {{ limit }} dígitos.",
+     *      maxMessage = "la cédula debe tener maximo {{ limit }} dígitos.")          
      */
     private $cedula;
 
@@ -128,7 +128,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="genero", type="string", length=50, nullable=true)
-     * @Assert\NotBlank(message="Porfavor introduzca genero.")
+     * @Assert\NotBlank(message="Porfavor introduzca género.")
      */
     private $genero;
 
@@ -179,7 +179,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="periodo", type="string", length=50, nullable=true)
-     * Assert\NotBlank(message="Porfavor introduzca periodo.")       
+     * Assert\NotBlank(message="Porfavor introduzca Período.")       
      */
     private $periodo ;
 

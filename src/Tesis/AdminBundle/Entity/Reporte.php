@@ -16,7 +16,7 @@ class Reporte{
    /**
      * @var string
      *
-     * @Assert\NotBlank(message = "Porfavor introduzca su periodo.")
+     * @Assert\NotBlank(message = "Porfavor introduzca su Período.")
      */
     private $periodo;
 

@@ -63,7 +63,7 @@ class CoordinadoresHasProfesor
      * @var string
      *
      * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca periodo.")       
+     * @Assert\NotBlank(message="Porfavor introduzca Período.")       
      */
     private $periodo = '2015-1'; 
 
