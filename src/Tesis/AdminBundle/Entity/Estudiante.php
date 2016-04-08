@@ -21,11 +21,11 @@ class Estudiante
     /**
      * @var string
      * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca un nombre.")
+     * @Assert\NotBlank(message="Por favor, introduzca un nombre.")
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z ñÑ]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un nombre que sea válido."
+     *      message="Por favor, introduzca un nombre válido."
      *  )
      * @Assert\Length(
      *      min = 1,
@@ -39,11 +39,11 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="apellido", type="string", length=50, nullable=false)     
-     * @Assert\NotBlank(message="Porfavor introduzca un apellido.")
+     * @Assert\NotBlank(message="Por favor, introduzca un apellido.")
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z ñÑ ]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un apellido que sea válido."
+     *      message="Por favor, introduzca un apellido válido."
      *  )
      * @Assert\Length(
      *      min = 1,
@@ -57,11 +57,11 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="cedula", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una cédula.")
+     * @Assert\NotBlank(message="Por favor, introduzca una cédula.")
      * @Assert\Regex(
      *      pattern="/^[1-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca una cédula valida."
+     *      message="Por favor, introduzca una cédula valida."
      *  )
      * @Assert\Length(
      *      min = 7,
@@ -75,11 +75,11 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="clave", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una contraseña.")
+     * @Assert\NotBlank(message="Por favor, introduzca una contraseña.")
      * @Assert\Regex(
      *      pattern="/[a-zA-Z ñÑ 0-9]+/",
      *      match=true,
-     *      message="Porfavor introduzca una contraseña valida.",
+     *      message="Por favor, introduzca una contraseña valida.",
      *      groups={"editpass"}
      *  )
      * @Assert\Length(
@@ -95,7 +95,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="correo", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message = "Porfavor introduzca un correo.")
+     * @Assert\NotBlank(message = "Por favor, introduzca un correo.")
      * @Assert\Email(message = "El correo '{{ value }}' no es válido.")     
      */
     private $correo;
@@ -107,7 +107,7 @@ class Estudiante
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor, introduzca un número de teléfono válido."
+     *      message="Por favor,, introduzca un número de teléfono válido."
      *  )
      * Assert\Length(
      *      min = 10,
@@ -128,7 +128,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="genero", type="string", length=50, nullable=true)
-     * @Assert\NotBlank(message="Porfavor introduzca género.")
+     * @Assert\NotBlank(message="Por favor, introduzca género.")
      */
     private $genero;
 
@@ -136,7 +136,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="perfil", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca perfil.")      
+     * @Assert\NotBlank(message="Por favor, introduzca perfil.")      
      */
     private $perfil = 'estudiante';
 
@@ -144,7 +144,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="name_login", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message = "Porfavor introduzca un nombre de usuario.")
+     * @Assert\NotBlank(message = "Por favor, introduzca un nombre de usuario.")
      * @Assert\Regex(
      *      pattern="/^[a-zA-Z]+[0-9]*$/",
      *      match=true,
@@ -162,7 +162,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="departamento", type="string", length=50, nullable=false)
-      * @Assert\NotBlank(message="Porfavor introduzca departamento.")       
+      * @Assert\NotBlank(message="Por favor, introduzca departamento.")       
      */
     private $departamento = 'Computación';
 
@@ -179,7 +179,7 @@ class Estudiante
      * @var string
      *
      * @ORM\Column(name="periodo", type="string", length=50, nullable=true)
-     * Assert\NotBlank(message="Porfavor introduzca Período.")       
+     * Assert\NotBlank(message="Por favor, introduzca Período.")       
      */
     private $periodo ;
 

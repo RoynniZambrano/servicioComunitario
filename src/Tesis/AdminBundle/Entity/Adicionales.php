@@ -21,7 +21,7 @@ class Adicionales
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=500, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca nombre.")
+     * @Assert\NotBlank(message="Por favor, introduzca nombre.")
      * @Assert\Length(
      *      min = 2,
      *      max = 500,
@@ -35,11 +35,11 @@ class Adicionales
      * @var string
      *
      * @ORM\Column(name="cantidad", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una cantidad.")      
+     * @Assert\NotBlank(message="Por favor, introduzca una cantidad.")      
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un número valido."
+     *      message="Por favor, introduzca un número valido."
      *  )      
      */
     private $cantidad;
@@ -58,7 +58,7 @@ class Adicionales
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="diario_id_diario", referencedColumnName="id_diario")
      * })
-     * @Assert\NotBlank(message="Debe elegir al menos un diario.")            
+     * @Assert\NotBlank(message="Debe seleccionar al menos un diario.")            
      */
     private $diarioDiario;
 

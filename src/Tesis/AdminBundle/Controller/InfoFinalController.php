@@ -112,7 +112,7 @@ class InfoFinalController extends Controller
                 'margin-bottom' => '34',
                 'footer-spacing' => '20',
                 'margin-top' => '30',
-                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+               // 'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),
@@ -236,7 +236,7 @@ class InfoFinalController extends Controller
 
             if ($user->getPerfil() != "estudiante") 
             $form->add('edit', 'submit', array('label' => 'Evaluar'));
-            $form->add('view', 'submit', array('label' => 'Ver Informe'));
+            $form->add('view', 'submit', array('label' => 'Descargar'));
             $form->add('back', 'submit', array('label' => 'Regresar'));            
         
             $form->handleRequest($request);

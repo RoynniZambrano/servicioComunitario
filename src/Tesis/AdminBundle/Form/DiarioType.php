@@ -130,13 +130,29 @@ class DiarioType extends AbstractType
                 ->add('horas', 'text', array('label' => 'Total horas cumplidas'))               
                 ->add('personas', 'text', array('label' => 'Total personas atendidas'))
 
-                ->add('ninos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Niños'))
-                ->add('adultos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Adultos'))
-                ->add('terceraEdad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Tercera edad'))
-                ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Discapacidad'))            
+                ->add('ninos', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Niños'))
+                ->add('adultos', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Adultos'))
+                ->add('terceraEdad', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Tercera edad'))
+                ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Discapacidad'))            
+                
+
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'choices' => $this->actividades,                    
+                    'property' => 'nombre',
+                    'label' => 'Actividades',
+                    'expanded' => false,
+                    'multiple'=>true,
+                    'disabled' => false,
+                    'required' => true,
+                    'attr' => array('size' => '15')))  
+
+/*
                 ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
                     'attr' => array('size' => '15')))
+*/
+
         
                 ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad'))
 
@@ -194,10 +210,10 @@ class DiarioType extends AbstractType
                 ->add('horaFin', 'text', array('label' => 'Hora de culminacion', 'attr' => array('placeholder' => 'hh:mm')))                  
                 ->add('personas', 'text', array('label' => 'Total personas atendidas'))
 
-                ->add('ninos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Niños'))
-                ->add('adultos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Adultos'))
-                ->add('terceraEdad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Tercera edad'))
-                ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Discapacidad'))
+                ->add('ninos', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Niños'))
+                ->add('adultos', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Adultos'))
+                ->add('terceraEdad', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Tercera edad'))
+                ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Discapacidad'))
 
                 ->add('horas', 'text', array('label' => 'Total horas cumplidas'))                
                 ->add('calificacion','choice', array('choices' => array('aprobado' => 'Aprobado', 'por evaluar' => 'Por Evaluar', 'no aprobado' => 'No Aprobado'),
@@ -299,10 +315,10 @@ class DiarioType extends AbstractType
                     'attr' => array('size' => '15'))) 
 
 
-                ->add('ninos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Niños', 'disabled' =>'true'))
-                ->add('adultos', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Adultos', 'disabled' =>'true'))
-                ->add('terceraEdad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Tercera edad', 'disabled' =>'true'))
-                ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿cuántos atendieron?'),'label' => 'Discapacidad', 'disabled' =>'true'))                
+                ->add('ninos', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Niños', 'disabled' =>'true'))
+                ->add('adultos', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Adultos', 'disabled' =>'true'))
+                ->add('terceraEdad', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Tercera edad', 'disabled' =>'true'))
+                ->add('discapacidad', 'text', array('attr' => array('placeholder' => '¿Cuántos atendieron? 0, 1, 2, o más'),'label' => 'Discapacidad', 'disabled' =>'true'))                
 
                 ->add('comunidad', 'text', array('attr' => array('placeholder' => '¿comunidad antendida?'),'label' => 'Comunidad', 'disabled' => true))
 

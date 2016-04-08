@@ -24,11 +24,9 @@ class Proyecto
     /**
      * @var string
      * @ORM\Column(name="nombre", type="string", length=1000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca nombre.")
+     * @Assert\NotBlank(message="Por favor, introduzca nombre.")
      * @Assert\Length(
-     *      min = 5,
      *      max = 1000,
-     *      minMessage = "el nombre debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "el nombre debe tener maximo {{ limit }} caracteres.")
      */     
     private $nombre;
@@ -38,8 +36,8 @@ class Proyecto
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="date", nullable=false)
-     * Assert\NotBlank(message="Porfavor introduzca una fecha.")
-     * Assert\Date(message="Porfavor introduzca una fecha valida.")
+     * Assert\NotBlank(message="Por favor, introduzca una fecha.")
+     * Assert\Date(message="Por favor, introduzca una fecha valida.")
      */    
     private $fechaInicio;
 
@@ -48,8 +46,8 @@ class Proyecto
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_fin", type="date", nullable=false)
-     * Assert\NotBlank(message="Porfavor introduzca una fecha.")
-     * Assert\Date(message="Porfavor introduzca una fecha valida.")
+     * Assert\NotBlank(message="Por favor, introduzca una fecha.")
+     * Assert\Date(message="Por favor, introduzca una fecha valida.")
      */    
     private $fechaFin;
 
@@ -58,11 +56,9 @@ class Proyecto
      * @var string
      *
      * @ORM\Column(name="locacion", type="string", length=1000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca dirección.")
+     * @Assert\NotBlank(message="Por favor, introduzca dirección.")
      * @Assert\Length(
-     *      min = 5,
      *      max = 1000,
-     *      minMessage = "la dirección debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la dirección debe tener maximo {{ limit }} caracteres.")     
      */    
     private $locacion;
@@ -72,7 +68,7 @@ class Proyecto
      * @var string
      *
      * @ORM\Column(name="instituto", type="string", length=1000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca instituo.")     
+     * @Assert\NotBlank(message="Por favor, introduzca instituo.")     
      */     
     private $instituto;
 
@@ -81,11 +77,9 @@ class Proyecto
      * @var string
      *
      * @ORM\Column(name="instituto_propone", type="string", length=1000, nullable=true)
-     * @Assert\NotBlank(message="Porfavor introduzca nombre instituto.")
+     * @Assert\NotBlank(message="Por favor, introduzca nombre instituto.")
      * @Assert\Length(
-     *      min = 2,
      *      max = 1000,
-     *      minMessage = "el nombre del instituto debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "el nombre del instituto debe tener maximo {{ limit }} caracteres.")       
      */    
     private $institutoPropone;
@@ -110,7 +104,7 @@ class Proyecto
      * @var string
      *
      * @ORM\Column(name="departamento", type="string", length=50, nullable=false)
-      * @Assert\NotBlank(message="Porfavor introduzca departamento.")       
+      * @Assert\NotBlank(message="Por favor, introduzca departamento.")       
      */
     private $departamento = 'Computación';    
 
@@ -118,8 +112,8 @@ class Proyecto
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_desco", type="date", nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una fecha.")
-     * @Assert\Date(message="Porfavor introduzca una fecha valida.")
+     * @Assert\NotBlank(message="Por favor, introduzca una fecha.")
+     * @Assert\Date(message="Por favor, introduzca una fecha valida.")
      */
     private $fechaDesco;    
 

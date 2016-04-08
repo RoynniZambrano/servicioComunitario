@@ -20,8 +20,8 @@ class Diario
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="date", nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una fecha.")
-     * @Assert\Date(message="Porfavor introduzca una fecha valida.")
+     * @Assert\NotBlank(message="Por favor, introduzca una fecha.")
+     * @Assert\Date(message="Por favor, introduzca una fecha valida.")
      */     
     private $fecha;
 
@@ -29,11 +29,9 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="personal", type="string", length=3000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca personal.")
+     * @Assert\NotBlank(message="Por favor, introduzca personal.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 3000,
-     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $personal;
@@ -42,11 +40,9 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="fortalezas", type="string", length=3000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca fortalezas.")
+     * @Assert\NotBlank(message="Por favor, introduzca fortalezas.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 3000,
-     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $fortalezas;
@@ -55,11 +51,9 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="debilidades", type="string", length=3000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca debilidades.")
+     * @Assert\NotBlank(message="Por favor, introduzca debilidades.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 3000,
-     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $debilidades;
@@ -68,11 +62,9 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="conclusion", type="string", length=3000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca conclusion.")
+     * @Assert\NotBlank(message="Por favor, introduzca conclusion.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 3000,
-     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $conclusion;
@@ -81,11 +73,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="hora_inicio", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una hora de inicio.")
+     * @Assert\NotBlank(message="Por favor, introduzca una hora de inicio.")
      * @Assert\Length(
      *      min = 7,
      *      max = 7,
-     *      exactMessage = "Porfavor intruduzca una hora valida.")      
+     *      exactMessage = "Por favor, intruduzca una hora valida.")      
      */       
     private $horaInicio;
 
@@ -94,11 +86,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="hora_fin", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una hora de culminacion.") 
+     * @Assert\NotBlank(message="Por favor, introduzca una hora de culminacion.") 
      * @Assert\Length(
      *      min = 7,
      *      max = 7,
-     *      exactMessage = "Porfavor intruduzca una hora valida.")       
+     *      exactMessage = "Por favor, intruduzca una hora valida.")       
      */ 
     private $horaFin;
 
@@ -106,11 +98,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="personas", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca cantidad de personas.")      
+     * @Assert\NotBlank(message="Por favor, introduzca cantidad de personas.")      
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un número de personas valido."
+     *      message="Por favor, introduzca un número de personas valido."
      *  )      
      */
     private $personas;
@@ -134,11 +126,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="horas", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca cantidad de horas.")      
+     * @Assert\NotBlank(message="Por favor, introduzca cantidad de horas.")      
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un número de horas valido."
+     *      message="Por favor, introduzca un número de horas valido."
      *  )      
      */
     private $horas;
@@ -148,11 +140,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="ninos", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca niños.")      
+     * @Assert\NotBlank(message="Por favor, introduzca cantidad de niños atendidos.")      
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un número de niños valido."
+     *      message="Por favor, introduzca un número de niños valido."
      *  )      
      */
     private $ninos;
@@ -162,11 +154,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="adultos", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca adultos.")      
+     * @Assert\NotBlank(message="Por favor, introduzca cantidad de adultos atendidos.")      
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un número de adultos valido."
+     *      message="Por favor, introduzca un número  valido."
      *  )      
      */
     private $adultos;
@@ -176,11 +168,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="tercera_edad", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca tercera edad.")      
+     * @Assert\NotBlank(message="Por favor, introduzca cantidad de tercera edad atendidos.")      
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un número de tercera edad valido."
+     *      message="Por favor, introduzca un número valido."
      *  )      
      */
     private $terceraEdad;
@@ -190,11 +182,11 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="discapacidad", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca discapacidad.")      
+     * @Assert\NotBlank(message="Por favor, introduzca cantidad de personas con discapacidad atendidos.")      
      * @Assert\Regex(
      *      pattern="/^[0-9][0-9]*$/",
      *      match=true,
-     *      message="Porfavor introduzca un número de discapacidad valido."
+     *      message="Por favor, introduzca un número valido."
      *  )      
      */
     private $discapacidad;
@@ -203,11 +195,9 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="comunidad", type="string", length=3000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca comunidad.")
+     * @Assert\NotBlank(message="Por favor, introduzca comunidad.")
      * @Assert\Length(
-     *      min = 4,
      *      max = 300,
-     *      minMessage = "la comunidad debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la comunidad debe tener maximo {{ limit }} caracteres.")      
      */    
     private $comunidad;
@@ -216,11 +206,9 @@ class Diario
      * @var string
      *
      * @ORM\Column(name="descripcion", type="string", length=3000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca descripción.")
+     * @Assert\NotBlank(message="Por favor, introduzca descripción.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 3000,
-     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la descripción debe tener maximo {{ limit }} caracteres.")      
      */
     private $descripcion;
@@ -277,7 +265,7 @@ class Diario
      *     @ORM\JoinColumn(name="actividad_id_actividad", referencedColumnName="id_actividad")
      *   }  
      * )
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos una actividad")      
+     * @Assert\Count(min = 1, minMessage = "Debe seleccionar al menos una actividad")      
      */
     private $actividadActividad;
 

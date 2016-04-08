@@ -38,8 +38,14 @@ student_newform:
 
 
 
+#student_new_alfa:
+#    path:  /{nameLogin}/{clave}/useralfa_new
+#    defaults: { _controller: TesisAdminBundle:Estudiante:new_alfa}
+#    options:
+#        expose: true
+
 student_new_alfa:
-    path:  /{nameLogin}/{clave}/useralfa_new
+    path:  /useralfa_new
     defaults: { _controller: TesisAdminBundle:Estudiante:new_alfa}
     options:
         expose: true

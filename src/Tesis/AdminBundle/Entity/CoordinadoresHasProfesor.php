@@ -31,7 +31,7 @@ class CoordinadoresHasProfesor
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="proyecto_id_proyecto", referencedColumnName="id_proyecto")
      * })
-     * @Assert\NotBlank(message="Porfavor introduzca un proyecto.")     
+     * @Assert\NotBlank(message="Por favor, introduzca un proyecto.")     
      */
     private $proyectoProyecto;
 
@@ -42,8 +42,8 @@ class CoordinadoresHasProfesor
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="profesor_id_suplente", referencedColumnName="id_profesor")
      * })
-     * @Assert\NotBlank(message="Debe elegir al menos un coordinador.")      
-     * Assert\Count(min = 1, minMessage = "Debe elegir al menos un coordinador")      
+     * @Assert\NotBlank(message="Debe seleccionar al menos un coordinador.")      
+     * Assert\Count(min = 1, minMessage = "Debe seleccionar al menos un coordinador")      
     */    
     private $profesorSuplente;
 
@@ -54,8 +54,8 @@ class CoordinadoresHasProfesor
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="profesor_id_proyecto", referencedColumnName="id_profesor")
      * })
-     * @Assert\NotBlank(message="Debe elegir al menos un coordinador.")      
-     * Assert\Count(min = 1, minMessage = "Debe elegir al menos un coordinador")       
+     * @Assert\NotBlank(message="Debe seleccionar al menos un coordinador.")      
+     * Assert\Count(min = 1, minMessage = "Debe seleccionar al menos un coordinador")       
     */
     private $profesorProyecto;    
 
@@ -63,9 +63,9 @@ class CoordinadoresHasProfesor
      * @var string
      *
      * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca Período.")       
+     * @Assert\NotBlank(message="Por favor, introduzca Período.")       
      */
-    private $periodo = '2015-1'; 
+    private $periodo = '2016-1'; 
 
 
     /**

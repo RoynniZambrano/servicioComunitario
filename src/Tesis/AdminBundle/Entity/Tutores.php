@@ -27,7 +27,7 @@ class Tutores
 
     /**
      * @var \Tesis\AdminBundle\Entity\Proyecto
-     * @Assert\NotBlank(message="Porfavor introduzca un proyecto.")     
+     * @Assert\NotBlank(message="Por favor, introduzca un proyecto.")     
      *
      * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Proyecto")
      * @ORM\JoinColumns({
@@ -38,7 +38,7 @@ class Tutores
 
     /**
      * @var \Doctrine\Common\Collections\Collection
-     * @Assert\NotBlank(message="Porfavor introduzca un tutor.")     
+     * @Assert\NotBlank(message="Por favor, introduzca un tutor.")     
      *
      * @ORM\ManyToMany(targetEntity="Tesis\AdminBundle\Entity\Profesor", inversedBy="tutoresTutores")
      * @ORM\JoinTable(name="tutores_has_profesor",
@@ -49,7 +49,7 @@ class Tutores
      *     @ORM\JoinColumn(name="profesor_id_profesor", referencedColumnName="id_profesor")
      *   }
      * )
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un Tutor")      
+     * @Assert\Count(min = 1, minMessage = "Debe seleccionar al menos un Tutor")      
      */
     private $profesorProfesor;
 
@@ -57,9 +57,9 @@ class Tutores
      * @var string
      *
      * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca Período.")       
+     * @Assert\NotBlank(message="Por favor, introduzca Período.")       
      */
-    private $periodo = '2015-1';    
+    private $periodo = '2016-1';    
 
     /**
      * Constructor

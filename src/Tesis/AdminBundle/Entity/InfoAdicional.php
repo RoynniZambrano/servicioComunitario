@@ -20,11 +20,9 @@ class InfoAdicional
      * @var text
      *
      * @ORM\Column(name="resumen", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca resumen.")
+     * @Assert\NotBlank(message="Por favor, introduzca resumen.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 8192,
-     *      minMessage = "el resumen debe tener mínimo {{ limit }} caracteres.",
      *      maxMessage = "el resumen debe tener máximo {{ limit }} caracteres.")      
      */
     private $resumen;
@@ -34,11 +32,9 @@ class InfoAdicional
      * @var text
      *
      * @ORM\Column(name="problema", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca problema.")
+     * @Assert\NotBlank(message="Por favor, introduzca problema.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 8192,
-     *      minMessage = "el problema debe tener mínimo {{ limit }} caracteres.",
      *      maxMessage = "el problema debe tener máximo {{ limit }} caracteres.")      
      */
     private $problema;
@@ -48,11 +44,9 @@ class InfoAdicional
      * @var text
      *
      * @ORM\Column(name="justificacion", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca la justificación.")
+     * @Assert\NotBlank(message="Por favor, introduzca la justificación.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 8192,
-     *      minMessage = "la justificación debe tener mínimo {{ limit }} caracteres.",
      *      maxMessage = "la justificación debe tener máximo {{ limit }} caracteres.")       
      */
     private $justificacion;
@@ -61,11 +55,9 @@ class InfoAdicional
      * @var text
      *
      * @ORM\Column(name="objetivo_g", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca objetivo general.")
+     * @Assert\NotBlank(message="Por favor, introduzca objetivo general.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 8192,
-     *      minMessage = "el objetivo general debe tener mínimo {{ limit }} caracteres.",
      *      maxMessage = "el objetivo general debe tener máximo {{ limit }} caracteres.")       
      */
     private $objetivoG;
@@ -75,11 +67,9 @@ class InfoAdicional
      * @var text
      *
      * @ORM\Column(name="resultados", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca resultados.")
+     * @Assert\NotBlank(message="Por favor, introduzca resultados.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 8192,
-     *      minMessage = "resultados debe tener mínimo {{ limit }} caracteres.",
      *      maxMessage = "resultados debe tener máximo {{ limit }} caracteres.")       
      */
     private $resultados;
@@ -89,11 +79,9 @@ class InfoAdicional
      * @var text
      *
      * @ORM\Column(name="conclusion", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca conclusión.")
+     * @Assert\NotBlank(message="Por favor, introduzca conclusión.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 8192,
-     *      minMessage = "conclusión debe tener mínimo {{ limit }} caracteres.",
      *      maxMessage = "conclusión debe tener máximo {{ limit }} caracteres.")       
      */
     private $conclusion;
@@ -103,11 +91,9 @@ class InfoAdicional
      * @var text
      *
      * @ORM\Column(name="objetivo_e", type="text", length=8192, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca objetivos especificos.")
+     * @Assert\NotBlank(message="Por favor, introduzca objetivos especificos.")
      * @Assert\Length(
-     *      min = 10,
      *      max = 8192,
-     *      minMessage = "objetivos especificos debe tener mínimo {{ limit }} caracteres.",
      *      maxMessage = "objetivos especificos debe tener máximo {{ limit }} caracteres.")       
      */
     private $objetivoE;
@@ -135,8 +121,8 @@ class InfoAdicional
      * @var \DateTime
      *
      * @ORM\Column(name="fecha", type="date", nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca fecha.")
-     * @Assert\Date(message="Porfavor introduzca una fecha valida.")
+     * @Assert\NotBlank(message="Por favor, introduzca fecha.")
+     * @Assert\Date(message="Por favor, introduzca una fecha valida.")
      */
     private $fecha;    
 

@@ -53,7 +53,8 @@ class SCController extends Controller
    				$user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'clave' => $clave));
 
                 if (!$user) {
-                    $user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'estatus' => "activo"));
+                    //$user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'estatus' => "activo"));
+                    $user = $repository->findOneBy(array('nameLogin' => $nameLogin));
 
                     if ($user) {
                         $form->get('nameLogin')->addError(new FormError('contraseña no valida.'));
@@ -72,7 +73,8 @@ class SCController extends Controller
 
 
                         if (!$user) {
-                            $user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'estatus' => "activo"));
+                         //   $user = $repository->findOneBy(array('nameLogin' => $nameLogin, 'estatus' => "activo"));
+                         $user = $repository->findOneBy(array('nameLogin' => $nameLogin));   
 
                             if ($user) {
                                 $form->get('nameLogin')->addError(new FormError('contraseña no valida.'));
@@ -92,10 +94,24 @@ class SCController extends Controller
 
                             if ($temp) {
 
+                                //$session = new Session();
+                                //$session->start();
+
+                                // set and get session attributes
+                                $session->set('nameLogin', $nameLogin);
+                                $session->set('clave', $clave);
+                                //$session->get('clave');
+
+                                return new Response('..'); 
+/*
                                 echo 
                                     "<script>
                                         window.location.href ='" .$this->generateUrl('student_new_alfa', array('nameLogin' => $nameLogin, 'clave' => $clave)) . "';
-                                    </script>";                       
+                                    </script>";
+*/                                    
+
+
+
                             //    return $this->redirect($this->generateUrl('student_new_alfa', array('nameLogin' => $nameLogin, 'clave' => $clave)));
                             }
                         }else

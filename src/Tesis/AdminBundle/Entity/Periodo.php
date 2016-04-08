@@ -23,7 +23,7 @@ class Periodo
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=100, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca nombre.")     
+     * @Assert\NotBlank(message="Por favor, introduzca nombre.")     
      */
     private $nombre;
 
@@ -32,8 +32,8 @@ class Periodo
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_inicio", type="date", nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca una fecha.") 
-     * Assert\Date(message="Porfavor introduzca una fecha valida.")              
+     * @Assert\NotBlank(message="Por favor, introduzca una fecha.") 
+     * Assert\Date(message="Por favor, introduzca una fecha valida.")              
      */    
     private $fechaInicio;
 
@@ -42,7 +42,7 @@ class Periodo
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_fin", type="date", nullable=false)
-     * Assert\Date(message="Porfavor introduzca una fecha valida.")                 
+     * Assert\Date(message="Por favor, introduzca una fecha valida.")                 
      */    
     private $fechaFin;
 
@@ -51,7 +51,7 @@ class Periodo
      * @var string
      *
      * @ORM\Column(name="comentario", type="string", length=2000, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca comentario.")
+     * @Assert\NotBlank(message="Por favor, introduzca comentario.")
      * @Assert\Length(
      *      min = 2,
      *      max = 2000,

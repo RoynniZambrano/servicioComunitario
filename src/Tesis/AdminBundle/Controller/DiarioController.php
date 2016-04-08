@@ -51,6 +51,33 @@ class DiarioController extends Controller{
 
             $entity->setProyectoProyecto($proyecto);
 
+/*
+            $em = $this->getDoctrine()->getEntityManager();
+            $connection = $em->getConnection();
+            $statement = $connection->prepare("SELECT a.* 
+            FROM actividad a
+            INNER JOIN fase f ON f.actividadActividad = a.idActividad
+            INNER JOIN proyecto p ON p.faseFase = f.idFase
+            WHERE p.id_proyecto = :id_proyecto
+            ");                    
+            $statement->bindValue('id_proyecto', $proyecto->getIdProyecto());
+            $statement->execute();
+            $actividades = $statement->fetchAll();
+            $options['actividades'] = $actividades;
+*/
+
+
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery("SELECT a1
+            FROM TesisAdminBundle:Actividad a1
+            INNER JOIN TesisAdminBundle:Fase f1 WITH a1.idActividad = f1.actividadActividad
+            INNER JOIN TesisAdminBundle:Proyecto p1 WITH f1.idFase = p1.faseFase
+            WHERE p1.idProyecto = :proyecto
+            ");
+            $query->setParameter('departamento', $proyecto->getIdProyecto() );
+            $actividades = $query->execute();
+            $options['actividades'] = $actividades;            
+
             $form = $this->createForm(new DiarioType($options), $entity, array(
                 'action' => $this->generateUrl('diario_newform'),
                 'method' => 'POST',

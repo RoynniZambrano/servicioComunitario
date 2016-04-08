@@ -37,7 +37,10 @@ function logginUsuario(){
 
       if(result == '.')
           window.location.href = Routing.generate('tesis_admin_homepage');
-
+      if(result == '..'){      
+          bootbox.alert("Bienvenido, Ud. está ingresando por primera vez al sistema de servicio comunitario de la FACYT. Por favor, suministre la información requerida en el siguiente formulario para crear su usuario en el sistema. La contraseña podrá ser cambiada posteriorme.", function(result){ window.location.href = Routing.generate('student_new_alfa') })
+       }
+        
           form.remove();
           $("#loggin-div").prepend(result);
       

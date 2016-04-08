@@ -20,11 +20,9 @@ class Fase
     /**
      * @var string
      * @ORM\Column(name="nombre", type="string", length=500, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca nombre.")
+     * @Assert\NotBlank(message="Por favor, introduzca nombre.")
      * @Assert\Length(
-     *      min = 5,
      *      max = 500,
-     *      minMessage = "el nombre debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "el nombre debe tener maximo {{ limit }} caracteres.")
      */      
     private $nombre;
@@ -33,11 +31,9 @@ class Fase
     /**
      * @var string
      * @ORM\Column(name="descripcion", type="string", length=2000, nullable=true)
-     * _Assert\NotBlank(message="Porfavor introduzca descripción.")
+     * _Assert\NotBlank(message="Por favor, introduzca descripción.")
      * _Assert\Length(
-     *      min = 20,
      *      max = 1999,
-     *      minMessage = "la descripción debe tener minimo {{ limit }} caracteres.",
      *      maxMessage = "la descripción tener maximo {{ limit }} caracteres.")
      */
     private $descripcion;
@@ -70,7 +66,7 @@ class Fase
      *     @ORM\JoinColumn(name="actividad_id_actividad", referencedColumnName="id_actividad")
      *   }
      * )
-     * Assert\Count(min = 1, minMessage = "Debe elegir al menos una actividad") 
+     * Assert\Count(min = 1, minMessage = "Debe seleccionar al menos una actividad") 
      */
     private $actividadActividad;
 

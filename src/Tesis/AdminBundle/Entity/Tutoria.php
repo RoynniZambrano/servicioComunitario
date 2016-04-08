@@ -27,7 +27,7 @@ class Tutoria
 
     /**
      * @var \Tesis\AdminBundle\Entity\Profesor
-     * @Assert\NotBlank(message="Porfavor introduzca un profesor.")      
+     * @Assert\NotBlank(message="Por favor, introduzca un profesor.")      
      *
      * @ORM\ManyToOne(targetEntity="Tesis\AdminBundle\Entity\Profesor")
      * @ORM\JoinColumns({
@@ -48,7 +48,7 @@ class Tutoria
      *     @ORM\JoinColumn(name="estudiante_id_estudiante", referencedColumnName="id_estudiante")
      *   }
      * )
-     * @Assert\Count(min = 1, minMessage = "Debe elegir al menos un estudiante")       
+     * @Assert\Count(min = 1, minMessage = "Debe seleccionar al menos un estudiante")       
      */
     private $estudianteEstudiante;
 
@@ -57,9 +57,9 @@ class Tutoria
      * @var string
      *
      * @ORM\Column(name="periodo", type="string", length=50, nullable=false)
-     * @Assert\NotBlank(message="Porfavor introduzca Período.")       
+     * @Assert\NotBlank(message="Por favor, introduzca Período.")       
      */
-    private $periodo = '2015-1';      
+    private $periodo = '2016-1';      
 
     /**
      * Constructor

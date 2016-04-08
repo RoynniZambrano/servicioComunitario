@@ -9,14 +9,14 @@ class Reporte{
    /**
      * @var string
      *
-     * @Assert\NotBlank(message = "Porfavor introduzca su departamento.")
+     * @Assert\NotBlank(message = "Por favor, introduzca su departamento.")
      */
 	private $departamento;
 
    /**
      * @var string
      *
-     * @Assert\NotBlank(message = "Porfavor introduzca su Período.")
+     * @Assert\NotBlank(message = "Por favor, introduzca un período.")
      */
     private $periodo;
 

@@ -267,14 +267,20 @@ class EstudianteController extends Controller
     }    
 
  
-    public function new_alfaAction($nameLogin,$clave){
+    public function new_alfaAction($nameLogin = null,$clave = null){
 
         $session = $this->getRequest()->getSession();
 
     //    if($session->has('user')){
             $options['user'] = $session->get('user');
-            $options['nameLogin'] = $nameLogin;
-            $options['clave'] = $clave;
+          //  $session->get('name');
+
+            $options['nameLogin'] = $session->get('nameLogin');;
+            $options['clave'] = $session->get('clave');
+
+
+          //  $options['nameLogin'] = $nameLogin;
+          //  $options['clave'] = $clave;
             return $this->render('TesisAdminBundle:Estudiante:new-student-alfa.html.twig',$options);
       //  }
        //     return $this->render('TesisSCBundle:Main:denegado.html.twig');

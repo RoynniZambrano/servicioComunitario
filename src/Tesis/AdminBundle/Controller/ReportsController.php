@@ -115,7 +115,7 @@ class ReportsController extends Controller
                 array('orientation'=>'Landscape',
                 'footer-font-size' => '8', 
                 'margin-top' => '10',
-                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+                //'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),
@@ -234,7 +234,7 @@ class ReportsController extends Controller
                 array('orientation'=>'Landscape',
                 'footer-font-size' => '8', 
                 'margin-top' => '10',
-                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+               // 'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),
@@ -421,7 +421,7 @@ class ReportsController extends Controller
                 array('orientation'=>'Landscape',
                 'footer-font-size' => '8', 
                 'margin-top' => '10',
-                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+               // 'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),
@@ -533,68 +533,8 @@ class ReportsController extends Controller
 
             }
 
-/*
-            $i=0;
-            foreach ($c_proyecto as $proyecto) {
-                $tamano =  0;
-                $em = $this->getDoctrine()->getEntityManager();
-                $connection = $em->getConnection();
-                $statement = $connection->prepare("SELECT DISTINCT (p1.nombre) as nombre
-                FROM proyecto p1 
-                INNER JOIN coordinadores_has_profesor cp1 ON
-                p1.id_proyecto = cp1.proyecto_id_proyecto
-                WHERE p1.id_proyecto = :id_proyecto");                  
-                $statement->bindValue('id_proyecto', $proyecto->getProyecto());
-                $statement->execute();
-                $entity = $statement->fetchAll();
-
-                $tamano = sizeof($entity);
-                if ($tamano>0) {
-                    $proyectos[$i] = $entity;
-                } else{
-                    $proyectos[$i] = null;
-
-                }
-
-                $i++;
-            }
-            if ($i == 0) {
-                $proyectos = null;
-            }             
-*/
-$proyectos = null;
-           // var_dump($proyectos);
-
-/*
-            $i=0;
-            foreach ($c_suplente as $suplente) {
-                $tamano =  0;
-                $em = $this->getDoctrine()->getEntityManager();
-                $connection = $em->getConnection();
-                $statement = $connection->prepare("SELECT DISTINCT (p1.nombre) as nombre
-                FROM proyecto p1 
-                INNER JOIN coordinadores_has_profesor cp1 ON
-                p1.id_proyecto = cp1.proyecto_id_proyecto
-                WHERE p1.id_proyecto = :id_proyecto");                  
-                $statement->bindValue('id_proyecto', $suplente->getProyecto());
-                $statement->execute();
-                $entity = $statement->fetchAll();
-
-                $tamano = sizeof($entity);
-                if ($tamano>0) {
-                    $suplentes[$i] = $entity;
-                } else{
-                    $suplentes[$i] = null;
-
-                }
-
-                $i++;
-            }
-            if ($i == 0) {
-                $suplentes = null;
-            } 
-*/
-$suplentes = null;            
+            $proyectos = null;
+            $suplentes = null;            
 
             $tamano = 0;
             $tamano = sizeof($c_proyecto);
@@ -622,7 +562,7 @@ $suplentes = null;
                 array('orientation'=>'Landscape',
                 'footer-font-size' => '8', 
                 'margin-top' => '10',
-                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+                //'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),
@@ -816,7 +756,7 @@ $suplentes = null;
                 array('orientation'=>'Landscape',
                 'footer-font-size' => '8', 
                 'margin-top' => '10',
-                'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
+                //'footer-left' => 'Generado: [date]. Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),
