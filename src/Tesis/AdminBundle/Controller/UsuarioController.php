@@ -70,11 +70,10 @@ class UsuarioController extends Controller
                 
                 echo 
                 "<script>
-                    bootbox.alert('El profesor ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
-                        }, 2000);
-                </script>";
+                    bootbox.alert('El profesor ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "' })
+                </script>";  
+
+
               //  return $this->redirect($this->generateUrl('user_checkform', array('id' => $entity->getId()))); 
             }
 
@@ -248,11 +247,9 @@ class UsuarioController extends Controller
 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
-                        }, 2000);
-                </script>";
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "' })
+                </script>";  
+
 
                 //return $this->redirect($this->generateUrl('user_checkform', array('id' => $id)));                    
 
@@ -360,11 +357,9 @@ class UsuarioController extends Controller
                 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "';
-                        }, 2000);
-                </script>";
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('user_check', array('cedula' => $entity->getCedula())) . "' })
+                </script>";  
+
 
               //  return $this->redirect($this->generateUrl('user_checkform', array('id' => $id)));
             }

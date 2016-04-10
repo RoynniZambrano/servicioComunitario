@@ -10,6 +10,7 @@ use Tesis\AdminBundle\Entity\Periodo;
 use Tesis\AdminBundle\Form\PeriodoType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
@@ -42,10 +43,43 @@ class PeriodoController extends Controller{
             $estudiante = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
             array('idEstudiante' => $user->getId()));
             $entity->setEstudianteEstudiante($estudiante);
-
-
             $options['status'] = 'new';
-            $options['actividades'] = null;
+            $options['actividades_f'] = null;
+
+            $proyecto = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
+            array('idProyecto' => $estudiante->getProyecto()));            
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $connection = $em->getConnection();
+            $statement = $connection->prepare("SELECT f.id_fase as fase_id 
+            FROM fase f
+            INNER JOIN proyecto_has_fase phf ON phf.fase_id_fase = f.id_fase
+            INNER JOIN proyecto p ON p.id_proyecto = phf.proyecto_id_proyecto
+            WHERE p.id_proyecto = :id_proyecto
+            ");                    
+            $statement->bindValue('id_proyecto', $proyecto->getIdProyecto());
+            $statement->execute();
+            $fases = $statement->fetchAll();
+
+           $actividades=null;
+           $i = 0;
+            foreach ($fases as $fase) {
+
+                $selected = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
+                array('idFase' => $fase['fase_id']));
+
+                if ($i == 0) {
+                    $actividades = $selected->getActividadActividad();
+                }else {
+                    $actividades = new ArrayCollection(
+                        array_merge($actividades->toArray(), $selected->getActividadActividad()->toArray())
+                    );
+                } 
+                $i++;
+            }
+            
+            $options['actividades'] = $actividades;
+
             $form = $this->createForm(new PeriodoType($options), $entity, array(
                 'action' => $this->generateUrl('periodo_newform'),
                 'method' => 'POST',
@@ -60,10 +94,7 @@ class PeriodoController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('El periodo ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('periodo_list') . "';
-                        }, 2000);
+                    bootbox.alert('El periodo ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('periodo_list') . "' })
                 </script>";
 
                // return new Response('.'); 
@@ -171,6 +202,7 @@ class PeriodoController extends Controller{
             //$options['method'] = 'POST';
            
             $options['status'] = 'check';
+            $options['actividades_f'] = null;
             $options['actividades'] = $entity->getActividadActividad();
             $form = $this->createForm(new PeriodoType($options), $entity, array(
                 'action' => $this->generateUrl('periodo_checkform', array('id' => $id)),
@@ -240,20 +272,55 @@ class PeriodoController extends Controller{
             $entity = $em->getRepository('TesisAdminBundle:Periodo')->findOneBy(
                 array('idPeriodo' => $id));
 
-          //  $options['action'] = $this->generateUrl('periodo_editform', array('id' => $id));
-          //  $options['method'] = 'POST';
-            if ($user->getPerfil() == "estudiante") 
+            if ($user->getPerfil() == "estudiante") {
+                $proyecto = $user->getProyecto();
                  $options['status'] = 'edit_student';
-              //  $editForm = $this->createForm(new PeriodoType('edit_student'), $entity, $options); 
-            else
+            }
+            else{
+                $proyecto = $entity->getEstudianteEstudiante()->getProyecto();
                  $options['status'] = 'edit_tutor';
-              //  $editForm = $this->createForm(new PeriodoType('edit_tutor'), $entity, $options); 
+             }
         
             $options['actividades'] = $entity->getActividadActividad();
+
+            $proyecto = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
+            array('idProyecto' => $proyecto));
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $connection = $em->getConnection();
+            $statement = $connection->prepare("SELECT f.id_fase as fase_id 
+            FROM fase f
+            INNER JOIN proyecto_has_fase phf ON phf.fase_id_fase = f.id_fase
+            INNER JOIN proyecto p ON p.id_proyecto = phf.proyecto_id_proyecto
+            WHERE p.id_proyecto = :id_proyecto
+            ");                    
+            $statement->bindValue('id_proyecto', $proyecto->getIdProyecto());
+            $statement->execute();
+            $fases = $statement->fetchAll();
+
+           $actividades_f=null;
+           $i = 0;
+            foreach ($fases as $fase) {
+
+                $selected = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
+                array('idFase' => $fase['fase_id']));
+
+                if ($i == 0) {
+                    $actividades_f = $selected->getActividadActividad();
+                }else {
+                    $actividades_f = new ArrayCollection(
+                        array_merge($actividades_f->toArray(), $selected->getActividadActividad()->toArray())
+                    );
+                } 
+                $i++;
+            }
+            
+            $options['actividades_f'] = $actividades_f;
+
             $editForm = $this->createForm(new PeriodoType($options), $entity, array(
                 'action' => $this->generateUrl('periodo_editform', array('id' => $id)),
                 'method' => 'POST',
-            ));
+            ));            
 
 
             $editForm->submit($request->request->get($editForm->getName()), false);
@@ -265,12 +332,8 @@ class PeriodoController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('periodo_check', array('id' => $id)) . "';
-                        }, 2000);
-                </script>"; 
-
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('periodo_check', array('id' => $id)) . "' })
+                </script>";
 
                     //return $this->redirect($this->generateUrl('periodo_checkform', array('id' => $id)));                    
                 }
@@ -279,16 +342,14 @@ class PeriodoController extends Controller{
 
                if ($this->getRequest()->getMethod() == 'POST'){
 
-                    $entity->setObservacion($entity->getObservacion() . "   [fecha ultima correción: " .  date("d/m/Y") ."]");
+                    $entity->setObservacion($entity->getObservacion() . "   [fecha correción: " .  date("d/m/Y") ."]");
                     $em->flush();
 
-                    echo 
-                    "<script>
-                        bootbox.alert('Los cambios se han guardado con éxito');
-                            setTimeout(function() {
-                                window.location.href ='" .$this->generateUrl('periodo_check', array('id' => $id)) . "';
-                            }, 2000);
-                    </script>";
+                echo 
+                "<script>
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('periodo_check', array('id' => $id)) . "' })
+                </script>"; 
+
 
                   //  return $this->redirect($this->generateUrl('periodo_checkform', array('id' => $id)));                    
                 }

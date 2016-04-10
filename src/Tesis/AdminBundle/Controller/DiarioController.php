@@ -10,6 +10,7 @@ use Tesis\AdminBundle\Entity\Diario;
 use Tesis\AdminBundle\Form\DiarioType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Diario controller.  // echo $form->getErrorsAsString(1);
@@ -40,7 +41,7 @@ class DiarioController extends Controller{
             $options['id'] = $session->get('user')->getId();
             $options['proyecto'] = $session->get('user')->getProyecto();
             $options['status'] = 'new';
-            $options['actividades'] = null;
+            $options['actividades_f'] = null;
 
             $estudiante = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
             array('idEstudiante' => $user->getId()));
@@ -51,32 +52,36 @@ class DiarioController extends Controller{
 
             $entity->setProyectoProyecto($proyecto);
 
-/*
             $em = $this->getDoctrine()->getEntityManager();
             $connection = $em->getConnection();
-            $statement = $connection->prepare("SELECT a.* 
-            FROM actividad a
-            INNER JOIN fase f ON f.actividadActividad = a.idActividad
-            INNER JOIN proyecto p ON p.faseFase = f.idFase
+            $statement = $connection->prepare("SELECT f.id_fase as fase_id 
+            FROM fase f
+            INNER JOIN proyecto_has_fase phf ON phf.fase_id_fase = f.id_fase
+            INNER JOIN proyecto p ON p.id_proyecto = phf.proyecto_id_proyecto
             WHERE p.id_proyecto = :id_proyecto
             ");                    
             $statement->bindValue('id_proyecto', $proyecto->getIdProyecto());
             $statement->execute();
-            $actividades = $statement->fetchAll();
+            $fases = $statement->fetchAll();
+
+           $actividades=null;
+           $i = 0;
+            foreach ($fases as $fase) {
+
+                $selected = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
+                array('idFase' => $fase['fase_id']));
+
+                if ($i == 0) {
+                    $actividades = $selected->getActividadActividad();
+                }else {
+                    $actividades = new ArrayCollection(
+                        array_merge($actividades->toArray(), $selected->getActividadActividad()->toArray())
+                    );
+                } 
+                $i++;
+            }
+            
             $options['actividades'] = $actividades;
-*/
-
-
-            $em = $this->getDoctrine()->getManager();
-            $query = $em->createQuery("SELECT a1
-            FROM TesisAdminBundle:Actividad a1
-            INNER JOIN TesisAdminBundle:Fase f1 WITH a1.idActividad = f1.actividadActividad
-            INNER JOIN TesisAdminBundle:Proyecto p1 WITH f1.idFase = p1.faseFase
-            WHERE p1.idProyecto = :proyecto
-            ");
-            $query->setParameter('departamento', $proyecto->getIdProyecto() );
-            $actividades = $query->execute();
-            $options['actividades'] = $actividades;            
 
             $form = $this->createForm(new DiarioType($options), $entity, array(
                 'action' => $this->generateUrl('diario_newform'),
@@ -92,11 +97,8 @@ class DiarioController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('El diario de campo ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('diario_list') . "';
-                        }, 2000);
-                </script>";
+                    bootbox.alert('El diario de campo ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('diario_list') . "' })
+                </script>";                
 
 
                 //return new Response('.'); 
@@ -212,6 +214,7 @@ class DiarioController extends Controller{
 
             $options['status'] = 'check';
             $options['actividades'] = $entity->getActividadActividad();
+            $options['actividades_f'] = null;
 
             $form = $this->createForm(new DiarioType($options), $entity, array(
                 'action' => $this->generateUrl('diario_checkform', array('id' => $id)),
@@ -294,14 +297,50 @@ class DiarioController extends Controller{
                 $options['status'] = 'edit_tutor'; 
 
             $user = $session->get('user');
-            if ($user->getPerfil()== 'estudiante') {
-                $options['proyecto'] = $user->getProyecto();
+            if ($user->getPerfil() == 'estudiante') {
+                $proyecto = $user->getProyecto();
+                $options['proyecto'] = $proyecto;
                 $options['id'] = $user;
             }
             else{
-               $options['proyecto'] = $entity->getEstudianteEstudiante()->getProyecto();
-               $options['id'] = $entity->getEstudianteEstudiante();
+                $proyecto = $entity->getEstudianteEstudiante()->getProyecto();
+                $options['proyecto'] = $proyecto;
+                $options['id'] = $entity->getEstudianteEstudiante();
             }
+
+            $proyecto = $em->getRepository('TesisAdminBundle:Proyecto')->findOneBy(
+            array('idProyecto' => $proyecto));
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $connection = $em->getConnection();
+            $statement = $connection->prepare("SELECT f.id_fase as fase_id 
+            FROM fase f
+            INNER JOIN proyecto_has_fase phf ON phf.fase_id_fase = f.id_fase
+            INNER JOIN proyecto p ON p.id_proyecto = phf.proyecto_id_proyecto
+            WHERE p.id_proyecto = :id_proyecto
+            ");                    
+            $statement->bindValue('id_proyecto', $proyecto->getIdProyecto());
+            $statement->execute();
+            $fases = $statement->fetchAll();
+
+           $actividades_f=null;
+           $i = 0;
+            foreach ($fases as $fase) {
+
+                $selected = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
+                array('idFase' => $fase['fase_id']));
+
+                if ($i == 0) {
+                    $actividades_f = $selected->getActividadActividad();
+                }else {
+                    $actividades_f = new ArrayCollection(
+                        array_merge($actividades_f->toArray(), $selected->getActividadActividad()->toArray())
+                    );
+                } 
+                $i++;
+            }
+            
+            $options['actividades_f'] = $actividades_f;
             $options['actividades'] = $entity->getActividadActividad();
             
             $editForm = $this->createForm(new DiarioType($options), $entity, array(
@@ -323,12 +362,8 @@ class DiarioController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('diario_check', array('id' => $id)) . "';
-                        }, 2000);
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('diario_check', array('id' => $id)) . "' })
                 </script>";
-
 
                   //  return $this->redirect($this->generateUrl('diario_checkform', array('id' => $id)));                    
                 }
@@ -337,16 +372,14 @@ class DiarioController extends Controller{
 
                if ($this->getRequest()->getMethod() == 'POST'){
 
-                    $entity->setObservacion($entity->getObservacion() . "   [fecha ultima correción: " .  date("d/m/Y") ."]");
+                    $entity->setObservacion($entity->getObservacion() . "   [fecha correción: " .  date("d/m/Y") ."]");
                     $em->flush();
 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('diario_check', array('id' => $id)) . "';
-                        }, 2000);
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('diario_check', array('id' => $id)) . "' })
                 </script>";
+
 
                     //return $this->redirect($this->generateUrl('diario_checkform', array('id' => $id)));                    
                 }
@@ -428,7 +461,7 @@ class DiarioController extends Controller{
                 array(
                 'footer-font-size' => '8', 
                 'margin-top' => '10',
-                'footer-left' => 'Generado: [date].  Impulsado por KnpSnappyBundle',
+                //'footer-left' => 'Generado: [date].  Impulsado por KnpSnappyBundle',
                 'footer-line' => true,
                 'footer-right' => 'Pagina [page] de [toPage]'
                 )),

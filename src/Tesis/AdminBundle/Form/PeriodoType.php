@@ -13,6 +13,7 @@ class PeriodoType extends AbstractType
     public function __construct($options){
         $this->formtype = $options['status'];
         $this->actividades = $options['actividades'];
+        $this->actividades_f = $options['actividades_f'];
     }
 
     /**
@@ -57,8 +58,13 @@ class PeriodoType extends AbstractType
                 ->add('fechaFin', 'date', array('format' => 'dd-MM-yyyy', 'label' => 'Fecha de culminación', 'widget' => 'single_text', 'attr' => array('placeholder' => 'dd-MM-yyyy')))
                 ->add('comentario','textarea', array('label' => 'Comentario', 
                     'attr' => array('placeholder' => '¿algo que agregar?', 'rows' => '10'))) 
-                ->add('actividadActividad', 'entity', array('class' => 'TesisAdminBundle:Actividad',
-                    'property' => 'nombre', 'label' => 'Actividades','multiple'=>true,
+                
+                ->add('actividadActividad', 'entity', array(
+                    'class' => 'TesisAdminBundle:Actividad',
+                    'choices' => $this->actividades,   
+                    'property' => 'nombre', 
+                    'label' => 'Actividades',
+                    'multiple'=>true,
                     'attr' => array('size' => '15')))
             ;
 
@@ -74,6 +80,7 @@ class PeriodoType extends AbstractType
                 ->add('actividadActividad', 'entity', 
                     array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre',
+                    'choices' => $this->actividades_f,                     
                     'label' => 'Actividades',
                     'multiple'=>true,
                     'group_by' => function($val, $key, $index) {

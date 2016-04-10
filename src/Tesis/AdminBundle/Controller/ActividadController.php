@@ -53,11 +53,9 @@ class ActividadController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('La actividad ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('activities_check', array('id' => $entity->getIdActividad())) . "';
-                        }, 2000);
+                    bootbox.alert('La actividad ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('activities_check', array('id' => $entity->getIdActividad())) . "' })
                 </script>";
+
 
                 //return new Response('.'); 
               }
@@ -177,13 +175,11 @@ class ActividadController extends Controller{
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
 
-            echo 
+                echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('activities_check', array('id' => $id)) . "';
-                        }, 2000);
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('activities_check', array('id' => $id)) . "' })
                 </script>";
+
 
             //return $this->redirect($this->generateUrl('activities_checkform', array('id' => $id)));                    
 

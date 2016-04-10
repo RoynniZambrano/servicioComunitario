@@ -70,15 +70,10 @@ class TutoresController extends Controller{
                 }
                 $em->flush();
 
-
-
                 echo 
                 "<script>
-                    bootbox.alert('La asignación ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('tutors_list') . "';
-                        }, 2000);
-                </script>";
+                    bootbox.alert('La asignación ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('tutors_list') . "' })
+                </script>";  
 
                 //return new Response('.'); 
             }
@@ -243,14 +238,10 @@ class TutoresController extends Controller{
                 }
                 $em->flush();
 
-                
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('tutors_check', array('id' => $id)) . "';
-                        }, 2000);
-                </script>";
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('tutors_check', array('id' => $id)) . "' })
+                </script>";                 
 
 
                 //return $this->redirect($this->generateUrl('tutors_checkform', array('id' => $id)));                    

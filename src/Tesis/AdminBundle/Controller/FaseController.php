@@ -54,11 +54,10 @@ class FaseController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('La fase ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('fase_check', array('id' => $entity->getIdFase())) . "';
-                        }, 2000);
-                </script>";                
+                    bootbox.alert('La fase ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('fase_check', array('id' => $entity->getIdFase())) . "' })
+                </script>";
+
+
                 //return new Response('.'); 
             }
 
@@ -195,11 +194,8 @@ class FaseController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('fase_check', array('id' => $entity->getIdFase())) . "';
-                        }, 2000);
-                </script>";
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('fase_check', array('id' => $entity->getIdFase())) . "' })
+                </script>";                
 
                // return $this->redirect($this->generateUrl('fase_checkform', array('id' => $id)));                    
 

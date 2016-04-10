@@ -330,18 +330,14 @@ class InfoFinalController extends Controller
                         $estudiante->setSc('culminado');
                     }
 
-                    $entity->setObservacion($entity->getObservacion() . "   [fecha ultima correción: " .  date("d/m/Y") ."]");
+                    $entity->setObservacion($entity->getObservacion() . "   [fecha correción: " .  date("d/m/Y") ."]");
                     $em->flush();
                     
 
                     echo 
                     "<script>
-                        bootbox.alert('Los cambios se han guardado con éxito');
-                            setTimeout(function() {
-                                window.location.href ='" .$this->generateUrl('infofinal_check', array('id' => $id)) . "';
-                            }, 2000);
-                    </script>";
-
+                        bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('infofinal_check', array('id' => $id)) . "' })
+                    </script>"; 
 
                     //$em->flush();
                     //return $this->redirect($this->generateUrl('infofinal_checkform', array('id' => $id)));  

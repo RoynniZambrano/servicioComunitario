@@ -73,13 +73,11 @@ class CoordinadoresController extends Controller{
                 $em->flush(); 
 
 
-                echo 
+               echo 
                 "<script>
-                    bootbox.alert('La asignación ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('coord_list') . "';
-                        }, 2000);
+                    bootbox.alert('La asignación ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('coord_list') . "' })
                 </script>";
+
 
                 //return new Response('.'); 
             }
@@ -242,13 +240,9 @@ class CoordinadoresController extends Controller{
                 }
                 $em->flush(); 
 
-                
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('coord_check', array('id' => $id)) . "';
-                        }, 2000);
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('coord_check', array('id' => $id)) . "' })
                 </script>";
 
 

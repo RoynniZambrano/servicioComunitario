@@ -22,6 +22,18 @@ class InfoAdicionalController extends Controller{
 
         if($session->has('user')){
             $options['user'] = $session->get('user');
+            $em = $this->getDoctrine()->getManager();
+
+            $entity = $em->getRepository('TesisAdminBundle:InfoAdicional')->findOneBy(
+                  array('idEstudiante' => $session->get('user')->getId()));
+
+            if ($entity == null) {
+                $options['existe'] = 0;
+            }else{   
+                $options['existe'] = 1;
+            }
+            
+
             return $this->render('TesisAdminBundle:InfoAdicional:new-infoAdicional.html.twig',$options);
         }
 
@@ -57,13 +69,11 @@ class InfoAdicionalController extends Controller{
                 $em->persist($entity);
                 $em->flush();
 
-                echo 
+                echo               
                 "<script>
-                    bootbox.alert('La información adicional ha sido creado exitosamente');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('infoAdicional_list') . "';
-                        }, 2000);
+                    bootbox.alert('La información adicional ha sido creado exitosamente', function(result){ window.location.href ='" .$this->generateUrl('infoAdicional_list') . "' })
                 </script>";
+
 
               //  return new Response('.'); 
             }
@@ -272,11 +282,9 @@ class InfoAdicionalController extends Controller{
 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('infoAdicional_check', array('id' => $id)) . "';
-                        }, 2000);
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('infoAdicional_check', array('id' => $id)) . "' })
                 </script>";
+
 
                 //    return $this->redirect($this->generateUrl('infoAdicional_checkform', array('id' => $id)));                    
                 }
@@ -284,16 +292,14 @@ class InfoAdicionalController extends Controller{
             }else{
 
                if ($this->getRequest()->getMethod() == 'POST'){
-                    $entity->setObservacion($entity->getObservacion() . "   [fecha ultima correción: " .  date("d/m/Y") ."]");
+                    $entity->setObservacion($entity->getObservacion() . "   [fecha correción: " .  date("d/m/Y") ."]");
                     $em->flush();
 
                 echo 
                 "<script>
-                    bootbox.alert('Los cambios se han guardado con éxito');
-                        setTimeout(function() {
-                            window.location.href ='" .$this->generateUrl('infoAdicional_check', array('id' => $id)) . "';
-                        }, 2000);
+                    bootbox.alert('Los cambios se han guardado con éxito', function(result){ window.location.href ='" .$this->generateUrl('infoAdicional_check', array('id' => $id)) . "' })
                 </script>";
+
 
                 //    return $this->redirect($this->generateUrl('infoAdicional_checkform', array('id' => $id)));                    
                 }

@@ -19,6 +19,7 @@ class DiarioType extends AbstractType
         $this->id_estudiante = $options['id'];
         $this->id_proyecto = $options['proyecto'];
         $this->actividades = $options['actividades'];
+        $this->actividades_f = $options['actividades_f'];
     }
 
     /**
@@ -221,10 +222,17 @@ class DiarioType extends AbstractType
                 ->add('observacion','textarea', array('label' => 'Observación', 
                     'attr' => array('placeholder' => '¿algun observación respecto a la calificación?', 'rows' => '10', 'disabled' =>'true')))                            
                 
+                    /*
+                ->add('actividadActividad', 'entity', 
+                    array('class' => 'TesisAdminBundle:Actividad',
+                    'choices' => $this->actividades, 
+                    */
+
 
                 ->add('actividadActividad', 'entity', 
                     array('class' => 'TesisAdminBundle:Actividad',
                     'property' => 'nombre',
+                    'choices' => $this->actividades_f, 
                     'label' => 'Actividades',
                     'multiple'=> true,
                     'required' => true,
