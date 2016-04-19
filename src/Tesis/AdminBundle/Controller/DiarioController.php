@@ -82,7 +82,6 @@ class DiarioController extends Controller{
             }
             
             $options['actividades'] = $actividades;
-
             $form = $this->createForm(new DiarioType($options), $entity, array(
                 'action' => $this->generateUrl('diario_newform'),
                 'method' => 'POST',

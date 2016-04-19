@@ -58,7 +58,8 @@ class PeriodoType extends AbstractType
                 ->add('fechaFin', 'date', array('format' => 'dd-MM-yyyy', 'label' => 'Fecha de culminación', 'widget' => 'single_text', 'attr' => array('placeholder' => 'dd-MM-yyyy')))
                 ->add('comentario','textarea', array('label' => 'Comentario', 
                     'attr' => array('placeholder' => '¿algo que agregar?', 'rows' => '10'))) 
-                
+
+
                 ->add('actividadActividad', 'entity', array(
                     'class' => 'TesisAdminBundle:Actividad',
                     'choices' => $this->actividades,   
@@ -66,6 +67,7 @@ class PeriodoType extends AbstractType
                     'label' => 'Actividades',
                     'multiple'=>true,
                     'attr' => array('size' => '15')))
+
             ;
 
         }else if ($this->formtype == 'edit_student'){

@@ -38,6 +38,7 @@ class PeriodoController extends Controller{
 
             $em = $this->getDoctrine()->getManager();
             $entity = new Periodo();
+            $fases = null;
 
             $user = $session->get('user');
             $estudiante = $em->getRepository('TesisAdminBundle:Estudiante')->findOneBy(
@@ -63,6 +64,8 @@ class PeriodoController extends Controller{
 
            $actividades=null;
            $i = 0;
+        
+
             foreach ($fases as $fase) {
 
                 $selected = $em->getRepository('TesisAdminBundle:Fase')->findOneBy(
@@ -77,9 +80,8 @@ class PeriodoController extends Controller{
                 } 
                 $i++;
             }
-            
+           
             $options['actividades'] = $actividades;
-
             $form = $this->createForm(new PeriodoType($options), $entity, array(
                 'action' => $this->generateUrl('periodo_newform'),
                 'method' => 'POST',
