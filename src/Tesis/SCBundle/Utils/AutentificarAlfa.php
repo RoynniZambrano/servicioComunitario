@@ -38,7 +38,6 @@ class AutentificarAlfa {
 	
 	public function conectarse(){
 		
-		/*
 		$conn= ldap_connect($this->getHost(),$this->getPort());
 	    ldap_set_option($conn, LDAP_OPT_PROTOCOL_VERSION, 3);
 		$bind= ldap_bind($conn,$this->getDn(),$this->getPasswd());
@@ -47,12 +46,10 @@ class AutentificarAlfa {
 		if($bind) 
 			return 1; 
 		return 0;
-		*/
 		
-		
-  		
+	
   		// for test porpuse
-  		return 1;
+  		//return 1;
  
 	}
 	
