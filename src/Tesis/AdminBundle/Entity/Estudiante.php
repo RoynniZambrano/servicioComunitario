@@ -683,4 +683,9 @@ class Estudiante
     {
         return $this->laborscLaborsc;
     }
+
+    public function __toString(){
+        return $this->nombre.' '.$this->apellido;
+    }
+
 }

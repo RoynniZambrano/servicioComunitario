@@ -1,7 +1,7 @@
 Proyecto Servicio Comunitario
 
 Requisitos:
-1. Symfony 2.3
+1. Symfony 2.7
 2. apache2
 3. php 5.5 
 4. mysql

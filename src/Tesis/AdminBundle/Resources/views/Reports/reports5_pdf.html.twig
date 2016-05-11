@@ -65,8 +65,8 @@ table#t01 th	{
 	            	<td>{{ proyecto.nombre_proyecto }}</td> 
 
 
-              <td>{{ proyecto.cedula_c }}_{{ proyecto.nombre_c }}_{{ proyecto.apellido_c }}</td> 
-              <td>{{ proyecto.cedula_s }}_{{ proyecto.nombre_s }}_{{ proyecto.apellido_s }}</td>
+              <td>{{ proyecto.nombre_c }} {{ proyecto.apellido_c }}</td> 
+              <td>{{ proyecto.nombre_s }} {{ proyecto.apellido_s }}</td>
 
 
                   {% set j = 0 %}
@@ -81,7 +81,7 @@ table#t01 th	{
                           <td>
                           {% for tut in tutor %}
 
-                          {{ tut.nombre }}_{{ tut.apellido }} <br>
+                          {{ tut.nombre }} {{ tut.apellido }} <br>
 
                           {% endfor %} 
                           </td>
@@ -104,7 +104,7 @@ table#t01 th	{
                           <td>
                           {% for estu in estudiante %}
 
-                          {{ estu.nombre }}_{{ estu.apellido }} <br>
+                          {{ estu.nombre }} {{ estu.apellido }} <br>
 
                           {% endfor %} 
                           </td>

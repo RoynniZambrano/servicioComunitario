@@ -544,4 +544,9 @@ class Profesor
     {
         return $this->tutoresTutores;
     }
+
+    public function __toString(){
+        return $this->nombre.' '.$this->apellido;
+    }
+
 }

@@ -47,7 +47,8 @@ class AutentificarAlfa {
 		if($bind) 
 			return 1; 
 		return 0;
-		**/
+		*/
+		
 		
   		
   		// for test porpuse

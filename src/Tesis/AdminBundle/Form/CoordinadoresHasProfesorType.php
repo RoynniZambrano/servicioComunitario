@@ -33,7 +33,7 @@ class CoordinadoresHasProfesorType extends AbstractType
 
             ->add('profesorProyecto', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",
-                "property"  => "nombre",
+               // "property"  => "nombre",
                 'label' => 'Coord proyecto',
                 'disabled' => true,
                 'multiple' => false,
@@ -48,7 +48,7 @@ class CoordinadoresHasProfesorType extends AbstractType
 
             ->add('profesorSuplente', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",
-                "property"  => "nombre",
+              //  "property"  => "nombre",
                 'label' => 'Coord suplente',
                 'disabled' => true,
                 'multiple' => false,
@@ -63,8 +63,17 @@ class CoordinadoresHasProfesorType extends AbstractType
 
 
 
-            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
+            ->add('periodo','choice', array('choices' => array(
+                '2016-1' => '2016-1', '2016-2' => '2016-2', 
+                '2017-1' => '2017-1', '2017-2' => '2017-2', 
+                '2018-1' => '2018-1', '2018-2' => '2018-2', 
+                '2019-1' => '2019-1', '2019-2' => '2019-2', 
+                '2020-1' => '2020-1', '2020-2' => '2020-2', 
+                '2021-1' => '2021-1', '2021-2' => '2021-2',
+                '2022-1' => '2022-1', '2022-2' => '2022-2',
+                '2023-1' => '2023-1', '2023-2' => '2023-2',
+                '2024-1' => '2024-1', '2024-2' => '2024-2',
+                '2025-1' => '2025-1', '2025-2' => '2025-2'),
                 'label' => 'Período', 'disabled' => true, 'required' => false))             
             ;
 
@@ -75,7 +84,7 @@ class CoordinadoresHasProfesorType extends AbstractType
        
             ->add('profesorProyecto', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",
-                "property"  => "nombre",
+              //  "property"  => "nombre",
                 'label' => 'Coord proyecto',
                 'disabled' => false,
                 'multiple' => false,
@@ -90,7 +99,7 @@ class CoordinadoresHasProfesorType extends AbstractType
 
             ->add('profesorSuplente', 'entity', array(
                 "class"     => "TesisAdminBundle:Profesor",
-                "property"  => "nombre",
+              //  "property"  => "nombre",
                 'label' => 'Coord suplente',
                 'disabled' => false,
                 'multiple' => false,
@@ -103,8 +112,17 @@ class CoordinadoresHasProfesorType extends AbstractType
                 ))
 
 
-            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
+            ->add('periodo','choice', array('choices' => array(
+                '2016-1' => '2016-1', '2016-2' => '2016-2', 
+                '2017-1' => '2017-1', '2017-2' => '2017-2', 
+                '2018-1' => '2018-1', '2018-2' => '2018-2', 
+                '2019-1' => '2019-1', '2019-2' => '2019-2', 
+                '2020-1' => '2020-1', '2020-2' => '2020-2', 
+                '2021-1' => '2021-1', '2021-2' => '2021-2',
+                '2022-1' => '2022-1', '2022-2' => '2022-2',
+                '2023-1' => '2023-1', '2023-2' => '2023-2',
+                '2024-1' => '2024-1', '2024-2' => '2024-2',
+                '2025-1' => '2025-1', '2025-2' => '2025-2'),
                 'label' => 'Período', 'disabled' => false, 'required' => true))             
            
            ;

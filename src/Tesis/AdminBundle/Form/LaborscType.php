@@ -34,7 +34,7 @@ class LaborscType extends AbstractType
             ->add('estudianteEstudiante', 'entity', array(
                 "class"     => "TesisAdminBundle:Estudiante",
                 'choices' => $this->estudiantes,  
-                "property"  => "nombre",
+             //   "property"  => "nombre",
                 'label' => 'Estudiantes',
                 'disabled' => true,
                 'multiple' => true,
@@ -43,8 +43,17 @@ class LaborscType extends AbstractType
                 ))
 
 
-            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
+            ->add('periodo','choice', array('choices' => array(
+                '2016-1' => '2016-1', '2016-2' => '2016-2', 
+                '2017-1' => '2017-1', '2017-2' => '2017-2', 
+                '2018-1' => '2018-1', '2018-2' => '2018-2', 
+                '2019-1' => '2019-1', '2019-2' => '2019-2', 
+                '2020-1' => '2020-1', '2020-2' => '2020-2', 
+                '2021-1' => '2021-1', '2021-2' => '2021-2',
+                '2022-1' => '2022-1', '2022-2' => '2022-2',
+                '2023-1' => '2023-1', '2023-2' => '2023-2',
+                '2024-1' => '2024-1', '2024-2' => '2024-2',
+                '2025-1' => '2025-1', '2025-2' => '2025-2'),
                 'label' => 'Período', 'disabled' => true, 'required' => false))             
             ;
 
@@ -55,7 +64,7 @@ class LaborscType extends AbstractType
            
             ->add('estudianteEstudiante', 'entity', 
                 array('class' => 'TesisAdminBundle:Estudiante',
-                    'property' => 'nombre',
+                 //   'property' => 'nombre',
                     'label' => 'Estudiantes', 
                     'multiple'=>true,
                      'group_by' => function($val, $key, $index) {
@@ -68,8 +77,17 @@ class LaborscType extends AbstractType
                     }, 
                     'attr' => array('size' => '20')))
 
-            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
+            ->add('periodo','choice', array('choices' => array(
+                '2016-1' => '2016-1', '2016-2' => '2016-2', 
+                '2017-1' => '2017-1', '2017-2' => '2017-2', 
+                '2018-1' => '2018-1', '2018-2' => '2018-2', 
+                '2019-1' => '2019-1', '2019-2' => '2019-2', 
+                '2020-1' => '2020-1', '2020-2' => '2020-2', 
+                '2021-1' => '2021-1', '2021-2' => '2021-2',
+                '2022-1' => '2022-1', '2022-2' => '2022-2',
+                '2023-1' => '2023-1', '2023-2' => '2023-2',
+                '2024-1' => '2024-1', '2024-2' => '2024-2',
+                '2025-1' => '2025-1', '2025-2' => '2025-2'),
                 'label' => 'Período', 'disabled' => false, 'required' => true))             
            
            ;
@@ -78,13 +96,29 @@ class LaborscType extends AbstractType
 
 
             $builder
-            ->add('proyectoProyecto', 'entity', array('class' => 'TesisAdminBundle:Proyecto','property' => 'nombre', 'label' => 'Proyecto'))
+            ->add('proyectoProyecto', 'entity', 
+                array('class' => 'TesisAdminBundle:Proyecto',
+                'property' => 'nombre', 
+                'label' => 'Proyecto'))
            
-            ->add('estudianteEstudiante', 'entity', array('class' => 'TesisAdminBundle:Estudiante','property' => 'nombre',
-            'label' => 'Estudiantes', 'multiple'=>true, 'attr' => array('size' => '20')))
+            ->add('estudianteEstudiante', 'entity', 
+                array('class' => 'TesisAdminBundle:Estudiante',
+                //'property' => 'nombre',
+                'label' => 'Estudiantes', 
+                'multiple'=>true, 
+                'attr' => array('size' => '20')))
 
-            ->add('periodo','choice', array('choices' => array('2016-1' => '2016-1', '2016-2' => '2016-2', '2017-1' => '2017-1', '2017-2' => '2017-2', '2018-1' => '2018-1',
-                '2018-2' => '2018-2', '2019-1' => '2019-1', '2019-2' => '2019-2', '2020-1' => '2020-1', '2020-2' => '2020-2'),
+            ->add('periodo','choice', array('choices' => array(
+                '2016-1' => '2016-1', '2016-2' => '2016-2', 
+                '2017-1' => '2017-1', '2017-2' => '2017-2', 
+                '2018-1' => '2018-1', '2018-2' => '2018-2', 
+                '2019-1' => '2019-1', '2019-2' => '2019-2', 
+                '2020-1' => '2020-1', '2020-2' => '2020-2', 
+                '2021-1' => '2021-1', '2021-2' => '2021-2',
+                '2022-1' => '2022-1', '2022-2' => '2022-2',
+                '2023-1' => '2023-1', '2023-2' => '2023-2',
+                '2024-1' => '2024-1', '2024-2' => '2024-2',
+                '2025-1' => '2025-1', '2025-2' => '2025-2'),
                 'label' => 'Período', 'disabled' => false, 'required' => true))             
            
            ;           
